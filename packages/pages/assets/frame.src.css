@@ -1,0 +1,341 @@
+/* Filament Atlas material pages: the frame (track A of the pages reimagined, 2026-10-17). render.js buildAssets puts the
+   shared tokens (app/css/tokens.css, the selector's palette, light and dark) and the embedded faces in front of it, the
+   sections', the figures' and the Products page's stylesheets after it.
+
+   The pages wear the selector's frame: one sticky bar (the mark, where the reader is, the way back, the theme), the
+   selector's buttons and segmented control, 16 px Inter for text and Newsreader for names, section titles and the
+   summary. Plates (surface, one hairline, no shadow) only for the facts to act on: the key figures, On the H2C, the
+   Products hand-off, an open card, the section list. The accent marks this material, links, the selected tab and the
+   sorted column; --ink-3 never colours text under 18 px in the light theme (3.5:1 on the page). */
+
+:root {
+  --f-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Inter before the system serif: Newsreader has no arrows, stars, checks, Greek or sub- and superscripts. */
+  --f-serif: "Newsreader", "Inter", Georgia, "Times New Roman", serif;
+  --t-h1: 64px; --t-h2: 32px; --t-num: 34px; --t-xl: 21px; --t-l: 19px; --t-m: 16px; --t-s: 14px; --t-xs: 13px;
+  --content: 1120px; --measure: 66ch; --gutter: 16px;
+  /* The bar's height, and what else sticks under it (the Products page's controls): page.js sets both as measured. */
+  --bar-h: 58px; --ctl-h: 0px;
+  --anchor-top: calc(var(--bar-h) + var(--ctl-h) + 16px);
+  --shadow-pop: 0 10px 30px rgba(20, 20, 18, .14), 0 0 0 1px rgba(20, 20, 18, .08);
+  /* Kept for the figures' marks while they move to their own stylesheet. */
+  --fade: color-mix(in srgb, var(--ink-3) 32%, var(--surface));
+  --ctx: color-mix(in srgb, var(--ink-3) 46%, var(--surface));
+}
+@media (min-width: 720px) { :root { --gutter: 32px; } }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --shadow-pop: 0 12px 32px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .1); } }
+:root[data-theme="dark"] { --shadow-pop: 0 12px 32px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, .1); }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--f-sans); font-size: var(--t-m); line-height: 1.55; font-weight: 400;
+  font-synthesis: none; font-kerning: normal; font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; text-rendering: optimizeLegibility;
+}
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+p { margin: 0 0 .75rem; }
+h1, h2, h3, h4 { text-wrap: balance; }
+[id] { scroll-margin-top: var(--anchor-top); }
+/* Hidden means hidden, whatever display a rule gives the element (a search's hidden row was still shown). */
+[hidden] { display: none !important; }
+.mono { font-family: var(--mono); font-size: .875em; letter-spacing: 0; }
+time { font-variant-numeric: tabular-nums; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: -9999px; top: 0; }
+.skip:focus { left: 1rem; top: 1rem; z-index: 40; background: var(--surface); padding: .5rem 1rem; border: 1px solid var(--border-strong); }
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.icon { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.icon-s { width: 16px; height: 16px; }
+
+/* ---------------------------------------------------------------- the bar: the selector's frame */
+
+/* On the selector's white and at its top bar's height, 58 px with its rule (coherence round, C26): the strip at the top
+   keeps its tone across the way from the drawer to the page. The centred column stays. */
+.atlas-bar { position: sticky; top: 0; z-index: 30; background: var(--surface); border-bottom: 1px solid var(--border); }
+.bar-in { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter); min-height: 57px; display: flex; align-items: center; gap: 12px; }
+.bar-brand { display: inline-flex; align-items: center; gap: 9px; color: var(--ink); text-decoration: none; white-space: nowrap; flex: none; }
+.bar-mark { width: 26px; height: 26px; flex: none; }
+.bar-mark rect, .col-mark rect { fill: var(--accent); }
+.bar-mark path, .col-mark path { fill: none; stroke: var(--on-accent); stroke-width: 3; stroke-linecap: round; }
+.bar-name { font-size: 16px; font-weight: 700; letter-spacing: -.015em; }
+.crumbs { min-width: 0; }
+.crumbs ol { display: flex; align-items: center; margin: 0; padding: 0; list-style: none; font-size: 15px; color: var(--ink-2); min-width: 0; }
+.crumb { display: flex; align-items: center; min-width: 0; }
+.crumb::before { content: ""; flex: none; width: 16px; height: 16px; margin: 0 2px; background: var(--ink-2); opacity: .7;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3.5 10.5 8 6 12.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6 3.5 10.5 8 6 12.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 16px no-repeat; }
+.crumb > a, .crumb > span { padding: 4px 6px; border-radius: var(--r-ctl); color: var(--ink-2); text-decoration: none; white-space: nowrap; }
+.crumb > a:hover { color: var(--ink); background: var(--surface-2); }
+.crumb > span[aria-current] { color: var(--ink); font-weight: 600; }
+.here { position: relative; min-width: 0; }
+.here > summary { display: flex; align-items: center; gap: 6px; padding: 4px 6px 4px 8px; border-radius: var(--r-ctl); color: var(--ink); cursor: pointer; list-style: none; white-space: nowrap; min-width: 0; }
+.here > summary::-webkit-details-marker { display: none; }
+.here > summary:hover, .here[open] > summary { background: var(--surface-2); }
+.here > summary b { font-weight: 600; }
+.here-sec { color: var(--ink-2); overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+.here-sec:not(:empty)::before { content: ""; display: inline-block; width: 1px; height: 14px; background: var(--border-strong); margin: 0 8px 0 2px; vertical-align: -2px; }
+.here[open] .icon-s { transform: rotate(180deg); }
+.here-list { position: absolute; top: calc(100% + 8px); left: 0; z-index: 35; min-width: 280px; max-width: min(380px, calc(100vw - 32px)); max-height: calc(100vh - 90px); overflow-y: auto;
+  background: var(--surface); border-radius: var(--r-track); box-shadow: var(--shadow-pop); padding: 6px; }
+.here-list ul { margin: 0; padding: 0; list-style: none; }
+.here-list a { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 7px 10px; border-radius: var(--r-ctl); color: var(--ink); text-decoration: none; font-size: 15px; line-height: 1.35; }
+.here-list a:hover { background: var(--surface-2); }
+.here-list a[aria-current] { color: var(--accent); font-weight: 600; background: var(--accent-soft); }
+.here-list .n { color: var(--ink-2); font-size: var(--t-xs); font-variant-numeric: tabular-nums; }
+.here-list li.sep { border-top: 1px solid var(--border); margin-top: 6px; padding-top: 6px; }
+.bar-end { margin-left: auto; display: flex; align-items: center; gap: 6px; flex: none; }
+
+/* buttons: the selector's */
+.btn { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 0 14px 0 11px; font: 500 var(--t-s)/1.2 var(--f-sans);
+  color: var(--ink); background: var(--surface); border: 1px solid var(--border-strong); border-radius: var(--r-ctl); text-decoration: none; white-space: nowrap; cursor: pointer; }
+.btn:hover { border-color: var(--ink-3); text-decoration: none; }
+.btn .n { color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); font-weight: 600; padding: 0 18px; min-height: 42px; font-size: 15px; }
+.btn-primary:hover { border-color: var(--accent); filter: brightness(1.08); }
+.btn-quiet { border-color: transparent; background: transparent; color: var(--accent); padding: 0 8px; }
+.btn-quiet:hover { background: var(--surface-2); border-color: transparent; }
+.icon-btn { width: 36px; height: 36px; display: inline-grid; place-items: center; color: var(--ink-2); background: transparent; border: 0; border-radius: var(--r-ctl); cursor: pointer; }
+.icon-btn:hover { background: var(--surface-2); color: var(--ink); }
+.ret-short { display: none; }
+
+/* ---------------------------------------------------------------- the page and its head */
+
+.page { display: block; max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 0 var(--gutter) 0; min-width: 0; overflow-x: clip; }
+.phead { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 32px; padding-top: 40px; }
+.phead-id { min-width: 0; }
+.pname { margin: 0; font: 600 var(--t-h1)/1 var(--f-serif); letter-spacing: -.022em; overflow-wrap: anywhere; }
+.paka { margin: 8px 0 0; color: var(--ink-2); }
+.pfull { margin: 8px 0 0; font: italic 400 22px/1.3 var(--f-serif); color: var(--ink-2); }
+.pid { margin: 14px 0 0; color: var(--ink-2); max-width: 64ch; text-wrap: pretty; }
+.callout { margin: 14px 0 0; padding: 10px 14px; border-left: 3px solid var(--ink-2); background: var(--surface); max-width: 64ch; }
+.tabs { display: inline-flex; padding: 3px; gap: 2px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--r-track); margin-top: 12px; }
+.tabs a { display: inline-flex; align-items: baseline; justify-content: center; gap: 7px; padding: 7px 16px; border-radius: var(--r-ctl); color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; white-space: nowrap; }
+.tabs a:hover { color: var(--ink); }
+.tabs a[aria-current] { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: var(--shadow-sm); }
+.tabs .n { font-size: var(--t-xs); color: var(--ink-2); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* ---------------------------------------------------------------- plates */
+
+.plate { background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-plate); }
+
+/* key figures */
+.kf-wrap { margin-top: 32px; }
+.kf { margin: 0; display: flex; flex-wrap: wrap; }
+.kf-cell { flex: 1 1 0; padding: 18px 20px 16px; border-left: 1px solid var(--border); min-width: 0; display: flex; flex-direction: column; }
+.kf-cell:nth-child(1 of .kf-cell) { border-left: 0; }
+/* Two lines kept for every name, so the values stand on one line across the plate. */
+.kf-cell dt { font-size: var(--t-s); font-weight: 500; color: var(--ink-2); line-height: 1.3; min-height: 2.6em; }
+/* The key figures a material does not publish (or that do not apply), in the plate's order in the markup and set, by
+   order, in one quiet line under the others, behind a rule. */
+.kf:has(.kf-cell):has(.kf-gone)::after { content: ""; order: 1; flex: 0 0 100%; border-top: 1px solid var(--border); }
+.kf-gone { order: 2; display: flex; gap: .3em; margin: 0 .3em 0 0; padding: 10px 0 12px; font-size: var(--t-s); color: var(--ink-2); line-height: 1.4; }
+.kf-gone--na { order: 3; }
+.kf-gone--lead { padding-left: 20px; }
+.kf-gone dt, .kf-gone dd { margin: 0; }
+.kf-gone dt { color: var(--ink); font-weight: 500; }
+.kf-gone-h { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.kf-cell dd { margin: 0; }
+.kf-v { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 5px; margin-top: 4px; }
+.kf-n { font-size: var(--t-num); font-weight: 600; letter-spacing: -.025em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.kf-u { font-size: 15px; color: var(--ink-2); }
+.kf-cell--open .kf-n { color: var(--ink-2); font-style: italic; font-weight: 500; }
+.kf-s { margin-top: 10px !important; min-height: 30px; }
+.kf-s svg { display: block; width: 100%; height: auto; overflow: visible; }
+.kf-f { margin-top: 6px !important; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.4; }
+.kf-f span { display: block; }
+.kf-ev { margin: 18px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: var(--measure); }
+.kf-ev b { color: var(--ink); font-weight: 600; }
+
+/* the summary beside On the H2C */
+.first { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; margin-top: 40px; align-items: start; }
+.sum-text p { margin: 0 0 .7rem; font: 400 var(--t-xl)/1.6 var(--f-serif); max-width: 62ch; text-wrap: pretty; }
+.h2c { padding: 14px 20px 12px; }
+.h2c-h { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 0 0 2px; }
+.h2c-h h2 { margin: 0; font: 600 var(--t-m)/1.3 var(--f-sans); }
+.h2c-h a { font-size: var(--t-s); white-space: nowrap; }
+.h2c dl { margin: 0; }
+.h2c dl > div { display: grid; grid-template-columns: 7rem minmax(0, 1fr); align-items: baseline; gap: 0 12px; padding: 4px 0; border-top: 1px solid var(--border); }
+.h2c dl > div:first-child { border-top: 0; }
+.h2c dt { color: var(--ink-2); font-size: 15px; grid-row: span 2; }
+.h2c dd { margin: 0; }
+/* Two columns of rows where one would leave a hole beside the summary (masthead.js h2cLayout). */
+.h2c--two dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 20px; }
+.h2c--two dl > div { grid-template-columns: minmax(0, 1fr); padding: 5px 0; }
+.h2c--two .h2c-k, .h2c--two .h2c-foot { line-height: 1.3; }
+.h2c--two dl > div:nth-child(2) { border-top: 0; }
+.h2c--two dl > div { align-content: start; }
+/* The card stretched to the summary's height (page.js), its rows spaced evenly down it. */
+.first > .h2c--fill { align-self: stretch; display: flex; flex-direction: column; }
+.h2c--fill dl { flex: 1 1 auto; display: flex; flex-direction: column; justify-content: space-between; }
+.h2c--fill.h2c--two dl { display: grid; align-content: space-between; }
+.h2c--two dt { font-size: var(--t-xs); }
+.h2c--two .h2c-k { grid-column: 1; }
+.h2c--two dt { grid-row: auto; }
+.h2c-v { font-weight: 600; }
+.h2c-k { grid-column: 2; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.35; }
+.h2c-foot--left { border-top: 0 !important; margin-top: 14px !important; padding-top: 0 !important; }
+.h2c-foot { margin: 4px 0 0; padding-top: 8px; border-top: 1px solid var(--border); font-size: var(--t-xs); line-height: 1.4; color: var(--ink-2); }
+
+/* the Overview's sections: the title here, the inside the sections' stylesheet */
+.ov-sec { margin-top: 104px; }
+.ov-h { margin: 0 0 16px; font: 500 var(--t-h2)/1.15 var(--f-serif); letter-spacing: -.01em; }
+
+/* the Products hand-off */
+.handoff-makers { margin: 8px 0 0; color: var(--ink-2); max-width: 72ch; }
+.handoff-go { margin: 18px 0 0; }
+.handoff-note { margin: 14px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 80ch; }
+.stand { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; max-width: 80ch; }
+.stand li { padding-left: 14px; position: relative; }
+.stand li::before { content: ""; position: absolute; left: 0; top: .62em; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+.stand li.lit a { text-decoration-thickness: 2px; }
+
+/* the colophon: a band across the width on the selector's white that ends every page (coherence round, C31), its edge
+   the divider; the column inside it is the page's. The closing line runs across the column under a hairline. */
+.colophon { margin-top: 112px; background: var(--surface); border-top: 1px solid var(--border); }
+.col-in { max-width: calc(var(--content) + 2 * var(--gutter)); margin: 0 auto; padding: 40px var(--gutter) 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; }
+.colophon p { margin: 0 0 10px; }
+.col-standing { color: var(--ink); max-width: 64ch; }
+.col-nav { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 16px; }
+.col-fine { font-size: var(--t-xs); color: var(--ink-2); }
+.col-fine a { color: var(--ink-2); }
+.col-acts { display: flex; flex-wrap: wrap; gap: 4px; margin: -4px 0 0 -8px !important; }
+.col-acts .btn { min-height: 30px; font-size: var(--t-xs); }
+.col-sign { grid-column: 1 / -1; margin: 8px 0 0 !important; padding: 16px 0 28px; border-top: 1px solid var(--border); font-size: var(--t-xs); color: var(--ink-2); }
+.col-sign b { color: var(--ink); font-weight: 600; }
+.col-mark { width: 18px; height: 18px; margin-right: 8px; vertical-align: -4px; }
+
+/* the colophon's link to the method page */
+.col-method { margin-top: 14px !important; font-size: var(--t-s); }
+
+/* the print line: the page's address and release, printed at the top of the first page */
+.print-line { display: none; }
+
+/* The per-sheet tables and the settings table (B's sheetFrame: a div.sheet-table naming its value columns in data-cols,
+   a colgroup of col-prop then col-p, one product order): one grid on every page, so a product keeps its column all the
+   way down. A fixed property column, equal value columns no wider than --pc each, every head on its bottom line. */
+.sheet-table { margin-top: 8px; --pc: 11rem; --prop: 15rem; }
+.sheet-table > .table-box > table { table-layout: fixed; width: 100%; }
+.sheet-table[data-cols="1"] > .table-box > table { max-width: calc(var(--prop) + 1 * var(--pc)); }
+.sheet-table[data-cols="2"] > .table-box > table { max-width: calc(var(--prop) + 2 * var(--pc)); }
+.sheet-table[data-cols="3"] > .table-box > table { max-width: calc(var(--prop) + 3 * var(--pc)); }
+.sheet-table[data-cols="4"] > .table-box > table { max-width: calc(var(--prop) + 4 * var(--pc)); }
+.sheet-table[data-cols="5"] > .table-box > table { max-width: calc(var(--prop) + 5 * var(--pc)); }
+.sheet-table col.col-prop { width: var(--prop); }
+.ov-sec .sheet-table th.prop { width: var(--prop); min-width: 0; }
+.sheet-table thead th { vertical-align: bottom; white-space: normal; overflow-wrap: anywhere; }
+.sheet-table th, .sheet-table td { overflow-wrap: anywhere; min-width: 0; }
+/* Product heads apart from their neighbours: two long names ran together ("…GF10Fiberlogy…", the final review). */
+.sheet-table thead th + th { padding-left: 16px; }
+@media (max-width: 600px) { .sheet-table th, .sheet-table td { text-align: left !important; } .sheet-table thead th + th { padding-left: 0; } }
+
+/* A data table on a phone (B's and the colophon's table.grid): each row a block, each cell a label/value pair named by
+   its data-label, so nothing scrolls sideways in a 358 px column. */
+@media (max-width: 600px) {
+  .table-box:has(table.grid) { overflow: visible; }
+  table.grid:has([data-label]) { display: block; width: 100%; min-width: 0; max-width: none !important; }
+  table.grid:has([data-label]) colgroup { display: none; }
+  table.grid:has([data-label]) thead { display: none; }
+  table.grid:has([data-label]) tbody, table.grid:has([data-label]) tfoot { display: block; }
+  table.grid:has([data-label]) tr { display: block; padding: 8px 0; border-top: 1px solid var(--border); }
+  table.grid:has([data-label]) th, table.grid:has([data-label]) td { display: block; width: auto; min-width: 0; border: 0; padding: 2px 0; text-align: left; white-space: normal; overflow-wrap: anywhere; }
+  table.grid:has([data-label]) [data-label] { display: grid; grid-template-columns: minmax(6rem, 40%) minmax(0, 1fr); column-gap: 12px; }
+  table.grid:has([data-label]) [data-label]::before { content: attr(data-label); color: var(--ink-2); font-size: var(--t-xs); font-weight: 400; }
+  table.grid:has([data-label]) td:empty { display: none; }
+  table.grid:has([data-label]) td, table.grid:has([data-label]) td * { white-space: normal !important; }
+  table.grid:has([data-label]) tbody th:not([data-label]) { font-weight: 600; }
+}
+
+/* the stub */
+.stub { padding: 56px 0 120px; max-width: 64ch; }
+.stub p { margin-top: 16px; }
+
+/* the tooltip the figures share */
+.tip { position: fixed; z-index: 40; max-width: 320px; padding: 6px 10px; background: var(--ink); color: var(--bg); border-radius: 6px; font-size: var(--t-xs); line-height: 1.4; pointer-events: none; }
+
+/* ---------------------------------------------------------------- narrower */
+
+@media (max-width: 1079px) {
+  .kf-cell { flex: 0 0 33.333%; }
+  .kf-cell dt { min-height: 0; }
+  .kf-cell:nth-child(4 of .kf-cell) { border-left: 0; }
+  .kf-cell:nth-child(n+4 of .kf-cell) { border-top: 1px solid var(--border); }
+  .first { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .col-in { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 719px) {
+  :root { --t-h1: 44px; --t-h2: 27px; --t-num: 28px; --t-xl: 19px; --bar-h: 52px; }
+  .bar-in { min-height: 52px; gap: 6px; }
+  .bar-name, .crumbs .crumb:not(.crumb-here) { display: none; }
+  .crumb-here::before { display: none; }
+  .here-sec { display: none; }
+  /* The bar's way back takes its short words; the footer's keeps its long ones, having the width (C31). */
+  .atlas-bar .ret-long { display: none; }
+  .atlas-bar .ret-short { display: inline; }
+  .atlas-bar .btn.ret { padding: 0 10px 0 8px; min-height: 40px; }
+  .icon-btn { width: 40px; height: 40px; }
+  .phead { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
+  .tabs { display: flex; margin-top: 4px; }
+  .tabs a { flex: 1; }
+  .kf-cell { flex: 0 0 50%; padding: 14px 14px 12px; border-left: 0; border-top: 1px solid var(--border); }
+  .kf-cell:nth-child(-n+2 of .kf-cell) { border-top: 0; }
+  .kf-cell:nth-child(even of .kf-cell) { border-left: 1px solid var(--border); }
+  .kf-cell:nth-child(4 of .kf-cell) { border-left: 1px solid var(--border); }
+  /* On a phone the quiet line is a short list: each figure on its own line, under its own head. */
+  .kf-gone { flex: 0 0 100%; margin: 0; padding: 2px 14px; }
+  .kf-gone:nth-child(1 of .kf-gone) { padding-top: 10px; }
+  .kf-gone:nth-last-child(1 of .kf-gone) { padding-bottom: 12px; }
+  .kf-gone-h { position: static !important; width: auto; height: auto; overflow: visible; clip-path: none; }
+  .kf-sep { display: none; }
+  .h2c { padding: 14px 16px 12px; }
+  .h2c dl > div { grid-template-columns: 7.6rem minmax(0, 1fr); }
+  .ov-sec { margin-top: 72px; }
+  .colophon { margin-top: 80px; }
+  .col-in { padding-top: 32px; gap: 20px; }
+}
+
+/* ---------------------------------------------------------------- print, motion */
+
+@page { size: A4; margin: 14mm 13mm 16mm; @bottom-right { content: counter(page) " / " counter(pages); font: 8pt "Inter", sans-serif; color: #55554e; } @bottom-left { font: 8pt "Inter", sans-serif; color: #55554e; } }
+@media print {
+  /* A printed page is always light, whatever the theme on screen: the shared tokens' light values, at a specificity
+     above the dark blocks' (:root:not([data-theme="light"]), :root[data-theme="dark"]), the figures' data colour too. */
+  :root:root:root {
+    color-scheme: light;
+    --bg: #fff; --surface: #fff; --surface-2: #f2f2ef; --border: #dcdcd6; --border-strong: #bcbcb4;
+    --ink: #1a1a18; --ink-2: #55554e; --ink-3: #85857c; --accent: #1f5f8b; --accent-soft: #e4eef5; --on-accent: #fff;
+    --claim: #b4540a; --claim-bg: #fbeee3; --dv-self: #1d65a3;
+    --shadow-sm: none; --shadow-pop: none; --bar-h: 0px; --ctl-h: 0px; --plh-h: 0px;
+    --t-h1: 40px; --t-h2: 22px; --t-xl: 15px; --t-l: 14px; --t-m: 12.5px; --t-num: 24px;
+  }
+  /* Every control and interaction hint leaves the paper: the bar, the tabs, the buttons, "Printing in full", the
+     list's controls, a closed figure table, and any line the figures mark .no-print ("Hover a product…"). */
+  .atlas-bar, .tabs, .col-nav, .col-method, .col-acts, .skip, .tip, [data-copy], [data-print], .pl-ctl, .pl-keyd > summary, .ix-tools, .btn, .btn-primary,
+  .h2c-h a, .no-print, details.fig-data:not([open]), .here { display: none !important; }
+  /* The page's address and release, from the line's attributes (an address holds the material's ID, kept out of text). */
+  .print-line { display: block; margin: 0 0 8px; font-size: 8pt; color: #55554e; }
+  .print-line::before { content: attr(data-print-url) ", " attr(data-print-release); }
+  body { background: #fff; font-size: 12.5px; }
+  /* The page is set a little smaller on paper, so figures keep their titles and short sections share a page. */
+  .page { max-width: none; padding: 0; overflow: visible; zoom: .8; }
+  .plate:not(.pcard), figure, .fig, .h2c, .kf-wrap { break-inside: avoid; }
+  .ov-h, h2, h3 { break-after: avoid; }
+  .phead { padding-top: 0; }
+  .kf-wrap { margin-top: 16px; }
+  .first { margin-top: 18px; gap: 18px; }
+  .ov-sec { margin-top: 26px; break-before: auto; }
+  /* The colophon stays with Sources: no page holds the footer alone. On paper it is set as the page is, not a band. */
+  .colophon { margin-top: 28px; background: none; zoom: .8; break-inside: avoid; break-before: avoid; }
+  .col-in { max-width: none; padding: 14px 0 0; gap: 6px 24px; }
+  .col-sign { padding: 8px 0 0; }
+  #sources { break-after: avoid; }
+  /* The first screen keeps its laptop layout on paper: six figures across, the summary beside On the H2C. */
+  .kf-cell { flex: 1 1 0; }
+  .kf-cell { border-top: 0 !important; border-left: 1px solid var(--border) !important; padding: 10px 10px 8px; }
+  .kf-cell:nth-child(1 of .kf-cell) { border-left: 0 !important; }
+  .first { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }

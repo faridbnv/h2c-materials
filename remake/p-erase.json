@@ -1,5 +1,5 @@
 {
-  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion.",
+  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion. build/src/estimate/grades.js and directions.js have none for the same reason: DT-1 (transition dt1-float-tie) made their coverage checks use the tolerance helper. WP-24 (packages/pages): 50 of the 57 files ported from app/pages and app/js/ui are label-only. Seven are not and have no pair, because the pages' display transitions (parity/transitions/2026-10-22-pages-display.json) or a typing fix changed their code: render.ts, method-page.ts, sections/common.ts, products/card.ts, facts/material-facts.ts, facts/material-highlights.ts and facts/material-stats.ts (the last two write Number(a === b) where the old file subtracted two booleans).",
   "pairs": [
     {
       "old": "tests/remake/fixtures/p-erase/gate.old.js",
@@ -264,20 +264,12 @@
       "new": "packages/build/src/estimate/conversions.ts"
     },
     {
-      "old": "build/src/estimate/directions.js",
-      "new": "packages/build/src/estimate/directions.ts"
-    },
-    {
       "old": "build/src/estimate/floors.js",
       "new": "packages/build/src/estimate/floors.ts"
     },
     {
       "old": "build/src/estimate/gaussian.js",
       "new": "packages/build/src/estimate/gaussian.ts"
-    },
-    {
-      "old": "build/src/estimate/grades.js",
-      "new": "packages/build/src/estimate/grades.ts"
     },
     {
       "old": "build/src/estimate/index.js",
@@ -328,6 +320,1222 @@
     {
       "old": "build/src/estimate/validate.js",
       "new": "packages/build/src/estimate/validate.ts"
+    },
+    {
+      "old": "app/pages/budget.js",
+      "new": "packages/pages/src/budget.ts"
+    },
+    {
+      "old": "app/pages/charts/figure.js",
+      "new": "packages/pages/src/charts/figure.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/kit.js",
+      "new": "packages/pages/src/charts/kit.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../numbers.js'",
+          "to": "'../numbers.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/scales.js'",
+          "to": "'../facts/scales.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/page-rule.js'",
+          "to": "'../facts/page-rule.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/layers.js",
+      "new": "packages/pages/src/charts/layers.ts",
+      "rewrites": [
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        },
+        {
+          "from": "'./figure.js'",
+          "to": "'./figure.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/scales.js'",
+          "to": "'../facts/scales.js'"
+        },
+        {
+          "from": "'./scale.js'",
+          "to": "'./scale.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'../records/common.js'",
+          "to": "'../records/common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/map.js",
+      "new": "packages/pages/src/charts/map.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'./scale.js'",
+          "to": "'./scale.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'./figure.js'",
+          "to": "'./figure.js'"
+        },
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/marks.js",
+      "new": "packages/pages/src/charts/marks.ts"
+    },
+    {
+      "old": "app/pages/charts/mini.js",
+      "new": "packages/pages/src/charts/mini.ts",
+      "rewrites": [
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        },
+        {
+          "from": "'./peers.js'",
+          "to": "'./peers.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/peers.js",
+      "new": "packages/pages/src/charts/peers.ts",
+      "rewrites": [
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        },
+        {
+          "from": "'./figure.js'",
+          "to": "'./figure.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../numbers.js'",
+          "to": "'../numbers.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/scale.js",
+      "new": "packages/pages/src/charts/scale.ts",
+      "rewrites": [
+        {
+          "from": "'../../js/ui/scales.js'",
+          "to": "'../facts/scales.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/strips.js",
+      "new": "packages/pages/src/charts/strips.ts",
+      "rewrites": [
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        },
+        {
+          "from": "'../records/common.js'",
+          "to": "'../records/common.js'"
+        },
+        {
+          "from": "'./figure.js'",
+          "to": "'./figure.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/scales.js'",
+          "to": "'../facts/scales.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'../numbers.js'",
+          "to": "'../numbers.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/charts/temperatures.js",
+      "new": "packages/pages/src/charts/temperatures.ts",
+      "rewrites": [
+        {
+          "from": "'./kit.js'",
+          "to": "'./kit.js'"
+        },
+        {
+          "from": "'./figure.js'",
+          "to": "'./figure.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/scales.js'",
+          "to": "'../facts/scales.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/axes.js",
+      "new": "packages/pages/src/facts/axes.ts"
+    },
+    {
+      "old": "app/js/ui/dates.js",
+      "new": "packages/pages/src/facts/dates.ts"
+    },
+    {
+      "old": "app/js/ui/display-numbers.js",
+      "new": "packages/pages/src/facts/display-numbers.ts",
+      "rewrites": [
+        {
+          "from": "'./format.js'",
+          "to": "'./format.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/evidence-line.js",
+      "new": "packages/pages/src/facts/evidence-line.ts",
+      "rewrites": [
+        {
+          "from": "'./format.js'",
+          "to": "'./format.js'"
+        },
+        {
+          "from": "'./material-words.js'",
+          "to": "'./material-words.js'"
+        },
+        {
+          "from": "'./print-brief.js'",
+          "to": "'./print-brief.js'"
+        },
+        {
+          "from": "'./material-highlights.js'",
+          "to": "'./material-highlights.js'"
+        },
+        {
+          "from": "'./material-facts.js'",
+          "to": "'./material-facts.js'"
+        },
+        {
+          "from": "'./say.js'",
+          "to": "'./say.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/format.js",
+      "new": "packages/pages/src/facts/format.ts",
+      "rewrites": [
+        {
+          "from": "'./labels.js'",
+          "to": "'./labels.js'"
+        },
+        {
+          "from": "'../engine/constraints.js'",
+          "to": "'@atlas/engine/port/constraints.ts'"
+        },
+        {
+          "from": "'./dates.js'",
+          "to": "'./dates.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/labels.js",
+      "new": "packages/pages/src/facts/labels.ts",
+      "rewrites": [
+        {
+          "from": "'../engine/constraints.js'",
+          "to": "'@atlas/engine/port/constraints.ts'"
+        },
+        {
+          "from": "'../engine/filler.js'",
+          "to": "'@atlas/engine/port/filler.ts'"
+        },
+        {
+          "from": "'./text.js'",
+          "to": "'./text.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/material-words.js",
+      "new": "packages/pages/src/facts/material-words.ts",
+      "rewrites": [
+        {
+          "from": "'./format.js'",
+          "to": "'./format.js'"
+        },
+        {
+          "from": "'./labels.js'",
+          "to": "'./labels.js'"
+        },
+        {
+          "from": "'../engine/products.js'",
+          "to": "'@atlas/engine/port/products.ts'"
+        },
+        {
+          "from": "'./text.js'",
+          "to": "'./text.js'"
+        },
+        {
+          "from": "'./material-stats.js'",
+          "to": "'./material-stats.js'"
+        },
+        {
+          "from": "'./material-facts.js'",
+          "to": "'./material-facts.js'"
+        },
+        {
+          "from": "'./dates.js'",
+          "to": "'./dates.js'"
+        },
+        {
+          "from": "'./display-numbers.js'",
+          "to": "'./display-numbers.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/page-rule.js",
+      "new": "packages/pages/src/facts/page-rule.ts"
+    },
+    {
+      "old": "app/js/ui/print-brief.js",
+      "new": "packages/pages/src/facts/print-brief.ts",
+      "rewrites": [
+        {
+          "from": "'./format.js'",
+          "to": "'./format.js'"
+        },
+        {
+          "from": "'./material-stats.js'",
+          "to": "'./material-stats.js'"
+        },
+        {
+          "from": "'./material-words.js'",
+          "to": "'./material-words.js'"
+        },
+        {
+          "from": "'./material-highlights.js'",
+          "to": "'./material-highlights.js'"
+        },
+        {
+          "from": "'./material-facts.js'",
+          "to": "'./material-facts.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/print-spread.js",
+      "new": "packages/pages/src/facts/print-spread.ts"
+    },
+    {
+      "old": "app/js/ui/product-order.js",
+      "new": "packages/pages/src/facts/product-order.ts",
+      "rewrites": [
+        {
+          "from": "'./registry.js'",
+          "to": "'./registry.js'"
+        },
+        {
+          "from": "'./material-facts.js'",
+          "to": "'./material-facts.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/registry.js",
+      "new": "packages/pages/src/facts/registry.ts",
+      "rewrites": [
+        {
+          "from": "'./labels.js'",
+          "to": "'./labels.js'"
+        },
+        {
+          "from": "'./axes.js'",
+          "to": "'./axes.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/say.js",
+      "new": "packages/pages/src/facts/say.ts",
+      "rewrites": [
+        {
+          "from": "'./format.js'",
+          "to": "'./format.js'"
+        },
+        {
+          "from": "'./display-numbers.js'",
+          "to": "'./display-numbers.js'"
+        },
+        {
+          "from": "'./print-brief.js'",
+          "to": "'./print-brief.js'"
+        },
+        {
+          "from": "'./text.js'",
+          "to": "'./text.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/js/ui/scales.js",
+      "new": "packages/pages/src/facts/scales.ts"
+    },
+    {
+      "old": "app/js/ui/text.js",
+      "new": "packages/pages/src/facts/text.ts"
+    },
+    {
+      "old": "app/pages/figures.js",
+      "new": "packages/pages/src/figures.ts",
+      "rewrites": [
+        {
+          "from": "'./charts/peers.js'",
+          "to": "'./charts/peers.js'"
+        },
+        {
+          "from": "'./charts/map.js'",
+          "to": "'./charts/map.js'"
+        },
+        {
+          "from": "'./charts/strips.js'",
+          "to": "'./charts/strips.js'"
+        },
+        {
+          "from": "'./charts/layers.js'",
+          "to": "'./charts/layers.js'"
+        },
+        {
+          "from": "'./charts/temperatures.js'",
+          "to": "'./charts/temperatures.js'"
+        },
+        {
+          "from": "'./charts/mini.js'",
+          "to": "'./charts/mini.js'"
+        },
+        {
+          "from": "'../js/ui/material-stats.js'",
+          "to": "'./facts/material-stats.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/findings.js",
+      "new": "packages/pages/src/findings.ts",
+      "rewrites": [
+        {
+          "from": "'./html.js'",
+          "to": "'./html.js'"
+        },
+        {
+          "from": "'../js/ui/dates.js'",
+          "to": "'./facts/dates.js'"
+        },
+        {
+          "from": "'../js/ui/format.js'",
+          "to": "'./facts/format.js'"
+        },
+        {
+          "from": "'../js/ui/registry.js'",
+          "to": "'./facts/registry.js'"
+        },
+        {
+          "from": "'../js/ui/labels.js'",
+          "to": "'./facts/labels.js'"
+        },
+        {
+          "from": "'../js/ui/material-facts.js'",
+          "to": "'./facts/material-facts.js'"
+        },
+        {
+          "from": "'../js/ui/material-stats.js'",
+          "to": "'./facts/material-stats.js'"
+        },
+        {
+          "from": "'../js/ui/material-words.js'",
+          "to": "'./facts/material-words.js'"
+        },
+        {
+          "from": "'../js/ui/material-highlights.js'",
+          "to": "'./facts/material-highlights.js'"
+        },
+        {
+          "from": "'../js/ui/print-brief.js'",
+          "to": "'./facts/print-brief.js'"
+        },
+        {
+          "from": "'../js/ui/say.js'",
+          "to": "'./facts/say.js'"
+        },
+        {
+          "from": "'../js/ui/evidence-line.js'",
+          "to": "'./facts/evidence-line.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/html.js",
+      "new": "packages/pages/src/html.ts",
+      "rewrites": [
+        {
+          "from": "'../js/ui/format.js'",
+          "to": "'./facts/format.js'"
+        },
+        {
+          "from": "'../js/ui/page-rule.js'",
+          "to": "'./facts/page-rule.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/index-page.js",
+      "new": "packages/pages/src/index-page.ts",
+      "rewrites": [
+        {
+          "from": "'./html.js'",
+          "to": "'./html.js'"
+        },
+        {
+          "from": "'../js/ui/format.js'",
+          "to": "'./facts/format.js'"
+        },
+        {
+          "from": "'./shell.js'",
+          "to": "'./shell.js'"
+        },
+        {
+          "from": "'../js/ui/dates.js'",
+          "to": "'./facts/dates.js'"
+        },
+        {
+          "from": "'../js/ui/page-rule.js'",
+          "to": "'./facts/page-rule.js'"
+        },
+        {
+          "from": "'../js/ui/material-facts.js'",
+          "to": "'./facts/material-facts.js'"
+        },
+        {
+          "from": "'../js/ui/material-words.js'",
+          "to": "'./facts/material-words.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/numbers.js",
+      "new": "packages/pages/src/numbers.ts",
+      "rewrites": [
+        {
+          "from": "'../js/ui/display-numbers.js'",
+          "to": "'./facts/display-numbers.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/products/index.js",
+      "new": "packages/pages/src/products/index.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../../js/ui/product-order.js'",
+          "to": "'../facts/product-order.js'"
+        },
+        {
+          "from": "'../shell.js'",
+          "to": "'../shell.js'"
+        },
+        {
+          "from": "'../sections/masthead.js'",
+          "to": "'../sections/masthead.js'"
+        },
+        {
+          "from": "'../sections/footer.js'",
+          "to": "'../sections/footer.js'"
+        },
+        {
+          "from": "'../sections/common.js'",
+          "to": "'../sections/common.js'"
+        },
+        {
+          "from": "'../records/measurements.js'",
+          "to": "'../records/measurements.js'"
+        },
+        {
+          "from": "'./card.js'",
+          "to": "'./card.js'"
+        },
+        {
+          "from": "'../records/placement.js'",
+          "to": "'../records/placement.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/records/common.js",
+      "new": "packages/pages/src/records/common.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/records/measurements.js",
+      "new": "packages/pages/src/records/measurements.ts",
+      "rewrites": [
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/records/placement.js",
+      "new": "packages/pages/src/records/placement.ts",
+      "rewrites": [
+        {
+          "from": "'../sections/common.js'",
+          "to": "'../sections/common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/among.js",
+      "new": "packages/pages/src/sections/among.ts",
+      "rewrites": [
+        {
+          "from": "'../../js/ui/material-highlights.js'",
+          "to": "'../facts/material-highlights.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/estimates.js",
+      "new": "packages/pages/src/sections/estimates.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/footer.js",
+      "new": "packages/pages/src/sections/footer.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/dates.js'",
+          "to": "'../facts/dates.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        },
+        {
+          "from": "'../shell.js'",
+          "to": "'../shell.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/index.js",
+      "new": "packages/pages/src/sections/index.ts",
+      "rewrites": [
+        {
+          "from": "'./masthead.js'",
+          "to": "'./masthead.js'"
+        },
+        {
+          "from": "'./among.js'",
+          "to": "'./among.js'"
+        },
+        {
+          "from": "'./mechanical.js'",
+          "to": "'./mechanical.js'"
+        },
+        {
+          "from": "'./thermal.js'",
+          "to": "'./thermal.js'"
+        },
+        {
+          "from": "'./printing.js'",
+          "to": "'./printing.js'"
+        },
+        {
+          "from": "'./products.js'",
+          "to": "'./products.js'"
+        },
+        {
+          "from": "'./uses.js'",
+          "to": "'./uses.js'"
+        },
+        {
+          "from": "'./price.js'",
+          "to": "'./price.js'"
+        },
+        {
+          "from": "'./other.js'",
+          "to": "'./other.js'"
+        },
+        {
+          "from": "'./estimates.js'",
+          "to": "'./estimates.js'"
+        },
+        {
+          "from": "'./sources.js'",
+          "to": "'./sources.js'"
+        },
+        {
+          "from": "'./footer.js'",
+          "to": "'./footer.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/masthead.js",
+      "new": "packages/pages/src/sections/masthead.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/print-brief.js'",
+          "to": "'../facts/print-brief.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'../numbers.js'",
+          "to": "'../numbers.js'"
+        },
+        {
+          "from": "'../shell.js'",
+          "to": "'../shell.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/mechanical.js",
+      "new": "packages/pages/src/sections/mechanical.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/other.js",
+      "new": "packages/pages/src/sections/other.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/registry.js'",
+          "to": "'../facts/registry.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/price.js",
+      "new": "packages/pages/src/sections/price.ts",
+      "rewrites": [
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/printing.js",
+      "new": "packages/pages/src/sections/printing.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-stats.js'",
+          "to": "'../facts/material-stats.js'"
+        },
+        {
+          "from": "'../../js/engine/products.js'",
+          "to": "'@atlas/engine/port/products.ts'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/products.js",
+      "new": "packages/pages/src/sections/products.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/sources.js",
+      "new": "packages/pages/src/sections/sources.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/format.js'",
+          "to": "'../facts/format.js'"
+        },
+        {
+          "from": "'../../js/ui/labels.js'",
+          "to": "'../facts/labels.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/thermal.js",
+      "new": "packages/pages/src/sections/thermal.ts",
+      "rewrites": [
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'../figures.js'",
+          "to": "'../figures.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/sections/uses.js",
+      "new": "packages/pages/src/sections/uses.ts",
+      "rewrites": [
+        {
+          "from": "'../html.js'",
+          "to": "'../html.js'"
+        },
+        {
+          "from": "'../../js/ui/material-facts.js'",
+          "to": "'../facts/material-facts.js'"
+        },
+        {
+          "from": "'../../js/ui/material-words.js'",
+          "to": "'../facts/material-words.js'"
+        },
+        {
+          "from": "'../findings.js'",
+          "to": "'../findings.js'"
+        },
+        {
+          "from": "'./common.js'",
+          "to": "'./common.js'"
+        },
+        {
+          "from": "'./printing.js'",
+          "to": "'./printing.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/shell.js",
+      "new": "packages/pages/src/shell.ts",
+      "rewrites": [
+        {
+          "from": "'./html.js'",
+          "to": "'./html.js'"
+        },
+        {
+          "from": "'../js/ui/format.js'",
+          "to": "'./facts/format.js'"
+        },
+        {
+          "from": "'../js/ui/dates.js'",
+          "to": "'./facts/dates.js'"
+        },
+        {
+          "from": "'./charts/marks.js'",
+          "to": "'./charts/marks.js'"
+        }
+      ]
+    },
+    {
+      "old": "app/pages/stub.js",
+      "new": "packages/pages/src/stub.ts",
+      "rewrites": [
+        {
+          "from": "'./html.js'",
+          "to": "'./html.js'"
+        },
+        {
+          "from": "'./shell.js'",
+          "to": "'./shell.js'"
+        }
+      ]
     }
   ]
 }

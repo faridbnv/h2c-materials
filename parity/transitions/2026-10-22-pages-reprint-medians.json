@@ -1,0 +1,3939 @@
+{
+ "id": "2026-10-22-pages-reprint-medians",
+ "kind": "science",
+ "corpus": "v0",
+ "description": "The numbers the material pages print, moved by the reprint transition (2026-10-21-reprint-counts-once) that the owner approved: the pages are rendered from the new build's database, so each median, middle half, typical product, and each sentence or alternative that reads one, shows the corrected value. Nothing here is a renderer change: it is every difference between the new renderer's pages on the OLD database and on the NEW database.",
+ "ruling": "Owner ruling OQ-09 A (R-OQ09d, 2026-10-20), as approved on 2026-10-21 in transition 2026-10-21-reprint-counts-once",
+ "differences": [
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 104-104",
+   "before": "1 above 30.3 — — 0 20 40 60",
+   "after": "1 above 30 — — 0 20 40 60"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 106-106",
+   "before": "1 below 3 above 6 — 1 10",
+   "after": "1 below 3 above 6.1 — 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PLA (this material) | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA (this material) | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 150-151",
+   "before": "Printed flat (XY), PLA typically reaches a tensile strength of 45 MPa at a modulus of 2.58 GPa, and breaks at 6.3 % elongation. In bending, its flexural strength is typically 76 MPa at a flexural mod… (299 chars, sha256:b46f530d1e67)",
+   "after": "Printed flat (XY), PLA typically reaches a tensile strength of 45 MPa at a modulus of 2.58 GPa, and breaks at 7.23 % elongation. In bending, its flexural strength is typically 76 MPa at a flexural mo… (303 chars, sha256:e584f96838f6)"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 161-161",
+   "before": "⟦aria-label: Tensile strength (XY): 140 products drawn; median of the 83 it counts 45 MPa, middle half 39.5⁠–⁠53 MPa; lowest Polymaker PolyTerra PLA, highest colorFabb PLA Chameleon.⟧",
+   "after": "⟦aria-label: Tensile strength (XY): 140 products drawn; median of the 83 it counts 45 MPa, middle half 39.9⁠–⁠53 MPa; lowest Polymaker PolyTerra PLA, highest colorFabb PLA Chameleon.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 164-164",
+   "before": "⟦aria-label: Tensile modulus (XY): 107 products drawn; median of the 61 it counts 2.58 GPa, middle half 2⁠–⁠2.88 GPa; lowest Flashforge PLA Pro, highest colorFabb PLA-HP.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 107 products drawn; median of the 61 it counts 2.58 GPa, middle half 2⁠–⁠2.87 GPa; lowest Flashforge PLA Pro, highest colorFabb PLA-HP.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 167-167",
+   "before": "⟦aria-label: Tensile strength (Z): 43 products drawn; median of the 40 it counts 30.3 MPa, middle half 22.1⁠–⁠34 MPa; lowest Eryone Hyper Speed Matte PLA, highest Polymaker PolyLite PLA.⟧",
+   "after": "⟦aria-label: Tensile strength (Z): 43 products drawn; median of the 40 it counts 30 MPa, middle half 22.1⁠–⁠33.8 MPa; lowest Eryone Hyper Speed Matte PLA, highest Polymaker PolyLite PLA.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 170-170",
+   "before": "⟦aria-label: Elongation at break (XY): 121 products drawn; median of the 73 it counts 6.3 %, middle half 4⁠–⁠12 %; lowest Eryone Hyper Speed Matte PLA, highest 3DXTECH ECOMAX Tough PLA.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 121 products drawn; median of the 73 it counts 7.23 %, middle half 4.05⁠–⁠13 %; lowest Eryone Hyper Speed Matte PLA, highest 3DXTECH ECOMAX Tough PLA.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 173-173",
+   "before": "⟦aria-label: Notched Charpy impact: 45 products drawn; median of the 14 it counts 6 kJ/m², middle half 3.97⁠–⁠7.9 kJ/m²; lowest colorFabb PLA-HP, highest Bambu Lab PLA Tough+.⟧",
+   "after": "⟦aria-label: Notched Charpy impact: 45 products drawn; median of the 14 it counts 6.1 kJ/m², middle half 3.97⁠–⁠7.9 kJ/m²; lowest colorFabb PLA-HP, highest Bambu Lab PLA Tough+.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 182-186",
+   "before": "Tensile strength (XY) (MPa) | 83 | 45 | 39.5⁠–⁠53 | Polymaker PolyTerra PLA, 23.2 | colorFabb PLA Chameleon, 70.9 | 46 | 16 | ⏎ Tensile modulus (XY) (GPa) | 61 | 2.58 | 2⁠–⁠2.88 | Flashforge PLA Pro,… (621 chars, sha256:ec9b87323daa)",
+   "after": "Tensile strength (XY) (MPa) | 83 | 45 | 39.9⁠–⁠53 | Polymaker PolyTerra PLA, 23.2 | colorFabb PLA Chameleon, 70.9 | 46 | 16 | ⏎ Tensile modulus (XY) (GPa) | 61 | 2.58 | 2⁠–⁠2.87 | Flashforge PLA Pro,… (627 chars, sha256:eebd50a2da69)"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 32-32",
+   "before": "⟦aria-label: Tensile modulus (XY): median 2.58 GPa, middle half 2⁠–⁠2.88 GPa, lowest to highest 0.95⁠–⁠4.24 GPa, 61 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): median 2.58 GPa, middle half 2⁠–⁠2.87 GPa, lowest to highest 0.95⁠–⁠4.24 GPa, 61 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "61 products · middle half 2–2.88",
+   "after": "61 products · middle half 2–2.87"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 341-345",
+   "before": "Tensile strength MPa | 4539.5⁠–⁠53 | 83 | 30.322.1⁠–⁠34 | 40 | 60 %39 products | ⏎ Tensile modulus GPa | 2.582⁠–⁠2.88 | 61 | 1.981.67⁠–⁠2.48 | 29 | 89 %29 products | ⏎ Elongation at break % | 6.34⁠–⁠… (418 chars, sha256:7f8f136f93f8)",
+   "after": "Tensile strength MPa | 4539.9⁠–⁠53 | 83 | 3022.1⁠–⁠33.8 | 40 | 60 %39 products | ⏎ Tensile modulus GPa | 2.582⁠–⁠2.87 | 61 | 2.021.68⁠–⁠2.49 | 29 | 89 %29 products | ⏎ Elongation at break % | 7.234.0… (421 chars, sha256:9c53e1c1e38c)"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 37-37",
+   "before": "⟦aria-label: Tensile strength (XY): median 45 MPa, middle half 39.5⁠–⁠53 MPa, lowest to highest 23.2⁠–⁠70.9 MPa, 83 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "⟦aria-label: Tensile strength (XY): median 45 MPa, middle half 39.9⁠–⁠53 MPa, lowest to highest 23.2⁠–⁠70.9 MPa, 83 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "83 products · middle half 39.5–53",
+   "after": "83 products · middle half 39.9–53"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "30.3MPa ⏎ ⟦aria-label: Tensile strength (Z): median 30.3 MPa, middle half 22.1⁠–⁠34 MPa, lowest to highest 8.7⁠–⁠43.5 MPa, 40 products; scale 0 to 60 MPa, the same on every material's page⟧",
+   "after": "30MPa ⏎ ⟦aria-label: Tensile strength (Z): median 30 MPa, middle half 22.1⁠–⁠33.8 MPa, lowest to highest 8.7⁠–⁠43.5 MPa, 40 products; scale 0 to 60 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 44-44",
+   "before": "40 products · middle half 22.1–34",
+   "after": "40 products · middle half 22.1–33.8"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 46-47",
+   "before": "6kJ/m² ⏎ ⟦aria-label: Notched Charpy impact: median 6 kJ/m², middle half 3.97⁠–⁠7.9 kJ/m², lowest to highest 2.16⁠–⁠20.3 kJ/m², 14 products; scale 1 to 50 kJ/m², logarithmic, the same on every materi… (209 chars, sha256:38c7a6b4a1e1)",
+   "after": "6.1kJ/m² ⏎ ⟦aria-label: Notched Charpy impact: median 6.1 kJ/m², middle half 3.97⁠–⁠7.9 kJ/m², lowest to highest 2.16⁠–⁠20.3 kJ/m², 14 products; scale 1 to 50 kJ/m², logarithmic, the same on every ma… (213 chars, sha256:fc2cf359ae7a)"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 516-516",
+   "before": "PLA's density is typically 1,240 kg/m³, the middle half 1,230⁠–⁠1,240 kg/m³, across 155 products. PLA typically costs 33 CAD/kg, the middle half 28⁠–⁠40 CAD/kg, across the 27 products with a regular … (288 chars, sha256:2b06e05df338)",
+   "after": "PLA's density is typically 1,240 kg/m³, the middle half 1,220⁠–⁠1,240 kg/m³, across 155 products. PLA typically costs 33 CAD/kg, the middle half 28⁠–⁠40 CAD/kg, across the 27 products with a regular … (288 chars, sha256:0f380bd6b915)"
+  },
+  {
+   "case": "pages",
+   "record": "M001.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PLA-CF, PLA is 18 % less expensive, 20 % stronger across the layers and 8 % less stiff. Against PETG, PLA is 52 % stiffer and 28 % more expensive, and its HDT at 0.45 MPa is 14 °C lower. Amon… (378 chars, sha256:4fa5f944f6ac)",
+   "after": "Against PLA-CF, PLA is 18 % less expensive, 19 % stronger across the layers and 8 % less stiff. Against PETG, PLA is 52 % stiffer and 28 % more expensive, and its HDT at 0.45 MPa is 14 °C lower. Amon… (378 chars, sha256:978a53825116)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "after line 320",
+   "before": "",
+   "after": "HDT at 0.45 MPa11 products ⏎ ⟦aria-label: HDT at 0.45 MPa: median 55 °C, middle half 53⁠–⁠57 °C, 11 products.⟧ ⏎ 55 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "after line 342",
+   "before": "",
+   "after": "HDT at 0.45 MPa | 55 °C (53⁠–⁠57 °C) | 11 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 100-100",
+   "before": "9 below 1 above 1.83 — 1 10",
+   "after": "9 below 1 above 1.88 — 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 102-102",
+   "before": "2 above 49.8 0 50 100",
+   "after": "2 above 46.3 0 50 100"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 104-104",
+   "before": "1 above 14.7 — — 0 20 40 60",
+   "after": "1 above 17.4 — — 0 20 40 60"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 108-108",
+   "before": "57 — 50 150 250",
+   "after": "55 — 50 150 250"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PLA Silk (this material) | 1.83 (1.72⁠–⁠1.97) · 11 | 49.8 (40.8⁠–⁠50) · 20 | 14.7 (11.1⁠–⁠19.1) · 12 | 10.3 · 3 | 57 (53⁠–⁠57) · 11 | 31 (29⁠–⁠38) · 6 |",
+   "after": "PLA Silk (this material) | 1.88 (1.6⁠–⁠2.03) · 11 | 46.3 (37.7⁠–⁠50) · 20 | 17.4 (12⁠–⁠19.1) · 12 | 10.3 · 3 | 55 (53⁠–⁠57) · 11 | 31 (29⁠–⁠38) · 6 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 137-137",
+   "before": "50 100 150 200 250 300 20 50 100 200 500 PLA Silk PP ABS",
+   "after": "50 100 150 200 250 300 20 50 100 200 500 PLA Silk PLA-CF PP ABS"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "PLA Silk (this material) | 1.83 GPa · 11 | 49.8 MPa · 20 | 31 CAD/kg · 6 | 57 °C · 11 |",
+   "after": "PLA Silk (this material) | 1.88 GPa · 11 | 46.3 MPa · 20 | 31 CAD/kg · 6 | 55 °C · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 150-151",
+   "before": "Printed flat (XY), PLA Silk typically reaches a tensile strength of 49.8 MPa at a modulus of 1.83 GPa, and breaks at 11 % elongation. In bending, its flexural strength is typically 76.2 MPa at a flex… (314 chars, sha256:ab71f29b9fa6)",
+   "after": "Printed flat (XY), PLA Silk typically reaches a tensile strength of 46.3 MPa at a modulus of 1.88 GPa, and breaks at 11 % elongation. In bending, its flexural strength is typically 75.2 MPa at a flex… (314 chars, sha256:1c4d169a066b)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 158-158",
+   "before": "⟦aria-label: Tensile strength (XY): 26 products drawn; median of the 20 it counts 49.8 MPa, middle half 40.8⁠–⁠50 MPa; lowest Bambu Lab PLA Silk Dual Color, highest Eryone Hyper Speed Triple Color Si… (207 chars, sha256:2307befd65e2)",
+   "after": "⟦aria-label: Tensile strength (XY): 26 products drawn; median of the 20 it counts 46.3 MPa, middle half 37.7⁠–⁠50 MPa; lowest Bambu Lab PLA Silk Dual Color, highest Eryone Hyper Speed Triple Color Si… (207 chars, sha256:ebf4743a07dd)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 161-161",
+   "before": "⟦aria-label: Tensile modulus (XY): 16 products drawn; median of the 11 it counts 1.83 GPa, middle half 1.72⁠–⁠1.97 GPa; lowest Flashforge Silk, highest Polymaker Panchroma Silk PLA.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 16 products drawn; median of the 11 it counts 1.88 GPa, middle half 1.6⁠–⁠2.03 GPa; lowest Flashforge Silk, highest Polymaker Panchroma Silk PLA.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 164-164",
+   "before": "⟦aria-label: Tensile strength (Z): 12 products drawn; median of the 12 it counts 14.7 MPa, middle half 11.1⁠–⁠19.1 MPa; lowest Eryone Silk Rainbow PLA, highest Bambu Lab PLA Silk+.⟧",
+   "after": "⟦aria-label: Tensile strength (Z): 12 products drawn; median of the 12 it counts 17.4 MPa, middle half 12⁠–⁠19.1 MPa; lowest Eryone Silk Rainbow PLA, highest Bambu Lab PLA Silk+.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 167-167",
+   "before": "⟦aria-label: Elongation at break (XY): 24 products drawn; median of the 19 it counts 11 %, middle half 2.3⁠–⁠11 %; lowest Eryone Silk PLA, highest 3DJake ecoPLA Silk Rainbow.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 24 products drawn; median of the 19 it counts 11 %, middle half 2.8⁠–⁠12 %; lowest Eryone Silk PLA, highest 3DJake ecoPLA Silk Rainbow.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 170-170",
+   "before": "⟦aria-label: Notched Izod impact: 7 products drawn; median of the 6 it counts 3.5 kJ/m², middle half 3.5 kJ/m²; lowest SUNLU Silk PLA+ Four-Color, highest SUNLU PLA+ Silk 2.0.⟧",
+   "after": "⟦aria-label: Notched Izod impact: 7 products drawn; median of the 6 it counts 3.5 kJ/m²; lowest SUNLU Silk PLA+ Four-Color, highest SUNLU PLA+ Silk 2.0.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 176-180",
+   "before": "Tensile strength (XY) (MPa) | 20 | 49.8 | 40.8⁠–⁠50 | Bambu Lab PLA Silk Dual Color, 27 | Eryone Hyper Speed Triple Color Silk PLA, 62.7 | 6 | 0 | ⏎ Tensile modulus (XY) (GPa) | 11 | 1.83 | 1.72⁠–⁠1.… (628 chars, sha256:29360f8141b1)",
+   "after": "Tensile strength (XY) (MPa) | 20 | 46.3 | 37.7⁠–⁠50 | Bambu Lab PLA Silk Dual Color, 27 | Eryone Hyper Speed Triple Color Silk PLA, 62.7 | 6 | 0 | ⏎ Tensile modulus (XY) (GPa) | 11 | 1.88 | 1.6⁠–⁠2.0… (623 chars, sha256:3b1d149b8693)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 266-270",
+   "before": "Tensile strength MPa | 49.840.8⁠–⁠50 | 20 | 14.711.1⁠–⁠19.1 | 12 | 30 %11 products | ⏎ Tensile modulus GPa | 1.831.72⁠–⁠1.97 | 11 | 1.651.55⁠–⁠1.86 | 8 | 96 %8 products | ⏎ Elongation at break % | 11… (403 chars, sha256:e33e9b3c0209)",
+   "after": "Tensile strength MPa | 46.337.7⁠–⁠50 | 20 | 17.412⁠–⁠19.1 | 12 | 30 %11 products | ⏎ Tensile modulus GPa | 1.881.6⁠–⁠2.03 | 11 | 1.651.25⁠–⁠1.85 | 8 | 96 %8 products | ⏎ Elongation at break % | 112.8… (400 chars, sha256:3d451f48d789)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 273-273",
+   "before": "PLA Silk's HDT is typically 57 °C under 0.45 MPa and 50⁠–⁠56 °C under 1.8 MPa, with its glass transition typically at 61 °C. As published, Vicat softening is typically 56 °C and melting typically 164… (203 chars, sha256:aecdca016da8)",
+   "after": "PLA Silk is amorphous as printed, so it softens at its glass transition, typically 59 °C: its HDT is 55 °C under 0.45 MPa and 50⁠–⁠56 °C under 1.8 MPa. As published, Vicat softening is typically 56 °… (230 chars, sha256:70a3d0274c6d)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 281-281",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 22 products drawn; median of the 11 it counts 57 °C, middle half 53⁠–⁠57 °C; lowest eSUN PLA-Silk, highest Bambu Lab PLA Silk+.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 22 products drawn; median of the 11 it counts 55 °C, middle half 53⁠–⁠57 °C; lowest eSUN PLA-Silk, highest Bambu Lab PLA Silk+.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 284-284",
+   "before": "⟦aria-label: Glass transition (Tg): 18 products drawn; median of the 18 it counts 61 °C, middle half 57⁠–⁠61 °C; lowest Anycubic PLA Silk, highest Eryone Silk PLA Dual-Color.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): 18 products drawn; median of the 18 it counts 59 °C, middle half 57⁠–⁠61 °C; lowest Anycubic PLA Silk, highest Eryone Silk PLA Dual-Color.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 288-289",
+   "before": "HDT at 0.45 MPa (°C) | 11 | 57 | 53⁠–⁠57 | eSUN PLA-Silk, 50 | Bambu Lab PLA Silk+, 60 | 11 | 0 | ⏎ Glass transition (Tg) (°C) | 18 | 61 | 57⁠–⁠61 | Anycubic PLA Silk, 56 | Eryone Silk PLA Dual-Color… (213 chars, sha256:5faffaf36818)",
+   "after": "HDT at 0.45 MPa (°C) | 11 | 55 | 53⁠–⁠57 | eSUN PLA-Silk, 50 | Bambu Lab PLA Silk+, 60 | 11 | 0 | ⏎ Glass transition (Tg) (°C) | 18 | 59 | 57⁠–⁠61 | Anycubic PLA Silk, 56 | Eryone Silk PLA Dual-Color… (213 chars, sha256:bf5cc410a47a)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 300-300",
+   "before": "PLA Silk softens near 57 °C, below the H2C's 65 °C chamber",
+   "after": "PLA Silk softens near 55 °C, below the H2C's 65 °C chamber"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "1.83GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 1.83 GPa, middle half 1.72⁠–⁠1.97 GPa, lowest to highest 1.15⁠–⁠2.4 GPa, 11 products; scale 0.2 to 10 GPa, logarithmic, the same on every material'… (206 chars, sha256:dd51d3a5b32f)",
+   "after": "1.88GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 1.88 GPa, middle half 1.6⁠–⁠2.03 GPa, lowest to highest 1.15⁠–⁠2.4 GPa, 11 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's… (205 chars, sha256:02e192ca791b)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 324-326",
+   "before": "HDT at 0.45 MPa11 products ⏎ ⟦aria-label: HDT at 0.45 MPa: median 57 °C, middle half 53⁠–⁠57 °C, 11 products.⟧ ⏎ 57 °C",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 328-329",
+   "before": "⟦aria-label: Glass transition (Tg): median 61 °C, middle half 57⁠–⁠61 °C, 18 products.⟧ ⏎ 61 °C",
+   "after": "⟦aria-label: Glass transition (Tg): median 59 °C, middle half 57⁠–⁠61 °C, 18 products.⟧ ⏎ 59 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "11 products · middle half 1.72–1.97",
+   "after": "11 products · middle half 1.6–2.03"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 344-345",
+   "before": "HDT at 0.45 MPa | 57 °C (53⁠–⁠57 °C) | 11 | — | ⏎ Glass transition (Tg) | 61 °C (57⁠–⁠61 °C) | 18 | — |",
+   "after": "Glass transition (Tg) | 59 °C (57⁠–⁠61 °C) | 18 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 36-37",
+   "before": "49.8MPa ⏎ ⟦aria-label: Tensile strength (XY): median 49.8 MPa, middle half 40.8⁠–⁠50 MPa, lowest to highest 27⁠–⁠62.7 MPa, 20 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "46.3MPa ⏎ ⟦aria-label: Tensile strength (XY): median 46.3 MPa, middle half 37.7⁠–⁠50 MPa, lowest to highest 27⁠–⁠62.7 MPa, 20 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "20 products · middle half 40.8–50",
+   "after": "20 products · middle half 37.7–50"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 408-408",
+   "before": "PLA Silk's density is typically 1,240 kg/m³, the middle half 1,230⁠–⁠1,270 kg/m³, across 29 products. PLA Silk typically costs 31 CAD/kg, the middle half 29.5⁠–⁠38 CAD/kg, across the 6 products with … (300 chars, sha256:2b08c16eb30b)",
+   "after": "PLA Silk's density is typically 1,240 kg/m³, the middle half 1,230⁠–⁠1,260 kg/m³, across 29 products. PLA Silk typically costs 31 CAD/kg, the middle half 29.5⁠–⁠38 CAD/kg, across the 6 products with … (300 chars, sha256:7fcfe6fef782)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "14.7MPa ⏎ ⟦aria-label: Tensile strength (Z): median 14.7 MPa, middle half 11.1⁠–⁠19.1 MPa, lowest to highest 11⁠–⁠25 MPa, 12 products; scale 0 to 60 MPa, the same on every material's page⟧",
+   "after": "17.4MPa ⏎ ⟦aria-label: Tensile strength (Z): median 17.4 MPa, middle half 12⁠–⁠19.1 MPa, lowest to highest 11⁠–⁠25 MPa, 12 products; scale 0 to 60 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 44-44",
+   "before": "12 products · middle half 11.1–19.1",
+   "after": "12 products · middle half 12–19.1"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 51-52",
+   "before": "57°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 57 °C, middle half 53⁠–⁠57 °C, lowest to highest 50⁠–⁠60 °C, 11 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "55°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 55 °C, middle half 53⁠–⁠57 °C, lowest to highest 50⁠–⁠60 °C, 11 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 61-61",
+   "before": "PLA Silk is a silk-effect PLA with a glossy, satin-like surface. Makers sell it for decorative pieces, jewelry and artistic models. It is amorphous as printed, so it softens at its glass transition: … (375 chars, sha256:f69bcdaa1b6f)",
+   "after": "PLA Silk is a silk-effect PLA with a glossy, satin-like surface. Makers sell it for decorative pieces, jewelry and artistic models. It is amorphous as printed, so it softens at its glass transition: … (375 chars, sha256:4595cf64c7e5)"
+  },
+  {
+   "case": "pages",
+   "record": "M008.html",
+   "tier": "wording",
+   "field": "lines 82-83",
+   "before": "Against PLA-CF, PLA Silk is 42 % weaker across the layers, 70 % tougher in notched impact and 35 % less stiff. Against PETG, PLA Silk is 51 % weaker across the layers, 72 % tougher in notched impact … (559 chars, sha256:f16a38012c05)",
+   "after": "Against PLA-CF, PLA Silk is 70 % tougher in notched impact, 33 % less stiff and 31 % weaker across the layers. Against PETG, PLA Silk is 43 % weaker across the layers and 72 % tougher in notched impa… (523 chars, sha256:c7e0f4c807e7)"
+  },
+  {
+   "case": "pages",
+   "record": "M011.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M011.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M011.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M011.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M011.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PLA-CF, PLA Metal is 30 % less stiff, 20 % weaker flat and 11 % stronger across the layers. Against PETG, PLA Metal is 28 % weaker flat and 16 % stiffer, and its HDT at 0.45 MPa is 10 °C lowe… (451 chars, sha256:06c51b7119cc)",
+   "after": "Against PLA-CF, PLA Metal is 30 % less stiff, 20 % weaker flat and 11 % stronger across the layers. Against PETG, PLA Metal is 28 % weaker flat and 15 % stiffer, and its HDT at 0.45 MPa is 10 °C lowe… (451 chars, sha256:1da8ada47d00)"
+  },
+  {
+   "case": "pages",
+   "record": "M012.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M012.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M012.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M012.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M012.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PLA-CF, PLA Marble is 27 % less stiff and 22 % less expensive. Against PETG, PLA Marble is 21 % more expensive and 20 % stiffer, and its HDT at 0.45 MPa is 15 °C lower. Among the materials, P… (367 chars, sha256:be77e48430da)",
+   "after": "Against PLA-CF, PLA Marble is 27 % less stiff and 22 % less expensive. Against PETG, PLA Marble is 21 % more expensive and 19 % stiffer, and its HDT at 0.45 MPa is 15 °C lower. Among the materials, P… (367 chars, sha256:e992b2bb0ecd)"
+  },
+  {
+   "case": "pages",
+   "record": "M013.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M013.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M013.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M013.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M014.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M014.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M014.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M014.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M015.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M015.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M015.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M015.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M016.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M016.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M016.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M016.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M016.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PLA-CF, PLA Glow is 28 % less stiff, 11 % less expensive and 11 % weaker flat. Against PETG, PLA Glow is 38 % more expensive, 20 % weaker flat and 19 % stiffer. Among the materials, PLA Glow … (377 chars, sha256:f0779dc0728d)",
+   "after": "Against PLA-CF, PLA Glow is 28 % less stiff, 11 % less expensive and 11 % weaker flat. Against PETG, PLA Glow is 38 % more expensive, 20 % weaker flat and 18 % stiffer. Among the materials, PLA Glow … (377 chars, sha256:e3dc9b87d582)"
+  },
+  {
+   "case": "pages",
+   "record": "M018.html",
+   "tier": "wording",
+   "field": "lines 113-113",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M019.html",
+   "tier": "wording",
+   "field": "lines 102-102",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 100-100",
+   "before": "9 below 1 above 1.69 1 10",
+   "after": "9 below 1 above 1.7 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PETG (this material) | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG (this material) | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "PETG (this material) | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG (this material) | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 150-150",
+   "before": "Printed flat (XY), PETG typically reaches a tensile strength of 47 MPa at a modulus of 1.69 GPa, and breaks at 8.6 % elongation. In bending, its flexural strength is typically 70 MPa at a flexural mo… (217 chars, sha256:4b7e699b85c7)",
+   "after": "Printed flat (XY), PETG typically reaches a tensile strength of 47 MPa at a modulus of 1.7 GPa, and breaks at 8.6 % elongation. In bending, its flexural strength is typically 70 MPa at a flexural mod… (216 chars, sha256:d9de18631b58)"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 161-161",
+   "before": "⟦aria-label: Tensile strength (XY): 63 products drawn; median of the 34 it counts 47 MPa, middle half 40.3⁠–⁠50.6 MPa; lowest Raise3D Premium PETG, highest eSUN PETG Basic.⟧",
+   "after": "⟦aria-label: Tensile strength (XY): 63 products drawn; median of the 34 it counts 47 MPa, middle half 40⁠–⁠50.8 MPa; lowest Raise3D Premium PETG, highest eSUN PETG Basic.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 164-164",
+   "before": "⟦aria-label: Tensile modulus (XY): 44 products drawn; median of the 24 it counts 1.69 GPa, middle half 1.42⁠–⁠1.95 GPa; lowest Flashforge PETG, highest Creality Hyper PETG.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 44 products drawn; median of the 24 it counts 1.7 GPa, middle half 1.42⁠–⁠2.01 GPa; lowest Flashforge PETG, highest Creality Hyper PETG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 173-173",
+   "before": "⟦aria-label: Notched Charpy impact: 16 products drawn; median of the 10 it counts 6 kJ/m², middle half 4.76⁠–⁠8 kJ/m²; lowest Eryone Hyper Speed PETG, highest Nanovia PETG.⟧",
+   "after": "⟦aria-label: Notched Charpy impact: 16 products drawn; median of the 10 it counts 6 kJ/m², middle half 4.7⁠–⁠8.6 kJ/m²; lowest Eryone Hyper Speed PETG, highest Nanovia PETG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 182-183",
+   "before": "Tensile strength (XY) (MPa) | 34 | 47 | 40.3⁠–⁠50.6 | Raise3D Premium PETG, 31.9 | eSUN PETG Basic, 68.4 | 28 | 3 | ⏎ Tensile modulus (XY) (GPa) | 24 | 1.69 | 1.42⁠–⁠1.95 | Flashforge PETG, 1 | Creal… (229 chars, sha256:185d62579893)",
+   "after": "Tensile strength (XY) (MPa) | 34 | 47 | 40⁠–⁠50.8 | Raise3D Premium PETG, 31.9 | eSUN PETG Basic, 68.4 | 28 | 3 | ⏎ Tensile modulus (XY) (GPa) | 24 | 1.7 | 1.42⁠–⁠2.01 | Flashforge PETG, 1 | Creality… (226 chars, sha256:b4bb11ec2f6f)"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 186-186",
+   "before": "Notched Charpy impact (kJ/m²) | 10 | 6 | 4.76⁠–⁠8 | Eryone Hyper Speed PETG, 1.25 | Nanovia PETG, 20 | 4 | 2 |",
+   "after": "Notched Charpy impact (kJ/m²) | 10 | 6 | 4.7⁠–⁠8.6 | Eryone Hyper Speed PETG, 1.25 | Nanovia PETG, 20 | 4 | 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 278-279",
+   "before": "Tensile strength MPa | 4740.3⁠–⁠50.6 | 34 | 30.228⁠–⁠36.5 | 16 | 69 %13 products | ⏎ Tensile modulus GPa | 1.691.42⁠–⁠1.95 | 24 | 1.61.23⁠–⁠2.03 | 11 | 88 %10 products |",
+   "after": "Tensile strength MPa | 4740⁠–⁠50.8 | 34 | 30.228⁠–⁠36.5 | 16 | 69 %13 products | ⏎ Tensile modulus GPa | 1.71.42⁠–⁠2.01 | 24 | 1.61.23⁠–⁠2.03 | 11 | 88 %10 products |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 281-282",
+   "before": "Flexural strength MPa | 7066⁠–⁠75 | 31 | 5553.2⁠–⁠56 | 9 | 75 %9 products | ⏎ Flexural modulus GPa | 1.931.62⁠–⁠2.09 | 30 | 1.711.52⁠–⁠1.85 | 8 | 89 %8 products |",
+   "after": "Flexural strength MPa | 7066⁠–⁠75.1 | 31 | 5553.2⁠–⁠56 | 9 | 75 %9 products | ⏎ Flexural modulus GPa | 1.951.61⁠–⁠2.1 | 30 | 1.711.52⁠–⁠1.85 | 8 | 89 %8 products |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 284-284",
+   "before": "Most PETG products measure 74.5⁠–⁠79.5 Shore D",
+   "after": "Most PETG products measure 75.3⁠–⁠79.8 Shore D"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 291-291",
+   "before": "⟦aria-label: Shore D hardness: 8 products drawn; median of the 7 it counts 76 Shore D, middle half 74.5⁠–⁠79.5 Shore D; lowest Prusa Research Prusament PETG by Prusa Polymers, highest SUNLU PETG.⟧",
+   "after": "⟦aria-label: Shore D hardness: 8 products drawn; median of the 7 it counts 77.5 Shore D, middle half 75.3⁠–⁠79.8 Shore D; lowest Prusa Research Prusament PETG by Prusa Polymers, highest SUNLU PETG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 295-295",
+   "before": "Shore D hardness (Shore D) | 7 | 76 | 74.5⁠–⁠79.5 | Prusa Research Prusament PETG by Prusa Polymers, 74 | SUNLU PETG, 80 | 0 | 1 |",
+   "after": "Shore D hardness (Shore D) | 7 | 77.5 | 75.3⁠–⁠79.8 | Prusa Research Prusament PETG by Prusa Polymers, 74 | SUNLU PETG, 80 | 0 | 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "1.69GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 1.69 GPa, middle half 1.42⁠–⁠1.95 GPa, lowest to highest 1⁠–⁠3.5 GPa, 24 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's p… (203 chars, sha256:d560fd4edf54)",
+   "after": "1.7GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 1.7 GPa, middle half 1.42⁠–⁠2.01 GPa, lowest to highest 1⁠–⁠3.5 GPa, 24 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's pag… (201 chars, sha256:cda993213325)"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 315-315",
+   "before": "⟦aria-label: HDT at 1.8 MPa: 23 products drawn; median of the 14 it counts 65 °C, middle half 62⁠–⁠68 °C; lowest Spectrum PET-G FR V0, highest Polymaker PolyLite PETG.⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: 23 products drawn; median of the 14 it counts 65 °C, middle half 63⁠–⁠68 °C; lowest Spectrum PET-G FR V0, highest Polymaker PolyLite PETG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 318-318",
+   "before": "⟦aria-label: Glass transition (Tg): 32 products drawn; median of the 31 it counts 80 °C, middle half 73⁠–⁠80 °C; lowest SUNLU High Speed Matte PETG, highest Prusa Research Buddy3D PET-G.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): 32 products drawn; median of the 31 it counts 80 °C, middle half 72⁠–⁠80 °C; lowest SUNLU High Speed Matte PETG, highest Prusa Research Buddy3D PET-G.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 323-324",
+   "before": "HDT at 1.8 MPa (°C) | 14 | 65 | 62⁠–⁠68 | Spectrum PET-G FR V0, 58 | Polymaker PolyLite PETG, 75 | 8 | 2 | ⏎ Glass transition (Tg) (°C) | 31 | 80 | 73⁠–⁠80 | SUNLU High Speed Matte PETG, 66 | Prusa R… (234 chars, sha256:6ca0c094c78a)",
+   "after": "HDT at 1.8 MPa (°C) | 14 | 65 | 63⁠–⁠68 | Spectrum PET-G FR V0, 58 | Polymaker PolyLite PETG, 75 | 8 | 2 | ⏎ Glass transition (Tg) (°C) | 31 | 80 | 72⁠–⁠80 | SUNLU High Speed Matte PETG, 66 | Prusa R… (234 chars, sha256:701babd40e20)"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "24 products · middle half 1.42–1.95",
+   "after": "24 products · middle half 1.42–2.01"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 347-347",
+   "before": "⟦aria-label: HDT at 1.8 MPa: median 65 °C, middle half 62⁠–⁠68 °C, 14 products.⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: median 65 °C, middle half 63⁠–⁠68 °C, 14 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 356-356",
+   "before": "⟦aria-label: Glass transition (Tg): median 80 °C, middle half 73⁠–⁠80 °C, 31 products.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): median 80 °C, middle half 72⁠–⁠80 °C, 31 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 367-367",
+   "before": "HDT at 1.8 MPa | 65 °C (62⁠–⁠68 °C) | 14 | — |",
+   "after": "HDT at 1.8 MPa | 65 °C (63⁠–⁠68 °C) | 14 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 37-37",
+   "before": "⟦aria-label: Tensile strength (XY): median 47 MPa, middle half 40.3⁠–⁠50.6 MPa, lowest to highest 31.9⁠–⁠68.4 MPa, 34 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "⟦aria-label: Tensile strength (XY): median 47 MPa, middle half 40⁠–⁠50.8 MPa, lowest to highest 31.9⁠–⁠68.4 MPa, 34 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 370-370",
+   "before": "Glass transition (Tg) | 80 °C (73⁠–⁠80 °C) | 31 | — |",
+   "after": "Glass transition (Tg) | 80 °C (72⁠–⁠80 °C) | 31 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "34 products · middle half 40.3–50.6",
+   "after": "34 products · middle half 40–50.8"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 441-441",
+   "before": "PETG's density is typically 1,270 kg/m³, the middle half 1,260⁠–⁠1,290 kg/m³, across 59 products. PETG typically costs 26 CAD/kg, the middle half 25⁠–⁠32 CAD/kg, across the 11 products with a regular… (293 chars, sha256:46759d3037ba)",
+   "after": "PETG's density is typically 1,270 kg/m³, the middle half 1,250⁠–⁠1,290 kg/m³, across 59 products. PETG typically costs 26 CAD/kg, the middle half 25⁠–⁠32 CAD/kg, across the 11 products with a regular… (293 chars, sha256:c6af5e118077)"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 47-47",
+   "before": "⟦aria-label: Notched Charpy impact: median 6 kJ/m², middle half 4.76⁠–⁠8 kJ/m², lowest to highest 1.25⁠–⁠20 kJ/m², 10 products; scale 1 to 50 kJ/m², logarithmic, the same on every material's page⟧",
+   "after": "⟦aria-label: Notched Charpy impact: median 6 kJ/m², middle half 4.7⁠–⁠8.6 kJ/m², lowest to highest 1.25⁠–⁠20 kJ/m², 10 products; scale 1 to 50 kJ/m², logarithmic, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 49-49",
+   "before": "10 products · middle half 4.76–8",
+   "after": "10 products · middle half 4.7–8.6"
+  },
+  {
+   "case": "pages",
+   "record": "M020.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PETG-CF, PETG is 54 % less stiff, 37 % less expensive and 25 % less tough in notched impact. Against PETG-GF, PETG is 28 % less stiff and 14 % stronger across the layers. Among the materials,… (382 chars, sha256:c381a613734a)",
+   "after": "Against PETG-CF, PETG is 54 % less stiff, 37 % less expensive and 25 % less tough in notched impact. Against PETG-GF, PETG is 27 % less stiff and 14 % stronger across the layers. Among the materials,… (382 chars, sha256:753dc76fe63b)"
+  },
+  {
+   "case": "pages",
+   "record": "M024.html",
+   "tier": "wording",
+   "field": "lines 113-113",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M024.html",
+   "tier": "wording",
+   "field": "lines 141-141",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M024.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Carbon fibre adds little to PETG's heat resistance: PETG-CF's HDT at 0.45 MPa is 72 °C against 70 °C. Against PETG-GF, PETG-CF is 58 % stiffer, 10 % stronger flat and 7 % stronger across the layers. … (422 chars, sha256:aedecffd42f2)",
+   "after": "Carbon fibre adds little to PETG's heat resistance: PETG-CF's HDT at 0.45 MPa is 72 °C against 70 °C. Against PETG-GF, PETG-CF is 58 % stiffer, 10 % stronger flat and 7 % stronger across the layers. … (435 chars, sha256:6d538ae36ddb)"
+  },
+  {
+   "case": "pages",
+   "record": "M025.html",
+   "tier": "wording",
+   "field": "lines 111-111",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M025.html",
+   "tier": "wording",
+   "field": "lines 139-139",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M025.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against PETG, PETG-GF is 38 % stiffer and 12 % weaker across the layers. Against PETG-CF, PETG-GF is 37 % less stiff, 9 % weaker flat and 7 % weaker across the layers. Among the materials, PETG-GF ha… (387 chars, sha256:a0171ce1fc56)",
+   "after": "Against PETG, PETG-GF is 37 % stiffer and 12 % weaker across the layers. Against PETG-CF, PETG-GF is 37 % less stiff, 9 % weaker flat and 7 % weaker across the layers. Among the materials, PETG-GF ha… (387 chars, sha256:a4d6eb545460)"
+  },
+  {
+   "case": "pages",
+   "record": "M026.html",
+   "tier": "wording",
+   "field": "lines 115-116",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 … (279 chars, sha256:554bc107a773)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23… (277 chars, sha256:756ff9ac7283)"
+  },
+  {
+   "case": "pages",
+   "record": "M026.html",
+   "tier": "wording",
+   "field": "lines 144-144",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 100-100",
+   "before": "2 above 34.5 0 50 100",
+   "after": "2 above 34.9 0 50 100"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 102-102",
+   "before": "1 above 27.3 0 20 40 60",
+   "after": "1 above 27 0 20 40 60"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 104-104",
+   "before": "1 below 3 above 20 1 10",
+   "after": "1 below 3 above 19 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 112-112",
+   "before": "ABS (this material) | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS (this material) | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 135-135",
+   "before": "50 100 150 200 250 300 20 50 100 200 500 ABS ABS ABS-CF ABS-GF PC-ABS PC",
+   "after": "50 100 150 200 250 300 20 50 100 200 500 ABS ABS-CF ABS-GF PC-ABS PC"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 140-140",
+   "before": "ABS (this material) | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS (this material) | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 148-149",
+   "before": "Printed flat (XY), ABS typically reaches a tensile strength of 34.5 MPa at a modulus of 2.2 GPa, and breaks at 10 % elongation. In bending, its flexural strength is typically 62.5 MPa at a flexural m… (304 chars, sha256:d9dc12150837)",
+   "after": "Printed flat (XY), ABS typically reaches a tensile strength of 34.9 MPa at a modulus of 2.2 GPa, and breaks at 8.81 % elongation. In bending, its flexural strength is typically 63 MPa at a flexural m… (304 chars, sha256:2998d446f16f)"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 159-159",
+   "before": "⟦aria-label: Tensile strength (XY): 45 products drawn; median of the 18 it counts 34.5 MPa, middle half 33⁠–⁠35.6 MPa; lowest Eryone Hyper -Speed ABS, highest Raise3D Hyper Speed ABS.⟧",
+   "after": "⟦aria-label: Tensile strength (XY): 45 products drawn; median of the 18 it counts 34.9 MPa, middle half 33⁠–⁠35.7 MPa; lowest Eryone Hyper -Speed ABS, highest Raise3D Hyper Speed ABS.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 162-162",
+   "before": "⟦aria-label: Tensile modulus (XY): 31 products drawn; median of the 13 it counts 2.2 GPa, middle half 2.02⁠–⁠2.25 GPa; lowest Raise3D Hyper Speed ABS, highest QIDI ABS.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 31 products drawn; median of the 13 it counts 2.2 GPa, middle half 2⁠–⁠2.26 GPa; lowest Raise3D Hyper Speed ABS, highest QIDI ABS.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 165-165",
+   "before": "⟦aria-label: Tensile strength (Z): 13 products drawn; median of the 12 it counts 27.3 MPa, middle half 24.6⁠–⁠28.3 MPa; lowest Eryone Hyper -Speed ABS, highest eSUN ABS+.⟧",
+   "after": "⟦aria-label: Tensile strength (Z): 13 products drawn; median of the 12 it counts 27 MPa, middle half 23.7⁠–⁠28.5 MPa; lowest Eryone Hyper -Speed ABS, highest eSUN ABS+.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 168-168",
+   "before": "⟦aria-label: Elongation at break (XY): 42 products drawn; median of the 17 it counts 10 %, middle half 5.77⁠–⁠11 %; lowest Raise3D Premium ABS, highest Raise3D Hyper Speed ABS.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 42 products drawn; median of the 17 it counts 8.81 %, middle half 5.58⁠–⁠10 %; lowest Raise3D Premium ABS, highest Raise3D Hyper Speed ABS.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 171-171",
+   "before": "⟦aria-label: Notched Charpy impact: 17 products drawn; median of the 7 it counts 20 kJ/m², middle half 18⁠–⁠21.5 kJ/m²; lowest Polymaker ABS Max, highest BigRep ABS.⟧",
+   "after": "⟦aria-label: Notched Charpy impact: 17 products drawn; median of the 7 it counts 19 kJ/m², middle half 18⁠–⁠21.1 kJ/m²; lowest Polymaker ABS Max, highest BigRep ABS.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 177-181",
+   "before": "Tensile strength (XY) (MPa) | 18 | 34.5 | 33⁠–⁠35.6 | Eryone Hyper -Speed ABS, 15.7 | Raise3D Hyper Speed ABS, 45 | 25 | 3 | ⏎ Tensile modulus (XY) (GPa) | 13 | 2.2 | 2.02⁠–⁠2.25 | Raise3D Hyper Spee… (578 chars, sha256:1ccaaa6796ff)",
+   "after": "Tensile strength (XY) (MPa) | 18 | 34.9 | 33⁠–⁠35.7 | Eryone Hyper -Speed ABS, 15.7 | Raise3D Hyper Speed ABS, 45 | 25 | 3 | ⏎ Tensile modulus (XY) (GPa) | 13 | 2.2 | 2⁠–⁠2.26 | Raise3D Hyper Speed A… (575 chars, sha256:eac2c4ed5fc4)"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 301-305",
+   "before": "Tensile strength MPa | 34.533⁠–⁠35.6 | 18 | 27.324.6⁠–⁠28.3 | 12 | 73 %9 products | ⏎ Tensile modulus GPa | 2.22.02⁠–⁠2.25 | 13 | 1.971.96⁠–⁠2.1 | 9 | 89 %7 products | ⏎ Elongation at break % | 105.7… (421 chars, sha256:4e2351bed850)",
+   "after": "Tensile strength MPa | 34.933⁠–⁠35.7 | 18 | 2723.7⁠–⁠28.5 | 12 | 73 %9 products | ⏎ Tensile modulus GPa | 2.22⁠–⁠2.26 | 13 | 2.021.96⁠–⁠2.15 | 9 | 89 %7 products | ⏎ Elongation at break % | 8.815.58⁠… (421 chars, sha256:82139407ae7a)"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 309-309",
+   "before": "Most ABS products deflect at 89⁠–⁠99 °C under 0.45 MPa",
+   "after": "Most ABS products deflect at 90⁠–⁠100 °C under 0.45 MPa"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 318-318",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 28 products drawn; median of the 18 it counts 95 °C, middle half 89⁠–⁠99 °C; lowest eSUN ABS+, highest Polymaker ABS Max.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 28 products drawn; median of the 18 it counts 95 °C, middle half 90⁠–⁠100 °C; lowest eSUN ABS+, highest Polymaker ABS Max.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 32-32",
+   "before": "⟦aria-label: Tensile modulus (XY): median 2.2 GPa, middle half 2.02⁠–⁠2.25 GPa, lowest to highest 1.77⁠–⁠2.38 GPa, 13 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): median 2.2 GPa, middle half 2⁠–⁠2.26 GPa, lowest to highest 1.77⁠–⁠2.38 GPa, 13 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 324-324",
+   "before": "⟦aria-label: Glass transition (Tg): 20 products drawn; median of the 20 it counts 105 °C, middle half 105⁠–⁠108 °C; lowest Creality Hyper-ABS, highest Polymaker ABS Max.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): 20 products drawn; median of the 20 it counts 105 °C, middle half 105⁠–⁠109 °C; lowest Creality Hyper-ABS, highest Polymaker ABS Max.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 328-328",
+   "before": "HDT at 0.45 MPa (°C) | 18 | 95 | 89⁠–⁠99 | eSUN ABS+, 79 | Polymaker ABS Max, 118 | 9 | 2 |",
+   "after": "HDT at 0.45 MPa (°C) | 18 | 95 | 90⁠–⁠100 | eSUN ABS+, 79 | Polymaker ABS Max, 118 | 9 | 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 330-330",
+   "before": "Glass transition (Tg) (°C) | 20 | 105 | 105⁠–⁠108 | Creality Hyper-ABS, 81 | Polymaker ABS Max, 126 | 0 | 0 |",
+   "after": "Glass transition (Tg) (°C) | 20 | 105 | 105⁠–⁠109 | Creality Hyper-ABS, 81 | Polymaker ABS Max, 126 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "13 products · middle half 2.02–2.25",
+   "after": "13 products · middle half 2–2.26"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 357-357",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 95 °C, middle half 89⁠–⁠99 °C, 18 products.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 95 °C, middle half 90⁠–⁠100 °C, 18 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 36-37",
+   "before": "34.5MPa ⏎ ⟦aria-label: Tensile strength (XY): median 34.5 MPa, middle half 33⁠–⁠35.6 MPa, lowest to highest 15.7⁠–⁠45 MPa, 18 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "34.9MPa ⏎ ⟦aria-label: Tensile strength (XY): median 34.9 MPa, middle half 33⁠–⁠35.7 MPa, lowest to highest 15.7⁠–⁠45 MPa, 18 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 363-363",
+   "before": "⟦aria-label: Glass transition (Tg): median 105 °C, middle half 105⁠–⁠108 °C, 20 products.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): median 105 °C, middle half 105⁠–⁠109 °C, 20 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 375-375",
+   "before": "HDT at 0.45 MPa | 95 °C (89⁠–⁠99 °C) | 18 | — |",
+   "after": "HDT at 0.45 MPa | 95 °C (90⁠–⁠100 °C) | 18 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 377-377",
+   "before": "Glass transition (Tg) | 105 °C (105⁠–⁠108 °C) | 20 | — |",
+   "after": "Glass transition (Tg) | 105 °C (105⁠–⁠109 °C) | 20 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "18 products · middle half 33–35.6",
+   "after": "18 products · middle half 33–35.7"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "27.3MPa ⏎ ⟦aria-label: Tensile strength (Z): median 27.3 MPa, middle half 24.6⁠–⁠28.3 MPa, lowest to highest 13.2⁠–⁠33 MPa, 12 products; scale 0 to 60 MPa, the same on every material's page⟧",
+   "after": "27MPa ⏎ ⟦aria-label: Tensile strength (Z): median 27 MPa, middle half 23.7⁠–⁠28.5 MPa, lowest to highest 13.2⁠–⁠33 MPa, 12 products; scale 0 to 60 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 44-44",
+   "before": "12 products · middle half 24.6–28.3",
+   "after": "12 products · middle half 23.7–28.5"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 46-47",
+   "before": "20kJ/m² ⏎ ⟦aria-label: Notched Charpy impact: median 20 kJ/m², middle half 18⁠–⁠21.5 kJ/m², lowest to highest 10.5⁠–⁠30 kJ/m², 7 products; scale 1 to 50 kJ/m², logarithmic, the same on every material… (207 chars, sha256:82b7bc5a6afa)",
+   "after": "19kJ/m² ⏎ ⟦aria-label: Notched Charpy impact: median 19 kJ/m², middle half 18⁠–⁠21.1 kJ/m², lowest to highest 10.5⁠–⁠30 kJ/m², 7 products; scale 1 to 50 kJ/m², logarithmic, the same on every material… (207 chars, sha256:549a60928cd0)"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 49-49",
+   "before": "7 products · middle half 18–21.5",
+   "after": "7 products · middle half 18–21.1"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 52-52",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 95 °C, middle half 89⁠–⁠99 °C, lowest to highest 79⁠–⁠118 °C, 18 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 95 °C, middle half 90⁠–⁠100 °C, lowest to highest 79⁠–⁠118 °C, 18 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 54-54",
+   "before": "18 products · middle half 89–99",
+   "after": "18 products · middle half 90–100"
+  },
+  {
+   "case": "pages",
+   "record": "M027.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against ABS-CF, ABS is 49 % less stiff, 22 % weaker flat and 11 % less expensive. Against ABS-GF, ABS is 3.1 times as tough in notched impact, 26 % weaker flat and 20 % less stiff. Among the material… (416 chars, sha256:82dac9ba6f5a)",
+   "after": "Against ABS-CF, ABS is 49 % less stiff, 21 % weaker flat and 11 % less expensive. Against ABS-GF, ABS is 2.9 times as tough in notched impact, 25 % weaker flat and 20 % less stiff. Among the material… (416 chars, sha256:0d426b6ba85a)"
+  },
+  {
+   "case": "pages",
+   "record": "M028.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M028.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M029.html",
+   "tier": "wording",
+   "field": "lines 113-113",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M029.html",
+   "tier": "wording",
+   "field": "lines 141-141",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M030.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M030.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M030.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against ABS-CF, ABS-ESD is 5.0 times as expensive, 51 % less stiff and 26 % weaker across the layers. Against ABS-GF, ABS-ESD is 29 % weaker across the layers, 25 % weaker flat and 23 % less stiff. A… (436 chars, sha256:ad57beb98baf)",
+   "after": "Against ABS-CF, ABS-ESD is 5.0 times as expensive, 51 % less stiff and 26 % weaker across the layers. Against ABS-GF, ABS-ESD is 29 % weaker across the layers, 25 % weaker flat and 23 % less stiff. A… (414 chars, sha256:defb00fe933f)"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 116-116",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 118-118",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 144-144",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 146-146",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 289-289",
+   "before": "⟦aria-label: HDT at 1.8 MPa: 17 products drawn; median of the 14 it counts 86 °C, middle half 86⁠–⁠87 °C; lowest Filament2Print ASA, highest Polymaker ASA.⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: 17 products drawn; median of the 14 it counts 86 °C, middle half 85⁠–⁠88 °C; lowest Filament2Print ASA, highest Polymaker ASA.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 297-297",
+   "before": "HDT at 1.8 MPa (°C) | 14 | 86 | 86⁠–⁠87 | Filament2Print ASA, 68 | Polymaker ASA, 100 | 3 | 0 |",
+   "after": "HDT at 1.8 MPa (°C) | 14 | 86 | 85⁠–⁠88 | Filament2Print ASA, 68 | Polymaker ASA, 100 | 3 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 321-321",
+   "before": "⟦aria-label: HDT at 1.8 MPa: median 86 °C, middle half 86⁠–⁠87 °C, 14 products.⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: median 86 °C, middle half 85⁠–⁠88 °C, 14 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M031.html",
+   "tier": "wording",
+   "field": "lines 341-341",
+   "before": "HDT at 1.8 MPa | 86 °C (86⁠–⁠87 °C) | 14 | — |",
+   "after": "HDT at 1.8 MPa | 86 °C (85⁠–⁠88 °C) | 14 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 276-276",
+   "before": "ASA-CF's HDT is typically 101 °C under 0.45 MPa and 96 °C under 1.8 MPa, against a glass transition of 105⁠–⁠107 °C. As published, Vicat softening is typically 102 °C.",
+   "after": "ASA-CF's HDT is typically 101 °C under 0.45 MPa and 97 °C under 1.8 MPa, against a glass transition of 105⁠–⁠107 °C. As published, Vicat softening is typically 102 °C."
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 288-288",
+   "before": "⟦aria-label: HDT at 1.8 MPa: 6 products drawn; median of the 5 it counts 96 °C, middle half 95⁠–⁠97 °C; lowest Spectrum ASA-X CF10, highest Bambu Lab ASA-CF.⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: 6 products drawn; median of the 5 it counts 97 °C, middle half 96⁠–⁠98 °C; lowest Spectrum ASA-X CF10, highest Bambu Lab ASA-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 293-293",
+   "before": "HDT at 1.8 MPa (°C) | 5 | 96 | 95⁠–⁠97 | Spectrum ASA-X CF10, 95 | Bambu Lab ASA-CF, 102 | 1 | 0 |",
+   "after": "HDT at 1.8 MPa (°C) | 5 | 97 | 96⁠–⁠98 | Spectrum ASA-X CF10, 95 | Bambu Lab ASA-CF, 102 | 1 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 321-322",
+   "before": "⟦aria-label: HDT at 1.8 MPa: median 96 °C, middle half 95⁠–⁠97 °C, 5 products.⟧ ⏎ 96 °C",
+   "after": "⟦aria-label: HDT at 1.8 MPa: median 97 °C, middle half 96⁠–⁠98 °C, 5 products.⟧ ⏎ 97 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 341-341",
+   "before": "HDT at 1.8 MPa | 96 °C (95⁠–⁠97 °C) | 5 | — |",
+   "after": "HDT at 1.8 MPa | 97 °C (96⁠–⁠98 °C) | 5 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M033.html",
+   "tier": "wording",
+   "field": "lines 411-411",
+   "before": "ASA-CF's density is typically 1,100 kg/m³, the middle half 1,080⁠–⁠1,110 kg/m³, across 16 products. ASA-CF typically costs 65 CAD/kg, the middle half 54⁠–⁠120 CAD/kg, across the 5 products with a reg… (295 chars, sha256:0cbd3c284ea9)",
+   "after": "ASA-CF's density is typically 1,090 kg/m³, the middle half 1,080⁠–⁠1,110 kg/m³, across 16 products. ASA-CF typically costs 65 CAD/kg, the middle half 54⁠–⁠120 CAD/kg, across the 5 products with a reg… (295 chars, sha256:12178b3e1fd3)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "after line 118",
+   "before": "",
+   "after": "PVDF | 2.45 · 1 | 51 · 1 | — | — | 158 · 1 | 356 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "after line 146",
+   "before": "",
+   "after": "PVDF | 2.45 GPa · 1 | 51 MPa · 1 | 356 CAD/kg · 1 | 158 °C · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "after line 305",
+   "before": "",
+   "after": "HDT at 0.45 MPa15 products ⏎ ⟦aria-label: HDT at 0.45 MPa: median 119 °C, middle half 112⁠–⁠139 °C, 15 products.⟧ ⏎ 119 °C ⏎ HDT at 1.8 MPa11 products ⏎ ⟦aria-label: HDT at 1.8 MPa: median 119 °C, mi… (245 chars, sha256:5116f8386432)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "after line 324",
+   "before": "",
+   "after": "HDT at 0.45 MPa | 119 °C (112⁠–⁠139 °C) | 15 | — | ⏎ HDT at 1.8 MPa | 119 °C (107⁠–⁠132 °C) | 11 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "after line 97",
+   "before": "",
+   "after": "PVDF ⟨M096.html⟩3 products"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "123 50 150 250",
+   "after": "119 50 150 250"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 113-113",
+   "before": "PC (this material) | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC (this material) | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 116-117",
+   "before": "PA6/66 | 2.34 · 2 | 61 · 3 | 45.8 · 1 | 6.9 · 1 | 119 · 3 | 40 · 3 | ⏎ PVDF | 2.45 · 1 | 51 · 1 | — | — | 158 · 1 | 356 · 1 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 130-131",
+   "before": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PC and its alternatives PC-CF, PC-GF, PA6/66, PVDF and ASA named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 1 … (231 chars, sha256:379d732639bc)",
+   "after": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PC and its alternatives PC-CF, PC-GF, ABS, ASA and PVDF named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 1 2 5… (230 chars, sha256:d2f8aa624002)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 135-136",
+   "before": "⟦aria-label: HDT at 0.45 MPa against price: every material's median as a point; PC and its alternatives PC-CF, PC-GF, PA6/66, PVDF and ASA named.⟧ ⏎ 50 100 150 200 250 300 20 50 100 200 500 PC PC-CF … (220 chars, sha256:12ccb22a9d1f)",
+   "after": "⟦aria-label: HDT at 0.45 MPa against price: every material's median as a point; PC and its alternatives PC-CF, PC-GF, ABS, ASA and PVDF named.⟧ ⏎ 50 100 150 200 250 300 20 50 100 200 500 PC PC-CF PC-… (214 chars, sha256:6bd99957cefe)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 141-141",
+   "before": "PC (this material) | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC (this material) | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 144-145",
+   "before": "PA6/66 | 2.34 GPa · 2 | 61 MPa · 3 | 40 CAD/kg · 3 | 119 °C · 3 | ⏎ PVDF | 2.45 GPa · 1 | 51 MPa · 1 | 356 CAD/kg · 1 | 158 °C · 1 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 204-204",
+   "before": "⟦aria-label: Share kept across the layers: PC 75 %, PA6/66 59 %, ASA 59 %, PC-GF 53 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: PC 75 %, ABS 73 %, ASA 59 %, PC-GF 53 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 206-206",
+   "before": "Share kept: PC 75 % · PA6/66 59 % · ASA 59 % · PC-GF 53 %",
+   "after": "Share kept: PC 75 % · ABS 73 % · ASA 59 % · PC-GF 53 %"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 212-212",
+   "before": "⟦aria-label: Share kept across the layers: PC 88 %, ASA 88 %, PA6/66 82 %, PC-GF 46 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: ABS 89 %, PC 88 %, ASA 88 %, PC-GF 46 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 214-214",
+   "before": "Share kept: PC 88 % · ASA 88 % · PA6/66 82 % · PC-GF 46 %",
+   "after": "Share kept: ABS 89 % · PC 88 % · ASA 88 % · PC-GF 46 %"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 220-220",
+   "before": "⟦aria-label: Share kept across the layers: PC-GF 62 %, PC 59 %, ASA 50 %, PA6/66 10 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: PC-GF 62 %, PC 59 %, ASA 50 %, ABS 38 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 222-222",
+   "before": "Share kept: PC-GF 62 % · PC 59 % · ASA 50 % · PA6/66 10 %",
+   "after": "Share kept: PC-GF 62 % · PC 59 % · ASA 50 % · ABS 38 %"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 239-239",
+   "before": "PA6/66 (alternative) | Tensile strength | | | 59 % · 1 |",
+   "after": "ABS (alternative) | Tensile strength | | | 73 % · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 242-242",
+   "before": "PA6/66 (alternative) | Tensile modulus | | | 82 % · 1 |",
+   "after": "ABS (alternative) | Tensile modulus | | | 89 % · 7 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 245-245",
+   "before": "PA6/66 (alternative) | Elongation at break | | | 10 % · 1 |",
+   "after": "ABS (alternative) | Elongation at break | | | 38 % · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 260-261",
+   "before": "PC is amorphous as printed, so it softens at its glass transition, typically 116 °C: its HDT is 123 °C under 0.45 MPa and 121 °C under 1.8 MPa. As published, Vicat softening is typically 119 °C. ⏎ Mo… (252 chars, sha256:de48f808acdc)",
+   "after": "PC is amorphous as printed, so it softens at its glass transition, typically 116 °C: its HDT is 119 °C under 0.45 MPa and 119 °C under 1.8 MPa. As published, Vicat softening is typically 119 °C. ⏎ Mo… (252 chars, sha256:d28dc8512e1a)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 268-268",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 18 products drawn; median of the 15 it counts 123 °C, middle half 113⁠–⁠139 °C; lowest SUNLU PC, highest Yousu PC.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 18 products drawn; median of the 15 it counts 119 °C, middle half 112⁠–⁠139 °C; lowest SUNLU PC, highest Yousu PC.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 271-271",
+   "before": "⟦aria-label: HDT at 1.8 MPa: 13 products drawn; median of the 11 it counts 121 °C, middle half 107⁠–⁠131 °C; lowest Polymaker PolyMax PC, highest Fabru Polycarbonat (PC).⟧",
+   "after": "⟦aria-label: HDT at 1.8 MPa: 13 products drawn; median of the 11 it counts 119 °C, middle half 107⁠–⁠132 °C; lowest Polymaker PolyMax PC, highest Fabru Polycarbonat (PC).⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 278-279",
+   "before": "HDT at 0.45 MPa (°C) | 15 | 123 | 113⁠–⁠139 | SUNLU PC, 101 | Yousu PC, 144 | 3 | 0 | ⏎ HDT at 1.8 MPa (°C) | 11 | 121 | 107⁠–⁠131 | Polymaker PolyMax PC, 99 | Fabru Polycarbonat (PC), 141 | 2 | 0 |",
+   "after": "HDT at 0.45 MPa (°C) | 15 | 119 | 112⁠–⁠139 | SUNLU PC, 101 | Yousu PC, 144 | 3 | 0 | ⏎ HDT at 1.8 MPa (°C) | 11 | 119 | 107⁠–⁠132 | Polymaker PolyMax PC, 99 | Fabru Polycarbonat (PC), 141 | 2 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 284-284",
+   "before": "PC softens near 123 °C, above the H2C's 65 °C chamber; 6 products ask for more than the H2C gives",
+   "after": "PC softens near 119 °C, above the H2C's 65 °C chamber; 6 products ask for more than the H2C gives"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 309-314",
+   "before": "HDT at 1.8 MPa11 products ⏎ ⟦aria-label: HDT at 1.8 MPa: median 121 °C, middle half 107⁠–⁠131 °C, 11 products.⟧ ⏎ 121 °C ⏎ HDT at 0.45 MPa15 products ⏎ ⟦aria-label: HDT at 0.45 MPa: median 123 °C, mi… (245 chars, sha256:f6a2a7861ba3)",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 326-327",
+   "before": "HDT at 1.8 MPa | 121 °C (107⁠–⁠131 °C) | 11 | — | ⏎ HDT at 0.45 MPa | 123 °C (113⁠–⁠139 °C) | 15 | — |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 51-52",
+   "before": "123°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 123 °C, middle half 113⁠–⁠139 °C, lowest to highest 101⁠–⁠144 °C, 15 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "119°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 119 °C, middle half 112⁠–⁠139 °C, lowest to highest 101⁠–⁠144 °C, 15 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 54-54",
+   "before": "15 products · middle half 113–139",
+   "after": "15 products · middle half 112–139"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 61-61",
+   "before": "PC is polycarbonate. Makers sell it for prototypes, tooling and heat-resistant technical parts. It is amorphous as printed, so it softens at its glass transition: its HDT at 0.45 MPa is 123 °C. On th… (372 chars, sha256:3500b2565be6)",
+   "after": "PC is polycarbonate. Makers sell it for prototypes, tooling and heat-resistant technical parts. It is amorphous as printed, so it softens at its glass transition: its HDT at 0.45 MPa is 119 °C. On th… (372 chars, sha256:b69234e3dcb5)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 82-83",
+   "before": "Against PC-CF, PC is 54 % less stiff and 14 % weaker flat, and its HDT at 0.45 MPa is 5 °C lower. Against PC-GF, PC is 2.2 times as strong across the layers and 58 % stronger flat. Among the material… (487 chars, sha256:24b33e8cf3eb)",
+   "after": "Against PC-CF, PC is 54 % less stiff and 14 % weaker flat, and its HDT at 0.45 MPa is 9 °C lower. Against PC-GF, PC is 2.2 times as strong across the layers and 58 % stronger flat. Among the material… (450 chars, sha256:6712c0d23fa3)"
+  },
+  {
+   "case": "pages",
+   "record": "M035.html",
+   "tier": "wording",
+   "field": "lines 95-96",
+   "before": "PA6/66 ⟨M057.html⟩7 products ⏎ PVDF ⟨M096.html⟩3 products",
+   "after": "ABS ⟨M027.html⟩55 products"
+  },
+  {
+   "case": "pages",
+   "record": "M036.html",
+   "tier": "wording",
+   "field": "lines 116-116",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M037.html",
+   "tier": "wording",
+   "field": "lines 110-110",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M037.html",
+   "tier": "wording",
+   "field": "lines 138-138",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M037.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Carbon fibre raises PC's HDT at 0.45 MPa by 5 °C: PC-CF's HDT at 0.45 MPa is 128 °C against 123 °C. Carbon fibre raises PC-ABS's HDT at 0.45 MPa by 16 °C: PC-CF's HDT at 0.45 MPa is 128 °C against 11… (459 chars, sha256:9e7b308549e3)",
+   "after": "Carbon fibre raises PC's HDT at 0.45 MPa by 9 °C: PC-CF's HDT at 0.45 MPa is 128 °C against 119 °C. Carbon fibre raises PC-ABS's HDT at 0.45 MPa by 16 °C: PC-CF's HDT at 0.45 MPa is 128 °C against 11… (459 chars, sha256:db06d278e2c3)"
+  },
+  {
+   "case": "pages",
+   "record": "M038.html",
+   "tier": "wording",
+   "field": "lines 112-112",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M045.html",
+   "tier": "wording",
+   "field": "lines 106-106",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M045.html",
+   "tier": "wording",
+   "field": "lines 129-129",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M045.html",
+   "tier": "wording",
+   "field": "lines 76-76",
+   "before": "Against TPU 95A class, PEBA's tensile strength (XY) is about the same: 30 MPa against 29 MPa. Against TPU 85A class and softer, PEBA is 36 % stronger flat. Among the materials, PEBA has a high elonga… (412 chars, sha256:cf000dcdcc03)",
+   "after": "Against TPU 95A class, PEBA's tensile strength (XY) is about the same: 30 MPa against 30 MPa. Against TPU 85A class and softer, PEBA is 36 % stronger flat. Among the materials, PEBA has a high elonga… (412 chars, sha256:bf04a81bb33a)"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 103-103",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 126-126",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 134-134",
+   "before": "TPC's products spread most in elongation at break: the middle half runs 398⁠–⁠425 %",
+   "after": "What each of TPC's 12 products publishes, property by property"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "⟦aria-label: Elongation at break (XY): 10 products drawn; median of the 4 it counts 400 %, middle half 398⁠–⁠425 %; lowest DSM Arnitel ID 2045, highest Kimya TPC-91A.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 10 products drawn; median of the 4 it counts 400 %; lowest DSM Arnitel ID 2045, highest Kimya TPC-91A.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 148-148",
+   "before": "Elongation at break (XY) (%) | 4 | 400 | 398⁠–⁠425 | DSM Arnitel ID 2045, 390 | Kimya TPC-91A, 500 | 5 | 2 |",
+   "after": "Elongation at break (XY) (%) | 4 | 400 | — | DSM Arnitel ID 2045, 390 | Kimya TPC-91A, 500 | 5 | 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 170-170",
+   "before": "Most TPC products measure 88.5⁠–⁠91.3 Shore A or 30⁠–⁠41.3 Shore D",
+   "after": "Most TPC products measure 88.5⁠–⁠91.3 Shore A or 32⁠–⁠42.5 Shore D"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 180-180",
+   "before": "⟦aria-label: Shore D hardness: 9 products drawn; median of the 8 it counts 37 Shore D, middle half 30⁠–⁠41.3 Shore D; lowest FormFutura FlexiFil TPC 30D, highest FormFutura FlexiFil.⟧",
+   "after": "⟦aria-label: Shore D hardness: 9 products drawn; median of the 8 it counts 40 Shore D, middle half 32⁠–⁠42.5 Shore D; lowest FormFutura FlexiFil TPC 30D, highest FormFutura FlexiFil.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 185-185",
+   "before": "Shore D hardness (Shore D) | 8 | 37 | 30⁠–⁠41.3 | FormFutura FlexiFil TPC 30D, 30 | FormFutura FlexiFil, 45 | 0 | 1 |",
+   "after": "Shore D hardness (Shore D) | 8 | 40 | 32⁠–⁠42.5 | FormFutura FlexiFil TPC 30D, 30 | FormFutura FlexiFil, 45 | 0 | 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M046.html",
+   "tier": "wording",
+   "field": "lines 73-73",
+   "before": "Against TPU 95A class, TPC / TPEE is 56 % weaker flat, 78 % stiffer and 6 % more expensive. Against TPU 85A class and softer, TPC / TPEE is 3.8 times as stiff, 42 % weaker flat and 52 % more expensiv… (444 chars, sha256:c1cf259bb3c9)",
+   "after": "Against TPU 95A class, TPC / TPEE is 58 % weaker flat, 80 % stiffer and 6 % more expensive. Against TPU 85A class and softer, TPC / TPEE is 3.8 times as stiff, 42 % weaker flat and 52 % more expensiv… (444 chars, sha256:d79c983bf6d9)"
+  },
+  {
+   "case": "pages",
+   "record": "M048.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M048.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 220 °C · 5 |",
+   "after": "PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 224 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M048.html",
+   "tier": "wording",
+   "field": "lines 83-83",
+   "before": "Against its alternatives, PAHT-CF has the highest tensile modulus and the lowest tensile strength (Z)",
+   "after": "Against its alternatives, PAHT-CF has the lowest tensile strength (Z)"
+  },
+  {
+   "case": "pages",
+   "record": "M049.html",
+   "tier": "wording",
+   "field": "lines 109-111",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPS-CF | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 220 °C · 5 |",
+   "after": "PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 224 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "PPS-CF | 8 GPa · 5 | 87 MPa · 5 | 210 CAD/kg · 2 | 251 °C · 5 |",
+   "after": "PPS-CF | 7.73 GPa · 5 | 75 MPa · 5 | 210 CAD/kg · 2 | 252 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 415-415",
+   "before": "PA6-CF's density is typically 1,180 kg/m³, the middle half 1,160⁠–⁠1,200 kg/m³, across 14 products. PA6-CF typically costs 130 CAD/kg, the middle half 113⁠–⁠160 CAD/kg, across the 4 products with a r… (301 chars, sha256:8cb25defd44e)",
+   "after": "PA6-CF's density is typically 1,170 kg/m³, the middle half 1,150⁠–⁠1,200 kg/m³, across 14 products. PA6-CF typically costs 130 CAD/kg, the middle half 113⁠–⁠160 CAD/kg, across the 4 products with a r… (301 chars, sha256:5e088f401cbb)"
+  },
+  {
+   "case": "pages",
+   "record": "M050.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PA6-GF, PA6-CF is 56 % tougher in notched impact, 55 % more expensive and 21 % weaker across the layers. Against PPA-CF, PA6-CF is 43 % less stiff and 35 % weaker flat, and its HDT at 0.45 MP… (458 chars, sha256:6a61cee6464c)",
+   "after": "Against PA6-GF, PA6-CF is 56 % tougher in notched impact, 55 % more expensive and 21 % weaker across the layers. Against PPA-CF, PA6-CF is 47 % less stiff and 35 % weaker flat, and its HDT at 0.45 MP… (458 chars, sha256:cd0db8ee132a)"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 106-106",
+   "before": "1 below 3 above 8.6 1 10",
+   "after": "1 below 3 above 8.6 — 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 117-117",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 119-119",
+   "before": "PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPA-GF | 6.56 · 3 | 100 · 3 | 57.5 · 2 | — | 196 · 3 | 106 · 1 | ⏎ PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 131-131",
+   "before": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PA6-GF and its alternatives PA6-CF, PPA-CF, PAHT-CF and PPS-CF named.⟧",
+   "after": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PA6-GF and its alternatives PA6-CF, PAHT-CF, PPA-GF and PPA-CF named.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 136-137",
+   "before": "⟦aria-label: HDT at 0.45 MPa against price: every material's median as a point; PA6-GF and its alternatives PA6-CF, PPA-CF, PAHT-CF and PPS-CF named.⟧ ⏎ 50 100 150 200 250 300 20 50 100 200 500 PA6-G… (229 chars, sha256:d90496b5f275)",
+   "after": "⟦aria-label: HDT at 0.45 MPa against price: every material's median as a point; PA6-GF and its alternatives PA6-CF, PAHT-CF, PPA-GF and PPA-CF named.⟧ ⏎ 50 100 150 200 250 300 20 50 100 200 500 PA6-G… (229 chars, sha256:587ed7d0449e)"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 145-145",
+   "before": "PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 220 °C · 5 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 147-147",
+   "before": "PPS-CF | 8 GPa · 5 | 87 MPa · 5 | 210 CAD/kg · 2 | 251 °C · 5 |",
+   "after": "PPA-GF | 6.56 GPa · 3 | 100 MPa · 3 | 106 CAD/kg · 1 | 196 °C · 3 | ⏎ PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 224 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 203-203",
+   "before": "⟦aria-label: Share kept across the layers: PA6-GF 73 %, PA6-CF 49 %, PPS-CF 45 %, PPA-CF 34 %, PAHT-CF 31 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: PA6-GF 73 %, PPA-GF 60 %, PA6-CF 49 %, PPA-CF 34 %, PAHT-CF 31 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 205-205",
+   "before": "Share kept: PA6-GF 73 % · PA6-CF 49 % · PPS-CF 45 % · PPA-CF 34 % · PAHT-CF 31 %",
+   "after": "Share kept: PA6-GF 73 % · PPA-GF 60 % · PA6-CF 49 % · PPA-CF 34 % · PAHT-CF 31 %"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 211-211",
+   "before": "⟦aria-label: Share kept across the layers: PA6-GF 68 %, PA6-CF 46 %, PAHT-CF 42 %, PPS-CF 36 %, PPA-CF 36 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: PA6-GF 68 %, PPA-GF 63 %, PA6-CF 46 %, PAHT-CF 42 %, PPA-CF 36 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 213-213",
+   "before": "Share kept: PA6-GF 68 % · PA6-CF 46 % · PAHT-CF 42 % · PPS-CF 36 % · PPA-CF 36 %",
+   "after": "Share kept: PA6-GF 68 % · PPA-GF 63 % · PA6-CF 46 % · PAHT-CF 42 % · PPA-CF 36 %"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 219-219",
+   "before": "⟦aria-label: Share kept across the layers: PA6-GF 85 %, PPS-CF 77 %, PA6-CF 77 %, PAHT-CF 49 %, PPA-CF 28 %.⟧",
+   "after": "⟦aria-label: Share kept across the layers: PA6-GF 85 %, PA6-CF 77 %, PPA-GF 58 %, PAHT-CF 49 %, PPA-CF 28 %.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 221-221",
+   "before": "Share kept: PA6-GF 85 % · PPS-CF 77 % · PA6-CF 77 % · PAHT-CF 49 % · PPA-CF 28 %",
+   "after": "Share kept: PA6-GF 85 % · PA6-CF 77 % · PPA-GF 58 % · PAHT-CF 49 % · PPA-CF 28 %"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 235-235",
+   "before": "PPA-CF (alternative) | Tensile strength | | | 34 % · 1 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 237-237",
+   "before": "PPS-CF (alternative) | Tensile strength | | | 45 % · 3 |",
+   "after": "PPA-GF (alternative) | Tensile strength | | | 60 % · 2 | ⏎ PPA-CF (alternative) | Tensile strength | | | 34 % · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 239-239",
+   "before": "PPA-CF (alternative) | Tensile modulus | | | 36 % · 1 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 241-241",
+   "before": "PPS-CF (alternative) | Tensile modulus | | | 36 % · 3 |",
+   "after": "PPA-GF (alternative) | Tensile modulus | | | 63 % · 2 | ⏎ PPA-CF (alternative) | Tensile modulus | | | 36 % · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 243-243",
+   "before": "PPA-CF (alternative) | Elongation at break | | | 28 % · 1 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 245-245",
+   "before": "PPS-CF (alternative) | Elongation at break | | | 77 % · 3 |",
+   "after": "PPA-GF (alternative) | Elongation at break | | | 58 % · 2 | ⏎ PPA-CF (alternative) | Elongation at break | | | 28 % · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 402-402",
+   "before": "PA6-GF's density is typically 1,310 kg/m³, the middle half 1,200⁠–⁠1,340 kg/m³, across 9 products. PA6-GF typically costs 84 CAD/kg, across the 3 products with a regular price in the sample; the lowe… (264 chars, sha256:3983351f9140)",
+   "after": "PA6-GF's density is typically 1,290 kg/m³, the middle half 1,200⁠–⁠1,340 kg/m³, across 9 products. PA6-GF typically costs 84 CAD/kg, across the 3 products with a regular price in the sample; the lowe… (264 chars, sha256:943590ef74eb)"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PA6-CF, PA6-GF is 36 % less tough in notched impact, 35 % less expensive and 26 % stronger across the layers. Against PPA-CF, PA6-GF is 43 % less stiff and 24 % weaker flat, and its HDT at 0.… (472 chars, sha256:d6eae419f510)",
+   "after": "Against PA6-CF, PA6-GF is 36 % less tough in notched impact, 35 % less expensive and 26 % stronger across the layers. Against PAHT-CF, PA6-GF is 48 % less stiff, 38 % less tough in notched impact and… (474 chars, sha256:65af3bc035e5)"
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 96-96",
+   "before": "PPA-CF ⟨M070.html⟩8 products",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M051.html",
+   "tier": "wording",
+   "field": "lines 98-98",
+   "before": "PPS-CF ⟨M073.html⟩7 products",
+   "after": "PPA-GF ⟨M071.html⟩5 products ⏎ PPA-CF ⟨M070.html⟩8 products"
+  },
+  {
+   "case": "pages",
+   "record": "M052.html",
+   "tier": "wording",
+   "field": "lines 106-106",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M052.html",
+   "tier": "wording",
+   "field": "lines 108-108",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 |"
+  },
+  {
+   "case": "pages",
+   "record": "M057.html",
+   "tier": "wording",
+   "field": "lines 115-115",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M057.html",
+   "tier": "wording",
+   "field": "lines 143-143",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M057.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against ASA, PA6/66 is 58 % stronger flat and 12 % stiffer, and its HDT at 0.45 MPa is 24 °C higher. Against PC, PA6/66 is 22 % less expensive and 9 % stiffer, and its HDT at 0.45 MPa is 4 °C lower. … (413 chars, sha256:c7cdc094d41f)",
+   "after": "Against ASA, PA6/66 is 58 % stronger flat and 12 % stiffer, and its HDT at 0.45 MPa is 24 °C higher. Against PC, PA6/66 is 22 % less expensive and 9 % stiffer. Among the materials, PA6/66 has a high … (374 chars, sha256:bf07370bf03d)"
+  },
+  {
+   "case": "pages",
+   "record": "M066.html",
+   "tier": "wording",
+   "field": "lines 112-114",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 | ⏎ ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 2… (430 chars, sha256:2bb27ab3b163)",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 | ⏎ ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23… (424 chars, sha256:ac9e273317fb)"
+  },
+  {
+   "case": "pages",
+   "record": "M066.html",
+   "tier": "wording",
+   "field": "lines 140-142",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15… (201 chars, sha256:08193d9e2384)",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "220 50 150 250",
+   "after": "224 50 150 250"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 113-113",
+   "before": "PPA-CF (this material) | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": "PPA-CF (this material) | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 117-118",
+   "before": "PPS-GF | 4.55 · 3 | 64.1 · 3 | 22.9 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPS-GF | 5.16 · 3 | 68 · 3 | 32.5 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ PPS-CF | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 141-141",
+   "before": "PPA-CF (this material) | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 220 °C · 5 |",
+   "after": "PPA-CF (this material) | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 224 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 145-146",
+   "before": "PPS-GF | 4.55 GPa · 3 | 64.1 MPa · 3 | 137 CAD/kg · 2 | 236 °C · 2 | ⏎ PPS-CF | 8 GPa · 5 | 87 MPa · 5 | 210 CAD/kg · 2 | 251 °C · 5 |",
+   "after": "PPS-GF | 5.16 GPa · 3 | 68 MPa · 3 | 137 CAD/kg · 2 | 236 °C · 2 | ⏎ PPS-CF | 7.73 GPa · 5 | 75 MPa · 5 | 210 CAD/kg · 2 | 252 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 149-150",
+   "before": "Printed flat (XY), PPA-CF typically reaches a tensile strength of 108 MPa at a modulus of 7.65 GPa, and breaks at 3.35 % elongation. In bending, its flexural strength is typically 209 MPa at a flexur… (308 chars, sha256:dc799a10318c)",
+   "after": "Printed flat (XY), PPA-CF typically reaches a tensile strength of 108 MPa at a modulus of 8.2 GPa, and breaks at 3.2 % elongation. In bending, its flexural strength is typically 208 MPa at a flexural… (287 chars, sha256:d2c24fbe1c47)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 157-157",
+   "before": "⟦aria-label: Tensile strength (XY): 6 products drawn; median of the 4 it counts 108 MPa, middle half 103⁠–⁠123 MPa; lowest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), highest Bambu Lab PPA-CF… (201 chars, sha256:a9f8bb21e360)",
+   "after": "⟦aria-label: Tensile strength (XY): 6 products drawn; median of the 4 it counts 108 MPa; lowest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), highest Bambu Lab PPA-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 160-160",
+   "before": "⟦aria-label: Tensile modulus (XY): 6 products drawn; median of the 4 it counts 7.65 GPa, middle half 7.1⁠–⁠9.1 GPa; lowest Flashforge PPA-CF, highest Bambu Lab PPA-CF.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 6 products drawn; median of the 4 it counts 8.2 GPa; lowest Flashforge PPA-CF, highest Bambu Lab PPA-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 163-163",
+   "before": "⟦aria-label: Elongation at break (XY): 6 products drawn; median of the 4 it counts 3.35 %, middle half 2.88⁠–⁠3.5 %; lowest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), highest SIDDAMENT PPA-C… (202 chars, sha256:ab11215b09d3)",
+   "after": "⟦aria-label: Elongation at break (XY): 6 products drawn; median of the 4 it counts 3.2 %; lowest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), highest SIDDAMENT PPA-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 169-171",
+   "before": "Tensile strength (XY) (MPa) | 4 | 108 | 103⁠–⁠123 | 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), 87 | Bambu Lab PPA-CF, 168 | 2 | 0 | ⏎ Tensile modulus (XY) (GPa) | 4 | 7.65 | 7.1⁠–⁠9.1 | Flas… (399 chars, sha256:bf42e6a8d98d)",
+   "after": "Tensile strength (XY) (MPa) | 4 | 108 | — | 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), 87 | Bambu Lab PPA-CF, 168 | 2 | 0 | ⏎ Tensile modulus (XY) (GPa) | 4 | 8.2 | — | Flashforge PPA-CF, 7.… (372 chars, sha256:7709995497a6)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 240-244",
+   "before": "Tensile strength MPa | 108103⁠–⁠123 | 4 | 57 | 1 | 34 %1 product | ⏎ Tensile modulus GPa | 7.657.1⁠–⁠9.1 | 4 | 4.3 | 1 | 36 %1 product | ⏎ Elongation at break % | 3.352.88⁠–⁠3.5 | 4 | 0.9 | 1 | 28 %1… (353 chars, sha256:8b33c2d172ed)",
+   "after": "Tensile strength MPa | 108 | 4 | 57 | 1 | 34 %1 product | ⏎ Tensile modulus GPa | 8.2 | 4 | 4.3 | 1 | 36 %1 product | ⏎ Elongation at break % | 3.2 | 4 | 0.9 | 1 | 28 %1 product | ⏎ Flexural strength… (307 chars, sha256:7b33a195047e)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 247-248",
+   "before": "PPA-CF's HDT is typically 220 °C under 0.45 MPa and 124⁠–⁠196 °C under 1.8 MPa, with its glass transition typically at 83 °C. Semicrystalline, it carries light load well above its glass transition. A… (339 chars, sha256:d1c0ea3e0404)",
+   "after": "PPA-CF's HDT is typically 224 °C under 0.45 MPa and 124⁠–⁠196 °C under 1.8 MPa, with its glass transition typically at 83 °C. Semicrystalline, it carries light load well above its glass transition. A… (339 chars, sha256:55a854c1879f)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 256-256",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 8 products drawn; median of the 5 it counts 220 °C, middle half 220⁠–⁠227 °C; lowest Raise3D Hyper Core PPA CF25, highest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (H… (204 chars, sha256:fc7d9cb23a4c)",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 8 products drawn; median of the 5 it counts 224 °C, middle half 214⁠–⁠230 °C; lowest Raise3D Hyper Core PPA CF25, highest 3DXTECH CarbonX Carbon Fiber High Temp Nylon (H… (204 chars, sha256:9c301a8f3e22)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 263-263",
+   "before": "HDT at 0.45 MPa (°C) | 5 | 220 | 220⁠–⁠227 | Raise3D Hyper Core PPA CF25, 197 | 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), 240 | 3 | 0 |",
+   "after": "HDT at 0.45 MPa (°C) | 5 | 224 | 214⁠–⁠230 | Raise3D Hyper Core PPA CF25, 197 | 3DXTECH CarbonX Carbon Fiber High Temp Nylon (HTN), 240 | 3 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 279-279",
+   "before": "PPA-CF prints within the H2C's limits and softens near 220 °C, above its 65 °C chamber",
+   "after": "PPA-CF prints within the H2C's limits and softens near 224 °C, above its 65 °C chamber"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 304-305",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 220 °C, middle half 220⁠–⁠227 °C, 5 products.⟧ ⏎ 220 °C",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 224 °C, middle half 214⁠–⁠230 °C, 5 products.⟧ ⏎ 224 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "7.65GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 7.65 GPa, middle half 7.1⁠–⁠9.1 GPa, lowest to highest 7.1⁠–⁠11.8 GPa, 4 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's p… (203 chars, sha256:7ddf26f87c85)",
+   "after": "8.2GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 8.2 GPa, lowest to highest 7.1⁠–⁠11.8 GPa, 4 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 323-323",
+   "before": "HDT at 0.45 MPa | 220 °C (220⁠–⁠227 °C) | 5 | — |",
+   "after": "HDT at 0.45 MPa | 224 °C (214⁠–⁠230 °C) | 5 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "4 products · middle half 7.1–9.1",
+   "after": "4 products · 7.1–11.8"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 37-37",
+   "before": "⟦aria-label: Tensile strength (XY): median 108 MPa, middle half 103⁠–⁠123 MPa, lowest to highest 87⁠–⁠168 MPa, 4 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "⟦aria-label: Tensile strength (XY): median 108 MPa, lowest to highest 87⁠–⁠168 MPa, 4 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 385-385",
+   "before": "PPA-CF's density is typically 1,220 kg/m³, the middle half 1,210⁠–⁠1,230 kg/m³, across 8 products. One product has a sampled price: Bambu Lab PPA-CF ⟨M070-products.html#G070-01⟩ at 255 CAD/kg.",
+   "after": "PPA-CF's density is typically 1,230 kg/m³, the middle half 1,210⁠–⁠1,240 kg/m³, across 8 products. One product has a sampled price: Bambu Lab PPA-CF ⟨M070-products.html#G070-01⟩ at 255 CAD/kg."
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "4 products · middle half 103–123",
+   "after": "4 products · 87–168"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 51-52",
+   "before": "220°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 220 °C, middle half 220⁠–⁠227 °C, lowest to highest 197⁠–⁠240 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "224°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 224 °C, middle half 214⁠–⁠230 °C, lowest to highest 197⁠–⁠240 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 54-54",
+   "before": "5 products · middle half 220–227",
+   "after": "5 products · middle half 214–230"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 61-61",
+   "before": "PPA-CF is carbon-fibre-filled polyphthalamide. Makers sell it for automotive, aerospace, electronics, drone and robot parts. It is semicrystalline, so it carries light load well above its glass trans… (380 chars, sha256:0eb518522591)",
+   "after": "PPA-CF is carbon-fibre-filled polyphthalamide. Makers sell it for automotive, aerospace, electronics, drone and robot parts. It is semicrystalline, so it carries light load well above its glass trans… (380 chars, sha256:c493380a317e)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 82-83",
+   "before": "Against PPA-GF, PPA-CF is 17 % stiffer and 8 % stronger flat, and its HDT at 0.45 MPa is 24 °C higher. Against PA6-CF, PPA-CF is 75 % stiffer and 54 % stronger flat, and its HDT at 0.45 MPa is 27 °C … (586 chars, sha256:889a6205672d)",
+   "after": "Against PPA-GF, PPA-CF is 25 % stiffer and 8 % stronger flat, and its HDT at 0.45 MPa is 28 °C higher. Against PA6-CF, PPA-CF is 88 % stiffer and 54 % stronger flat, and its HDT at 0.45 MPa is 31 °C … (603 chars, sha256:0e5a9189ec2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M070.html",
+   "tier": "wording",
+   "field": "lines 99-99",
+   "before": "9 below 1 above 7.65 1 10",
+   "after": "9 below 1 above 8.2 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 111-111",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPS-CF | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 128-128",
+   "before": "5 10 20 50 100 200 0.2 0.5 1 2 5 10 PPA-GF PPA-CF PA6-CF PA6-GF",
+   "after": "5 10 20 50 100 200 0.2 0.5 1 2 5 10 PPA-GF PPA-CF PA6-CF"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 139-139",
+   "before": "PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 220 °C · 5 |",
+   "after": "PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/kg · 1 | 224 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 142-142",
+   "before": "PPS-CF | 8 GPa · 5 | 87 MPa · 5 | 210 CAD/kg · 2 | 251 °C · 5 |",
+   "after": "PPS-CF | 7.73 GPa · 5 | 75 MPa · 5 | 210 CAD/kg · 2 | 252 °C · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M071.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against PPA-CF, PPA-GF is 14 % less stiff and 7 % weaker flat, and its HDT at 0.45 MPa is 24 °C lower. Against PA6-CF, PPA-GF is 50 % stiffer, 43 % stronger flat and 20 % stronger across the layers. … (477 chars, sha256:7b435dc7f699)",
+   "after": "Against PPA-CF, PPA-GF is 20 % less stiff and 7 % weaker flat, and its HDT at 0.45 MPa is 28 °C lower. Against PA6-CF, PPA-GF is 50 % stiffer, 43 % stronger flat and 20 % stronger across the layers. … (477 chars, sha256:3256480e224f)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 101-101",
+   "before": "2 above 87 0 50 100",
+   "after": "2 above 75 0 50 100"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "251 50 150 250",
+   "after": "252 50 150 250"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 113-115",
+   "before": "PPS-CF (this material) | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 | ⏎ PPS-GF | 4.55 · 3 | 64.1 · 3 | 22.9 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ PPA-CF… (297 chars, sha256:3bf92934c25e)",
+   "after": "PPS-CF (this material) | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 | ⏎ PPS-GF | 5.16 · 3 | 68 · 3 | 32.5 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ … (278 chars, sha256:c60c42646471)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 131-131",
+   "before": "5 10 20 50 100 200 0.2 0.5 1 2 5 10 PPS-CF PPS-GF PPA-CF PA6-CF PA6-GF",
+   "after": "5 10 20 50 100 200 0.2 0.5 1 2 5 10 PPS-CF PPA-CF PPA-GF PA6-CF"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 141-143",
+   "before": "PPS-CF (this material) | 8 GPa · 5 | 87 MPa · 5 | 210 CAD/kg · 2 | 251 °C · 5 | ⏎ PPS-GF | 4.55 GPa · 3 | 64.1 MPa · 3 | 137 CAD/kg · 2 | 236 °C · 2 | ⏎ PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | 255 CAD/… (220 chars, sha256:4ae09431af25)",
+   "after": "PPS-CF (this material) | 7.73 GPa · 5 | 75 MPa · 5 | 210 CAD/kg · 2 | 252 °C · 5 | ⏎ PPS-GF | 5.16 GPa · 3 | 68 MPa · 3 | 137 CAD/kg · 2 | 236 °C · 2 | ⏎ PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | 255 CAD/… (220 chars, sha256:b96b578deff7)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 149-150",
+   "before": "Printed flat (XY), PPS-CF typically reaches a tensile strength of 87 MPa at a modulus of 8 GPa, and breaks at 2.2 % elongation. In bending, its flexural strength is typically 125 MPa at a flexural mo… (301 chars, sha256:53c06710e049)",
+   "after": "Printed flat (XY), PPS-CF typically reaches a tensile strength of 75 MPa at a modulus of 7.73 GPa, and breaks at 1.8 % elongation. In bending, its flexural strength is typically 112 MPa at a flexural… (311 chars, sha256:329f1ab4aa2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 156-156",
+   "before": "⟦aria-label: Tensile strength (XY): 5 products drawn; median of the 5 it counts 87 MPa, middle half 63⁠–⁠95 MPa; lowest Polymaker FIBERON PPS CF10, highest SIDDAMENT PPS CF.⟧",
+   "after": "⟦aria-label: Tensile strength (XY): 5 products drawn; median of the 5 it counts 75 MPa, middle half 62.1⁠–⁠89 MPa; lowest Polymaker FIBERON PPS CF10, highest SIDDAMENT PPS CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 159-159",
+   "before": "⟦aria-label: Tensile modulus (XY): 5 products drawn; median of the 5 it counts 8 GPa, middle half 7.46⁠–⁠8 GPa; lowest Polymaker FIBERON PPS CF10, highest Bambu Lab PPS-CF.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 5 products drawn; median of the 5 it counts 7.73 GPa, middle half 6.96⁠–⁠8.06 GPa; lowest Polymaker FIBERON PPS CF10, highest Bambu Lab PPS-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 162-162",
+   "before": "⟦aria-label: Elongation at break (XY): 5 products drawn; median of the 5 it counts 2.2 %, middle half 1.4⁠–⁠4 %; lowest Bambu Lab PPS-CF, highest SIDDAMENT PPS CF.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 5 products drawn; median of the 5 it counts 1.8 %, middle half 1.35⁠–⁠2.65 %; lowest Bambu Lab PPS-CF, highest SIDDAMENT PPS CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 168-170",
+   "before": "Tensile strength (XY) (MPa) | 5 | 87 | 63⁠–⁠95 | Polymaker FIBERON PPS CF10, 59.4 | SIDDAMENT PPS CF, 95 | 0 | 0 | ⏎ Tensile modulus (XY) (GPa) | 5 | 8 | 7.46⁠–⁠8 | Polymaker FIBERON PPS CF10, 5.45 |… (339 chars, sha256:699611561a69)",
+   "after": "Tensile strength (XY) (MPa) | 5 | 75 | 62.1⁠–⁠89 | Polymaker FIBERON PPS CF10, 59.4 | SIDDAMENT PPS CF, 95 | 0 | 0 | ⏎ Tensile modulus (XY) (GPa) | 5 | 7.73 | 6.96⁠–⁠8.06 | Polymaker FIBERON PPS CF10… (351 chars, sha256:6a2da5f8a856)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 250-254",
+   "before": "Tensile strength MPa | 8763⁠–⁠95 | 5 | 28.2 | 3 | 45 %3 products | ⏎ Tensile modulus GPa | 87.46⁠–⁠8 | 5 | 2.79 | 3 | 36 %3 products | ⏎ Elongation at break % | 2.21.4⁠–⁠4 | 5 | 1.6 | 3 | 77 %3 produ… (363 chars, sha256:bc941a386257)",
+   "after": "Tensile strength MPa | 7562.1⁠–⁠89 | 5 | 28.2 | 3 | 45 %3 products | ⏎ Tensile modulus GPa | 7.736.96⁠–⁠8.06 | 5 | 2.79 | 3 | 36 %3 products | ⏎ Elongation at break % | 1.81.35⁠–⁠2.65 | 5 | 1.6 | 3 |… (363 chars, sha256:35a8f6196d2f)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 257-258",
+   "before": "PPS-CF's HDT is typically 251 °C under 0.45 MPa and 132⁠–⁠235 °C under 1.8 MPa, against a glass transition of 92⁠–⁠100 °C. Semicrystalline, it carries light load well above its glass transition. As p… (336 chars, sha256:aee223a094da)",
+   "after": "PPS-CF's HDT is typically 252 °C under 0.45 MPa and 132⁠–⁠235 °C under 1.8 MPa, against a glass transition of 92⁠–⁠100 °C. Semicrystalline, it carries light load well above its glass transition. As p… (336 chars, sha256:6812da2abdb3)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 264-264",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 5 products drawn; median of the 5 it counts 251 °C, middle half 245⁠–⁠253 °C; lowest Flashforge PPS-CF, highest Bambu Lab PPS-CF.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 5 products drawn; median of the 5 it counts 252 °C, middle half 250⁠–⁠255 °C; lowest Flashforge PPS-CF, highest Bambu Lab PPS-CF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 268-268",
+   "before": "HDT at 0.45 MPa (°C) | 5 | 251 | 245⁠–⁠253 | Flashforge PPS-CF, 245 | Bambu Lab PPS-CF, 264 | 0 | 0 |",
+   "after": "HDT at 0.45 MPa (°C) | 5 | 252 | 250⁠–⁠255 | Flashforge PPS-CF, 245 | Bambu Lab PPS-CF, 264 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 281-281",
+   "before": "PPS-CF prints within the H2C's limits and softens near 251 °C, above its 65 °C chamber",
+   "after": "PPS-CF prints within the H2C's limits and softens near 252 °C, above its 65 °C chamber"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 307-308",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 251 °C, middle half 245⁠–⁠253 °C, 5 products.⟧ ⏎ 251 °C",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 252 °C, middle half 250⁠–⁠255 °C, 5 products.⟧ ⏎ 252 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "8GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 8 GPa, middle half 7.46⁠–⁠8 GPa, lowest to highest 5.45⁠–⁠8.23 GPa, 5 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧",
+   "after": "7.73GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 7.73 GPa, middle half 6.96⁠–⁠8.06 GPa, lowest to highest 5.45⁠–⁠8.23 GPa, 5 products; scale 0.2 to 10 GPa, logarithmic, the same on every material'… (206 chars, sha256:18f199a8a9a4)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 326-326",
+   "before": "HDT at 0.45 MPa | 251 °C (245⁠–⁠253 °C) | 5 | — |",
+   "after": "HDT at 0.45 MPa | 252 °C (250⁠–⁠255 °C) | 5 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "5 products · middle half 7.46–8",
+   "after": "5 products · middle half 6.96–8.06"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 36-37",
+   "before": "87MPa ⏎ ⟦aria-label: Tensile strength (XY): median 87 MPa, middle half 63⁠–⁠95 MPa, lowest to highest 59.4⁠–⁠95 MPa, 5 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "75MPa ⏎ ⟦aria-label: Tensile strength (XY): median 75 MPa, middle half 62.1⁠–⁠89 MPa, lowest to highest 59.4⁠–⁠95 MPa, 5 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 379-379",
+   "before": "PPS-CF's density is typically 1,300 kg/m³, the middle half 1,290⁠–⁠1,300 kg/m³, across 6 products. PPS-CF typically costs 210 CAD/kg, across the 2 products with a regular price in the sample; the low… (276 chars, sha256:b56cb8ba9a26)",
+   "after": "PPS-CF's density is typically 1,290 kg/m³, the middle half 1,290⁠–⁠1,300 kg/m³, across 6 products. PPS-CF typically costs 210 CAD/kg, across the 2 products with a regular price in the sample; the low… (276 chars, sha256:41d6aea02cb2)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "5 products · middle half 63–95",
+   "after": "5 products · middle half 62.1–89"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 51-52",
+   "before": "251°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 251 °C, middle half 245⁠–⁠253 °C, lowest to highest 245⁠–⁠264 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "252°C ⏎ ⟦aria-label: HDT at 0.45 MPa: median 252 °C, middle half 250⁠–⁠255 °C, lowest to highest 245⁠–⁠264 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 54-54",
+   "before": "5 products · middle half 245–253",
+   "after": "5 products · middle half 250–255"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 61-61",
+   "before": "PPS-CF is carbon-fibre-filled polyphenylene sulfide. A maker sells it for expanded-foam mould tooling and railway parts, and makers say it resists solvents, acids and alkalis. It is semicrystalline, … (429 chars, sha256:4e681742e6d1)",
+   "after": "PPS-CF is carbon-fibre-filled polyphenylene sulfide. A maker sells it for expanded-foam mould tooling and railway parts, and makers say it resists solvents, acids and alkalis. It is semicrystalline, … (429 chars, sha256:873c97b6280f)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 82-83",
+   "before": "Against PPS-GF, PPS-CF is 76 % stiffer, 53 % more expensive and 36 % stronger flat. Against PPA-CF, PPS-CF is 19 % weaker flat, and its HDT at 0.45 MPa is 31 °C higher. Among the materials, PPS-CF ha… (575 chars, sha256:4800bb5f8792)",
+   "after": "Against PPS-GF, PPS-CF is 53 % more expensive, 50 % stiffer and 21 % less tough in notched impact. Against PPA-CF, PPS-CF is 31 % weaker flat and 6 % less stiff, and its HDT at 0.45 MPa is 28 °C high… (634 chars, sha256:bd7a05c9de1b)"
+  },
+  {
+   "case": "pages",
+   "record": "M073.html",
+   "tier": "wording",
+   "field": "lines 99-99",
+   "before": "9 below 1 above 8 1 10",
+   "after": "9 below 1 above 7.73 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 101-101",
+   "before": "2 above 64.1 0 50 100",
+   "after": "2 above 68 0 50 100"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 103-103",
+   "before": "1 above 22.9 0 20 40 60",
+   "after": "1 above 32.5 0 20 40 60"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 113-114",
+   "before": "PPS-GF (this material) | 4.55 · 3 | 64.1 · 3 | 22.9 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPS-GF (this material) | 5.16 · 3 | 68 · 3 | 32.5 · 3 | 7.3 · 2 | 236 · 2 | 137 · 2 | ⏎ PPS-CF | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 116-116",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 |",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 122-122",
+   "before": "Printed flat (XY), PPS-GF typically reaches a tensile strength of 64.1 MPa at a modulus of 4.55 GPa, and breaks at 2 % elongation. In bending, its flexural strength is typically 102 MPa at a flexural… (220 chars, sha256:4d82a700cc8f)",
+   "after": "Printed flat (XY), PPS-GF typically reaches a tensile strength of 68 MPa at a modulus of 5.16 GPa, and breaks at 1.8 % elongation. In bending, its flexural strength is typically 107 MPa at a flexural… (220 chars, sha256:aa86ea38672c)"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 210-214",
+   "before": "Tensile strength MPa | 64.1 | 3 | 22.9 | 3 | 36 %3 products | ⏎ Tensile modulus GPa | 4.55 | 3 | 2.56 | 3 | 56 %3 products | ⏎ Elongation at break % | 2 | 3 | 1.1 | 3 | 55 %3 products | ⏎ Flexural st… (313 chars, sha256:77a44601e0e7)",
+   "after": "Tensile strength MPa | 68 | 3 | 32.5 | 3 | 36 %3 products | ⏎ Tensile modulus GPa | 5.16 | 3 | 2.57 | 3 | 56 %3 products | ⏎ Elongation at break % | 1.8 | 3 | 0.9 | 3 | 55 %3 products | ⏎ Flexural st… (313 chars, sha256:c3ac13d8f2cb)"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "4.55GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 4.55 GPa, lowest to highest 4.55⁠–⁠5.76 GPa, 3 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧",
+   "after": "5.16GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 5.16 GPa, lowest to highest 4.55⁠–⁠5.76 GPa, 3 products; scale 0.2 to 10 GPa, logarithmic, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 36-37",
+   "before": "64.1MPa ⏎ ⟦aria-label: Tensile strength (XY): median 64.1 MPa, lowest to highest 64.1⁠–⁠72 MPa, 3 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "68MPa ⏎ ⟦aria-label: Tensile strength (XY): median 68 MPa, lowest to highest 64.1⁠–⁠72 MPa, 3 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "22.9MPa ⏎ ⟦aria-label: Tensile strength (Z): median 22.9 MPa, lowest to highest 22.9⁠–⁠42 MPa, 3 products; scale 0 to 60 MPa, the same on every material's page⟧",
+   "after": "32.5MPa ⏎ ⟦aria-label: Tensile strength (Z): median 32.5 MPa, lowest to highest 22.9⁠–⁠42 MPa, 3 products; scale 0 to 60 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 82-83",
+   "before": "Against PPS-CF, PPS-GF is 43 % less stiff, 35 % less expensive and 26 % weaker flat. Against PA6-CF, PPS-GF is 52 % weaker across the layers and 46 % less tough in notched impact, and its HDT at 0.45… (587 chars, sha256:35cf11a57b5f)",
+   "after": "Against PPS-CF, PPS-GF is 35 % less expensive, 33 % less stiff and 27 % tougher in notched impact. Against PA6-CF, PPS-GF is 46 % less tough in notched impact and 32 % weaker across the layers, and i… (618 chars, sha256:cc1865e5b2a4)"
+  },
+  {
+   "case": "pages",
+   "record": "M074.html",
+   "tier": "wording",
+   "field": "lines 99-99",
+   "before": "9 below 1 above 4.55 1 10",
+   "after": "9 below 1 above 5.16 1 10"
+  },
+  {
+   "case": "pages",
+   "record": "M075.html",
+   "tier": "wording",
+   "field": "lines 109-111",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M075.html",
+   "tier": "wording",
+   "field": "lines 138-139",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M076.html",
+   "tier": "wording",
+   "field": "lines 108-110",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M076.html",
+   "tier": "wording",
+   "field": "lines 132-133",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M081.html",
+   "tier": "wording",
+   "field": "lines 113-115",
+   "before": "PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.76⁠–⁠8) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 | ⏎ ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 2… (430 chars, sha256:2bb27ab3b163)",
+   "after": "PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2 (28⁠–⁠36.5) · 16 | 6 (4.7⁠–⁠8.6) · 10 | 70 (69⁠–⁠71) · 32 | 26 (25⁠–⁠32) · 11 | ⏎ ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23… (424 chars, sha256:ac9e273317fb)"
+  },
+  {
+   "case": "pages",
+   "record": "M081.html",
+   "tier": "wording",
+   "field": "lines 141-143",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15… (201 chars, sha256:08193d9e2384)",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M081.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PETG, HIPS is 61 % weaker flat, 38 % weaker across the layers and 46 % tougher in notched impact. Against ABS, HIPS is 56 % less tough in notched impact, 47 % weaker flat and 32 % weaker acro… (454 chars, sha256:16dcee8e21f0)",
+   "after": "Against PETG, HIPS is 61 % weaker flat, 38 % weaker across the layers and 46 % tougher in notched impact. Against ABS, HIPS is 54 % less tough in notched impact, 47 % weaker flat and 31 % weaker acro… (454 chars, sha256:1dec26afde5d)"
+  },
+  {
+   "case": "pages",
+   "record": "M082.html",
+   "tier": "wording",
+   "field": "lines 111-113",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 107-108",
+   "before": "OBC (this material) | 0.2 · 1 | 12 · 2 | 11 · 3 | 15 · 1 | — | — | ⏎ PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) … (205 chars, sha256:24d91dab56a9)",
+   "after": "OBC (this material) | 0.2 · 1 | 12 · 2 | 10.5 · 3 | 15 · 1 | — | — | ⏎ PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠… (209 chars, sha256:ac1fce7a602d)"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 116-116",
+   "before": "Printed flat (XY), OBC typically reaches a tensile strength of 12 MPa at a modulus of 200 MPa, and breaks at 455 % elongation. In bending, its flexural strength is typically 7.8 MPa at a flexural mod… (215 chars, sha256:62b1bae0e319)",
+   "after": "Printed flat (XY), OBC typically reaches a tensile strength of 12 MPa at a modulus of 200 MPa, and breaks at 455 % elongation. In bending, its flexural strength is typically 9.4 MPa at a flexural mod… (215 chars, sha256:2ab653483b0a)"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 182-182",
+   "before": "Tensile strength MPa | 12 | 2 | 11 | 3 | 89 %2 products |",
+   "after": "Tensile strength MPa | 12 | 2 | 10.5 | 3 | 89 %2 products |"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 184-186",
+   "before": "Elongation at break % | 455 | 2 | 480 | 3 | 46 %2 products | ⏎ Flexural strength MPa | 7.8 | 3 | 6.8 | 3 | 87 %3 products | ⏎ Flexural modulus GPa | 0.244 | 3 | 0.217 | 3 | 89 %3 products |",
+   "after": "Elongation at break % | 455 | 2 | 265 | 3 | 46 %2 products | ⏎ Flexural strength MPa | 9.4 | 3 | 7.9 | 3 | 87 %3 products | ⏎ Flexural modulus GPa | 0.272 | 3 | 0.208 | 3 | 89 %3 products |"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "11MPa ⏎ ⟦aria-label: Tensile strength (Z): median 11 MPa, lowest to highest 10⁠–⁠11 MPa, 3 products; scale 0 to 60 MPa, the same on every material's page⟧",
+   "after": "10.5MPa ⏎ ⟦aria-label: Tensile strength (Z): median 10.5 MPa, lowest to highest 10⁠–⁠11 MPa, 3 products; scale 0 to 60 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 75-75",
+   "before": "Against PLA, OBC is 73 % weaker flat and 64 % weaker across the layers. Against POM / Acetal, OBC is 79 % weaker flat. Among the materials, OBC has a high elongation at break (XY) and notched Charpy … (366 chars, sha256:6a864445d4d5)",
+   "after": "Against PLA, OBC is 73 % weaker flat and 65 % weaker across the layers. Against POM / Acetal, OBC is 79 % weaker flat. Among the materials, OBC has a high elongation at break (XY) and notched Charpy … (366 chars, sha256:6c2b27a80e0a)"
+  },
+  {
+   "case": "pages",
+   "record": "M086.html",
+   "tier": "wording",
+   "field": "lines 97-97",
+   "before": "1 above 11 — — — — 0 20 40 60",
+   "after": "1 above 10.5 — — — — 0 20 40 60"
+  },
+  {
+   "case": "pages",
+   "record": "M087.html",
+   "tier": "wording",
+   "field": "lines 110-111",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ OBC | 0.2 · 1 | 12 · 2 | 11 · 3 | 15 · 1 | — | — |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ OBC | 0.2 · 1 | 12 · 2 | 10.5 · 3 | 15 · 1 | — | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "PCTG (this material) | 1.75 · 1 | 49 · 2 | — | — | 76 (74⁠–⁠76) · 5 | 48 · 1 |",
+   "after": "PCTG (this material) | 1.75 · 1 | 49 · 2 | — | — | 76 (76) · 5 | 48 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 110-112",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (426 chars, sha256:774a7aea2cff)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (426 chars, sha256:1f9c0a974eb8)"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 139-140",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 123 °C · 15 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ PC | 2.15 GPa · 12 | 60 MPa · 15 | 51 CAD/kg · 5 | 119 °C · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 144-144",
+   "before": "PCTG's products spread most in notched Izod impact: the middle half runs 93 kJ/m²",
+   "after": "What each of PCTG's 8 products publishes, property by property"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 151-151",
+   "before": "⟦aria-label: Notched Izod impact: 7 products drawn; median of the 5 it counts 93 kJ/m², middle half 93 kJ/m²; lowest 3DXTECH MAXG PCTG, highest 3DJake PCTG.⟧",
+   "after": "⟦aria-label: Notched Izod impact: 7 products drawn; median of the 5 it counts 50.5 kJ/m²; lowest 3DXTECH MAXG PCTG, highest 3DJake PCTG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 157-157",
+   "before": "Notched Izod impact (kJ/m²) | 5 | 93 | 93 | 3DXTECH MAXG PCTG, 8 | 3DJake PCTG, 93 | 2 | 0 |",
+   "after": "Notched Izod impact (kJ/m²) | 5 | 50.5 | — | 3DXTECH MAXG PCTG, 8 | 3DJake PCTG, 93 | 2 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 182-182",
+   "before": "⟦aria-label: Shore D hardness: 4 products drawn; median of the 4 it counts 76 Shore D, middle half 76 Shore D; lowest Spectrum pctg, highest 3DJake PCTG.⟧",
+   "after": "⟦aria-label: Shore D hardness: 4 products drawn; median of the 4 it counts 76 Shore D; lowest Spectrum pctg, highest 3DJake PCTG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 186-186",
+   "before": "Shore D hardness (Shore D) | 4 | 76 | 76 | Spectrum pctg, 76 | 3DJake PCTG, 76 | 0 | 0 |",
+   "after": "Shore D hardness (Shore D) | 4 | 76 | — | Spectrum pctg, 76 | 3DJake PCTG, 76 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 191-192",
+   "before": "PCTG's HDT is typically 76 °C under 0.45 MPa and 64 °C under 1.8 MPa, with its glass transition typically at 84 °C. As published, Vicat softening is typically 87 °C. ⏎ Most PCTG products deflect at 7… (223 chars, sha256:2e1e33afaed9)",
+   "after": "PCTG's HDT is typically 76 °C under 0.45 MPa and 64 °C under 1.8 MPa, with its glass transition typically at 85 °C. As published, Vicat softening is typically 87 °C. ⏎ Most PCTG products deflect at 7… (218 chars, sha256:b93543cbf113)"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 198-198",
+   "before": "⟦aria-label: HDT at 0.45 MPa: 6 products drawn; median of the 5 it counts 76 °C, middle half 74⁠–⁠76 °C; lowest 3D-Fuel Pro PCTG, highest FormFutura AthenaX.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: 6 products drawn; median of the 5 it counts 76 °C, middle half 76 °C; lowest 3D-Fuel Pro PCTG, highest FormFutura AthenaX.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 204-204",
+   "before": "⟦aria-label: Glass transition (Tg): 7 products drawn; median of the 7 it counts 84 °C, middle half 84⁠–⁠85 °C; lowest 3DXTECH MAXG PCTG, highest Fiberlogy PCTG.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): 7 products drawn; median of the 7 it counts 85 °C, middle half 83⁠–⁠86 °C; lowest 3DXTECH MAXG PCTG, highest Fiberlogy PCTG.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 208-208",
+   "before": "HDT at 0.45 MPa (°C) | 5 | 76 | 74⁠–⁠76 | 3D-Fuel Pro PCTG, 74 | FormFutura AthenaX, 76 | 1 | 0 |",
+   "after": "HDT at 0.45 MPa (°C) | 5 | 76 | 76 | 3D-Fuel Pro PCTG, 74 | FormFutura AthenaX, 76 | 1 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 210-210",
+   "before": "Glass transition (Tg) (°C) | 7 | 84 | 84⁠–⁠85 | 3DXTECH MAXG PCTG, 78 | Fiberlogy PCTG, 88 | 0 | 0 |",
+   "after": "Glass transition (Tg) (°C) | 7 | 85 | 83⁠–⁠86 | 3DXTECH MAXG PCTG, 78 | Fiberlogy PCTG, 88 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 236-236",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 76 °C, middle half 74⁠–⁠76 °C, 5 products.⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 76 °C, middle half 76 °C, 5 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 239-240",
+   "before": "⟦aria-label: Glass transition (Tg): median 84 °C, middle half 84⁠–⁠85 °C, 7 products.⟧ ⏎ 84 °C",
+   "after": "⟦aria-label: Glass transition (Tg): median 85 °C, middle half 83⁠–⁠86 °C, 7 products.⟧ ⏎ 85 °C"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 254-255",
+   "before": "HDT at 0.45 MPa | 76 °C (74⁠–⁠76 °C) | 5 | — | ⏎ Glass transition (Tg) | 84 °C (84⁠–⁠85 °C) | 7 | — |",
+   "after": "HDT at 0.45 MPa | 76 °C (76 °C) | 5 | — | ⏎ Glass transition (Tg) | 85 °C (83⁠–⁠86 °C) | 7 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 46-46",
+   "before": "⟦aria-label: HDT at 0.45 MPa: median 76 °C, middle half 74⁠–⁠76 °C, lowest to highest 74⁠–⁠76 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧",
+   "after": "⟦aria-label: HDT at 0.45 MPa: median 76 °C, middle half 76 °C, lowest to highest 74⁠–⁠76 °C, 5 products; scale 50 to 300 °C, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M088.html",
+   "tier": "wording",
+   "field": "lines 48-48",
+   "before": "5 products · middle half 74–76",
+   "after": "5 products · middle half 76–76"
+  },
+  {
+   "case": "pages",
+   "record": "M089.html",
+   "tier": "wording",
+   "field": "lines 111-112",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (279 chars, sha256:b5c2ec55909e)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (279 chars, sha256:c00cb4d99d0b)"
+  },
+  {
+   "case": "pages",
+   "record": "M089.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (74⁠–⁠76) · 5 | 48 · 1 |",
+   "after": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (76) · 5 | 48 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M089.html",
+   "tier": "wording",
+   "field": "lines 140-140",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 |"
+  },
+  {
+   "case": "pages",
+   "record": "M093.html",
+   "tier": "wording",
+   "field": "lines 113-115",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M093.html",
+   "tier": "wording",
+   "field": "lines 142-143",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M093.html",
+   "tier": "wording",
+   "field": "lines 81-81",
+   "before": "Against PLA, PVB is 2.6 times as expensive and 48 % less tough in notched impact, and its HDT at 0.45 MPa is 11 °C higher. Against PETG, PVB is 3.3 times as expensive, 48 % less tough in notched impa… (425 chars, sha256:8b65bf5c8c41)",
+   "after": "Against PLA, PVB is 2.6 times as expensive and 49 % less tough in notched impact, and its HDT at 0.45 MPa is 11 °C higher. Against PETG, PVB is 3.3 times as expensive, 48 % less tough in notched impa… (425 chars, sha256:748a51976d06)"
+  },
+  {
+   "case": "pages",
+   "record": "M094.html",
+   "tier": "wording",
+   "field": "lines 116-116",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M094.html",
+   "tier": "wording",
+   "field": "lines 144-144",
+   "before": "ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M094.html",
+   "tier": "wording",
+   "field": "lines 377-377",
+   "before": "PC-ABS's density is typically 1,140 kg/m³, the middle half 1,100⁠–⁠1,170 kg/m³, across 12 products. PC-ABS typically costs 64 CAD/kg, across the 3 products with a regular price in the sample; the low… (270 chars, sha256:a3df49d030f3)",
+   "after": "PC-ABS's density is typically 1,140 kg/m³, the middle half 1,120⁠–⁠1,180 kg/m³, across 12 products. PC-ABS typically costs 64 CAD/kg, across the 3 products with a regular price in the sample; the low… (270 chars, sha256:5f4a2ec14d6e)"
+  },
+  {
+   "case": "pages",
+   "record": "M094.html",
+   "tier": "wording",
+   "field": "lines 82-82",
+   "before": "Against PC-CF, PC-ABS is 60 % less stiff and 40 % weaker flat, and its HDT at 0.45 MPa is 16 °C lower. Against PC-GF, PC-ABS is 28 % stronger across the layers and 10 % stronger flat. Among the mater… (359 chars, sha256:e14849bc70c7)",
+   "after": "Against PC-CF, PC-ABS is 60 % less stiff and 40 % weaker flat, and its HDT at 0.45 MPa is 16 °C lower. Against PC-GF, PC-ABS is 28 % stronger across the layers and 10 % stronger flat. Among the mater… (405 chars, sha256:d45a5541663f)"
+  },
+  {
+   "case": "pages",
+   "record": "M096.html",
+   "tier": "wording",
+   "field": "after line 108",
+   "before": "",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M096.html",
+   "tier": "wording",
+   "field": "after line 87",
+   "before": "",
+   "after": "PC ⟨M035.html⟩21 products"
+  },
+  {
+   "case": "pages",
+   "record": "M096.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M096.html",
+   "tier": "wording",
+   "field": "lines 86-86",
+   "before": "PC ⟨M035.html⟩21 products",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M097.html",
+   "tier": "wording",
+   "field": "lines 109-109",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M097.html",
+   "tier": "wording",
+   "field": "lines 77-77",
+   "before": "Against PC, PEEK is 69 % stiffer and 67 % stronger flat, and its HDT at 0.45 MPa is 21 °C higher. Against PA6/66, PEEK is 64 % stronger flat and 55 % stiffer, and its HDT at 0.45 MPa is 25 °C higher.… (413 chars, sha256:48d137f321ba)",
+   "after": "Against PC, PEEK is 69 % stiffer and 67 % stronger flat, and its HDT at 0.45 MPa is 25 °C higher. Against PA6/66, PEEK is 64 % stronger flat and 55 % stiffer, and its HDT at 0.45 MPa is 25 °C higher.… (413 chars, sha256:2416d9180dba)"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "after line 111",
+   "before": "",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "after line 134",
+   "before": "",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "after line 90",
+   "before": "",
+   "after": "PC ⟨M035.html⟩21 products"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "lines 110-110",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "lines 125-126",
+   "before": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PEKK and its alternatives PVDF, PC, PA6/66, PC-ABS and PC FR named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 … (240 chars, sha256:b54097dd0b7b)",
+   "after": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PEKK and its alternatives PVDF, PA6/66, PC, PC-ABS and PC FR named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 … (240 chars, sha256:a161b15ebb38)"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "lines 133-133",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "lines 77-77",
+   "before": "Against PC, PEKK is 75 % stronger flat and 36 % stiffer, and its HDT at 0.45 MPa is 35 °C higher. Against PA6/66, PEKK is 72 % stronger flat and 25 % stiffer, and its HDT at 0.45 MPa is 39 °C higher.… (417 chars, sha256:e265370692f7)",
+   "after": "Against PA6/66, PEKK is 72 % stronger flat and 25 % stiffer, and its HDT at 0.45 MPa is 39 °C higher. Against PC, PEKK is 75 % stronger flat and 36 % stiffer, and its HDT at 0.45 MPa is 40 °C higher.… (417 chars, sha256:89e443d6b475)"
+  },
+  {
+   "case": "pages",
+   "record": "M098.html",
+   "tier": "wording",
+   "field": "lines 89-89",
+   "before": "PC ⟨M035.html⟩21 products",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "after line 115",
+   "before": "",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "after line 138",
+   "before": "",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "after line 94",
+   "before": "",
+   "after": "PC ⟨M035.html⟩21 products"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 100-100",
+   "before": "2 above 59 0 50 100",
+   "after": "2 above 56 0 50 100"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 112-112",
+   "before": "PEI (this material) | 2.25 (2.18⁠–⁠2.45) · 6 | 59 (55.8⁠–⁠84) · 8 | 35.3 · 1 | 11 · 2 | 208 (158⁠–⁠208) · 5 | — |",
+   "after": "PEI (this material) | 2.25 (2.18⁠–⁠2.45) · 6 | 56 (55.5⁠–⁠73) · 8 | 35.3 · 1 | 11 · 2 | 208 (158⁠–⁠208) · 5 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 114-114",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 129-130",
+   "before": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PEI and its alternatives PVDF, PC, PA6/66, PC-ABS and PC FR named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 1… (231 chars, sha256:c73b23538477)",
+   "after": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PEI and its alternatives PVDF, PA6/66, PC, PC-ABS and PC FR named.⟧ ⏎ 5 10 20 50 100 200 0.2 0.5 1… (238 chars, sha256:821d80955f31)"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 135-135",
+   "before": "PEI (this material) | 2.25 GPa · 6 | 59 MPa · 8 |",
+   "after": "PEI (this material) | 2.25 GPa · 6 | 56 MPa · 8 |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 137-137",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 143-144",
+   "before": "Printed flat (XY), PEI / ULTEM typically reaches a tensile strength of 59 MPa at a modulus of 2.25 GPa, and breaks at 3 % elongation. In bending, its flexural strength is typically 110 MPa at a flexu… (308 chars, sha256:b015392db149)",
+   "after": "Printed flat (XY), PEI / ULTEM typically reaches a tensile strength of 56 MPa at a modulus of 2.25 GPa, and breaks at 3 % elongation. In bending, its flexural strength is typically 104 MPa at a flexu… (308 chars, sha256:c1feda881101)"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 151-151",
+   "before": "⟦aria-label: Tensile strength (XY): 11 products drawn; median of the 8 it counts 59 MPa, middle half 55.8⁠–⁠84 MPa; lowest 3DXTECH ThermaX PEI, highest Prusa Research Prusament PEI 1010 by Prusa Poly… (205 chars, sha256:402a52cf8a75)",
+   "after": "⟦aria-label: Tensile strength (XY): 11 products drawn; median of the 8 it counts 56 MPa, middle half 55.5⁠–⁠73 MPa; lowest 3DXTECH ThermaX PEI, highest Prusa Research Prusament PEI 1010 by Prusa Poly… (205 chars, sha256:2cbe92d85142)"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 163-163",
+   "before": "Tensile strength (XY) (MPa) | 8 | 59 | 55.8⁠–⁠84 | 3DXTECH ThermaX PEI, 54 | Prusa Research Prusament PEI 1010 by Prusa Polymers, 95 | 3 | 0 |",
+   "after": "Tensile strength (XY) (MPa) | 8 | 56 | 55.5⁠–⁠73 | 3DXTECH ThermaX PEI, 54 | Prusa Research Prusament PEI 1010 by Prusa Polymers, 95 | 3 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 192-192",
+   "before": "Tensile strength MPa | 5955.8⁠–⁠84 | 8 | 35.3 | 1 | — |",
+   "after": "Tensile strength MPa | 5655.5⁠–⁠73 | 8 | 35.3 | 1 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 195-195",
+   "before": "Flexural strength MPa | 11094.5⁠–⁠125 | 7 | — | | — |",
+   "after": "Flexural strength MPa | 10492.8⁠–⁠111 | 7 | — | | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 209-209",
+   "before": "⟦aria-label: Glass transition (Tg): 6 products drawn; median of the 6 it counts 186 °C, middle half 186⁠–⁠209 °C; lowest 3DXTECH ThermaX PEI, highest 3DXTECH Ultem 1010 Model Material.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): 6 products drawn; median of the 6 it counts 186 °C, middle half 186⁠–⁠217 °C; lowest 3DXTECH ThermaX PEI, highest 3DXTECH Ultem 1010 Model Material.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 214-214",
+   "before": "Glass transition (Tg) (°C) | 6 | 186 | 186⁠–⁠209 | 3DXTECH ThermaX PEI, 186 | 3DXTECH Ultem 1010 Model Material, 217 | 0 | 0 |",
+   "after": "Glass transition (Tg) (°C) | 6 | 186 | 186⁠–⁠217 | 3DXTECH ThermaX PEI, 186 | 3DXTECH Ultem 1010 Model Material, 217 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 257-257",
+   "before": "⟦aria-label: Glass transition (Tg): median 186 °C, middle half 186⁠–⁠209 °C, 6 products.⟧",
+   "after": "⟦aria-label: Glass transition (Tg): median 186 °C, middle half 186⁠–⁠217 °C, 6 products.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 275-275",
+   "before": "Glass transition (Tg) | 186 °C (186⁠–⁠209 °C) | 6 | — |",
+   "after": "Glass transition (Tg) | 186 °C (186⁠–⁠217 °C) | 6 | — |"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 321-321",
+   "before": "PEI / ULTEM's density is typically 1,310 kg/m³, the middle half 1,270⁠–⁠1,340 kg/m³, across 12 products. 3D Printing Canada lists 3DXTECH THERMAX PEI 1010 ⟨M099-products.html#G099-01⟩, out of stock w… (243 chars, sha256:94be276869fd)",
+   "after": "PEI / ULTEM's density is typically 1,280 kg/m³, the middle half 1,270⁠–⁠1,340 kg/m³, across 12 products. 3D Printing Canada lists 3DXTECH THERMAX PEI 1010 ⟨M099-products.html#G099-01⟩, out of stock w… (243 chars, sha256:16c13f0305b2)"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 38-39",
+   "before": "59MPa ⏎ ⟦aria-label: Tensile strength (XY): median 59 MPa, middle half 55.8⁠–⁠84 MPa, lowest to highest 54⁠–⁠95 MPa, 8 products; scale 0 to 125 MPa, the same on every material's page⟧",
+   "after": "56MPa ⏎ ⟦aria-label: Tensile strength (XY): median 56 MPa, middle half 55.5⁠–⁠73 MPa, lowest to highest 54⁠–⁠95 MPa, 8 products; scale 0 to 125 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 41-41",
+   "before": "8 products · middle half 55.8–84",
+   "after": "8 products · middle half 55.5–73"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 81-81",
+   "before": "Against PC, PEI / ULTEM is 13 % tougher in notched impact, and its HDT at 0.45 MPa is 85 °C higher. Against PA6/66, PEI / ULTEM's HDT at 0.45 MPa is 89 °C higher. Among the materials, PEI / ULTEM has… (419 chars, sha256:dbbcf62ad352)",
+   "after": "Against PA6/66, PEI / ULTEM is 8 % weaker flat, and its HDT at 0.45 MPa is 89 °C higher. Against PC, PEI / ULTEM is 13 % tougher in notched impact and 7 % weaker flat, and its HDT at 0.45 MPa is 90 °… (456 chars, sha256:2f1fe0d61f5d)"
+  },
+  {
+   "case": "pages",
+   "record": "M099.html",
+   "tier": "wording",
+   "field": "lines 93-93",
+   "before": "PC ⟨M035.html⟩21 products",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "after line 108",
+   "before": "",
+   "after": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 119 (112⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |"
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "after line 131",
+   "before": "",
+   "after": "PC | 2.15 GPa · 12 | 60 MPa · 15 |"
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "after line 87",
+   "before": "",
+   "after": "PC ⟨M035.html⟩21 products"
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "PC | 2.15 (2.02⁠–⁠2.41) · 12 | 60 (54.2⁠–⁠65.3) · 15 | 46 (35.9⁠–⁠52.3) · 6 | 9.75 (6.65⁠–⁠14.3) · 4 | 123 (113⁠–⁠139) · 15 | 51 (45⁠–⁠67) · 5 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "lines 122-122",
+   "before": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PPSU and its alternatives PVDF, PC, PA6/66, PC-ABS and PC FR named.⟧",
+   "after": "⟦aria-label: Tensile strength (XY) against tensile modulus (XY): every material's median as a point; PPSU and its alternatives PVDF, PA6/66, PC, PC-ABS and PC FR named.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "lines 130-130",
+   "before": "PC | 2.15 GPa · 12 | 60 MPa · 15 |",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "lines 74-74",
+   "before": "Among the materials, PPSU has a high HDT at 0.45 MPa and a low elongation at break (XY): both are in the top or bottom quarter of the materials that publish them. The rest of its key properties sit i… (217 chars, sha256:7a558168814c)",
+   "after": "Among the materials, PPSU has a high HDT at 0.45 MPa and density, and a low elongation at break (XY): each is in the top or bottom quarter of the materials that publish it. Its tensile modulus (XY) a… (247 chars, sha256:35a1a20e5036)"
+  },
+  {
+   "case": "pages",
+   "record": "M102.html",
+   "tier": "wording",
+   "field": "lines 86-86",
+   "before": "PC ⟨M035.html⟩21 products",
+   "after": ""
+  },
+  {
+   "case": "pages",
+   "record": "M106.html",
+   "tier": "wording",
+   "field": "lines 111-111",
+   "before": "ABS | 2.2 (2.02⁠–⁠2.25) · 13 | 34.5 (33⁠–⁠35.6) · 18 | 27.3 (24.6⁠–⁠28.3) · 12 | 20 (18⁠–⁠21.5) · 7 | 95 (89⁠–⁠99) · 18 | 40 (31⁠–⁠52) · 9 |",
+   "after": "ABS | 2.2 (2⁠–⁠2.26) · 13 | 34.9 (33⁠–⁠35.7) · 18 | 27 (23.7⁠–⁠28.5) · 12 | 19 (18⁠–⁠21.1) · 7 | 95 (90⁠–⁠100) · 18 | 40 (31⁠–⁠52) · 9 |"
+  },
+  {
+   "case": "pages",
+   "record": "M110.html",
+   "tier": "wording",
+   "field": "lines 105-105",
+   "before": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (74⁠–⁠76) · 5 | 48 · 1 |",
+   "after": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (76) · 5 | 48 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M118.html",
+   "tier": "wording",
+   "field": "lines 107-107",
+   "before": "PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 210 · 2 |",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M118.html",
+   "tier": "wording",
+   "field": "lines 86-86",
+   "before": "PPS-CF ⟨M073.html⟩7 products",
+   "after": "PPA-CF ⟨M070.html⟩8 products"
+  },
+  {
+   "case": "pages",
+   "record": "M125.html",
+   "tier": "wording",
+   "field": "lines 107-109",
+   "before": "PPA-CF | 7.65 (7.1⁠–⁠9.1) · 4 | 108 (103⁠–⁠123) · 4 | 57 · 1 | 6.5 · 1 | 220 (220⁠–⁠227) · 5 | 255 · 1 | ⏎ PPS-CF | 8 (7.46⁠–⁠8) · 5 | 87 (63⁠–⁠95) · 5 | 28.2 · 3 | 5.75 · 2 | 251 (245⁠–⁠253) · 5 | 2… (281 chars, sha256:96d9999ff1ce)",
+   "after": "PPA-CF | 8.2 · 4 | 108 · 4 | 57 · 1 | 6.5 · 1 | 224 (214⁠–⁠230) · 5 | 255 · 1 | ⏎ PPS-CF | 7.73 (6.96⁠–⁠8.06) · 5 | 75 (62.1⁠–⁠89) · 5 | 28.2 · 3 | 5.75 · 2 | 252 (250⁠–⁠255) · 5 | 210 · 2 | ⏎ PPS-GF… (262 chars, sha256:0f3ba1460e0f)"
+  },
+  {
+   "case": "pages",
+   "record": "M125.html",
+   "tier": "wording",
+   "field": "lines 130-132",
+   "before": "PPA-CF | 7.65 GPa · 4 | 108 MPa · 4 | ⏎ PPS-CF | 8 GPa · 5 | 87 MPa · 5 | ⏎ PPS-GF | 4.55 GPa · 3 | 64.1 MPa · 3 |",
+   "after": "PPA-CF | 8.2 GPa · 4 | 108 MPa · 4 | ⏎ PPS-CF | 7.73 GPa · 5 | 75 MPa · 5 | ⏎ PPS-GF | 5.16 GPa · 3 | 68 MPa · 3 |"
+  },
+  {
+   "case": "pages",
+   "record": "M125.html",
+   "tier": "wording",
+   "field": "lines 74-74",
+   "before": "Against PPA-CF, PEEK-CF is 32 % stiffer and 10 % stronger flat. Against PPS-CF, PEEK-CF is 37 % stronger flat and 26 % stiffer. Among the materials, PEEK-CF has a high tensile modulus (XY), tensile s… (348 chars, sha256:8fd87bda985e)",
+   "after": "Against PPA-CF, PEEK-CF is 23 % stiffer and 10 % stronger flat. Against PPS-CF, PEEK-CF is 59 % stronger flat and 31 % stiffer. Among the materials, PEEK-CF has a high tensile modulus (XY), tensile s… (348 chars, sha256:79b8ebdf5d71)"
+  },
+  {
+   "case": "pages",
+   "record": "M129.html",
+   "tier": "wording",
+   "field": "lines 235-235",
+   "before": "Tensile modulus (XY) | 0.01⁠–⁠1.00 GPa | 0.005⁠–⁠2.97 GPa | a factor of 100 between its ends | one product gives 0.2 GPa without a stated orientation, inside it |",
+   "after": "Tensile modulus (XY) | 0.01⁠–⁠1.01 GPa | 0.005⁠–⁠2.97 GPa | a factor of 101 between its ends | one product gives 0.2 GPa without a stated orientation, inside it |"
+  },
+  {
+   "case": "pages",
+   "record": "M129.html",
+   "tier": "wording",
+   "field": "lines 99-99",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M144.html",
+   "tier": "wording",
+   "field": "lines 104-104",
+   "before": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (74⁠–⁠76) · 5 | 48 · 1 |",
+   "after": "PCTG | 1.75 · 1 | 49 · 2 | — | — | 76 (76) · 5 | 48 · 1 |"
+  },
+  {
+   "case": "pages",
+   "record": "M149.html",
+   "tier": "wording",
+   "field": "lines 106-108",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M152.html",
+   "tier": "wording",
+   "field": "lines 105-105",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 |"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 111-111",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 134-134",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 226-226",
+   "before": "Most TPU 85A class and softer products measure 80⁠–⁠85 Shore A",
+   "after": "Most TPU 85A class and softer products measure 79.3⁠–⁠85 Shore A"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 232-232",
+   "before": "⟦aria-label: Shore A hardness: 14 products drawn; median of the 14 it counts 83.5 Shore A, middle half 80⁠–⁠85 Shore A; lowest Recreus 60A, highest The Filament TPU 87A.⟧",
+   "after": "⟦aria-label: Shore A hardness: 14 products drawn; median of the 14 it counts 83.5 Shore A, middle half 79.3⁠–⁠85 Shore A; lowest Recreus 60A, highest The Filament TPU 87A.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 236-236",
+   "before": "Shore A hardness (Shore A) | 14 | 83.5 | 80⁠–⁠85 | Recreus 60A, 63 | The Filament TPU 87A, 87 | 0 | 0 |",
+   "after": "Shore A hardness (Shore A) | 14 | 83.5 | 79.3⁠–⁠85 | Recreus 60A, 63 | The Filament TPU 87A, 87 | 0 | 0 |"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 350-350",
+   "before": "TPU 85A class and softer's density is typically 1,180 kg/m³, the middle half 1,120⁠–⁠1,210 kg/m³, across 15 products. TPU 85A class and softer typically costs 58 CAD/kg, across the 3 products with a … (295 chars, sha256:e8d224157e3a)",
+   "after": "TPU 85A class and softer's density is typically 1,160 kg/m³, the middle half 1,110⁠–⁠1,190 kg/m³, across 15 products. TPU 85A class and softer typically costs 58 CAD/kg, across the 3 products with a … (295 chars, sha256:fd331602b96c)"
+  },
+  {
+   "case": "pages",
+   "record": "M159.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against TPU-CF, TPU 85A class and softer is 69 % less expensive. Against TPU 95A class, TPU 85A class and softer is 63 % weaker across the layers, 53 % less stiff and 30 % less expensive. Among the m… (493 chars, sha256:175b6e37216b)",
+   "after": "Against TPU-CF, TPU 85A class and softer is 69 % less expensive. Against TPU 95A class, TPU 85A class and softer is 59 % weaker across the layers, 52 % less stiff and 30 % less expensive. Among the m… (493 chars, sha256:c1c970689af1)"
+  },
+  {
+   "case": "pages",
+   "record": "M160.html",
+   "tier": "wording",
+   "field": "lines 108-108",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M160.html",
+   "tier": "wording",
+   "field": "lines 131-131",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M160.html",
+   "tier": "wording",
+   "field": "lines 76-76",
+   "before": "Against TPU-CF, TPU 90A class is 60 % less expensive. Against TPU 95A class, TPU 90A class is 80 % less stiff, 54 % weaker across the layers and 18 % weaker flat. Among the materials, TPU 90A class h… (430 chars, sha256:f2d4bc1627e6)",
+   "after": "Against TPU-CF, TPU 90A class is 60 % less expensive. Against TPU 95A class, TPU 90A class is 80 % less stiff, 50 % weaker across the layers and 21 % weaker flat. Among the materials, TPU 90A class h… (430 chars, sha256:676e025a2085)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 101-101",
+   "before": "5 above 22 — — — 2 5 10 20 50",
+   "after": "5 above 20.3 — — — 2 5 10 20 50"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 109-109",
+   "before": "TPU 95A class (this material) | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class (this material) | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 132-132",
+   "before": "TPU 95A class (this material) | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class (this material) | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 140-141",
+   "before": "Printed flat (XY), TPU 95A class typically reaches a tensile strength of 29 MPa at a modulus of 27 MPa, and breaks at 501 % elongation. In bending, its flexural strength is typically 4.26 MPa at a fl… (326 chars, sha256:1077e3a3a754)",
+   "after": "Printed flat (XY), TPU 95A class typically reaches a tensile strength of 30 MPa at a modulus of 26.6 MPa, and breaks at 541 % elongation. In bending, its flexural strength is typically 4.26 MPa at a … (328 chars, sha256:b6f87132748b)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 149-149",
+   "before": "⟦aria-label: Tensile strength (XY): 25 products drawn; median of the 17 it counts 29 MPa, middle half 27⁠–⁠34 MPa; lowest colorFabb TPU95A, highest Prusa Research Prusament TPU 95A by Prusa Polymers.⟧",
+   "after": "⟦aria-label: Tensile strength (XY): 25 products drawn; median of the 17 it counts 30 MPa, middle half 26.9⁠–⁠34.1 MPa; lowest colorFabb TPU95A, highest Prusa Research Prusament TPU 95A by Prusa Polym… (204 chars, sha256:c1f76a282f66)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 152-152",
+   "before": "⟦aria-label: Tensile modulus (XY): 13 products drawn; median of the 11 it counts 0.027 GPa, middle half 0.0166⁠–⁠0.0396 GPa; lowest Flashforge TPU95A, highest colorFabb TPU95A.⟧",
+   "after": "⟦aria-label: Tensile modulus (XY): 13 products drawn; median of the 11 it counts 0.0266 GPa, middle half 0.0149⁠–⁠0.0449 GPa; lowest Flashforge TPU95A, highest colorFabb TPU95A.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 155-155",
+   "before": "⟦aria-label: Tensile strength (Z): 5 products drawn; median of the 5 it counts 22 MPa, middle half 18.5⁠–⁠22 MPa; lowest Essentium TPU 95A-Z, highest Bambu Lab TPU 95A HF.⟧",
+   "after": "⟦aria-label: Tensile strength (Z): 5 products drawn; median of the 5 it counts 20.3 MPa, middle half 15.6⁠–⁠22.1 MPa; lowest Essentium TPU 95A-Z, highest Bambu Lab TPU 95A HF.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 158-158",
+   "before": "⟦aria-label: Elongation at break (XY): 22 products drawn; median of the 13 it counts 501 %, middle half 471⁠–⁠650 %; lowest colorFabb TPU95A, highest SUNLU TPU 95A.⟧",
+   "after": "⟦aria-label: Elongation at break (XY): 22 products drawn; median of the 13 it counts 541 %, middle half 469⁠–⁠662 %; lowest colorFabb TPU95A, highest SUNLU TPU 95A.⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 164-167",
+   "before": "Tensile strength (XY) (MPa) | 17 | 29 | 27⁠–⁠34 | colorFabb TPU95A, 17 | Prusa Research Prusament TPU 95A by Prusa Polymers, 41.4 | 8 | 0 | ⏎ Tensile modulus (XY) (GPa) | 11 | 0.027 | 0.0166⁠–⁠0.0396… (485 chars, sha256:c53758de9990)",
+   "after": "Tensile strength (XY) (MPa) | 17 | 30 | 26.9⁠–⁠34.1 | colorFabb TPU95A, 17 | Prusa Research Prusament TPU 95A by Prusa Polymers, 41.4 | 8 | 0 | ⏎ Tensile modulus (XY) (GPa) | 11 | 0.0266 | 0.0149⁠–⁠0… (494 chars, sha256:4f25bcb00c6d)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 229-231",
+   "before": "Tensile strength MPa | 2927⁠–⁠34 | 17 | 2218.5⁠–⁠22 | 5 | 81 %5 products | ⏎ Tensile modulus GPa | 0.0270.0166⁠–⁠0.0396 | 11 | 0.0074 | 1 | 76 %1 product | ⏎ Elongation at break % | 501471⁠–⁠650 | 13… (228 chars, sha256:af7537708d8f)",
+   "after": "Tensile strength MPa | 3026.9⁠–⁠34.1 | 17 | 20.315.6⁠–⁠22.1 | 5 | 81 %5 products | ⏎ Tensile modulus GPa | 0.02660.0149⁠–⁠0.0449 | 11 | 0.0074 | 1 | 76 %1 product | ⏎ Elongation at break % | 541469⁠–… (237 chars, sha256:6be86fd79cbf)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 31-32",
+   "before": "0.027GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 0.027 GPa, middle half 0.0166⁠–⁠0.0396 GPa, lowest to highest 0.006⁠–⁠0.065 GPa, 11 products; scale 0.02 to 0.5 GPa, logarithmic, the same on ever… (217 chars, sha256:59bab3ebddb5)",
+   "after": "0.0266GPa ⏎ ⟦aria-label: Tensile modulus (XY): median 0.0266 GPa, middle half 0.0149⁠–⁠0.0449 GPa, lowest to highest 0.006⁠–⁠0.065 GPa, 11 products; scale 0.02 to 0.5 GPa, logarithmic, the same on ev… (219 chars, sha256:45a60d728dde)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 34-34",
+   "before": "11 products · middle half 0.0166–0.0396",
+   "after": "11 products · middle half 0.0149–0.0449"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 36-37",
+   "before": "29MPa ⏎ ⟦aria-label: Tensile strength (XY): median 29 MPa, middle half 27⁠–⁠34 MPa, lowest to highest 17⁠–⁠41.4 MPa, 17 products; scale 0 to 40 MPa, the same on every material's page⟧",
+   "after": "30MPa ⏎ ⟦aria-label: Tensile strength (XY): median 30 MPa, middle half 26.9⁠–⁠34.1 MPa, lowest to highest 17⁠–⁠41.4 MPa, 17 products; scale 0 to 40 MPa, the same on every material's page⟧"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 39-39",
+   "before": "17 products · middle half 27–34",
+   "after": "17 products · middle half 26.9–34.1"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 41-42",
+   "before": "22MPa ⏎ ⟦aria-label: Tensile strength (Z): median 22 MPa, middle half 18.5⁠–⁠22 MPa, lowest to highest 7⁠–⁠22.3 MPa, 5 products; scale 2 to 50 MPa, logarithmic, the same on every material's page⟧",
+   "after": "20.3MPa ⏎ ⟦aria-label: Tensile strength (Z): median 20.3 MPa, middle half 15.6⁠–⁠22.1 MPa, lowest to highest 7⁠–⁠22.3 MPa, 5 products; scale 2 to 50 MPa, logarithmic, the same on every material's pag… (201 chars, sha256:284f6f127adc)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 44-44",
+   "before": "5 products · middle half 18.5–22",
+   "after": "5 products · middle half 15.6–22.1"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 58-58",
+   "before": "TPU 95A class is thermoplastic polyurethane, a flexible elastomer. Makers sell it for phone cases, insoles and functional parts. Its tensile modulus (XY) is 0.027 GPa, and printed across the layers i… (323 chars, sha256:acc37806119a)",
+   "after": "TPU 95A class is thermoplastic polyurethane, a flexible elastomer. Makers sell it for phone cases, insoles and functional parts. Its tensile modulus (XY) is 0.0266 GPa, and printed across the layers … (324 chars, sha256:70118858b7cb)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against TPU-CF, TPU 95A class is 56 % less expensive. Against TPU 85A class and softer, TPU 95A class is 2.7 times as strong across the layers, 2.1 times as stiff and 43 % more expensive. Among the m… (469 chars, sha256:2b6bdb41cf8d)",
+   "after": "Against TPU-CF, TPU 95A class is 56 % less expensive. Against TPU 85A class and softer, TPU 95A class is 2.5 times as strong across the layers, 2.1 times as stiff and 43 % more expensive. Among the m… (482 chars, sha256:1dd126487f64)"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 97-97",
+   "before": "3 below 93 above 0.027 0.02 0.1 0.5",
+   "after": "3 below 93 above 0.0266 0.02 0.1 0.5"
+  },
+  {
+   "case": "pages",
+   "record": "M161.html",
+   "tier": "wording",
+   "field": "lines 99-99",
+   "before": "80 above 29 0 20 40",
+   "after": "80 above 30 0 20 40"
+  },
+  {
+   "case": "pages",
+   "record": "M162.html",
+   "tier": "wording",
+   "field": "lines 111-111",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M162.html",
+   "tier": "wording",
+   "field": "lines 134-134",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M162.html",
+   "tier": "wording",
+   "field": "lines 79-79",
+   "before": "Against TPU 95A class, TPU harder than 95A is 34 % stronger flat and 18 % weaker across the layers. Against TPC / TPEE, TPU harder than 95A is 3.1 times as strong flat. Among the materials, TPU harde… (469 chars, sha256:da7c5664fe5a)",
+   "after": "Against TPU 95A class, TPU harder than 95A is 30 % stronger flat and 11 % weaker across the layers. Against TPC / TPEE, TPU harder than 95A is 3.1 times as strong flat. Among the materials, TPU harde… (469 chars, sha256:f4309168340a)"
+  },
+  {
+   "case": "pages",
+   "record": "M164.html",
+   "tier": "wording",
+   "field": "lines 116-118",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M164.html",
+   "tier": "wording",
+   "field": "lines 145-146",
+   "before": "PETG | 1.69 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.5 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |",
+   "after": "PETG | 1.7 GPa · 24 | 47 MPa · 34 | 26 CAD/kg · 11 | 70 °C · 32 | ⏎ ABS | 2.2 GPa · 13 | 34.9 MPa · 18 | 40 CAD/kg · 9 | 95 °C · 18 |"
+  },
+  {
+   "case": "pages",
+   "record": "M167.html",
+   "tier": "wording",
+   "field": "lines 100-100",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M167.html",
+   "tier": "wording",
+   "field": "lines 123-123",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  },
+  {
+   "case": "pages",
+   "record": "M168.html",
+   "tier": "wording",
+   "field": "lines 103-105",
+   "before": "PLA | 2.58 (2⁠–⁠2.88) · 61 | 45 (39.5⁠–⁠53) · 83 | 30.3 (22.1⁠–⁠34) · 40 | 6 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.69 (1.42⁠–⁠1.95) · 24 | 47 (40.3⁠–⁠50.6) · 34 | 30.… (422 chars, sha256:2266a8ea7788)",
+   "after": "PLA | 2.58 (2⁠–⁠2.87) · 61 | 45 (39.9⁠–⁠53) · 83 | 30 (22.1⁠–⁠33.8) · 40 | 6.1 (3.97⁠–⁠7.9) · 14 | 56 (53⁠–⁠58) · 50 | 33 (28⁠–⁠40) · 27 | ⏎ PETG | 1.7 (1.42⁠–⁠2.01) · 24 | 47 (40⁠–⁠50.8) · 34 | 30.2… (418 chars, sha256:f5c8b9647b2d)"
+  },
+  {
+   "case": "pages",
+   "record": "M170.html",
+   "tier": "wording",
+   "field": "lines 106-106",
+   "before": "TPU 95A class | 0.027 (0.0166⁠–⁠0.0396) · 11 | 29 (27⁠–⁠34) · 17 | 22 (18.5⁠–⁠22) · 5 | 78 · 1 | 83 · 2 |",
+   "after": "TPU 95A class | 0.0266 (0.0149⁠–⁠0.0449) · 11 | 30 (26.9⁠–⁠34.1) · 17 | 20.3 (15.6⁠–⁠22.1) · 5 | 78 · 1 | 83 · 2 |"
+  },
+  {
+   "case": "pages",
+   "record": "M170.html",
+   "tier": "wording",
+   "field": "lines 129-129",
+   "before": "TPU 95A class | 0.027 GPa · 11 | 29 MPa · 17 |",
+   "after": "TPU 95A class | 0.0266 GPa · 11 | 30 MPa · 17 |"
+  }
+ ],
+ "digest": "sha256:f310a71d94c272970f938ab92235a094d3ba53eb50f0beab3c01ba54997ff1a1",
+ "seal": "sha256:75519a7404c286591bacbcbbe988fd3b7d5ee7b85419a4b51263c3c0fbcbd251"
+}

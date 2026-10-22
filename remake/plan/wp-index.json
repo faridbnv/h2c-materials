@@ -711,11 +711,15 @@
       "size": "L (5)",
       "exitEvidence": "P-pages byte-identical apart from registered display transitions; page script ≤ 30 KB",
       "exit": {
-        "commands": [],
+        "commands": [
+          "npm run parity:erase",
+          "npm run typecheck",
+          "node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs",
+          "npm run parity -- --new --surface pages"
+        ],
         "attest": [],
         "manual": [
-          "P-pages byte-identical apart from registered display transitions",
-          "page script <= 30 KB"
+          "the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)"
         ]
       },
       "dropped": false
@@ -738,12 +742,16 @@
       "size": "L (5)",
       "exitEvidence": "Core sufficiency = 0; stale-shell, mismatch and 404 tests pass; brief and export emit nothing without details; size report in budget",
       "exit": {
-        "commands": [],
+        "commands": [
+          "node --test tests/remake/shards.test.mjs tests/remake/delivery.test.mjs tests/remake/site-pages.test.mjs tests/remake/size-report.test.mjs tests/remake/core-reads.test.mjs tests/parity/core.test.mjs",
+          "npm run parity -- --surface core",
+          "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json"
+        ],
         "attest": [],
         "manual": [
-          "core sufficiency = 0",
-          "stale-shell, mismatch and 404 tests pass",
-          "size report in budget"
+          "core sufficiency = 0 at the milestone size (npm run parity -- --surface core --milestone)",
+          "stale-shell, mismatch and 404 browser tests pass (npm run test:browser, tests/browser/delivery.spec.mjs)",
+          "size report in budget (the owner is asked before a budget is relaxed)"
         ]
       },
       "dropped": false

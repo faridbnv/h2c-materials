@@ -9,7 +9,7 @@ import { GROUP_WORD, STATUS_WORD, VERDICT_WORD } from './words.ts';
 
 const materialId = new URLSearchParams(window.location.search).get('m') ?? '';
 const { state, release } = useLoad((embedded) => loadMaterial(embedded, materialId, (url) => fetch(url)));
-// An address that names no material is a mistake in the link, not a stale page: say so, and a reload would not help.
+// An address that names no material, or one this release does not hold, is a mistake in the link, not a stale page: say so, and a reload would not help.
 const named = isMaterialId(materialId);
 const materialPage = `${__MATERIAL_PAGES__}${encodeURIComponent(materialId)}.html`;
 </script>
@@ -18,7 +18,7 @@ const materialPage = `${__MATERIAL_PAGES__}${encodeURIComponent(materialId)}.htm
   <ReleaseStrip :release="release" />
   <main>
     <p class="back"><a href="./">{{ BACK }}</a></p>
-    <p v-if="!named" class="notice" role="alert" data-testid="load-notice" data-state="no-material">{{ NO_MATERIAL }}</p>
+    <p v-if="!named || (state.kind === 'failed' && state.noMaterial)" class="notice" role="alert" data-testid="load-notice" data-state="no-material">{{ NO_MATERIAL }}</p>
     <LoadNotice v-else-if="state.kind !== 'ready'" :state="state" />
     <template v-else>
       <h1 data-testid="material-name" :data-material="state.data.materialId">{{ state.data.name }}</h1>

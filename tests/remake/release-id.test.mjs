@@ -121,12 +121,12 @@ test('the question /v3/ asks and how its snapshot is compiled are inputs: CASE_I
   const file = join(b, 'apps/public/tools/make-data.ts');
   const text = readFileSync(file, 'utf8');
   assert.match(text, /CASE_ID = 'template\/outdoor-structural-part\/strict'/);
-  assert.match(text, /compileSnapshot\(snapshot, \{ estimates: false \}\)/);
+  assert.match(text, /runBuild\(\{ projectRoot: root, outDir: null, estimates: true \}\)/);
   writeFileSync(file, text.replace("outdoor-structural-part/strict", "outdoor-structural-part/lenient"));
   const asked = releaseIdentity(b);
   assert.notEqual(asked.id, base.id);
   assert.notEqual(asked.inputs.view, base.inputs.view);
-  writeFileSync(file, text.replace('{ estimates: false }', '{ estimates: true }'));
+  writeFileSync(file, text.replace('estimates: true }', 'estimates: false }'));
   const compiled = releaseIdentity(b);
   assert.notEqual(compiled.id, base.id);
   assert.notEqual(compiled.id, asked.id);
@@ -142,6 +142,8 @@ test('the compile, case and stage files of the impact module, the corpus and the
     ['i9', 'app/js/ui/table.js', 'engine'],
     ['i6', 'packages/data/src/db-contract.ts', 'engine'],
     ['i7', 'apps/public/tools/build.ts', 'view'],
+    ['i10', 'packages/publish/src/shards.ts', 'view'],
+    ['i11', 'packages/domain/src/core/core-fields.ts', 'rules'],
   ]) {
     const { id, moved } = movedBy(dir, file);
     assert.notEqual(id, base.id, `${file} decides an answer`);

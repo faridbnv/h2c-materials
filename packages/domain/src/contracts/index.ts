@@ -8,3 +8,4 @@ export type * from './proposal.ts';
 export type * from './scenario.ts';
 export type * from './engine.ts';
 export type * from './manifest.ts';
+export type * from './field-spec.ts';

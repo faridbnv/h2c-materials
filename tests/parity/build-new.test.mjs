@@ -107,8 +107,10 @@ test('tie order is kept through _ord: with the records of three tables reversed,
   // Not vacuous: the reversal changes the database, so the equality above is about order, not about an order that never mattered.
   // What is not in the database is the same too: the validation report (every warning, with the row it names, which the reversal
   // moves) and the release identity (which digests the tables that build read, not the project's own).
-  // The report's calibration tables (rows starting with a bar) carry numbers the reprint transition moves; every other line is equal.
-  const prose = (path) => readFileSync(path, 'utf8').split('\n').filter((line) => !line.startsWith('|')).join('\n');
+  // The report's calibration tables (rows starting with a bar) carry numbers the reprint transition moves, and its grade coverage
+  // by fold line the numbers dt1-float-tie moves (P-build checks those values, listed, in db.json); every other line is equal.
+  const prose = (path) => readFileSync(path, 'utf8').split('\n')
+    .filter((line) => !line.startsWith('|') && !line.startsWith('Grade plausible coverage by fold')).join('\n');
   assert.equal(prose(join(dirname(n.dbPath), 'validation-report.md')), prose(join(o.dir, 'build', 'reports', 'validation-report.md')), 'validation report');
   assert.deepEqual(JSON.parse(readFileSync(n.dbPath, 'utf8')).meta.release, JSON.parse(readFileSync(o.dbPath, 'utf8')).meta.release, 'release identity');
   const moved = await compareBuilds(dist, { path: n.dbPath, label: n.label });

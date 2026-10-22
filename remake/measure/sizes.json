@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "release": "2686fbded3f3",
+  "measuredAt": "2026-10-22T05:51:25.255Z",
+  "node": "26.12.0",
+  "gzipLevel": 6,
+  "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
+  "strictBoot": {
+    "gzipBytes": 772318,
+    "codeGzipBytes": 34241,
+    "coreGzipBytes": 738077,
+    "files": [
+      {
+        "path": "index.html",
+        "bytes": 2918,
+        "gzip": 1190
+      },
+      {
+        "path": "assets/index-BP8pIB0h.js",
+        "bytes": 4473,
+        "gzip": 1727
+      },
+      {
+        "path": "assets/style-Cy0svbyP.js",
+        "bytes": 77550,
+        "gzip": 29738
+      },
+      {
+        "path": "assets/style-CwiHf5kh.css",
+        "bytes": 3996,
+        "gzip": 1586
+      },
+      {
+        "path": "data/2686fbded3f3/core.json",
+        "bytes": 11234824,
+        "gzip": 738077
+      }
+    ]
+  },
+  "defaultBoot": {
+    "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
+    "gzipBytes": 972423,
+    "estimatesGzipBytes": 200105
+  },
+  "detail": {
+    "count": 175,
+    "medianGzipBytes": 13602,
+    "maxGzipBytes": 324841,
+    "largest": "data/2686fbded3f3/detail/M001.json"
+  },
+  "site": {
+    "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps",
+    "bytes": 68927267,
+    "viewBytes": 51083862,
+    "dataBytes": 50987097,
+    "slimDataBytes": 17754022,
+    "assetsBytes": 89383,
+    "assembledBytes": 97495870,
+    "assembledScope": "the whole assembled preview (the old site for comparison, the 404 page and the public view); not counted"
+  },
+  "checks": {
+    "strictBootGzip": {
+      "value": 772318,
+      "budget": 900000,
+      "ok": true
+    },
+    "detailMedianGzip": {
+      "value": 13602,
+      "budget": 15000,
+      "ok": true
+    },
+    "detailMaxGzip": {
+      "value": 324841,
+      "budget": 350000,
+      "ok": true
+    },
+    "siteBytes": {
+      "value": 68927267,
+      "budget": 100000000,
+      "ok": true
+    }
+  },
+  "ok": true
+}

@@ -35,11 +35,27 @@ function tablesIn(path) {
   return found;
 }
 
-test('the gate-verdict table is written once in new code: the shared core\'s', () => {
+// The facts-and-words layer (WP-24) is a label-only port of app/js/ui/labels.js, pinned to it by P-erase: its two tables give the
+// words for a verdict, not what it means (the chip's state is GATE_STATUS). They are named here, in the file that holds them, and
+// the next test requires their keys to be the core table's, so a new verdict cannot reach one screen and not the next.
+const WORD_TABLES = { 'packages/pages/src/facts/labels.ts': ['GATE_VERDICT', 'OUTSIDE_WORDS'] };
+
+test('the gate-verdict table is written once in new code: the shared core\'s (apart from the named word tables)', () => {
   const tables = [];
   for (const base of ['packages', 'apps']) for (const path of sources(join(root, base))) for (const line of tablesIn(path)) tables.push(`${relative(root, path)}:${line}`);
-  assert.equal(tables.length, 2, tables.join(', '));
-  assert.ok(tables.every((t) => t.startsWith('packages/domain/src/core/gate-verdict.ts:')), tables.join(', '));
+  const words = tables.filter((t) => t.split(':')[0] in WORD_TABLES);
+  const meaning = tables.filter((t) => !words.includes(t));
+  assert.equal(meaning.length, 2, meaning.join(', '));
+  assert.ok(meaning.every((t) => t.startsWith('packages/domain/src/core/gate-verdict.ts:')), meaning.join(', '));
+  assert.equal(words.length, Object.values(WORD_TABLES).flat().length, `word tables found: ${words.join(', ')}`);
+});
+
+test('the named word tables cover exactly the verdicts the core table gives them', async () => {
+  const { GATE_TABLE } = await import('../../packages/domain/src/core/gate-verdict.ts');
+  const { GATE_VERDICT, OUTSIDE_WORDS } = await import('../../packages/pages/src/facts/labels.ts');
+  assert.deepEqual(Object.keys(GATE_VERDICT), [...GATE_PRECEDENCE], 'GATE_VERDICT: every verdict, in precedence order');
+  const outside = Object.entries(GATE_TABLE).filter(([, row]) => row.outside).map(([v]) => v);
+  assert.deepEqual(Object.keys(OUTSIDE_WORDS).sort(), outside.sort(), 'OUTSIDE_WORDS: exactly the verdicts outside the H2C');
 });
 
 test('the engine port\'s GATE_STATUS is the core\'s table, with the key order the page reads', async () => {

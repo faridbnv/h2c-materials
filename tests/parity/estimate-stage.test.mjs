@@ -66,9 +66,28 @@ test('cold: the new build with the stage as TypeScript is the old build (db.json
   assert.ok(existsSync(join(cache)), 'the cold build stored its estimates');
 });
 
-test('estimates.json is the old stage\'s output, byte for byte', async () => {
+// dt1-float-tie (owner rulings OQ-06 A, R1 A) moves 12 calibration audit leaves of meta.estimateModel in the new stage only; the old
+// stage keeps the bare comparison. The old output with exactly those listed values replaced (each one's before checked) must be the
+// new output byte for byte.
+const DT1 = loadTransitions(join(root, 'parity', 'transitions')).find((t) => t.id === '2026-10-22-dt1-float-tie');
+function withDt1(text) {
+  const artifact = JSON.parse(text);
+  for (const d of DT1.differences) {
+    assert.equal(d.record, 'meta', `dt1-float-tie lists ${d.record}, not meta`);
+    const path = d.field.split(/\.|\[(\d+)\]/).filter((k) => k !== undefined && k !== '');
+    const last = path.pop();
+    const parent = path.reduce((o, k) => o?.[k], artifact.meta);
+    assert.ok(parent && last in parent, `estimates.json has no meta.${d.field}`);
+    assert.equal(JSON.stringify(parent[last]), d.before, `meta.${d.field} before`);
+    parent[last] = JSON.parse(d.after);
+  }
+  return JSON.stringify(artifact);
+}
+
+test('estimates.json is the old stage\'s output, byte for byte, apart from the leaves dt1-float-tie lists', async () => {
   const built = await cold;
-  assert.equal(bytes(built, 'estimates.json').toString('utf8'), await oldStage);
+  assert.ok(DT1 && DT1.differences.length === 12, 'the dt1-float-tie transition lists its 12 leaves');
+  assert.equal(bytes(built, 'estimates.json').toString('utf8'), withDt1(await oldStage));
 });
 
 test('warm: reading the estimates from the cache writes exactly the files the cold build wrote', async () => {

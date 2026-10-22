@@ -15,7 +15,7 @@
 // Attached only where a product lacks a comparable value. It never passes a requirement.
 // D137 adds separate independent exclusion certification without changing these displayed ranges.
 
-import { quantile, median, normalCdf } from './numerics.ts';
+import { exceeds, quantile, median, normalCdf } from './numerics.ts';
 import { HEAD, identityOf, sig3, transform } from './model.ts';
 import { predict } from './gaussian.ts';
 import { lowerBoundsOf } from '../lower-bounds.ts';
@@ -49,7 +49,7 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
   const enough = held.length >= cfg.minHeld;
   const calLikely = enough ? clamp(quantile(zs, model.levels.likely) / zLikely, cfg.likelyScale) : cfg.defaultScale;
   const calPlausible = enough ? clamp(quantile(zs, model.levels.plausible) / zPlausible, cfg.plausibleScale) : cfg.defaultScale;
-  const within = (h: Dyn, z: Dyn, cal: Dyn) => Math.abs(h.o.y - h.p.mu) <= z * Math.sqrt((h.p.sd * cal) ** 2 + h.o.noise2);
+  const within = (h: Dyn, z: Dyn, cal: Dyn) => !exceeds(Math.abs(h.o.y - h.p.mu), z * Math.sqrt((h.p.sd * cal) ** 2 + h.o.noise2));
   const r3 = (v: Dyn) => (v == null ? null : Number(v.toPrecision(3)));
   const groupBy = (key2: Dyn) => { const out: Dyn = {}; for (const h of held) (out[key2(h)] ??= []).push(h); return out; };
   const zOf = (h: Dyn) => Math.abs((h.o.y - h.p.mu) / h.sd);
@@ -161,7 +161,8 @@ export function calibrateGrades({ key, def = null, model, S, obs, ownObs = obs, 
       const sdL = Math.sqrt((h.p.sd * L(h)) ** 2 + h.o.noise2), sdP = Math.sqrt((h.p.sd * P(h)) ** 2 + h.o.noise2);
       const inRange = (z: Dyn, sd: Dyn, held: Dyn) => {
         const lo = h.p.mu - z * sd, hi = h.p.mu + z * sd;
-        return held ? y >= Math.max(lo, band.lo) && y <= Math.min(hi, band.hi) : y >= lo && y <= hi;
+        const [a, b] = held ? [Math.max(lo, band.lo), Math.min(hi, band.hi)] : [lo, hi];
+        return !exceeds(a, y) && !exceeds(y, b);
       };
       if (h.p.mu < band.lo || h.p.mu > band.hi) {
         rows.withheld++;

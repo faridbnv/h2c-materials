@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import { checkDb } from '@atlas/data';
 import { exitCode, runParity } from './compare.ts';
 import { coreSufficiencyHook, runCoreSufficiency } from './core-sufficiency.ts';
+import { installCoreHook } from './core-hook.ts';
 import { MILESTONE_REPLAYS, PR_REPLAYS, engineCorpusCases, mutationCases } from './corpora.ts';
 import { loadCorpus } from './corpus.ts';
 import { REPO_ROOT, copyEngine } from './engine-copy.ts';
@@ -16,9 +17,9 @@ import { formatMutate, runMutate } from './mutate.ts';
 import { createNewAdapter, createNewPlaceholder } from './new-adapter.ts';
 import { createOld, createOldAdapter, defaultDbPath, readDb } from './old-adapter.ts';
 import type { Db } from './old-adapter.ts';
-import { BuildFailed, buildInCopy, buildNew, compareBuilds } from './p-build.ts';
+import { BuildFailed, buildInCopy, buildNew, compareBuilds, renderNewPages } from './p-build.ts';
 import type { BuiltRelease } from './p-build.ts';
-import { comparePages, readPages } from './p-pages.ts';
+import { PAGES_CASE, comparePages, readPages } from './p-pages.ts';
 import type { PageNames, PageSet } from './p-pages.ts';
 import { formatReport, formatSurface, overallStatus, seconds } from './report.ts';
 import { cannotCompare } from './surface.ts';
@@ -267,7 +268,7 @@ async function runEngine(run: Run): Promise<void> {
     return;
   }
   const interactive = process.stdout.isTTY;
-  const here = run.transitions ? partOf(run.transitions, (d) => d.case !== BUILD_CASE) : undefined;
+  const here = run.transitions ? partOf(run.transitions, (d) => d.case !== BUILD_CASE && d.case !== PAGES_CASE) : undefined;
   const report = await log.timed('engine', () => runParity({
     corpusName: run.corpus.corpus, cases, knownCaseIds: new Set(run.allCases.map((c) => c.id)), transitionCaseIds: run.transitionCaseIds, before, after,
     ...(here ? { transitions: here } : {}), ...(interactive ? { onProgress: showProgress } : {}),
@@ -339,6 +340,30 @@ async function runNewBuild(run: Run, head: { surface: Surface; unit: string }): 
   }
 }
 
+/**
+ * P-pages, new side (WP-24): the pages of the old build (dist/materials, or with --tables-dir an old build of those tables) against
+ * the pages packages/pages renders from the database the NEW build wrote. A deliberate change in the build or in the renderer shows
+ * here and is settled by the transitions that list the case `pages`. Either side failing is its own outcome, never zero.
+ */
+async function runNewPages(run: Run, head: { surface: Surface; unit: string }): Promise<void> {
+  const { plan, log } = run;
+  try {
+    const fresh = await log.timed('pages-newbuild', () => run.newBuild());
+    const old = plan.tablesDir ? await log.timed('pages-oldbuild', () => run.build('first')) : null;
+    if (old && !old.materialsDir) throw new BuildFailed(`${old.label} wrote no material pages`);
+    const rendered = await log.timed('pages-render', () => renderNewPages({ dbPath: fresh.dbPath, label: 'new pages (packages/pages, from the new build)' }));
+    const left = old?.materialsDir ? readPages(old.materialsDir, old.label, pageNamesOf(readDb(old.dbPath))) : run.distPages();
+    const right = readPages(rendered.materialsDir, rendered.label, pageNamesOf(readDb(fresh.dbPath)));
+    const report = await log.timed('pages', async () => comparePages(left, right));
+    report.notes.push(`new build ${seconds(fresh.seconds * 1000)}, render ${seconds(rendered.seconds * 1000)}`);
+    const here = run.transitions ? partOf(run.transitions, (d) => d.case === PAGES_CASE) : [];
+    log.addSurface(settleSurface(report, here, PAGES_CASE), 'pages: the visible text of every material page');
+  } catch (e) {
+    if (!(e instanceof BuildFailed)) throw e;
+    log.addSurface(cannotCompare({ ...head, before: 'old', after: 'new' }, 'both', `a build or the page renderer did not finish, so nothing was compared: ${e.message}`), 'pages');
+  }
+}
+
 /** P-build and P-pages: the old build compared with a second build (or, with --tables-dir, with a first one made from the same tables). */
 async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<void> {
   const { plan, log } = run;
@@ -347,10 +372,13 @@ async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<vo
     await runNewBuild(run, head);
     return;
   }
+  if (plan.mode === 'new' && surface === 'pages') {
+    await runNewPages(run, head);
+    return;
+  }
   if (isNewSide(plan)) {
-    // The placeholder answers nothing by design; the new pages are WP-24's.
-    const wiring = surface === 'build' ? 'build' : 'pages (WP-24)';
-    const report = cannotCompare({ ...head, before: 'old', after: 'new (not wired yet)' }, 'after', `the new ${wiring} ${surface === 'build' ? 'is the placeholder' : 'are not wired yet'}; nothing was compared`);
+    // The placeholder answers nothing by design.
+    const report = cannotCompare({ ...head, before: 'old', after: 'new (placeholder)' }, 'after', `the new ${surface} is the placeholder; nothing was compared`);
     log.addSurface(report, surface);
     return;
   }
@@ -381,6 +409,7 @@ async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<vo
 }
 
 async function runCore(run: Run): Promise<void> {
+  installCoreHook();
   const { plan, log } = run;
   const full = await createOld(readDb(plan.dbPath));
   const result = await log.timed('core', () => runCoreSufficiency({ cases: run.selectedCases(), full, db: readDb(plan.dbPath) }));
@@ -439,16 +468,20 @@ function transitionRefusal(places: readonly { name: string; status: Status; notC
 }
 
 /**
- * Write the differences of the engine and of P-build as one transition file (run it with --transitions pointing at a folder
- * with none, so the differences are not already accounted for). False, after saying why on stderr, when this run may not be the source of one.
+ * Write the differences of the engine, of P-build and of P-pages (whichever of them this run made) as one transition file (run it
+ * with --transitions pointing at a folder with none, so the differences are not already accounted for). False, after saying why on
+ * stderr, when this run may not be the source of one.
  */
 function emitTransition(given: Flags, path: string, run: Run): boolean {
   const engine = run.log.parity.find((p) => p.name === 'engine')?.report;
-  if (!engine) throw new UsageError('--emit-transition needs the engine surface');
   const build = run.log.surfaceReports.find((r) => r.surface === 'build');
+  const pages = run.log.surfaceReports.find((r) => r.surface === 'pages');
+  if (!engine && !build && !pages) throw new UsageError('--emit-transition needs the engine, build or pages surface');
+  const surfacePlace = (name: string, r: SurfaceReport) => ({ name, status: r.status, notComputable: r.notComputable.length, partial: false, truncated: r.truncated });
   const places = [
-    { name: 'engine', status: engine.status, notComputable: engine.notComputable.length, partial: engine.partial, truncated: false },
-    ...(build ? [{ name: 'build', status: build.status, notComputable: build.notComputable.length, partial: false, truncated: build.truncated }] : []),
+    ...(engine ? [{ name: 'engine', status: engine.status, notComputable: engine.notComputable.length, partial: engine.partial, truncated: false }] : []),
+    ...(build ? [surfacePlace('build', build)] : []),
+    ...(pages ? [surfacePlace('pages', pages)] : []),
   ];
   const why = transitionRefusal(places, run.plan.allowPartial);
   if (why) {
@@ -458,7 +491,7 @@ function emitTransition(given: Flags, path: string, run: Run): boolean {
   const transition = buildTransition({
     id: flagValue(given, 'id') ?? 'unnamed', kind: transitionKind(given),
     description: flagValue(given, 'description') ?? '', ruling: flagValue(given, 'ruling') ?? '',
-    corpus: run.corpus.corpus, differences: [...engine.differences, ...(build?.differences ?? [])],
+    corpus: run.corpus.corpus, differences: [...(engine?.differences ?? []), ...(build?.differences ?? []), ...(pages?.differences ?? [])],
   });
   writeFileSync(path, `${JSON.stringify(transition, null, 1)}\n`);
   console.log(`transition written: ${path} (${transition.differences.length} differences, ${transition.digest})`);
@@ -538,7 +571,7 @@ async function main(argv: readonly string[]): Promise<number> {
   const transitionDir = flagValue(given, 'transitions') ?? (isNewSide(plan) ? join(REPO_ROOT, 'parity', 'transitions') : undefined);
   const run = new Run(plan, corpus, baseDb, transitionDir ? loadTransitions(transitionDir) : undefined);
   if (!isNewSide(plan) && plan.surfaces.some((s) => s === 'build' || s === 'pages')) run.startBuilds();
-  if (plan.mode === 'new' && (plan.surfaces.includes('build') || plan.surfaces.includes('engine'))) run.startNewBuild();
+  if (plan.mode === 'new' && (plan.surfaces.includes('build') || plan.surfaces.includes('engine') || plan.surfaces.includes('pages'))) run.startNewBuild();
 
   for (const surface of plan.surfaces) await runSurface(run, surface);
 

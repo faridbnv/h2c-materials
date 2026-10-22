@@ -1,0 +1,72 @@
+// Estimated values: only where a key figure is missing or published only set apart (D172). Each
+// key property the build's estimate stage gives a range for (materials[].headline[key].estimate) and each estimated
+// print window (materials[].print.*Estimate), in one table: the likely range (80 %), the plausible range (95 %), how
+// precise it is, and how it sits beside what the products publish (materials[].summary[key].asPublished). Fenced off and
+// said in the selector's own terms (format.js estimateDisplay); an estimate never makes a material pass, and nothing
+// else on the page rests on one. Its precision is said from its own ends, as printed: how many times the high end is the
+// low one, or for a temperature how many degrees lie between them.
+
+import type { Loose } from '../loose.ts';
+
+import { esc, tableBox } from '../html.ts';
+import { fmtNumber, fmtRange, estimateDisplay } from '../facts/format.ts';
+import { REGISTRY } from '../facts/registry.ts';
+import { inText, countWords, glue } from '../findings.ts';
+import { andList } from '../facts/material-words.ts';
+import { para } from './common.ts';
+
+/** An estimate's precision from its likely range as printed: "a factor of 2.8 between its ends", "35 °C between its ends". */
+function precisionWords(d: Loose) {
+  const lo = Number(String(d.lo).replace(/,/g, '')), hi = Number(String(d.hi).replace(/,/g, ''));
+  if (!Number.isFinite(lo) || !Number.isFinite(hi)) return '—';
+  if (/°C/.test(d.unit)) return `${fmtNumber(hi - lo)} °C between its ends`;
+  if (!(lo > 0)) return '—';
+  const r = hi / lo;
+  return r >= 1.5 ? `a factor of ${fmtNumber(Math.round(r * 10) / 10)} between its ends` : `its high end ${fmtNumber(Math.round((r - 1) * 100))} % above its low end`;
+}
+
+/** How an estimate sits beside the values its products publish without a stated basis. */
+function beside(h: Loose, m: Loose, d: Loose) {
+  const a = m.summary?.[h.key]?.asPublished;
+  if (!a?.n) return 'no product publishes it';
+  const f = d.factor ?? 1;
+  const span = a.min === a.max ? fmtNumber(a.min * f, d.unit) : `${fmtNumber(a.min * f)}–${fmtNumber(a.max * f, d.unit)}`;
+  const lo = Number(String(d.lo).replace(/,/g, '')), hi = Number(String(d.hi).replace(/,/g, ''));
+  const v: [number, number] = [a.min * f, a.max * f];
+  const who = a.n === 1 ? 'one product gives' : `${countWords(a.n)} products give`;
+  const where = v[1] < lo ? 'below the likely range' : v[0] > hi ? 'above the likely range' : v[0] <= lo + (hi - lo) * 0.15 ? 'at its low end' : v[1] >= hi - (hi - lo) * 0.15 ? 'at its high end' : 'inside it';
+  return `${who} ${span} without a stated ${h.direction ? 'orientation' : 'test load'}, ${where}`;
+}
+
+export default {
+  id: 'estimates',
+  title: 'Estimated values',
+  render(c: Loose): Loose {
+    const m = c.m;
+    const est = REGISTRY.headlines.filter((h: Loose) => { const x = m.headline?.[h.key]; return x && !x.known && x.estimate; });
+    const windows: Loose[] = [['nozzleEstimate', 'Nozzle window'], ['bedEstimate', 'Bed window'], ['chamberEstimate', 'Chamber window']].filter(([k]: Loose) => m.print?.[k]);
+    if (!est.length && !windows.length) return { empty: true, html: '', stats: {} };
+    const levels = est.map((h: Loose) => m.headline[h.key].estimate.levels).find(Boolean) ?? { likely: 0.8, plausible: 0.95 };
+    const rows = est.map((h: Loose) => {
+      const e = m.headline[h.key].estimate;
+      const d = estimateDisplay(e, { ownUnit: true });
+      const plausible = d.plausible ? `${d.plausible[0]}⁠–⁠${d.plausible[1]} ${d.unit}` : '—';
+      const precision = precisionWords(d);
+      return `<tr data-rec="${esc(`${m.id}/${h.key}/estimate`)}" data-estimate="${esc(h.key)}"><th scope="row" class="prop">${esc(h.labels.plain)}</th>`
+        + `<td class="num" data-label="Likely"><span data-v="${esc(e.lo)}" data-key="${esc(h.key)}" data-stat="estimate.lo">${esc(d.lo)}</span>⁠–⁠<span data-v="${esc(e.hi)}" data-key="${esc(h.key)}" data-stat="estimate.hi">${esc(d.hi)}</span> ${esc(d.unit)}</td>`
+        + `<td class="num" data-label="Plausible">${esc(plausible)}</td><td data-label="Precision">${esc(precision)}</td><td data-label="Beside what is published">${esc(beside(h, m, d))}</td></tr>`;
+    });
+    const wins = windows.map(([k, label]) => {
+      const w = m.print[k];
+      return `<tr data-rec="${esc(`${m.id}/${k}`)}" data-estimate="${esc(k)}"><th scope="row" class="prop">${esc(label)}</th><td class="num" data-label="Likely">${esc(fmtRange(w.lo, w.hi))} ${esc(w.unit)}</td><td class="num" data-label="Plausible">—</td><td data-label="Precision">${esc('a starting point to verify')}</td><td data-label="Beside what is published">${esc(`no product publishes one; estimated from ${w.basis}`)}</td></tr>`;
+    });
+    const named = est.map((h: Loose) => inText(h.labels.plain));
+    const lead = est.length
+      ? `No product publishes ${named.length === 1 ? `a ${named[0]}` : `values of ${andList(named)}`} that can be ranked, so the selector estimates ${named.length === 1 ? 'it' : 'them'} from the products' related values and similar materials.`
+      : 'No product publishes these print windows, so the selector estimates them from similar materials.';
+    const pct = (p: Loose) => Math.round(p * 100);
+    const table = tableBox(`<table class="grid est"><thead><tr><th scope="col">Property</th><th scope="col" class="num">Likely</th><th scope="col" class="num">Plausible</th><th scope="col">Precision</th><th scope="col">Beside what is published</th></tr></thead><tbody>${[...rows, ...wins].join('')}</tbody></table>`);
+    const fold = `<details class="more"><summary>${esc('What likely and plausible mean')}</summary><p class="sec-p">${esc(`Tested against known values, a likely range held the true value ${pct(levels.likely) / 10} times in 10, and a plausible range ${pct(levels.plausible) / 5} times in 20.`)} <a href="method.html#estimates">How the estimates are made</a>.</p></details>`;
+    return { empty: false, html: glue(`<div class="fence">${para([lead, 'An estimate is a range, never a product\'s value, and nothing above rests on it.'])}${table}${fold}</div>`), stats: { estimates: rows.length + wins.length } };
+  },
+};
