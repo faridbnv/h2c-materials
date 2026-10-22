@@ -711,11 +711,15 @@
       "size": "L (5)",
       "exitEvidence": "P-pages byte-identical apart from registered display transitions; page script ≤ 30 KB",
       "exit": {
-        "commands": [],
+        "commands": [
+          "npm run parity:erase",
+          "npm run typecheck",
+          "node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs",
+          "npm run parity -- --new --surface pages"
+        ],
         "attest": [],
         "manual": [
-          "P-pages byte-identical apart from registered display transitions",
-          "page script <= 30 KB"
+          "the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)"
         ]
       },
       "dropped": false

@@ -1,9 +1,9 @@
 // The material pages' renderer (the pages reimagined, 2026-10-17): for each material the page rule admits
 // (page-rule.js pageOf) its Overview and its Products page, and a stub at its old records page's address; the index of
-// every material; the shared page on how the numbers are worked out (track B's method-page.js, where it has landed);
-// and the shared assets. Pure: no file is read or written here (the build's stage 8 and scripts/pages/render.mjs do
-// that), and nothing here decides anything. Every fact is material-facts.js's, every word material-words.js's,
-// findings.js's or labels.js's, every number format.js's or numbers.js's.
+// every material; the shared page on how the numbers are worked out (method-page.ts); and the shared assets. Pure: no file
+// is read or written here (site.ts and cli.ts do that), and nothing here decides anything. Every fact is
+// facts/material-facts.ts's, every word facts/material-words.ts's, findings.ts's or facts/labels.ts's, every number
+// facts/format.ts's or numbers.ts's. Ported from app/pages/render.js (WP-24); the files it names below are .ts here.
 //
 //   renderSite(db, env)                 → { files: [[path, text]], stats }   every page, its Products page and stub, the
 //                                         index, the method page, the assets

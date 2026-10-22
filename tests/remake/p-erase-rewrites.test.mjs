@@ -36,7 +36,13 @@ test('every rewrite declared in remake/p-erase.json is a path or an import of a 
   assert.ok(declared.length > 0);
   for (const { new: file, rewrites } of declared) {
     for (const { from, to } of rewrites) {
-      assert.match(from, /\.\.\//, `${file}: a rewrite is for a relative path`);
+      assert.match(from, /\.\.?\//, `${file}: a rewrite is for a relative path`);
+      if (/^['"]@atlas\//.test(to)) continue; // an import of an old engine file, now of the package that ports it (WP-24)
+      if (file.startsWith('packages/pages/')) {
+        // app/pages and app/js/ui moved into one package: an import specifier written for the new place, with no other text changed.
+        assert.ok(/^['"]\.{1,2}\/[\w./-]+['"]$/.test(from) && /^['"]\.{1,2}\/[\w./-]+['"]$/.test(to), `${file}: ${from} -> ${to} is one import specifier`);
+        continue;
+      }
       assert.ok(to.split('../').length > from.split('../').length, `${file}: the moved file is deeper, so the path gains a level`);
     }
   }
