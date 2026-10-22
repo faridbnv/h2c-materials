@@ -1,5 +1,5 @@
 {
-  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion.",
+  "$comment": "Label-only conversions P-erase must prove (15-TYPESCRIPT-PLAN appendix A3): each pair is an old .js file and the .ts file that claims to differ only by labels. A conversion PR adds its pairs here; the old file is the reference. The first pair is the sample that proves the tool. build/src/products.js has no pair on purpose: WP-23 changed products.ts's behaviour (a reprinted table counts once, transition reprint-counts-once), so it is no longer a label-only conversion. build/src/estimate/grades.js and directions.js have none for the same reason: DT-1 (transition dt1-float-tie) made their coverage checks use the tolerance helper.",
   "pairs": [
     {
       "old": "tests/remake/fixtures/p-erase/gate.old.js",
@@ -264,20 +264,12 @@
       "new": "packages/build/src/estimate/conversions.ts"
     },
     {
-      "old": "build/src/estimate/directions.js",
-      "new": "packages/build/src/estimate/directions.ts"
-    },
-    {
       "old": "build/src/estimate/floors.js",
       "new": "packages/build/src/estimate/floors.ts"
     },
     {
       "old": "build/src/estimate/gaussian.js",
       "new": "packages/build/src/estimate/gaussian.ts"
-    },
-    {
-      "old": "build/src/estimate/grades.js",
-      "new": "packages/build/src/estimate/grades.ts"
     },
     {
       "old": "build/src/estimate/index.js",

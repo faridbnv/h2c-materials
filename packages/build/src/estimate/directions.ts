@@ -13,7 +13,7 @@
 //
 // A pure function of the fit that exists (holdOut, the grade calibration's scales, the attached grade estimates).
 
-import { median } from './numerics.ts';
+import { exceeds, median } from './numerics.ts';
 import { HEAD } from './model.ts';
 import type { Dyn } from '../types.ts';
 
@@ -45,7 +45,7 @@ export function directionBackTest({ key, model, S, obs, holdOut, calPlausible, z
     const p = holdOut(c.m, c.f, S.grades.get(c.gradeId)?.manufacturer, c.head);
     for (const i of c.head) {
       const err = obs[i].y - p.mu;
-      guard.push({ err, held: Math.abs(err) <= zPlausible * Math.sqrt((p.sd * calPlausible) ** 2 + obs[i].noise2) });
+      guard.push({ err, held: !exceeds(Math.abs(err), zPlausible * Math.sqrt((p.sd * calPlausible) ** 2 + obs[i].noise2)) });
     }
   }
   return {
