@@ -9,7 +9,7 @@ import { runParity, exitCode } from '../../packages/parity/src/compare.ts';
 import { faultByName } from '../../packages/parity/src/faults.ts';
 import { copyEngine } from '../../packages/parity/src/engine-copy.ts';
 import { createOld, createOldAdapter, readDb } from '../../packages/parity/src/old-adapter.ts';
-import { buildTransition, digestOf, loadTransitions, sealOf, validateTransition } from '../../packages/parity/src/transitions.ts';
+import { BUILD_CASE, buildTransition, digestOf, loadTransitions, partOf, sealOf, settleSurface, validateTransition } from '../../packages/parity/src/transitions.ts';
 import { CLI_ONLY, cli, root, sharedOld, small } from './helpers.mjs';
 
 const known = new Set(small.map((c) => c.id));
@@ -128,4 +128,35 @@ test('CLI: a transition file for a fault run passes with exit 0, and fails with 
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
+});
+
+// P-build has no corpus cases: its differences are listed under the case "build" and settled by settleSurface.
+const buildDiff = (field, before, after) => ({ case: 'build', record: 'materials[M074]', tier: 'evidence', field, before, after });
+const surfaceOf = (differences, over = {}) => ({
+  surface: 'build', before: 'a', after: 'b', unit: 'value', unitsCompared: 10, differenceCount: differences.length, differences,
+  truncated: false, notComputable: [], notes: [], status: differences.length ? 'differs' : 'zero', timingsMs: { total: 0 }, ...over,
+});
+
+test('settleSurface: exactly the listed build differences pass, one more or one fewer fails, none listed leaves the report alone', () => {
+  const [a, b] = [buildDiff('summary.x.median', '1', '2'), buildDiff('summary.x.n', '3', '2')];
+  const listed = [file([a, b])];
+  assert.equal(settleSurface(surfaceOf([a, b]), listed, BUILD_CASE).status, 'matches-transition');
+  const extra = settleSurface(surfaceOf([a, b, buildDiff('other', '1', '2')]), listed, BUILD_CASE);
+  assert.equal(extra.status, 'differs');
+  assert.equal(extra.transitions.unexpected.length, 1);
+  const short = settleSurface(surfaceOf([a]), listed, BUILD_CASE);
+  assert.equal(short.status, 'differs');
+  assert.equal(short.transitions.missing.length, 1);
+  assert.equal(settleSurface(surfaceOf([a]), [], BUILD_CASE).status, 'differs');
+  assert.equal(settleSurface(surfaceOf([]), [], BUILD_CASE).status, 'zero');
+  assert.equal(settleSurface(surfaceOf([a, b], { notComputable: [{ case: 'build' }] }), listed, BUILD_CASE).status, 'not-computable');
+  assert.throws(() => settleSurface(surfaceOf([a], { truncated: true, differenceCount: 5 }), listed, BUILD_CASE), /cut list/);
+});
+
+test('partOf splits one transition file into its build part and its engine part, and drops a file with nothing left', () => {
+  const [a, b] = [buildDiff('f', '1', '2'), { ...observed[0] }];
+  const both = [file([a, b])];
+  assert.deepEqual(partOf(both, (d) => d.case === BUILD_CASE)[0].differences, [a]);
+  assert.deepEqual(partOf(both, (d) => d.case !== BUILD_CASE)[0].differences, [b]);
+  assert.equal(partOf([file([a])], (d) => d.case !== BUILD_CASE).length, 0);
 });

@@ -160,6 +160,8 @@ class Run {
   readonly baseDb: Db;
   /** The engine corpus of this run, before any selection. */
   readonly allCases: CorpusCase[];
+  /** Every case a transition may name: the milestone corpus, which holds the pull-request corpus. */
+  readonly transitionCaseIds: ReadonlySet<string>;
   readonly transitions: TransitionFile[] | undefined;
   readonly log = new RunLog();
   private readonly builds = new Map<'first' | 'second', Promise<BuiltRelease>>();
@@ -171,6 +173,8 @@ class Run {
     this.corpus = corpus;
     this.baseDb = baseDb;
     this.allCases = engineCorpusCases(corpus, baseDb, plan.milestone);
+    // A transition is measured at the milestone size and must stay valid in a pull-request run, which asks the first 1,000 of the same cases.
+    this.transitionCaseIds = new Set((plan.milestone ? this.allCases : engineCorpusCases(corpus, baseDb, true)).map((c) => c.id));
     this.transitions = transitions;
   }
 
@@ -265,7 +269,7 @@ async function runEngine(run: Run): Promise<void> {
   const interactive = process.stdout.isTTY;
   const here = run.transitions ? partOf(run.transitions, (d) => d.case !== BUILD_CASE) : undefined;
   const report = await log.timed('engine', () => runParity({
-    corpusName: run.corpus.corpus, cases, knownCaseIds: new Set(run.allCases.map((c) => c.id)), before, after,
+    corpusName: run.corpus.corpus, cases, knownCaseIds: new Set(run.allCases.map((c) => c.id)), transitionCaseIds: run.transitionCaseIds, before, after,
     ...(here ? { transitions: here } : {}), ...(interactive ? { onProgress: showProgress } : {}),
   }));
   if (interactive) process.stdout.write('\r');

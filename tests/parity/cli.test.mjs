@@ -58,7 +58,10 @@ test('a caught fault exits 5 (not 1, not 70); a zero run exits 0; a new side tha
   assert.equal(run('--placeholder', ...SMALL).status, 2, 'old against a new side that answers nothing is not computable');
   const wrapped = run(...SMALL);
   assert.equal(wrapped.status, 0, `old against the wrapped engine: ${wrapped.stdout}${wrapped.stderr}`);
-  assert.match(wrapped.stdout, /RESULT: zero/);
+  // The new side reads the new build's database, which differs from the old by the registered reprint transition (WP-23): on these
+  // cases that is zero or exactly the transition's listed differences, never an unexpected one.
+  assert.match(wrapped.stdout, /RESULT: (zero|matches-transition)/);
+  assert.doesNotMatch(wrapped.stdout, /UNEXPECTED|MISSING/);
   assert.match(wrapped.stdout, /old\s+vs\s+new \(wrapper\)/);
 });
 
