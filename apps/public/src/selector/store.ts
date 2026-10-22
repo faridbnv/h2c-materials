@@ -169,6 +169,13 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     if (hashTimer !== null) clearTimeout(hashTimer);
     hashTimer = setTimeout(() => { history.replaceState(null, '', `#${toHash(state.scenario)}`); }, 250);
   }
+  /** Write the address now. Before a part's failure reaches the stale-shell guard, which may reload the page: the reload keeps
+   *  only what the address holds, and the debounced write above may not have happened yet. */
+  function flushHash() {
+    if (hashTimer !== null) clearTimeout(hashTimer);
+    hashTimer = null;
+    history.replaceState(null, '', `#${toHash(state.scenario)}`);
+  }
 
   /** The estimates part, when the question asks for it: the page computes nothing until it has arrived (the completeness rule). */
   async function ensureEstimates(): Promise<void> {
@@ -178,6 +185,7 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     try {
       state.estimates = await hooks.loadEstimates();
     } catch (error) {
+      flushHash();
       state.estimatesProblem = error;
       return;
     } finally {
@@ -527,7 +535,15 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
 
   return {
     state, actions, render, start, followHash, hydrate, validationOptions,
-    countHtml, statusView, provenance, ensureEstimates, loadDrawerParts: hooks.loadDrawerParts,
+    countHtml, statusView, provenance, ensureEstimates,
+    loadDrawerParts: async (id: string) => {
+      try {
+        return await hooks.loadDrawerParts(id);
+      } catch (error) {
+        flushHash();
+        throw error;
+      }
+    },
     policyControl: POLICY_CONTROL, policyLabels: POLICY_LABELS,
   };
 }
