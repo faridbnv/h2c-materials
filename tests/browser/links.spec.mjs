@@ -33,6 +33,18 @@ const lensOf = (link) => lensOfLink[link.id] ?? null;
 
 const sample = FULL ? links : links.filter((_, i) => i % 4 === 0);
 
+/** The old page's read once its lens has stopped changing: a chart places its point labels some time after it is drawn, and the old page says nothing of when it is done. */
+async function readOldSteady(old) {
+  let last = await old.evaluate(READ_OLD);
+  for (let i = 0; i < 40; i++) {
+    await old.evaluate('new Promise((r) => setTimeout(() => r(true), 250))');
+    const now = await old.evaluate(READ_OLD);
+    if (now === last) return now;
+    last = now;
+  }
+  return last;
+}
+
 /** What a reader sees: the count, the status chips that are shown and the lens, as the views read them. */
 const READ_OLD = `(() => {
   const text = (el) => (el?.innerText ?? '').replace(/[ \\t]+/g, ' ').replace(/\\n\\s*\\n+/g, '\\n').trim();
@@ -69,7 +81,7 @@ test('historic links: every link of the corpus opens in the new selector as it d
       if (link.kind === 'hash') {
         await old.open(`${old.pageUrl}#${link.text}`);
         await next.open(`${next.pageUrl}#${link.text}`);
-        oldRead = await old.evaluate(READ_OLD);
+        oldRead = await readOldSteady(old);
         newRead = await next.readView();
         newRefused = (await newPage.locator('[data-testid="notice-text"]').allInnerTexts()).some((t) => /^This link could not be read/.test(t));
       } else {
@@ -83,7 +95,7 @@ test('historic links: every link of the corpus opens in the new selector as it d
         await old.evaluate(`document.getElementById('btn-scenario').click(); document.getElementById('sc-import').click(); true`);
         await (await chooser).setFiles(file);
         await oldPage.waitForTimeout(700);
-        oldRead = await old.evaluate(READ_OLD);
+        oldRead = await readOldSteady(old);
         await newPage.locator('[data-testid="save-share"]').click();
         await newPage.locator('[data-testid="file-input"]').setInputFiles(file);
         await newPage.waitForTimeout(700);

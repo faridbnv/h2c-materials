@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "runId": "95776359-885b-483d-bc3d-94e51a79d32d",
+  "status": "measured",
+  "measuredAt": "2026-10-22T13:39:54.736Z",
+  "machine": {
+    "os": "linux 6.18.44-fc-v140",
+    "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+    "cores": 4
+  },
+  "browser": "chromium 141.0.7390.37",
+  "what": "the NEW site's boot as a reader meets it: a cold browser context, the selector fetched over HTTP from the test server (gzip level 6, Cache-Control max-age=600, like Pages), bytes counted on the wire, time from the start of the navigation until the count has text and the lens is ready; each number is the median of the runs listed",
+  "site": {
+    "release": "3e3891eab7b3",
+    "pageRawBytes": 3847
+  },
+  "targets": {
+    "firstResultsMs": 1500,
+    "firstResultsMsAt4xCpu": 3500,
+    "note": "pack 02 section 11; reported here, not gated: the reference machine is the owner's, and shared runners are a trend"
+  },
+  "byBasePath": {
+    "/h2c-materials/": {
+      "project": "live-path",
+      "url": "http://127.0.0.1:34411/h2c-materials/",
+      "unthrottled": {
+        "cpuThrottle": 1,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 605,
+          "min": 582,
+          "max": 611,
+          "all": [
+            605,
+            599,
+            582,
+            608,
+            611
+          ]
+        },
+        "domContentLoadedMs": 41,
+        "loadMs": 41,
+        "transferBytes": 895920,
+        "transferBytesAllRuns": [
+          895920
+        ],
+        "requests": 7
+      },
+      "cpu4x": {
+        "cpuThrottle": 4,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 3040,
+          "min": 2736,
+          "max": 3241,
+          "all": [
+            2736,
+            3040,
+            3241,
+            2921,
+            3081
+          ]
+        },
+        "domContentLoadedMs": 144,
+        "loadMs": 145,
+        "transferBytes": 895920,
+        "transferBytesAllRuns": [
+          895920
+        ],
+        "requests": 7
+      }
+    },
+    "/h2c-material-temp-page/": {
+      "project": "preview-path",
+      "url": "http://127.0.0.1:34411/h2c-material-temp-page/",
+      "unthrottled": {
+        "cpuThrottle": 1,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 717,
+          "min": 638,
+          "max": 757,
+          "all": [
+            757,
+            701,
+            728,
+            717,
+            638
+          ]
+        },
+        "domContentLoadedMs": 42,
+        "loadMs": 42,
+        "transferBytes": 895920,
+        "transferBytesAllRuns": [
+          895920
+        ],
+        "requests": 7
+      },
+      "cpu4x": {
+        "cpuThrottle": 4,
+        "runs": 5,
+        "firstResultsMs": {
+          "median": 3153,
+          "min": 2840,
+          "max": 3449,
+          "all": [
+            3031,
+            3449,
+            3153,
+            3157,
+            2840
+          ]
+        },
+        "domContentLoadedMs": 131,
+        "loadMs": 132,
+        "transferBytes": 895920,
+        "transferBytesAllRuns": [
+          895920
+        ],
+        "requests": 7
+      }
+    }
+  }
+}

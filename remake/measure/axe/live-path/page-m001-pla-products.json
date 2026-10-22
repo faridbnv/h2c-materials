@@ -4,7 +4,7 @@
   "title": "material page: m001-pla-products",
   "adapter": "old",
   "project": "live-path",
-  "path": "/h2c-materials/materials/M001-products.html",
+  "path": "/h2c-materials/legacy/materials/M001-products.html",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",
