@@ -7,7 +7,7 @@
   "scripts": {
     "build": "npm --prefix build run build",
     "build:diff": "node scripts/build-diff.mjs",
-    "build:next": "node packages/build/src/cli.ts",
+    "build:next": "node apps/public/tools/build.ts",
     "pages:next": "node packages/pages/src/cli.ts",
     "build:measure": "node packages/build/src/measure.ts",
     "validate": "npm --prefix build run validate",
@@ -132,13 +132,16 @@
     "wp:worktree": "node remake/tools/worktree-setup.mjs",
     "baseline": "node remake/tools/baseline.mjs",
     "release:id": "node remake/tools/release-id.mjs",
-    "build:next": "node apps/public/tools/build.ts",
     "editor": "node apps/editor/server/start.ts --open",
     "editor:measure": "node apps/editor/server/measure.ts",
     "test:e2e": "playwright test -c tests/e2e/playwright.config.mjs",
     "test:browser": "node tests/browser/run.mjs",
     "test:browser:full": "node tests/browser/run.mjs --full",
-    "browser:compare": "node tests/browser/compare-old-harness.mjs"
+    "browser:compare": "node tests/browser/compare-old-harness.mjs",
+    "candidate:check": "node remake/tools/candidate.mjs check",
+    "candidate:receipt": "node remake/tools/candidate.mjs receipt",
+    "rehearse": "node remake/tools/rehearse.mjs",
+    "legacy:save": "bash remake/tools/save-legacy.sh"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
