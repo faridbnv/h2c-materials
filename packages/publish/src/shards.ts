@@ -275,7 +275,7 @@ export function publicize(value: unknown): unknown {
 // ------------------------------------------------------------------ the detail parts' encoding
 
 /**
- * The encoding of a detail part (owner decision 2026-10-22, the site budget): every array of two or more plain records is written as
+ * The encoding of a detail part (owner ruling R-M3-DETAIL-COMPACT, 2026-10-22, the site budget): every array of two or more plain records is written as
  * `{ keys, rows }`, the field names once and a row of values per record, instead of every name on every row. A record's fields that are
  * missing (not null: missing) are listed in `absent` as row, column pairs. The part says so in its `encoding` field, and a reader refuses
  * a part that says nothing or says another, so a part is never read as the shape it is not. `decodeDetail(encodeDetail(part))` is the
