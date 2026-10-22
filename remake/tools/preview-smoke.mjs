@@ -7,6 +7,10 @@
 // later preview descends from the expected commit), PUSHED_AT (epoch ms, optional), SMOKE_TIMEOUT_S (default 600),
 // SMOKE_POLL_S (default 20), SMOKE_OUT (where the measurement JSON goes, default preview-deploy.measured.json).
 // The measurement has the shape of remake/measure/preview-deploy.json.
+//
+// The two scenario checks run a real question through the repository's engine (packages/engine) on the parts the deploy serves, so the
+// job that runs this file has the repository checked out and its workspace packages linked (npm ci --ignore-scripts, as next-preview.yml's
+// smoke job does). A tool that cannot load the engine fails those checks; it never skips them.
 import { createHash } from 'node:crypto';
 import { writeFileSync } from 'node:fs';
 import { isMain } from './wp-lib.mjs';
@@ -50,27 +54,55 @@ async function sampleOf(release, ctx) {
   return /^M\d+$/.test(id ?? '') ? { id, result } : null;
 }
 
+/** The two questions the smoke asks of the parts: the release's own template in the Strict mode, and the same template in Explore with estimates on. Ids of the parity corpus (parity/corpus/v0.json). */
+export const SCENARIOS = Object.freeze({
+  strict: { mode: 'Strict', caseId: 'template/outdoor-structural-part/strict', estimates: false },
+  explore: { mode: 'Explore with estimates', caseId: 'template/outdoor-structural-part/explore-estimates', estimates: true },
+});
+
 /**
- * Two scenarios, read from the bytes the deploy serves (the question's answer itself is the browser suite's, run on the same files): the Strict one
- * is the release's own template, whose verdicts result.json lists and whose counts release.json states; the Explore one joins the estimates part
- * to the core part, which is what the page does before it shows an answer with estimates on, and which refuses a part that is not of this core.
+ * The engine's answer to a corpus question on a core model: `{ counts, verdicts }` (verdicts by material id). The model is the page's: the core
+ * part's, with the estimates part joined when the question asks for it. Replaceable (deps.answer) so a test needs no engine.
  */
-function checkScenarios({ manifest, result, core, estimates, check }) {
-  const tally = { PASS: 0, UNKNOWN: 0, FAIL: 0 };
-  for (const m of result.materials ?? []) if (m.verdict in tally) tally[m.verdict]++;
-  const said = manifest.counts ?? {};
-  check('Strict scenario: result.json lists as many verdicts as release.json counts', tally.PASS === said.pass && tally.UNKNOWN === said.unknown && tally.FAIL === said.fail,
-    `listed ${JSON.stringify(tally)}, counted ${JSON.stringify({ pass: said.pass, unknown: said.unknown, fail: said.fail })}`);
-  check('Strict scenario: every material it lists is in the core part', (result.materials ?? []).every((m) => core.model?.materials?.some((c) => c.id === m.materialId)), '');
-  try {
-    applyEstimates(core.model, estimates.overlay);
-    check('Explore scenario: the estimates part joins the core part', estimates.status === 'available' || estimates.status === 'withheld', `status ${estimates.status}`);
-  } catch (e) { check('Explore scenario: the estimates part joins the core part', false, e.message); }
+export async function engineAnswer({ caseId, model, release }) {
+  const [{ runEngine, scenarioFrom }, { loadImpactCases }] = await Promise.all([import('../../packages/engine/src/index.ts'), import('../../packages/engine/src/impact/index.ts')]);
+  const asked = loadImpactCases().find((c) => c.id === caseId);
+  if (!asked) throw new Error(`the parity corpus has no question ${caseId}`);
+  const out = runEngine({ release, core: model, scenario: scenarioFrom(asked.question, model.meta) });
+  return { counts: out.counts, verdicts: new Map(out.evaluations.map((e) => [e.materialId, e.verdict])) };
 }
 
-/** The view's page names its release, its release.json agrees, and its core, estimates and reference parts are what the manifest says (sha256 and size). */
+/**
+ * Two real questions, answered by the engine on the bytes the deploy serves. Strict: the release's own template; its counts must be the ones
+ * release.json states and every material's verdict the one result.json lists, which is what the page shows on its first screen. Explore with
+ * estimates: the estimates part is joined to the core part (which refuses a part that is not of this core) and the same template is asked
+ * again; the answer covers every material, and an estimate never makes a material pass, so no more pass than in the Strict mode.
+ */
+async function checkScenarios({ release, manifest, result, core, estimates, check, answer }) {
+  const said = manifest.counts ?? {};
+  let strict = null;
+  try {
+    strict = await answer({ ...SCENARIOS.strict, model: structuredClone(core.model), release });
+    check('Strict scenario: the engine\'s counts on the served core part are the ones release.json states',
+      strict.counts.pass === said.pass && strict.counts.unknown === said.unknown && strict.counts.fail === said.fail && strict.counts.total === said.total,
+      `engine ${JSON.stringify(strict.counts)}, release.json ${JSON.stringify(said)}`);
+    const differ = (result.materials ?? []).filter((m) => strict.verdicts.get(m.materialId) !== m.verdict).map((m) => m.materialId);
+    check('Strict scenario: the engine\'s verdict for every material is the one result.json lists', differ.length === 0 && strict.verdicts.size === (result.materials ?? []).length,
+      differ.length ? `differs for ${differ.slice(0, 5).join(', ')}${differ.length > 5 ? ` and ${differ.length - 5} more` : ''}` : `${strict.verdicts.size} verdicts against ${(result.materials ?? []).length} listed`);
+  } catch (e) { check('Strict scenario: the engine answers on the served core part', false, e.message); }
+  try {
+    const model = structuredClone(core.model);
+    applyEstimates(model, estimates.overlay);
+    check('Explore scenario: the estimates part joins the core part', estimates.status === 'available' || estimates.status === 'withheld', `status ${estimates.status}`);
+    const explore = await answer({ ...SCENARIOS.explore, model, release });
+    check('Explore scenario: the engine answers for every material', explore.counts.total === said.total && explore.verdicts.size === said.total, `engine ${JSON.stringify(explore.counts)}, release.json total ${String(said.total)}`);
+    if (strict !== null) check('Explore scenario: an estimate never makes a material pass (no more pass than in Strict)', explore.counts.pass <= strict.counts.pass, `${explore.counts.pass} pass against ${strict.counts.pass}`);
+  } catch (e) { check('Explore scenario: the estimates part joins the core part and the engine answers', false, e.message); }
+}
+
+/** The view's page names its release, its release.json agrees, and its core, estimates, reference and shared parts are what the manifest says (sha256 and size); a material's detail part, and two real questions through the engine. */
 async function checkView(base, release, previous, ctx) {
-  const { page, check, fetchFn, sleep, now } = ctx;
+  const { page, check, fetchFn, sleep, now, answer } = ctx;
   const index = await page('index.html', 'index.html');
   if (index !== null) check('index.html carries the view\'s release id', index.includes(release), release);
   const text = await page('release.json', 'release.json');
@@ -79,7 +111,7 @@ async function checkView(base, release, previous, ctx) {
   try { manifest = JSON.parse(text); } catch (e) { check('release.json parses', false, e.message); return; }
   check('release.json names the view\'s release', manifest.release === release, `${manifest.release} against ${release}`);
   const parsed = {};
-  for (const part of ['core', 'estimates', 'reference']) {
+  for (const part of ['core', 'estimates', 'reference', 'shared']) {
     const file = manifest.files?.[part];
     if (!file?.path || !/^data\/[0-9a-f]{12}\/[a-z]+\.json$/.test(file.path)) { check(`${part} part is listed`, false, JSON.stringify(file)); continue; }
     try {
@@ -96,10 +128,14 @@ async function checkView(base, release, previous, ctx) {
   if (sample !== null) {
     const material = await viewJson(`material/${sample.id}.json`, `data/${release}/material/${sample.id}.json`, ctx);
     if (material !== null) check(`material/${sample.id}.json is that material of this release`, material.kind === 'material' && material.release === release && material.materialId === sample.id, `${material.kind} ${material.materialId} of ${material.release}`);
-    if (parsed.core && parsed.estimates) checkScenarios({ manifest, result: sample.result, core: parsed.core, estimates: parsed.estimates, check });
+    check('shared.json is the shared part of this release', parsed.shared?.kind === 'shared' && parsed.shared?.release === release, `${String(parsed.shared?.kind)} of ${String(parsed.shared?.release)}`);
+    // One detail part of the current release: what a drawer opens. It is stored compactly; the envelope (kind, release, material) is plain.
+    const detail = await viewJson(`detail/${sample.id}.json`, `data/${release}/detail/${sample.id}.json`, ctx);
+    if (detail !== null) check(`detail/${sample.id}.json is that material's detail of this release`, detail.kind === 'detail' && detail.release === release && detail.materialId === sample.id, `${String(detail.kind)} ${String(detail.materialId)} of ${String(detail.release)}`);
+    if (parsed.core && parsed.estimates) await checkScenarios({ release, manifest, result: sample.result, core: parsed.core, estimates: parsed.estimates, check, answer });
     else check('the two scenarios could be read', false, 'the core or the estimates part was not served as JSON');
   }
-  // The deploy keeps the previous release without its detail/ folder (owner decision 2026-10-22): a page cached from it still loads its
+  // The deploy keeps the previous release without its detail/ folder (owner ruling R-M3-SITE-SCOPE, 2026-10-22): a page cached from it still loads its
   // results, and a request for a detail gets the 404 its guard answers with a reload. Both halves are the design; either missing is a fault.
   if (previous !== null) {
     const old = await sampleOf(previous, ctx);
@@ -110,7 +146,7 @@ async function checkView(base, release, previous, ctx) {
 }
 
 export async function runSmoke(cfg, deps = {}) {
-  const { fetchFn = fetch, sleep = sleepMs, now = Date.now, compare = null } = deps;
+  const { fetchFn = fetch, sleep = sleepMs, now = Date.now, compare = null, answer = engineAnswer } = deps;
   const base = cfg.baseUrl.endsWith('/') ? cfg.baseUrl : `${cfg.baseUrl}/`;
   if (!/^[0-9a-f]{40}$/.test(cfg.expectCommit)) throw new Error(`EXPECT_COMMIT is not a 40-character SHA: "${cfg.expectCommit}"`);
   const m = {
@@ -177,7 +213,7 @@ export async function runSmoke(cfg, deps = {}) {
   else { const body = await page(`${sample}`, sample); marked(sample, body); }
   const nf = await page('404.html', '404.html');
   marked('404.html', nf);
-  if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, typeof info.v3Previous === 'string' ? info.v3Previous : null, { page, check, fetchFn, sleep, now });
+  if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, typeof info.v3Previous === 'string' ? info.v3Previous : null, { page, check, fetchFn, sleep, now, answer });
   else check('the public view checked', false, 'preview.json names no v3Release, so the public view was not part of this deploy and was not checked');
 
   // An old link: the release-stamped address of today's selector opens the selector with its hash (a stub), and one of an older release gets the 404 page whose script
