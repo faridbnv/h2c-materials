@@ -2,6 +2,7 @@
   "schema": 1,
   "$comment": "A harmless file for the rollback rehearsal's hold test (WP-35). A push that changes only files under remake/control/ starts next-main.yml in its dry run and not next-preview.yml; with DEPLOY_HOLD set it must verify and build and NOT deploy. Add one number to pings to make such a push.",
   "pings": [
-    1
+    1,
+    2
   ]
 }
