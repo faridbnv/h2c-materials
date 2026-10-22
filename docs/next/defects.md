@@ -3,7 +3,8 @@
 > **In short.** Defects in the old code that the remake's checks expose. Under the owner's ruling Q2-19
 > ([rulings.csv](rulings.csv), R-Q2-19) a conversion step keeps the old behaviour, and each defect here is fixed later
 > in its own tested change. A fix that touches science (verdicts, evidence eligibility, ranking) needs the owner's
-> review. Each entry says where it is, what the evidence is, whether real data reaches it, and what the new code does
+> review. Every entry carries a **Disposition** (fixed with a PR or commit, known limitation, or owner-ruled) and a **Science** line
+> (no, or yes naming its transition or ruling); `npm run candidate:check` fails on an entry without them (Q2-19). Each entry says where it is, what the evidence is, whether real data reaches it, and what the new code does
 > until it is fixed.
 
 ## WP-07: the shared core and its copies (2026-10-21)
@@ -14,6 +15,8 @@ The entries below are disagreements only on values the current data never holds.
 
 ### WP07-D1. Two forms of the 0.45 MPa load test disagree at 0.44 and 0.46 MPa
 
+- **Disposition.** known limitation. Kept as the old tool has it (R-Q2-19); fixing it means choosing one edge rule for both forms, a science question for the owner.
+- **Science.** yes: ruling R-Q2-19 (a change to which loads count as the 0.45 MPa test is a change of evidence eligibility and needs the owner's explicit review)
 - **Where.** `build/src/products.js:318` (`assess`) refuses a heat deflection value for the 0.45 MPa headline when
   `Math.abs(load - 0.45) > 0.01`; `app/js/ui/material-facts.js:532` (`refusedBy`) does the same with the literal `0.01`.
   The estimate stage reads a load as the 0.45 MPa test when `load >= 0.44 && load <= 0.46`
@@ -28,6 +31,8 @@ The entries below are disagreements only on values the current data never holds.
 
 ### WP07-D2. A gate verdict outside the six words is read differently by different copies
 
+- **Disposition.** known limitation. No value outside the six words occurs in the schema or in the data.
+- **Science.** no
 - **Where.** A word that is not one of the six verdicts (for example a typo):
   `app/js/engine/constraints.js:585` answers `GATE_STATUS[v] ?? UNKNOWN`; `app/js/ui/labels.js` `gateVerdict` falls back
   to `unknown` only when `GATE_VERDICT[v]` is falsy; `app/js/ui/material-facts.js:731` counts any word that is neither
@@ -50,6 +55,8 @@ entries below are what the port exposed; none is fixed here, and none moves an a
 
 ### WP20-D1. A release ID does not cover the new build's rules (fixed in the M3-close fixes)
 
+- **Disposition.** fixed in commit 00bff6a9 (M3 fix 2, branch wp-m3-fixes; the pull request number replaces the commit here when that branch merges).
+- **Science.** no
 - **Fixed.** `remake/tools/release-id.mjs` now hashes `packages/build/src`, the data code that reconstructs the tables, `apps/public/src/view-fields.ts`, `view-facts.ts`, `model.ts` and `packages/pages/src/facts/dates.ts`; `tests/remake/release-id.test.mjs` walks the import graph of the parts writer and fails on any file it reaches that is neither an input nor named as deciding nothing. The text below is the defect as found.
 
 - **Where.** `build/src/release.js` `RELEASE_INPUTS` digests `build/src` and `build/mappings` as "the rules". The new build's
@@ -66,6 +73,8 @@ entries below are what the port exposed; none is fixed here, and none moves an a
 
 ### WP20-D2. A record's line number is the line it ends on, not the line it starts on
 
+- **Disposition.** known limitation. No cell holds a line feed.
+- **Science.** no
 - **Where.** `build/src/csv.js` documents `line` as "the 1-based file line the record starts on" and reads it from
   csv-parse's `info.lines`. `packages/data/src/csv.ts` (the reconstruction's reader) reports the line a record starts on.
 - **Evidence.** A table `a,b / 1,"x\ny\nz" / 2,3` gives lines 4 and 5 from the old reader (the first record spans lines 2 to
@@ -77,6 +86,8 @@ entries below are what the port exposed; none is fixed here, and none moves an a
 
 ### WP20-D3. `polymer-environment.js` holds a raw NUL byte
 
+- **Disposition.** known limitation. A harmless clean-up for after the cutover.
+- **Science.** no
 - **Where.** `build/src/polymer-environment.js:64`, the separator in the duplicate-row key
   (`[...].join('<NUL>')`, written as the control character itself rather than the escape `'\0'`).
 - **Evidence.** `file` calls the file "data", `grep` skips it without a flag (a search for its exports finds none), and git
@@ -87,6 +98,8 @@ entries below are what the port exposed; none is fixed here, and none moves an a
 
 ### WP20-D4. The database depends on the order of the rows in the files
 
+- **Disposition.** known limitation. Kept as the old tool has it (R-Q2-19); choosing among equals by a stated rule is a change of rule with the owner's review.
+- **Science.** yes: ruling R-Q2-19 (which profile a gate window comes from is a choice among evidence)
 - **Where.** `build/src/gates.js` (`aggregateGate`, first of equals), `build/src/products.js` (a profile or a record chosen
   among equals), `build/src/compile.js` (the lists of IDs it keeps in file order). Known as hazard 1 of
   `research/understand/gap-5.md` section 3.
@@ -107,6 +120,8 @@ as it is (ruling Q2-19); none is fixed here.
 
 ### WP18-D1. A version 1 file with an unknown chart detail opens with no chart view
 
+- **Disposition.** known limitation. No harvested link or file reaches it.
+- **Science.** no
 - **Where.** `app/js/engine/scenario.js:259-260` (`migrateV1`). The view of a version 1 chart is looked up in a literal by the
   file's `plot.detail` (or the view its `pointLevel` and `comparability` imply): `{ material, products, measured, measured-mixed }[level ?? 'material']`.
 - **Evidence.** `validateScenario({ version: 1, lens: 'ashby', plot: { detail: 'bogus' } })` answers `plot.view: undefined`, and the
@@ -121,6 +136,8 @@ as it is (ruling Q2-19); none is fixed here.
 
 ### WP18-D2. Two kinds of headline carry a `related` field, and the engine reads both as a list of words
 
+- **Disposition.** known limitation. Kept as the old tool has it (R-Q2-19).
+- **Science.** no
 - **Where.** `app/js/engine/products.js:204-206` writes `entry.related` as a list of up to three sentences on a product view's
   headline. The database's own headline (`build/src/compile.js:271`, `relatedEvidence`, `:405-416`) holds `related` as an object
   `{ count, best, grades, unit, items }`. `app/js/engine/constraints.js:196` and `:243` read `h.related?.length` and
@@ -134,6 +151,8 @@ as it is (ruling Q2-19); none is fixed here.
 
 ### WP18-D3. `coverage.js` reads `loadStated`, which no headline holds
 
+- **Disposition.** known limitation. The read has no effect on any answer.
+- **Science.** no
 - **Where.** `app/js/engine/coverage.js:79` (`availability`): `m.headline[key].loadStated === false` counts the headlines "measured at
   an unstated load". The same field is read in `app/js/ui/format.js:368,395`, `table.js:737`, `compare.js:139` and `material-facts.js:532`.
 - **Evidence.** No headline shape in `schema/db.schema.json` or in what `build/src/compile.js` writes has the field, so
@@ -166,6 +185,8 @@ the typing and the rule-reading exposed. None is fixed here.
 
 ### WP19-D1. The build writes why a printer check is open in English only, so the engine still reads one sentence family
 
+- **Disposition.** known limitation. The one place that reads the build's English is isolated (gate-reasons.ts) and removed when the build writes the code itself.
+- **Science.** no
 - **Where.** `app/js/engine/constraints.js:948-949` (`openOne`) says "no print recipe on record" or "its chamber temperature is not
   stated" by reading the gate's reason with two regular expressions. The reasons are written by the build: `build/src/gates.js:26,53`,
   `build/src/normalize/process.js:232-307`, `build/src/products.js:584` and `build/src/chamber-need.js:100`, and the engine's own
@@ -181,6 +202,8 @@ the typing and the rule-reading exposed. None is fixed here.
 
 ### WP19-D2. `headline.related` is an object on the database's own headlines, and the engine reads it as a list (WP18-D2, measured)
 
+- **Disposition.** known limitation. Eight headlines of three materials; no verdict moves.
+- **Science.** no
 - **Where.** `app/js/engine/constraints.js:196,243`: `h.related?.length` and `h.related.join('; ')`.
 - **Evidence.** In the compiled database 326 headlines hold `related` as an object `{ count, best, ... }`, all of them headlines with
   no value. A material is judged on its own headline only when it has no product on record: PA66-CF, PA612 and PA612-GF (M056, M058,
@@ -193,6 +216,8 @@ the typing and the rule-reading exposed. None is fixed here.
 
 ### WP19-D3. Eleven rules of `constraints.js` are covered by no test
 
+- **Disposition.** known limitation. A test gap, not an error: the eleven rules are listed in constraints-rules.md.
+- **Science.** no
 `docs/next/constraints-rules.md` maps all 222 rules to their covering tests and lists the 11 that none reaches. The new
 characterization tests (`tests/parity/constraints-rules.test.mjs`, `constraint-ids.test.mjs`) cover the rest (the filler facet, the two
 errors, the closed upper bound, a headline with no interval, the withheld estimate, requirements cloned or repeated). One is reached
@@ -214,6 +239,8 @@ old stage's own output. The entries below are what the move and the measurement 
 
 ### WP21-D1. DT-1: the float tie at `grades.js:51` (applied in M3: transition [dt1-float-tie](transitions/dt1-float-tie.md))
 
+- **Disposition.** fixed in PR #40 (transition 2026-10-22-dt1-float-tie, applied in M3 under ruling R-OQ06).
+- **Science.** yes: transition 2026-10-22-dt1-float-tie; ruling R-OQ06
 - **Where.** `build/src/estimate/grades.js:51` (`within`: a bare `<=`), and the two sites gap-1 names as next in line,
   `grades.js:157-173` (`inRange`) and `directions.js:47`.
 - **Measured (owner ruling OQ-06 A).** Two builds of the same data with the line 51 comparison made `!exceeds(|y - mu|, z * sd)`
@@ -235,6 +262,8 @@ old stage's own output. The entries below are what the move and the measurement 
 
 ### WP21-D2. Estimates depend on the runtime (DT-2, postponed by OQ-07 A)
 
+- **Disposition.** owner-ruled by R-OQ07 (postpone DT-2; pin Node and record ICU in each release).
+- **Science.** yes: ruling R-OQ07
 - **Where.** `localeCompare` in `estimate/gaussian` (sampler) and `estimate/calibration`; `Math.log`, `Math.exp` throughout.
 - **Kept.** Node is pinned (`.nvmrc` 26.12.0; this machine runs 26.9.0, which the manifest says: `runtime.pinned: false`) and the runtime
   is recorded: the stage's cache key covers Node, V8, ICU, CLDR, Unicode, platform, architecture, the default collator and a probe of
@@ -243,6 +272,8 @@ old stage's own output. The entries below are what the move and the measurement 
 
 ### WP21-D3. A conversion drift is not a calibration failure
 
+- **Disposition.** known limitation. R-OQ05 names calibration failure only; whether a conversion drift should withhold estimates too is the owner's call.
+- **Science.** yes: ruling R-OQ05
 - **Where.** `estimate/validate` raises CONVERSION-DRIFT (a learned offset outside the band its `conversions.csv` row states) as an
   error beside EST-CALIBRATION.
 - **Kept.** OQ-05 A names calibration failure only. EST-CALIBRATION is withheld and labelled; CONVERSION-DRIFT, EST-ORDER and
@@ -250,6 +281,8 @@ old stage's own output. The entries below are what the move and the measurement 
 
 ### WP21-D4. The estimate stage in the new process (WP-20's open item)
 
+- **Disposition.** known limitation. Cause not found; re-measure on a quiet machine with npm run build:measure.
+- **Science.** no
 - **Measured.** Pairs run side by side under the same load, the stage alone (reconstruct, load, compile, stage) in a lean process:
   old stage in the old process 158.6 and 163.1 s, the stage as TypeScript in the new front end 159.8 and 159.1 s; in a second
   set 188 s against 193 s. No slowdown beyond noise (up to 3 %). Putting the stage on a `structuredClone` of the database, or running
