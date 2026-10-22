@@ -3,6 +3,10 @@
 // serves something else is the failure this exists to catch, so every problem is an error: a failed fetch, a wrong status,
 // a missing banner, a timeout. Nothing is retried silently into a pass, and every failed check is reported, not just the first.
 //
+// A live profile (WP-32; cfg.profile 'live', env SMOKE_PROFILE=live) checks the site next-main.yml deploys to the live address: the marker is
+// deploy.json (written by remake/tools/artifact.mjs assemble --profile live) instead of preview.json, no page may carry the preview banner or
+// noindex, and the legacy/ checks are left out because the live site does not publish legacy/.
+//
 // Environment: PREVIEW_BASE_URL (ends with /), EXPECT_COMMIT (40 hex), GITHUB_REPOSITORY and GH_TOKEN (to ask whether a
 // later preview descends from the expected commit), PUSHED_AT (epoch ms, optional), SMOKE_TIMEOUT_S (default 600),
 // SMOKE_POLL_S (default 20), SMOKE_OUT (where the measurement JSON goes, default preview-deploy.measured.json).
@@ -149,6 +153,8 @@ export async function runSmoke(cfg, deps = {}) {
   const { fetchFn = fetch, sleep = sleepMs, now = Date.now, compare = null, answer = engineAnswer } = deps;
   const base = cfg.baseUrl.endsWith('/') ? cfg.baseUrl : `${cfg.baseUrl}/`;
   if (!/^[0-9a-f]{40}$/.test(cfg.expectCommit)) throw new Error(`EXPECT_COMMIT is not a 40-character SHA: "${cfg.expectCommit}"`);
+  const live = cfg.profile === 'live';
+  const marker = live ? 'deploy.json' : 'preview.json';
   const m = {
     schema: 1, status: 'fail', baseUrl: base, remakeCommit: cfg.expectCommit, release: null, pushedAt: cfg.pushedAt ? new Date(cfg.pushedAt).toISOString() : null,
     visibleAt: null, deployToVisibleSeconds: null, budgetSeconds: BUDGET_SECONDS, withinBudget: null, pollAttempts: 0, servedCommit: null,
@@ -163,21 +169,21 @@ export async function runSmoke(cfg, deps = {}) {
   while (now() < deadline) {
     m.pollAttempts++;
     try {
-      const res = await fetchFn(`${base}preview.json?cb=${now()}`, { redirect: 'follow', signal: AbortSignal.timeout(30000), headers: { 'user-agent': 'h2c-preview-smoke' } });
-      if (res.status !== 200) last = `preview.json: HTTP ${res.status}`;
+      const res = await fetchFn(`${base}${marker}?cb=${now()}`, { redirect: 'follow', signal: AbortSignal.timeout(30000), headers: { 'user-agent': 'h2c-preview-smoke' } });
+      if (res.status !== 200) last = `${marker}: HTTP ${res.status}`;
       else {
         const j = await res.json();
         if (j.remakeCommit === cfg.expectCommit) { info = j; break; }
-        last = `preview.json names ${String(j.remakeCommit).slice(0, 8)}, expected ${cfg.expectCommit.slice(0, 8)}`;
+        last = `${marker} names ${String(j.remakeCommit).slice(0, 8)}, expected ${cfg.expectCommit.slice(0, 8)}`;
         if (compare && /^[0-9a-f]{40}$/.test(j.remakeCommit ?? '')) {
           try { if (await compare(cfg.expectCommit, j.remakeCommit)) { info = j; m.servedCommit = j.remakeCommit; break; } }
           catch (e) { last += `; ancestry check failed: ${e.message}`; }
         }
       }
-    } catch (e) { last = `preview.json: ${e.message}`; }
+    } catch (e) { last = `${marker}: ${e.message}`; }
     await sleep(cfg.pollS * 1000);
   }
-  if (!info) { check('preview.json names the pushed commit', false, `timed out after ${cfg.timeoutS}s; last observation: ${last}`); return finish(); }
+  if (!info) { check(`${marker} names the pushed commit`, false, `timed out after ${cfg.timeoutS}s; last observation: ${last}`); return finish(); }
   m.servedCommit ??= info.remakeCommit;
   m.release = info.release ?? null;
   m.visibleAt = new Date(now()).toISOString();
@@ -188,8 +194,8 @@ export async function runSmoke(cfg, deps = {}) {
   } else if (cfg.requirePushedAt) {
     check('PUSHED_AT is known (the deploy job reports when it pushed)', false, 'PUSHED_AT unset');
   }
-  check('preview.json names the pushed commit (or a descendant)', true, `${info.remakeCommit.slice(0, 8)} after ${m.pollAttempts} poll(s)`);
-  check('preview.json carries mainCommit, builtAt and release', Boolean(info.mainCommit && info.builtAt && info.release), JSON.stringify({ mainCommit: info.mainCommit, builtAt: info.builtAt, release: info.release }));
+  check(`${marker} names the pushed commit (or a descendant)`, true, `${info.remakeCommit.slice(0, 8)} after ${m.pollAttempts} poll(s)`);
+  check(`${marker} carries mainCommit, builtAt and release`, Boolean(info.mainCommit && info.builtAt && info.release), JSON.stringify({ mainCommit: info.mainCommit, builtAt: info.builtAt, release: info.release }));
 
   // 2. The pages. Each is fetched cache-busted; a failed fetch is a failed check.
   const page = async (name, path, { status = 200, text = true } = {}) => {
@@ -202,6 +208,11 @@ export async function runSmoke(cfg, deps = {}) {
   };
   const marked = (name, body) => {
     if (body === null) return;
+    if (live) {
+      check(`${name}: no preview banner`, !body.includes(BANNER_MARK), '');
+      check(`${name}: no noindex`, !body.includes(NOINDEX), '');
+      return;
+    }
     check(`${name}: banner`, body.includes(BANNER_MARK), '');
     check(`${name}: noindex`, body.includes(NOINDEX), '');
   };
@@ -209,12 +220,12 @@ export async function runSmoke(cfg, deps = {}) {
   const index = await page('index.html', 'index.html');
   marked('index.html', index);
   const sample = info.sampleMaterial;
-  if (!/^materials\/M\d+\.html$/.test(sample ?? '')) check('preview.json names a material page', false, String(sample));
+  if (!/^materials\/M\d+\.html$/.test(sample ?? '')) check(`${marker} names a material page`, false, String(sample));
   else { const body = await page(`${sample}`, sample); marked(sample, body); }
   const nf = await page('404.html', '404.html');
   marked('404.html', nf);
   if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, typeof info.v3Previous === 'string' ? info.v3Previous : null, { page, check, fetchFn, sleep, now, answer });
-  else check('the public view checked', false, 'preview.json names no v3Release, so the public view was not part of this deploy and was not checked');
+  else check('the public view checked', false, `${marker} names no v3Release, so the public view was not part of this deploy and was not checked`);
 
   // An old link: the release-stamped address of today's selector opens the selector with its hash (a stub), and one of an older release gets the 404 page whose script
   // sends it there. The stamped page of today's site is at legacy/ as well, and is the old release's.
@@ -223,13 +234,15 @@ export async function runSmoke(cfg, deps = {}) {
     if (stub !== null) check('an old link\'s stub keeps the hash on its way to the selector', stub.includes('location.hash'), '');
     const gone = await page('an older release\'s link', 'H2C_Material_Selector_2000-01-01_aaaaaaaaaaaa.html', { status: 404 });
     if (gone !== null) check('an older release\'s link is sent to the selector by the 404 page', gone.includes('H2C_Material_Selector'), '');
-  } else check('preview.json names the stamped selector page', false, String(info.stampedSelector));
-  const old = await page('legacy/index.html', 'legacy/index.html');
-  marked('legacy/index.html', old);
-  if (old !== null) check('legacy/index.html carries the old release id', Boolean(info.release) && old.includes(info.release), info.release ?? 'no release in preview.json');
-  const manifest = await page('legacy/manifest.json', 'legacy/manifest.json');
-  if (manifest !== null) { try { check('legacy/manifest.json release equals preview.json release', JSON.parse(manifest).release === info.release); } catch (e) { check('legacy/manifest.json parses', false, e.message); } }
-  if (/^materials\/M\d+\.html$/.test(sample ?? '')) marked(`legacy/${sample}`, await page(`legacy/${sample}`, `legacy/${sample}`));
+  } else check(`${marker} names the stamped selector page`, false, String(info.stampedSelector));
+  if (!live) {
+    const old = await page('legacy/index.html', 'legacy/index.html');
+    marked('legacy/index.html', old);
+    if (old !== null) check('legacy/index.html carries the old release id', Boolean(info.release) && old.includes(info.release), info.release ?? 'no release in preview.json');
+    const manifest = await page('legacy/manifest.json', 'legacy/manifest.json');
+    if (manifest !== null) { try { check('legacy/manifest.json release equals preview.json release', JSON.parse(manifest).release === info.release); } catch (e) { check('legacy/manifest.json parses', false, e.message); } }
+    if (/^materials\/M\d+\.html$/.test(sample ?? '')) marked(`legacy/${sample}`, await page(`legacy/${sample}`, `legacy/${sample}`));
+  }
 
   // A missing path must be a real 404, not a 200 that serves the shell.
   try {
@@ -239,7 +252,7 @@ export async function runSmoke(cfg, deps = {}) {
 
   // 3. Record, without failing, what the edge serves with no cache-busting (staleness measurement).
   const edge = {};
-  for (const [k, path] of [['previewJsonUnbusted', 'preview.json'], ['indexUnbusted', 'index.html']]) {
+  for (const [k, path] of [['previewJsonUnbusted', marker], ['indexUnbusted', 'index.html']]) {
     try {
       const res = await fetchRetry(`${base}${path}`, { fetchFn, sleep, tries: 1 });
       edge[k] = { ...edgeView(res) };
@@ -266,7 +279,7 @@ if (isMain(import.meta.url)) {
     if (!env.PREVIEW_BASE_URL) throw new Error('PREVIEW_BASE_URL is not set');
     m = await runSmoke({
       baseUrl: env.PREVIEW_BASE_URL, expectCommit: env.EXPECT_COMMIT ?? '', timeoutS: num(env.SMOKE_TIMEOUT_S, 600), pollS: num(env.SMOKE_POLL_S, 20),
-      pushedAt: env.PUSHED_AT ? Number(env.PUSHED_AT) : null, requirePushedAt: env.CI === 'true',
+      pushedAt: env.PUSHED_AT ? Number(env.PUSHED_AT) : null, requirePushedAt: env.CI === 'true', profile: env.SMOKE_PROFILE === 'live' ? 'live' : 'preview',
     }, { compare });
   } catch (e) {
     m = { schema: 1, status: 'fail', checks: [{ name: 'smoke could not run', ok: false, detail: e.message }], measuredAt: new Date().toISOString() };

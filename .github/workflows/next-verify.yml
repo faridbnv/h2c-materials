@@ -28,12 +28,14 @@ on:
     types: [opened, synchronize, reopened, edited, labeled, unlabeled]
   push:
     branches: [remake/v3]
+  # next-main.yml calls these checks as they are (WP-32); the pull-request jobs skip themselves on a push.
+  workflow_call:
 
 permissions:
   contents: read
 
 concurrency:
-  group: next-verify-${{ github.event.pull_request.number || github.sha }}
+  group: next-verify-${{ github.workflow }}-${{ github.event.pull_request.number || github.sha }}
   cancel-in-progress: true
 
 jobs:
