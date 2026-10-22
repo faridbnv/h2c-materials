@@ -190,6 +190,13 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
     if (hashTimer !== null) clearTimeout(hashTimer);
     hashTimer = setTimeout(() => { history.replaceState(null, '', `#${toHash(state.scenario)}`); }, 250);
   }
+  /** Write the address now. Before a part's failure reaches the stale-shell guard, which may reload the page: the reload keeps
+   *  only what the address holds, and the debounced write above may not have happened yet. */
+  function flushHash() {
+    if (hashTimer !== null) clearTimeout(hashTimer);
+    hashTimer = null;
+    history.replaceState(null, '', `#${toHash(state.scenario)}`);
+  }
 
   /** The estimates part, when the question asks for it: the page computes nothing until it has arrived (the completeness rule). */
   async function ensureEstimates(): Promise<void> {
@@ -199,6 +206,7 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
     try {
       state.estimates = await hooks.loadEstimates();
     } catch (error) {
+      flushHash();
       state.estimatesProblem = error;
       return;
     } finally {
@@ -552,7 +560,32 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
 
   return {
     state, actions, render, start, followHash, hydrate, validationOptions,
-    touch, pushHash, countHtml, statusView, provenance, ensureEstimates, loadDrawerParts: hooks.loadDrawerParts, loadReference: hooks.loadReference, loadCited: hooks.loadCited,
+    touch, pushHash, countHtml, statusView, provenance, ensureEstimates,
+    // A part that fails reaches the stale-shell guard, which may reload the page: the address keeps the question first (flushHash).
+    loadDrawerParts: async (id: string) => {
+      try {
+        return await hooks.loadDrawerParts(id);
+      } catch (error) {
+        flushHash();
+        throw error;
+      }
+    },
+    loadReference: async () => {
+      try {
+        return await hooks.loadReference();
+      } catch (error) {
+        flushHash();
+        throw error;
+      }
+    },
+    loadCited: async (kind: 'brief' | 'export', ids: readonly string[]) => {
+      try {
+        return await hooks.loadCited(kind, ids);
+      } catch (error) {
+        flushHash();
+        throw error;
+      }
+    },
     policyControl: POLICY_CONTROL, policyLabels: POLICY_LABELS,
   };
 }

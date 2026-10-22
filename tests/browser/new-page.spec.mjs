@@ -72,15 +72,22 @@ test('public view: a core part that is not JSON, or lacks what the engine needs,
 
 test('public view: the estimates part is fetched only when Explore with the estimates switch is asked, and a part that cannot be had is said', async ({ newPage, page, watch }) => {
   const asked = [];
+  let loads = 0;
   page.on('request', (r) => { if (/estimates\.json/.test(r.url())) asked.push(r.url()); });
+  page.on('load', () => { loads++; });
   expect(await newPage.open(newPage.viewUrl)).toBe('ready');
   await page.locator('[data-template="0"]').click();
   expect(asked, 'the estimates part was fetched in Strict').toEqual([]);
   watch.allow(/estimates\.json|status of 404/, 'the estimates part is withheld on purpose');
   await page.route('**/estimates.json', (route) => route.fulfill({ status: 404, body: 'gone' }));
+  const loadsBefore = loads;
   await page.locator('[data-testid="mode-explore"]').click();
-  await expect(page.locator('[data-testid="load-notice"]')).toHaveAttribute('data-state', 'stale');
-  expect(asked.length, 'Explore with estimates on fetched the estimates part once').toBe(1);
+  // A missing part is a stale page: the guard reloads once, keeping Explore in the address, and the reloaded page asks again and
+  // then says so. The settled notice is the one with no reload under way.
+  await expect(page.locator('[data-testid="load-notice"][data-state="stale"]:not([data-reloading])')).toBeVisible();
+  expect(decodeURIComponent(page.url()), 'the reload kept Explore in the address').toContain('"u":"exploration"');
+  expect(loads - loadsBefore, 'the guard reloaded exactly once').toBe(1);
+  expect(asked.length, 'the estimates part was asked once per page load: before the reload and after it').toBe(2);
   await expect(page.locator('[data-testid="result-row"]')).toHaveCount(0);
 });
 
