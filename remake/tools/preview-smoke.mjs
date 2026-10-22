@@ -7,6 +7,7 @@
 // later preview descends from the expected commit), PUSHED_AT (epoch ms, optional), SMOKE_TIMEOUT_S (default 600),
 // SMOKE_POLL_S (default 20), SMOKE_OUT (where the measurement JSON goes, default preview-deploy.measured.json).
 // The measurement has the shape of remake/measure/preview-deploy.json.
+import { createHash } from 'node:crypto';
 import { writeFileSync } from 'node:fs';
 import { isMain } from './wp-lib.mjs';
 import { BANNER_MARK, NOINDEX } from './preview-assemble.mjs';
@@ -29,6 +30,28 @@ export async function fetchRetry(url, { fetchFn = fetch, tries = 3, delayMs = 50
     if (i < tries) await sleep(delayMs);
   }
   throw last;
+}
+
+/** The view's page names its release, its release.json agrees, and its core, estimates and reference parts are what the manifest says (sha256 and size). */
+async function checkView(base, release, { page, check, fetchFn, sleep, now }) {
+  const index = await page('v3/index.html', 'v3/index.html');
+  if (index !== null) check('v3/index.html carries the view\'s release id', index.includes(release), release);
+  const text = await page('v3/release.json', 'v3/release.json');
+  if (text === null) return;
+  let manifest;
+  try { manifest = JSON.parse(text); } catch (e) { check('v3/release.json parses', false, e.message); return; }
+  check('v3/release.json names the view\'s release', manifest.release === release, `${manifest.release} against ${release}`);
+  for (const part of ['core', 'estimates', 'reference']) {
+    const file = manifest.files?.[part];
+    if (!file?.path || !/^data\/[0-9a-f]{12}\/[a-z]+\.json$/.test(file.path)) { check(`v3 ${part} part is listed`, false, JSON.stringify(file)); continue; }
+    try {
+      const res = await fetchRetry(`${base}v3/${file.path}?cb=${now()}`, { fetchFn, sleep });
+      if (res.status !== 200) { check(`v3 ${part} part: HTTP 200`, false, `got ${res.status}`); continue; }
+      const bytes = Buffer.from(await res.arrayBuffer());
+      const sha = createHash('sha256').update(bytes).digest('hex');
+      check(`v3 ${part} part is the one release.json lists`, sha === file.sha256 && bytes.length === file.bytes, `${bytes.length} bytes, sha256 ${sha.slice(0, 12)}, listed ${file.bytes} bytes, ${String(file.sha256).slice(0, 12)}`);
+    } catch (e) { check(`v3 ${part} part: fetch`, false, e.message); }
+  }
 }
 
 export async function runSmoke(cfg, deps = {}) {
@@ -101,6 +124,10 @@ export async function runSmoke(cfg, deps = {}) {
   else { const body = await page(`${sample}`, sample); marked(sample, body); }
   const nf = await page('404.html', '404.html');
   marked('404.html', nf);
+
+  // The public view, when this deploy has one: its release.json is the smoke test's own manifest (the page never fetches it), and every
+  // part it names must be served whole, byte for byte, by the address the page will ask for (pack 02 section 6.2).
+  if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, { page, check, fetchFn, sleep, now });
 
   // A missing path must be a real 404, not a 200 that serves the shell.
   try {

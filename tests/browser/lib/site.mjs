@@ -9,6 +9,7 @@ import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync,
 import { join } from 'node:path';
 import { pageName } from '../../../build/src/release.js';
 import { buildV3 } from '../../../remake/tools/preview-assemble.mjs';
+import { NOT_FOUND_HTML } from '../../../remake/tools/site-pages.mjs';
 import { repoRoot } from '../../../remake/tools/wp-lib.mjs';
 
 export const SITE_DIR = join(repoRoot(), '.cache', 'browser-site');
@@ -18,7 +19,7 @@ const stampedPages = (site) => readdirSync(site).filter((f) => /^H2C_Material_Se
 
 /** The names every piece of a whole site must have. A list of what is missing, empty when the site is whole. */
 export function siteProblems(site) {
-  const need = ['index.html', 'manifest.json', 'materials/M001.html', 'materials/M001-products.html', 'materials/index.html', 'materials/method.html',
+  const need = ['index.html', '404.html', 'manifest.json', 'materials/M001.html', 'materials/M001-products.html', 'materials/index.html', 'materials/method.html',
     'v3/index.html', 'v3/material.html', 'v3/release.json'];
   const problems = need.filter((p) => !existsSync(join(site, p))).map((p) => `${p} is missing`);
   if (problems.length) return problems;
@@ -26,7 +27,9 @@ export function siteProblems(site) {
   if (stamped.length !== 1) problems.push(`expected one release-stamped selector page, found ${stamped.length}`);
   else if (readFileSync(join(site, stamped[0])).compare(readFileSync(join(site, 'index.html'))) !== 0) problems.push('index.html is not a copy of the stamped selector page');
   const release = readJson(join(site, 'v3', 'release.json')).release;
-  if (!existsSync(join(site, 'v3', 'data', String(release), 'result.json'))) problems.push(`v3/data/${release}/result.json is missing`);
+  for (const part of ['result.json', 'core.json', 'estimates.json', 'reference.json']) {
+    if (!existsSync(join(site, 'v3', 'data', String(release), part))) problems.push(`v3/data/${release}/${part} is missing`);
+  }
   return problems;
 }
 
@@ -61,6 +64,8 @@ export function assembleSite({ root = repoRoot(), out = SITE_DIR } = {}) {
   copyFileSync(join(dist, 'manifest.json'), join(out, 'manifest.json'));
   cpSync(join(dist, 'materials'), join(out, 'materials'), { recursive: true });
   writeFileSync(join(out, '.nojekyll'), '');
+  // Pages serves this for any missing path, from any depth; the preview deploy adds the same page (preview-assemble inject).
+  writeFileSync(join(out, '404.html'), NOT_FOUND_HTML);
   buildV3(out, { root });
   return describeSite(out);
 }
