@@ -1,0 +1,761 @@
+# The workflow that replaces verify.yml and pages.yml when remake/v3 becomes main (WP-32; pack 02 section 12, pack 07 sections 8, 12, 13).
+# One workflow: verify, build the site artifact once, deploy THAT artifact (fetched by run ID, its digest checked before a byte is published),
+# smoke the address, then keep the release (h2c-<id>: site-<id>.zip, release.json, artifact.json, the decision diff).
+#
+# It is NOT enabled for main. This file reaches main only through the cutover merge (the owner's decision, pack 08 WP-36), and three locks
+# keep it from doing live work before that decision:
+#   1. The ref decides the mode (remake/tools/cutover.mjs `plan`): refs/heads/main is the live path, refs/heads/remake/v3 is the dry run,
+#      which deploys to the PREVIEW repository through the same steps next-preview.yml uses.
+#   2. The live path refuses to run unless remake/attest.csv holds a `cutover-approved <sha>` row for the deployed commit or an ancestor of
+#      it. The plan job fails the run (red) when it is missing; the live jobs check again before they touch Pages or releases.
+#   3. Every live job is guarded by `mode == live`, which only the plan job can output.
+#
+# DEPLOY_HOLD (repository variable). This workflow READS it and never sets it. While it is non-empty only the restore the hold names may
+# deploy: every other run verifies and builds but does not deploy (pack 07 section 13.2). The owner sets and clears it:
+#   gh variable set DEPLOY_HOLD --body legacy-final        gh variable delete DEPLOY_HOLD
+#
+# Restore. A workflow that exists only on a branch cannot be dispatched, so a restore is requested by committing remake/control/restore.json
+# (its request names the saved zip, release h2c-legacy-final, and its sha256). The push that changes that file restores; later pushes do not.
+# After the cutover the same restore can be started by hand: gh workflow run next-main.yml --ref main -f mode=live -f restore=true.
+#
+# Credentials. The preview deploy key (secret PREVIEW_DEPLOY_KEY of the environment `preview`, limited to remake/v3) appears in the two
+# push steps of the preview jobs and nowhere else; those steps run only git, ssh, curl and jq. Third-party actions are pinned by commit SHA.
+
+name: Next main
+
+on:
+  push:
+    branches: [main, remake/v3]
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'dry-run (deploy to the preview repository) or live (main only, and only once the cutover is recorded)'
+        type: choice
+        options: [dry-run, live]
+        default: dry-run
+      restore:
+        description: 'Restore the saved old site named by remake/control/restore.json'
+        type: boolean
+        default: false
+  schedule:
+    - cron: '41 6 * * 0'
+
+permissions:
+  contents: read
+
+# One deploy at a time, never cancelled in flight (a half-published site is the worse outcome).
+concurrency:
+  group: next-main
+  cancel-in-progress: false
+
+env:
+  # main is frozen at this commit (Q2-04 B); preview.json records it. tests/remake/cutover-kit.test.mjs requires it to equal remake/baseline/.
+  MAIN_COMMIT: 5eabafad4e19e3cc2f4e71d55848474ff22bd444
+
+jobs:
+  # ---- what may this run do -----------------------------------------------------------------------------------------------
+  plan:
+    name: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      mode: ${{ steps.plan.outputs.mode }}
+      action: ${{ steps.plan.outputs.action }}
+      run: ${{ steps.plan.outputs.run }}
+      deploy: ${{ steps.plan.outputs.deploy }}
+      started_at: ${{ steps.clock.outputs.started_at }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Note the start
+        id: clock
+        run: echo "started_at=$(date +%s)000" >> "$GITHUB_OUTPUT"
+
+      # Every input reaches the script through the environment, never inside the command. The script writes the outputs below, prints
+      # one line saying what it decided and why, and exits 1 on a refusal (a live run without the cutover record, a restore without its hold).
+      - name: Decide what this run may do
+        id: plan
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+          BEFORE: ${{ github.event.before }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_RESTORE: ${{ inputs.restore }}
+          DEPLOY_HOLD: ${{ vars.DEPLOY_HOLD }}
+        run: node remake/tools/cutover.mjs plan
+
+  # ---- verify: the checks of next-verify.yml, called as they are ---------------------------------------------------------
+  verify:
+    name: verify
+    needs: plan
+    if: needs.plan.outputs.run == 'true' && needs.plan.outputs.action == 'deploy'
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+    uses: ./.github/workflows/next-verify.yml
+
+  # ---- the artifact, built once ---------------------------------------------------------------------------------------------
+  build:
+    name: build the site artifact
+    needs: [plan, verify]
+    if: needs.plan.outputs.run == 'true' && needs.plan.outputs.action == 'deploy'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    outputs:
+      digest: ${{ steps.digest.outputs.digest }}
+    env:
+      PROFILE: ${{ needs.plan.outputs.mode == 'live' && 'live' || 'preview' }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Install the import tools' dependencies
+        run: npm ci
+
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
+      - name: Build
+        run: npm run build
+
+      - name: Assemble the site
+        run: node remake/tools/artifact.mjs assemble --site _site --profile "$PROFILE" --commit "$GITHUB_SHA"
+
+      # After the cutover the previous release's data and chunks come from its zip (a page cached before this deploy still loads). Before
+      # it, the dry run takes them from the preview repository at staging time, as next-preview.yml does.
+      - name: Carry the previous release's files from its zip (live only)
+        if: needs.plan.outputs.mode == 'live'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag=$(gh release list --repo "$GITHUB_REPOSITORY" --limit 10 --json tagName,isLatest --jq '[.[] | select(.tagName | startswith("h2c-")) | select(.tagName != "h2c-legacy-final")] | (map(select(.isLatest))[0] // .[0]).tagName // empty')
+          mkdir -p previous-release
+          if [ -n "$tag" ] && gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern 'site-*.zip' --dir previous-release 2>/dev/null; then
+            for z in previous-release/site-*.zip; do unzip -q -o "$z" -d previous-release/site; done
+            node remake/tools/artifact.mjs carry --site _site --previous previous-release/site
+          else
+            echo "the last release ($tag) has no site zip: nothing to carry"
+          fi
+
+      - name: The size budgets (a budget that is missed fails the build)
+        run: node remake/tools/size-report.mjs --site _site --out sizes.json
+
+      - name: The artifact's digest
+        id: digest
+        run: |
+          set -euo pipefail
+          node remake/tools/artifact.mjs digest --site _site --out artifact.json
+          echo "digest=$(jq -r .digest artifact.json)" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: site-${{ github.run_id }}
+          path: _site
+          if-no-files-found: error
+          retention-days: 14
+
+  # ---- dry run: the same path next-preview.yml uses ----------------------------------------------------------------------
+  deploy-preview:
+    name: deploy the artifact to the preview repository
+    needs: [plan, build]
+    if: needs.plan.outputs.mode == 'dry-run' && needs.plan.outputs.action == 'deploy' && needs.plan.outputs.deploy == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment:
+      name: preview
+    outputs:
+      pushed_at: ${{ steps.push.outputs.pushed_at }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      # By run ID, then checked against the digest the build job computed: the bytes that were tested are the bytes that are published.
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site-${{ github.run_id }}
+          path: _site
+          run-id: ${{ github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Check the artifact's digest
+        env:
+          EXPECT: ${{ needs.build.outputs.digest }}
+        run: node remake/tools/artifact.mjs verify --site _site --expect "$EXPECT"
+
+      - name: Fetch the preview repository (public, no credential)
+        env:
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: git clone --depth 1 "https://github.com/${PREVIEW_REPO}.git" preview-repo
+
+      - name: Inject the banner and noindex, write preview.json
+        run: node remake/tools/preview-assemble.mjs inject --site _site --remake "$GITHUB_SHA" --main "$MAIN_COMMIT" --run-id "$GITHUB_RUN_ID"
+
+      - name: Stage the site over the preview repository, keeping the previous release
+        run: node remake/tools/preview-assemble.mjs stage --site _site --repo preview-repo
+
+      - name: Push to the preview repository
+        id: push
+        env:
+          PREVIEW_DEPLOY_KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIEW_DEPLOY_KEY" ]; then
+            echo "::error::PREVIEW_DEPLOY_KEY is empty. Run remake/tools/setup-preview.sh (it sets the secret on environment preview)."
+            exit 1
+          fi
+          umask 077
+          key="$RUNNER_TEMP/preview_key"; known="$RUNNER_TEMP/known_hosts"
+          trap 'rm -f "$key"' EXIT
+          printf '%s\n' "$PREVIEW_DEPLOY_KEY" > "$key"
+          curl -fsS --retry 4 --retry-all-errors --retry-delay 5 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
+          test -s "$known"
+          export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
+          cd preview-repo
+          git remote set-url origin "git@github.com:${PREVIEW_REPO}.git"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Dry run of next-main at ${GITHUB_SHA}"
+          git push origin HEAD
+          echo "pushed_at=$(date +%s)000" >> "$GITHUB_OUTPUT"
+
+  smoke-preview:
+    name: smoke on the public preview address
+    needs: [plan, deploy-preview]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install the workspace packages (no scripts)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Smoke
+        env:
+          PREVIEW_BASE_URL: ${{ vars.PREVIEW_BASE_URL || 'https://pdynamics.ca/h2c-material-temp-page/' }}
+          EXPECT_COMMIT: ${{ github.sha }}
+          PUSHED_AT: ${{ needs.deploy-preview.outputs.pushed_at }}
+          GH_TOKEN: ${{ github.token }}
+          SMOKE_TIMEOUT_S: 600
+          SMOKE_POLL_S: 20
+          SMOKE_OUT: preview-deploy.measured.json
+        run: |
+          set -o pipefail
+          node remake/tools/preview-smoke.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the measurement
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: next-main-preview-measurement
+          path: preview-deploy.measured.json
+          if-no-files-found: error
+
+  # ---- dry run of a restore: the saved old site goes to the preview repository ------------------------------------------
+  restore-preview:
+    name: restore the saved old site on the preview repository
+    needs: plan
+    if: needs.plan.outputs.mode == 'dry-run' && needs.plan.outputs.action == 'restore' && needs.plan.outputs.deploy == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment:
+      name: preview
+    outputs:
+      digest: ${{ steps.saved.outputs.digest }}
+      pushed_at: ${{ steps.push.outputs.pushed_at }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Fetch the saved site (release h2c-legacy-final)
+        id: saved
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          asset=$(jq -r .request.asset remake/control/restore.json)
+          tag=$(jq -r .request.tag remake/control/restore.json)
+          echo "digest=$(jq -r .request.digest remake/control/restore.json)" >> "$GITHUB_OUTPUT"
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern "$asset" --pattern legacy-manifest.json --dir saved
+          ls -l saved
+
+      # Checks the zip against the control file's digest and the unpacked files against the manifest, marks the pages for the preview and
+      # writes preview.json (restoredFrom = the zip's digest).
+      - name: Verify the saved site and prepare it for the preview
+        run: |
+          set -euo pipefail
+          asset=$(jq -r .request.asset remake/control/restore.json)
+          node remake/tools/restore.mjs prepare --zip "saved/$asset" --manifest saved/legacy-manifest.json --out _site --preview --remake "$GITHUB_SHA" --main "$MAIN_COMMIT" --run-id "$GITHUB_RUN_ID"
+
+      - name: Fetch the preview repository (public, no credential)
+        env:
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: git clone --depth 1 "https://github.com/${PREVIEW_REPO}.git" preview-repo
+
+      - name: Stage the saved site over the preview repository
+        run: node remake/tools/preview-assemble.mjs stage --site _site --repo preview-repo
+
+      - name: Push to the preview repository
+        id: push
+        env:
+          PREVIEW_DEPLOY_KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIEW_DEPLOY_KEY" ]; then
+            echo "::error::PREVIEW_DEPLOY_KEY is empty. Run remake/tools/setup-preview.sh (it sets the secret on environment preview)."
+            exit 1
+          fi
+          umask 077
+          key="$RUNNER_TEMP/preview_key"; known="$RUNNER_TEMP/known_hosts"
+          trap 'rm -f "$key"' EXIT
+          printf '%s\n' "$PREVIEW_DEPLOY_KEY" > "$key"
+          curl -fsS --retry 4 --retry-all-errors --retry-delay 5 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
+          test -s "$known"
+          export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
+          cd preview-repo
+          git remote set-url origin "git@github.com:${PREVIEW_REPO}.git"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Restore of the saved old site (rehearsal) at ${GITHUB_SHA}"
+          git push origin HEAD
+          echo "pushed_at=$(date +%s)000" >> "$GITHUB_OUTPUT"
+
+  smoke-restore-preview:
+    name: legacy smoke on the restored preview
+    needs: [plan, restore-preview]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Fetch the saved manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "$(jq -r .request.tag remake/control/restore.json)" --repo "$GITHUB_REPOSITORY" --pattern legacy-manifest.json --dir saved
+
+      # Every file of the manifest, byte for byte (the preview's marks taken off), the stamped selector, a material page and a 404.
+      - name: Legacy smoke
+        env:
+          SMOKE_BASE_URL: ${{ vars.PREVIEW_BASE_URL || 'https://pdynamics.ca/h2c-material-temp-page/' }}
+          SMOKE_MANIFEST: saved/legacy-manifest.json
+          SMOKE_PROFILE: preview
+          SMOKE_DIGEST: ${{ needs.restore-preview.outputs.digest }}
+          SMOKE_STARTED_AT: ${{ needs.plan.outputs.started_at }}
+          SMOKE_TIMEOUT_S: 600
+          SMOKE_POLL_S: 15
+          SMOKE_OUT: legacy-smoke.measured.json
+        run: |
+          set -o pipefail
+          node remake/tools/legacy-smoke.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the measurement
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: next-main-restore-measurement
+          path: legacy-smoke.measured.json
+          if-no-files-found: error
+
+  # ---- live: only from main, only once the cutover is recorded ------------------------------------------------------------
+  deploy-live:
+    name: deploy the artifact to GitHub Pages
+    needs: [plan, build]
+    if: needs.plan.outputs.mode == 'live' && needs.plan.outputs.action == 'deploy' && needs.plan.outputs.deploy == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      # The second lock: the cutover record is read again, here, before this job touches Pages.
+      - name: Check the cutover record again
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+          BEFORE: ${{ github.event.before }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_RESTORE: ${{ inputs.restore }}
+          DEPLOY_HOLD: ${{ vars.DEPLOY_HOLD }}
+          REQUIRE_ACTION: deploy
+          GITHUB_OUTPUT: ${{ runner.temp }}/plan-again.out
+        run: node remake/tools/cutover.mjs plan
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site-${{ github.run_id }}
+          path: _site
+          run-id: ${{ github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Check the artifact's digest
+        env:
+          EXPECT: ${{ needs.build.outputs.digest }}
+        run: node remake/tools/artifact.mjs verify --site _site --expect "$EXPECT"
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+
+  smoke-live:
+    name: smoke on the live address
+    needs: [plan, deploy-live]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install the workspace packages (no scripts)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Smoke
+        env:
+          PREVIEW_BASE_URL: ${{ vars.LIVE_BASE_URL || 'https://pdynamics.ca/h2c-materials/' }}
+          SMOKE_PROFILE: live
+          EXPECT_COMMIT: ${{ github.sha }}
+          GH_TOKEN: ${{ github.token }}
+          SMOKE_TIMEOUT_S: 600
+          SMOKE_POLL_S: 20
+          SMOKE_OUT: live-deploy.measured.json
+        run: |
+          set -o pipefail
+          node remake/tools/preview-smoke.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the measurement
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: next-main-live-measurement
+          path: live-deploy.measured.json
+          if-no-files-found: error
+
+  # The release is kept only after the live smoke has passed, from the artifact that was deployed (digest checked again).
+  release:
+    name: keep the release
+    needs: [plan, build, smoke-live]
+    if: needs.plan.outputs.mode == 'live' && needs.plan.outputs.action == 'deploy' && needs.plan.outputs.deploy == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Check the cutover record again
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+          BEFORE: ${{ github.event.before }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_RESTORE: ${{ inputs.restore }}
+          DEPLOY_HOLD: ${{ vars.DEPLOY_HOLD }}
+          REQUIRE_ACTION: deploy
+          GITHUB_OUTPUT: ${{ runner.temp }}/plan-again.out
+        run: node remake/tools/cutover.mjs plan
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site-${{ github.run_id }}
+          path: _site
+          run-id: ${{ github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Check the artifact's digest
+        env:
+          EXPECT: ${{ needs.build.outputs.digest }}
+        run: node remake/tools/artifact.mjs verify --site _site --expect "$EXPECT"
+
+      - name: Make the release files and create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BEFORE: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          id=$(node remake/tools/artifact.mjs release-files --site _site --out release-files)
+          prev=""
+          if [ -n "$BEFORE" ] && ! echo "$BEFORE" | grep -qE '^0+$'; then prev="--previous-commit $BEFORE"; fi
+          # shellcheck disable=SC2086
+          node remake/tools/artifact.mjs release-notes --site _site --out release-files/decision-diff.md --commit "$GITHUB_SHA" $prev
+          if gh release view "h2c-$id" >/dev/null 2>&1; then
+            echo "Release h2c-$id is kept already: a release is its content, and the content is the same"
+          else
+            gh release create "h2c-$id" "release-files/site-$id.zip" release-files/release.json release-files/artifact.json release-files/decision-diff.md \
+              --target "$GITHUB_SHA" --title "Filament Atlas, release $id" \
+              --notes "Release $id, built and verified from $GITHUB_SHA. site-$id.zip is the whole site as deployed; release.json and artifact.json identify it; decision-diff.md says what changed."
+          fi
+
+  # Restore on the live address (after the cutover; also started by: gh workflow run next-main.yml -f restore=true).
+  restore-live:
+    name: restore the saved old site on GitHub Pages
+    needs: plan
+    if: needs.plan.outputs.mode == 'live' && needs.plan.outputs.action == 'restore' && needs.plan.outputs.deploy == 'true' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Check the cutover record again
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          REF: ${{ github.ref }}
+          SHA: ${{ github.sha }}
+          BEFORE: ${{ github.event.before }}
+          INPUT_MODE: ${{ inputs.mode }}
+          INPUT_RESTORE: ${{ inputs.restore }}
+          DEPLOY_HOLD: ${{ vars.DEPLOY_HOLD }}
+          REQUIRE_ACTION: restore
+          GITHUB_OUTPUT: ${{ runner.temp }}/plan-again.out
+        run: node remake/tools/cutover.mjs plan
+
+      - name: Fetch the saved site (release h2c-legacy-final)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          asset=$(jq -r .request.asset remake/control/restore.json)
+          tag=$(jq -r .request.tag remake/control/restore.json)
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern "$asset" --pattern legacy-manifest.json --dir saved
+
+      - name: Verify the saved site against the control file and its manifest
+        run: |
+          set -euo pipefail
+          asset=$(jq -r .request.asset remake/control/restore.json)
+          node remake/tools/restore.mjs prepare --zip "saved/$asset" --manifest saved/legacy-manifest.json --out _site
+
+      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3.0.1
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4.0.5
+
+  smoke-restore-live:
+    name: legacy smoke on the live address
+    needs: [plan, restore-live]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Fetch the saved manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release download "$(jq -r .request.tag remake/control/restore.json)" --repo "$GITHUB_REPOSITORY" --pattern legacy-manifest.json --dir saved
+
+      - name: Legacy smoke
+        env:
+          SMOKE_BASE_URL: ${{ vars.LIVE_BASE_URL || 'https://pdynamics.ca/h2c-materials/' }}
+          SMOKE_MANIFEST: saved/legacy-manifest.json
+          SMOKE_PROFILE: live
+          SMOKE_STARTED_AT: ${{ needs.plan.outputs.started_at }}
+          SMOKE_TIMEOUT_S: 900
+          SMOKE_POLL_S: 15
+          SMOKE_OUT: legacy-smoke.measured.json
+        run: |
+          set -o pipefail
+          node remake/tools/legacy-smoke.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the measurement
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: next-main-live-restore-measurement
+          path: legacy-smoke.measured.json
+          if-no-files-found: error
+
+  # ---- the weekly checks (scheduled workflows run only from the default branch, so these start after the cutover) ------------
+  weekly-trend:
+    name: weekly (scale and reproducible)
+    needs: plan
+    if: needs.plan.outputs.action == 'weekly'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+      - run: npm ci --prefix build
+      - run: npm ci
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build && sleep 3
+      - name: Scale and reproducibility
+        run: node scripts/verify.mjs --group trend --enforce-budget
+
+  weekly-fuzz:
+    name: weekly (ui:fuzz:full ${{ matrix.part }} of 4)
+    needs: plan
+    if: needs.plan.outputs.action == 'weekly'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        part: [1, 2, 3, 4]
+    env:
+      PART: ${{ matrix.part }}
+      SEED: ${{ github.run_number }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+      - run: npm ci --prefix build
+      - run: npm ci
+      - run: npm run build
+      - name: 2,000 random rendered scenarios, one part of four
+        run: |
+          set -euo pipefail
+          CHROME=$(command -v google-chrome || command -v chromium) || { echo "FAIL: no Chrome or Chromium on the runner"; exit 1; }
+          export CHROME
+          npm run ui:fuzz:full -- --seed "$SEED" --shard "$PART/4" --require --out fuzz-out
+      - if: failure()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ui-fuzz-violations-${{ matrix.part }}
+          path: fuzz-out
+          if-no-files-found: ignore
+
+  # ---- the one job to look at ---------------------------------------------------------------------------------------------
+  # A skipped job must not read as a green deploy: the jobs the plan said would run must have succeeded, and no job may have failed.
+  next-main:
+    name: next-main result
+    needs: [plan, verify, build, deploy-preview, smoke-preview, restore-preview, smoke-restore-preview, deploy-live, smoke-live, release, restore-live, smoke-restore-live, weekly-trend, weekly-fuzz]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      NEEDS: ${{ toJSON(needs) }}
+    steps:
+      - name: Every job the plan asked for must have succeeded
+        run: |
+          set -euo pipefail
+          echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"' | tee -a "$GITHUB_STEP_SUMMARY"
+          bad=$(echo "$NEEDS" | jq -r 'to_entries[] | select(.value.result == "failure" or .value.result == "cancelled") | .key' | paste -sd' ' -)
+          if [ -n "$bad" ]; then echo "next-main: FAILED ($bad)" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; fi
+          if [ "$(echo "$NEEDS" | jq -r .plan.result)" != "success" ]; then echo "next-main: the plan job did not succeed" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; fi
+          run=$(echo "$NEEDS" | jq -r '.plan.outputs.run'); action=$(echo "$NEEDS" | jq -r '.plan.outputs.action'); deploy=$(echo "$NEEDS" | jq -r '.plan.outputs.deploy'); mode=$(echo "$NEEDS" | jq -r '.plan.outputs.mode')
+          need() { if [ "$(echo "$NEEDS" | jq -r ".\"$1\".result")" != "success" ]; then echo "next-main: $1 should have run and did not succeed" | tee -a "$GITHUB_STEP_SUMMARY"; exit 1; fi; }
+          if [ "$run" != "true" ]; then echo "next-main: nothing to do for this push" | tee -a "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          if [ "$action" = "deploy" ]; then need verify; need build; fi
+          if [ "$action" = "deploy" ] && [ "$deploy" = "true" ] && [ "$mode" = "dry-run" ]; then need deploy-preview; need smoke-preview; fi
+          if [ "$action" = "deploy" ] && [ "$deploy" = "true" ] && [ "$mode" = "live" ]; then need deploy-live; need smoke-live; need release; fi
+          if [ "$action" = "restore" ] && [ "$mode" = "dry-run" ]; then need restore-preview; need smoke-restore-preview; fi
+          if [ "$action" = "restore" ] && [ "$mode" = "live" ]; then need restore-live; need smoke-restore-live; fi
+          if [ "$action" = "weekly" ]; then need weekly-trend; need weekly-fuzz; fi
+          if [ "$action" = "deploy" ] && [ "$deploy" != "true" ]; then echo "next-main: verified and built; NOT deployed (DEPLOY_HOLD)" | tee -a "$GITHUB_STEP_SUMMARY"; else echo "next-main: done" | tee -a "$GITHUB_STEP_SUMMARY"; fi

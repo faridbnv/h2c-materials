@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "baseline": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
+  "$comment": "candidate:check requires main's tip to equal the commit recorded in remake/baseline/<sha8>.json, or to differ from it only by the paths listed here. Each entry is a change to main the owner accepted; this file never grows without a source that says so.",
+  "allowed": [
+    {
+      "path": ".github/workflows/next-gate.yml",
+      "reason": "The tamper-proof gate for pull requests into remake/v3 lives on main, because GitHub runs pull_request_target workflows from the default branch only. It changes no data, code or rule of the old tool.",
+      "source": "Owner option A, 2026-10-21 (pack 08 section 4.4, execution deviations: 'The tamper-proof gate lives on main (owner option A)'); main commit c31ceebf2c64b392c5451a884a2e2a466e5ac779, pull request #24 'wp-gate-on-main'"
+    }
+  ]
+}

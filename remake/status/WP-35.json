@@ -1,13 +1,31 @@
 {
   "id": "WP-35",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-m4-cutover-kit",
   "pr": null,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-22T19:21:15.690Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "attest bus-factor-rollback",
+      "result": "not-run",
+      "note": "no row in remake/attest.csv"
+    },
+    {
+      "cmd": "manual: rehearsal log under 15 min",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: legacy zip digest in the receipt",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-22T19:21:15.690Z",
+  "note": "Built in the M4 branch wp-m4-cutover-kit: save-legacy.sh (the owner runs it), rehearse.mjs, docs/next/OPERATING.md. Nothing has been saved or rehearsed: both need the owner (the release, the hold, the bus-factor row)."
 }

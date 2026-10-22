@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "$comment": "The queue of changes made to main that the remake has not yet ported (pack 07 section 11: it must be empty for a candidate). main is frozen (Q2-04 B) and no sync has run, so no change to main has queued an item. A sync that finds a rule change on main adds an entry here; candidate:check fails while the list is not empty.",
+  "items": []
+}

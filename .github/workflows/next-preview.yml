@@ -18,6 +18,9 @@ name: Next preview
 on:
   push:
     branches: [remake/v3]
+    # A push that touches only the control files (a rehearsal's hold test or restore request) is next-main.yml's: it honours DEPLOY_HOLD,
+    # which this workflow does not read.
+    paths-ignore: ['remake/control/**']
 
 permissions:
   contents: read

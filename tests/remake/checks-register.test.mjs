@@ -85,7 +85,7 @@ test('the CLI exits 0 on the repository, 1 on a problem and 2 on bad usage', () 
   assert.equal(ok.status, 0, ok.stderr);
   assert.match(ok.stdout, /checks:register: OK\. \d+ register rows cover \d+ old checks; 38 must-not-change items/);
   assert.equal(run().status, 2);
-  assert.equal(run('--cutover-ready').status, 2);
+  assert.equal(run('--cutover-ready', '--verify').status, 2, 'two modes at once is bad usage');
   withScratch(['test'], (dir) => {
     unlinkSync(join(dir, 'test/search.test.js'));
     const bad = run('--verify', '--root', dir);

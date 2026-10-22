@@ -6,6 +6,10 @@
 //   npm run checks:register -- --skeleton     print empty register rows for checks the register does not cover yet
 //   npm run checks:register -- --floor        record the test and assertion counts of every registered test file in checks/test-floor.txt
 //                                              (adds files, raises counts, never lowers one; lowering is a hand edit that shows in review)
+//   npm run checks:register -- --cutover-ready  every old check has a successor with proof, or the owner's recorded approval to retire it
+//                                              (WP-32, pack 07 section 4): exit 1 and a list of what is missing, with the command that records
+//                                              each approval; it never records one. An approval is a remake/attest.csv row `retire-approved <register row id>`
+//                                              (or `retire-approved all`), which only the owner's terminal can write (wp:attest).
 //   --root DIR                                 read another checkout (the tests use a scratch copy)
 //   --require-frozen                           with --verify: also fail when the frozen copies on git cannot be read (see 9 and 10)
 //
@@ -44,7 +48,7 @@ import { execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseCsv } from './rulings-check.mjs';
-import { csvLine, isMain, loadIndex, repoRoot } from './wp-lib.mjs';
+import { csvLine, isMain, loadAllStatus, loadIndex, repoRoot } from './wp-lib.mjs';
 
 export const REGISTER_PATH = 'checks/register.csv';
 export const BASELINE_PATH = 'checks/old-inventory.txt';
@@ -421,6 +425,54 @@ export function verifyRegister(root = repoRoot(), { frozen = frozenFromGit(root)
   return { problems, notes, rows: rows.length, tokens: live.size, items: items.length, counts, floor };
 }
 
+/** Workflows that stop existing at the cutover; a check that lives in one needs a successor job in the workflows that stay. */
+const VANISHING_WORKFLOWS = ['verify.yml', 'pages.yml'];
+const SUCCESSOR_WORKFLOW = /^ci:next-(?:main|verify)\.yml\//;
+const LASTING_MILESTONE = 'M5';
+
+/** The owner's approvals to retire: the `retire-approved` rows of remake/attest.csv, as a set of register row ids ('all' covers every row). */
+export function retireApprovals(root) {
+  const p = join(root, 'remake', 'attest.csv');
+  if (!existsSync(p)) return new Set();
+  const [, ...rows] = parseCsv(readFileSync(p, 'utf8'));
+  return new Set(rows.filter((r) => r[1] === 'retire-approved').map((r) => (r[2] ?? '').trim()).filter(Boolean));
+}
+
+/**
+ * Whether every old check is ready for the cutover: the register is sound (verifyRegister), and each row either has a successor with proof
+ * or carries the owner's approval to retire. Returns { problems, missing, rows } where `missing` lists, per register row, what stands in the way.
+ * Rules, per row that is not a new check:
+ *   obsolete-at-cutover  needs a retire-approved row naming it (or "all");
+ *   a check inside verify.yml or pages.yml (gone at the cutover) needs a successor ref in next-main.yml or next-verify.yml, which must exist;
+ *   re-point and successor  need their owner packages done (those of the clean-up after the cutover, M5, are not required to be).
+ */
+export function cutoverReady(root = repoRoot(), options = {}) {
+  const base = verifyRegister(root, options);
+  const missing = [];
+  const rows = loadRows(root, () => {});
+  const approvals = retireApprovals(root);
+  const statuses = existsSync(join(root, 'remake', 'status')) ? loadAllStatus(root) : {};
+  const index = new Map(loadIndex(root).packages.map((p) => [p.id, p]));
+  for (const row of rows) {
+    if (row.kind === 'new') continue;
+    const need = (what, fix = '') => missing.push({ id: row.id, status: row.status, what, fix });
+    if (row.status === 'obsolete-at-cutover') {
+      if (!approvals.has(row.id) && !approvals.has('all')) need('the owner has not approved retiring it', `npm run wp:attest -- retire-approved ${row.id}`);
+      continue;
+    }
+    const vanishing = row.oldRefs.some((t) => t.startsWith('ci:') && VANISHING_WORKFLOWS.some((w) => t.startsWith(`ci:${w}/`)));
+    if (vanishing && !row.successorRefs.some((t) => SUCCESSOR_WORKFLOW.test(t))) need('it lives in verify.yml or pages.yml, which the cutover replaces, and names no successor job in next-main.yml or next-verify.yml');
+    if (row.status === 're-point' || row.status === 'successor') {
+      for (const wp of splitList(row.owner, /[;,]/)) {
+        if (index.get(wp)?.milestone === LASTING_MILESTONE) continue;
+        const st = statuses[wp]?.status ?? 'unknown';
+        if (!['done', 'dropped'].includes(st) || index.get(wp)?.dropped === true) need(`its successor is owned by ${wp}, which is ${index.get(wp)?.dropped ? 'dropped' : st}`);
+      }
+    }
+  }
+  return { problems: base.problems, notes: base.notes, missing, rows: rows.length };
+}
+
 const SKELETON_ID = { file: 'T', step: 'S', npm: 'A', ci: 'J' };
 export function skeleton(root) {
   const registerRows = present(root, REGISTER_PATH) ? parseCsv(read(root, REGISTER_PATH)).slice(1) : [];
@@ -441,11 +493,18 @@ if (isMain(import.meta.url)) {
   const root = at >= 0 ? args[at + 1] : repoRoot();
   const requireFrozen = args.includes('--require-frozen');
   const mode = args.filter((a) => a !== '--root' && a !== root && a !== '--require-frozen');
-  if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton', '--floor'].includes(mode[0])) {
-    console.error('usage: checks-register.mjs --verify [--require-frozen] | --inventory | --skeleton | --floor [--root DIR]');
+  if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton', '--floor', '--cutover-ready'].includes(mode[0])) {
+    console.error('usage: checks-register.mjs --verify [--require-frozen] | --cutover-ready [--require-frozen] | --inventory | --skeleton | --floor [--root DIR]');
     process.exit(2);
   }
-  if (mode[0] === '--inventory') process.stdout.write(formatBaseline(liveInventory(root)));
+  if (mode[0] === '--cutover-ready') {
+    const { problems, notes, missing, rows } = cutoverReady(root, { requireFrozen });
+    for (const n of notes) console.error(`checks:register: note: ${n}`);
+    for (const p of problems) console.error(`checks:register: ${p}`);
+    for (const m of missing) console.error(`checks:register: not ready: ${m.id} (${m.status}): ${m.what}${m.fix ? `. To record the owner's approval, the owner runs: ${m.fix}` : ''}`);
+    if (problems.length || missing.length) { console.error(`checks:register: NOT cutover-ready: ${problems.length} register problem(s), ${missing.length} row(s) without a proved successor or an approval to retire, of ${rows}`); process.exit(1); }
+    console.log(`checks:register: cutover-ready: all ${rows} register rows have a successor with proof or the owner's approval to retire.`);
+  } else if (mode[0] === '--inventory') process.stdout.write(formatBaseline(liveInventory(root)));
   else if (mode[0] === '--skeleton') for (const l of skeleton(root)) console.log(l);
   else if (mode[0] === '--floor') {
     const next = floorFor(root);

@@ -168,7 +168,7 @@ const SAFE_NAME = /^[0-9a-f]{12}$/;
  * replaces them with the new release's alone would 404 it (pack 02 section 6.2). The build lists its own chunks, so a chunk carried
  * from an older release is not carried again.
  */
-function viewIn(dir) {
+export function viewIn(dir) {
   const manifest = join(dir, 'release.json');
   if (!existsSync(manifest)) return null;
   const { release, assets = [] } = JSON.parse(readFileSync(manifest, 'utf8'));
@@ -182,7 +182,7 @@ function viewIn(dir) {
  * with) to a scratch folder, and counts what it copied. Null: the repository holds no view. A view whose data folder or a listed chunk is
  * not there is an error: carrying less than the manifest lists would make a stale page fail in a way nobody saw at deploy time.
  */
-function carryView(repo) {
+export function carryView(repo) {
   const view = viewIn(repo);
   if (view === null) return null;
   const data = join(repo, 'data', view.release);
