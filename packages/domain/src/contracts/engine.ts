@@ -5,6 +5,8 @@
 // Words keep the engine's spelling: a status is 'PASS', not 'pass', so parity compares like with like.
 
 import type { Db } from '@atlas/data';
+import type { CORE_FIELDS } from '../core/core-fields.ts';
+import type { Picked } from './field-spec.ts';
 import type { ConstraintId, GradeId, MaterialId, MeasurementId, ReleaseId, StateId } from './ids.ts';
 import type { ReasonCode } from './reason-codes.ts';
 import type { EnvironmentConstraint, EvidenceConstraint, FacetConstraint, GateConstraint, NumericConstraint, ScenarioConstraint, ScenarioV2 } from './scenario.ts';
@@ -12,10 +14,11 @@ import type { PRODUCT_SHARES } from '../core/vocab.ts';
 import type { EngineMissing, Group, ServiceMoisture, Status, Verdict } from './vocab.ts';
 
 /**
- * Every field any mode reads. For now the whole compiled database (the typed dist/db.json of WP-06); the field list of
- * `core` is generated from this type when the data is split (02 section 9.6, WP-23).
+ * Every field any mode reads, and no other: the compiled database cut down to the declaration CORE_FIELDS (core/core-fields.ts).
+ * The type is derived from that one object, and the same object is the field list of the published `core` part (02 section 9.6),
+ * so what the engine may read and what the page downloads cannot disagree. The whole compiled database fits it.
  */
-export type CoreReadModel = Db;
+export type CoreReadModel = Picked<Db, typeof CORE_FIELDS>;
 
 /** The estimate stage's output, needed for Explore with estimates on. Opaque until WP-23 splits the data. */
 export type EstimatesArtifact = { readonly release: ReleaseId; readonly status: 'available' | 'withheld'; readonly [field: string]: unknown };

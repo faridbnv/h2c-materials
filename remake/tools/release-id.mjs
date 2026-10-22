@@ -43,8 +43,9 @@ export const RELEASE_INPUTS = {
     // the impact preview and the command line decide no answer, except the three files the /v3/ data is compiled through
     exclude: [/^packages\/engine\/src\/impact\/(?!(compile|cases|stage)\.ts$)/, /^packages\/engine\/src\/cli\.ts$/],
   },
-  // the question /v3/ asks (CASE_ID) and how its snapshot is compiled are in the tool that makes the data
-  view: { paths: ['apps/public/tools'] },
+  // the question /v3/ asks (CASE_ID) and how its snapshot is compiled are in the tool that makes the data, and what each part of
+  // the release carries is decided by the declarations (packages/domain/src/core, in the rules part) and by the cutting code
+  view: { paths: ['apps/public/tools', 'packages/publish/src'] },
   // the questions themselves, read only
   questions: { paths: ['parity/corpus'] },
   dependencies: { paths: ['build/package-lock.json'] },

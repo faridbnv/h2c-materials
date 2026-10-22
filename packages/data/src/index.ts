@@ -5,3 +5,4 @@ export { absent, isMissing, present, valueOf } from './cell.ts';
 export type { Cell } from './cell.ts';
 export { checkDb, parseDb, REQUIRED_SECTIONS } from './db-contract.ts';
 export type { Db, DbCheck, DbSection } from './db-contract.ts';
+export type { JsonValue } from './shape.ts';

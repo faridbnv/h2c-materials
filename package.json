@@ -123,6 +123,8 @@
     "wp:status": "node remake/tools/wp-status.mjs",
     "wp:deps": "node remake/tools/wp-status.mjs --deps",
     "wp:check": "node remake/tools/wp-check.mjs",
+    "core:reads": "node remake/tools/core-reads.mjs",
+    "size:report": "node remake/tools/size-report.mjs",
     "wp:attest": "node remake/tools/wp-attest.mjs",
     "wp:note": "node remake/tools/wp-note.mjs",
     "wp:digest": "node remake/tools/wp-digest.mjs",

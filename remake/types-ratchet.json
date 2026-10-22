@@ -1,8 +1,8 @@
 {
   "$comment": "Escapes from the type checker per file in packages/ and apps/. The counts may only fall (npm run types:ratchet). Regenerate with --update after lowering a count or converting a module.",
   "totals": {
-    "casts": 29,
-    "any": 25,
+    "casts": 28,
+    "any": 24,
     "tsExpectError": 0,
     "tsIgnore": 0
   },
@@ -56,8 +56,8 @@
       "tsIgnore": 0
     },
     "packages/parity/src/old-adapter.ts": {
-      "casts": 8,
-      "any": 16,
+      "casts": 7,
+      "any": 15,
       "tsExpectError": 0,
       "tsIgnore": 0
     },
