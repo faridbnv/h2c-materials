@@ -175,6 +175,13 @@ The material pages are not compared yet (their new renderer is WP-24); they will
    transition touch medians and nothing else, at the price of an estimate that no longer reads the same number the page shows. I did not choose that; it is
    your call.
 
+**Your answers (2026-10-21).**
+
+- **Point 1:** yes, a shared sheet counts once whoever sells it; same-maker twins are included.
+- **Point 2:** accepted; the estimates follow the corrected medians, and PA612 and PA612-GF move as measured.
+
+The transition stands as measured.
+
 Also noted: the release ID (`7c6da496722d`) does not change with this, because it hashes the old build files only (defect WP20-D1). It must be fixed before cutover.
 
 ## How it was measured
