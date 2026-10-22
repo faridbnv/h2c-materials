@@ -145,6 +145,15 @@ jobs:
       - name: Rulings check
         run: npm run rulings:check
 
+      - name: Check register, with the frozen copies on git (rules 10 and 11 must run, never be skipped)
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --depth=1 origin remake/v3:refs/remotes/origin/remake/v3 main:refs/remotes/origin/main
+          npm run checks:register -- --verify --require-frozen
+
+      - name: P-erase (every label-only port erases to its old file)
+        run: npm run parity:erase
+
       - name: Type check, type ratchet and lint
         run: |
           set -euo pipefail
@@ -379,11 +388,79 @@ jobs:
             echo "FAIL: parity --noop must exit 0 with RESULT: zero (exit $rc, $result)"; exit 1
           fi
 
+  # The browser suite (WP-22): the fast subset over HTTP, under both base paths, old and new page adapters, with the axe
+  # report. It reads the old build's dist/ from build-old, so the oracle is the release it serves.
+  browser-tests:
+    name: browser-tests
+    needs: build-old
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
+        run: |
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Restore node_modules
+        id: modules
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            node_modules
+            apps/*/node_modules
+            packages/*/node_modules
+            build/node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('.nvmrc', 'package-lock.json', 'build/package-lock.json') }}
+
+      - name: Install dependencies (root and the old build)
+        if: steps.modules.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          npm ci --prefix build
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: old-build
+
+      - name: Unpack the old tool's build (dist/)
+        run: |
+          set -euo pipefail
+          tar -xzf old-build.tgz
+          test -s dist/db.json
+
+      - name: Browser tests (Playwright, Chromium, two base paths)
+        run: |
+          set -euo pipefail
+          npx playwright install chromium --with-deps
+          npm run test:browser
+
+      - name: Keep the axe report and the verdict
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: browser-results
+          path: |
+            remake/measure/axe
+            .cache/browser-results/results-fast.json
+          if-no-files-found: warn
+
   # The required check. It runs when the others have finished, whatever they did, and is green only if every one of them
   # succeeded: a failed, cancelled or skipped job is a red next-verify, so nothing can be dropped by skipping it.
   next-verify:
     name: next-verify
-    needs: [build-old, static, new-tests, parity-tests, parity-noop]
+    needs: [build-old, static, new-tests, parity-tests, parity-noop, browser-tests]
     if: always()
     runs-on: ubuntu-24.04
     timeout-minutes: 5
@@ -395,12 +472,12 @@ jobs:
         run: |
           set -euo pipefail
           echo "$NEEDS" | jq -r 'to_entries[] | "\(.key): \(.value.result)"' | tee -a "$GITHUB_STEP_SUMMARY"
-          expected="build-old new-tests parity-noop parity-tests static"
+          expected="browser-tests build-old new-tests parity-noop parity-tests static"
           seen=$(echo "$NEEDS" | jq -r 'keys | join(" ")')
           if [ "$seen" != "$expected" ]; then echo "FAIL: next-verify saw the jobs '$seen', expected '$expected'"; exit 1; fi
           bad=$(echo "$NEEDS" | jq -r 'to_entries[] | select(.value.result != "success") | "\(.key)=\(.value.result)"' | paste -sd' ' -)
           if [ -n "$bad" ]; then echo "FAIL: not green: $bad"; echo "next-verify: FAILED ($bad)" >> "$GITHUB_STEP_SUMMARY"; exit 1; fi
-          echo "next-verify: all five parts succeeded" >> "$GITHUB_STEP_SUMMARY"
+          echo "next-verify: all six parts succeeded" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Say which optional checks ran
         if: github.event_name == 'pull_request'

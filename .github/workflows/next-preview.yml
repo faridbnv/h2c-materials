@@ -140,6 +140,7 @@ jobs:
         id: push
         env:
           PREVIEW_DEPLOY_KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          GH_TOKEN: ${{ github.token }}
           PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
         run: |
           set -euo pipefail
@@ -152,7 +153,8 @@ jobs:
           trap 'rm -f "$key"' EXIT
           printf '%s\n' "$PREVIEW_DEPLOY_KEY" > "$key"
           # GitHub's published SSH host keys, over verified HTTPS: no trust-on-first-use.
-          curl -fsS https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
+          # Authenticated and retried: an anonymous call from a shared runner can be refused (403, 2026-10-21).
+          curl -fsS --retry 4 --retry-all-errors --retry-delay 5 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
           test -s "$known"
           export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
           cd preview-repo

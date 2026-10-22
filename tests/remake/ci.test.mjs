@@ -526,7 +526,7 @@ test('next-verify has the named checks, the label-gated jobs, and never touches 
 
 test('next-verify is parallel jobs and a last job that is green only when every one of them succeeded; no check was dropped by the split', () => {
   const text = wf('next-verify.yml');
-  const work = ['build-old', 'static', 'new-tests', 'parity-tests', 'parity-noop'];
+  const work = ['build-old', 'static', 'new-tests', 'parity-tests', 'parity-noop', 'browser-tests'];
   const last = jobBlock(text, 'next-verify');
   // The required check needs every part, runs whatever they did, and reads their results (a skipped part is red).
   const needs = /^    needs: \[([^\]]*)\]$/m.exec(last);
@@ -535,9 +535,9 @@ test('next-verify is parallel jobs and a last job that is green only when every 
   assert.match(last, /^    if: always\(\)$/m);
   assert.match(last, /NEEDS: \$\{\{ toJSON\(needs\) \}\}/);
   assert.match(last, /select\(\.value\.result != "success"\)/);
-  assert.match(last, /expected="build-old new-tests parity-noop parity-tests static"/, 'a part added to or dropped from needs must be named here too');
+  assert.match(last, /expected="browser-tests build-old new-tests parity-noop parity-tests static"/, 'a part added to or dropped from needs must be named here too');
   // The jobs that read dist/db.json wait for the build and take its artifact.
-  for (const id of ['parity-tests', 'parity-noop']) {
+  for (const id of ['parity-tests', 'parity-noop', 'browser-tests']) {
     const job = jobBlock(text, id);
     assert.match(job, /^    needs: build-old$/m, `${id} waits for build-old`);
     assert.match(job, /actions\/download-artifact@[0-9a-f]{40}/, `${id} takes the artifact`);
@@ -547,6 +547,9 @@ test('next-verify is parallel jobs and a last job that is green only when every 
   // Each command that ran in the one long job still runs, in the job that owns it.
   assert.match(jobBlock(text, 'new-tests'), /files=\(tests\/claude\/\*\.test\.mjs tests\/remake\/\*\.test\.mjs\)[\s\S]*node --test "\$\{files\[@\]\}"/);
   assert.match(jobBlock(text, 'build-old'), /^\s+run: npm run build$/m);
+  assert.match(jobBlock(text, 'browser-tests'), /npm run test:browser$/m, 'the browser suite runs through its launcher, whose exit code is the verdict');
+  assert.match(jobBlock(text, 'static'), /npm run checks:register -- --verify --require-frozen/, 'the register runs with the frozen copies, never skipping rules 10 and 11');
+  assert.match(jobBlock(text, 'static'), /^\s+run: npm run parity:erase$/m, 'P-erase runs on every pull request');
   const parity = jobBlock(text, 'parity-tests');
   assert.match(parity, /node --test --test-concurrency=4 \$files/);
   assert.match(parity, /node --test 'tests\/domain\/\*\.test\.mjs'/);
