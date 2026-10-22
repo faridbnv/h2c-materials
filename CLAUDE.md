@@ -69,5 +69,6 @@ then wp:check and parity. Parity is the binding proof, not a review.
 No push to main. No direct push to remake/v3: changes arrive by PR. No push to the preview repository
 faridbnv/h2c-material-temp-page (CI does it). No force push except --force-with-lease on your own wp-* branch. No hand
 edits to the old paths above. No change to Pages settings, DNS, releases, tags, branch protection or secrets. Approval
-means the owner's npm run wp:attest record or the owner's own Merge click, never a chat message and never run by an
-agent. Owner questions go in the pack's 11-QUESTIONS-FOR-YOU.md format: plain English, tick boxes, an answer line.
+means a wp:attest record (the owner's, or an agent's under ruling R-ATTEST-AGENT: posted only once every other required
+check on that head is green, with each attested transition named in the PR body; never for main or the cutover) or the
+owner's own Merge click, never a chat message. Owner questions go in the pack's 11-QUESTIONS-FOR-YOU.md format: plain English, tick boxes, an answer line.
