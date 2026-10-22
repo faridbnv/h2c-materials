@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "release": "ee1de097f5c7",
-  "measuredAt": "2026-10-22T11:38:57.668Z",
+  "release": "3e3891eab7b3",
+  "measuredAt": "2026-10-22T14:06:09.982Z",
   "node": "26.12.0",
   "gzipLevel": 6,
   "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
   "strictBoot": {
-    "gzipBytes": 893813,
-    "codeGzipBytes": 121592,
+    "gzipBytes": 893827,
+    "codeGzipBytes": 121606,
     "coreGzipBytes": 772221,
     "files": [
       {
@@ -16,19 +16,19 @@
         "gzip": 1651
       },
       {
-        "path": "assets/index-CBB8kxC2.js",
-        "bytes": 136080,
-        "gzip": 45901
+        "path": "assets/index-DsVps32j.js",
+        "bytes": 136074,
+        "gzip": 45920
       },
       {
-        "path": "assets/useLoad-By8VBACt.js",
+        "path": "assets/useLoad-0zGak9kH.js",
         "bytes": 75815,
         "gzip": 29329
       },
       {
-        "path": "assets/engine-CtMRSJTM.js",
-        "bytes": 101701,
-        "gzip": 33447
+        "path": "assets/engine-B65TxLfy.js",
+        "bytes": 101689,
+        "gzip": 33442
       },
       {
         "path": "assets/rolldown-runtime-XKyaHtl9.js",
@@ -41,7 +41,7 @@
         "gzip": 10835
       },
       {
-        "path": "data/ee1de097f5c7/core.json",
+        "path": "data/3e3891eab7b3/core.json",
         "bytes": 11475293,
         "gzip": 772221
       }
@@ -49,63 +49,63 @@
   },
   "defaultBoot": {
     "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
-    "gzipBytes": 1093916,
-    "estimatesGzipBytes": 200103
+    "gzipBytes": 1093931,
+    "estimatesGzipBytes": 200104
   },
   "chart": {
     "note": "the chart library, fetched when a chart is first opened; not in the strict boot",
-    "gzipBytes": 376930,
+    "gzipBytes": 376929,
     "files": [
+      {
+        "path": "assets/plotly-C4s_znBM.js",
+        "bytes": 643,
+        "gzip": 408
+      },
       {
         "path": "assets/plotly-basic.min-BOIfOh-q.js",
         "bytes": 1137403,
         "gzip": 376521
-      },
-      {
-        "path": "assets/plotly-wfmK5rtk.js",
-        "bytes": 643,
-        "gzip": 409
       }
     ],
     "namedByTheFirstLoad": []
   },
   "detail": {
     "count": 175,
-    "medianGzipBytes": 13510,
-    "maxGzipBytes": 324542,
-    "largest": "data/ee1de097f5c7/detail/M001.json"
+    "medianGzipBytes": 13511,
+    "maxGzipBytes": 324544,
+    "largest": "data/3e3891eab7b3/detail/M001.json"
   },
   "site": {
     "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps; the material pages beside it are reported apart",
-    "bytes": 75441045,
-    "viewBytes": 82684409,
+    "bytes": 75440963,
+    "viewBytes": 82684368,
     "materialPagesBytes": 28382292,
-    "liveTotalBytes": 103823337,
+    "liveTotalBytes": 103823255,
     "note": "with the material pages (28.4 MB, today's pages) the live site is 103.8 MB against the 100 MB line: not gated, because the owner's definition of the new site's size excludes the pages; the owner is asked",
     "dataBytes": 52411463,
     "slimDataBytes": 19259829,
-    "assetsBytes": 1879099,
-    "assembledBytes": 183393307,
+    "assetsBytes": 1879058,
+    "assembledBytes": 183393225,
     "assembledScope": "everything under the site folder, the old site at legacy/ and the suite's olddb/ included; not counted"
   },
   "checks": {
     "strictBootGzip": {
-      "value": 893813,
+      "value": 893827,
       "budget": 900000,
       "ok": true
     },
     "detailMedianGzip": {
-      "value": 13510,
+      "value": 13511,
       "budget": 15000,
       "ok": true
     },
     "detailMaxGzip": {
-      "value": 324542,
+      "value": 324544,
       "budget": 350000,
       "ok": true
     },
     "siteBytes": {
-      "value": 75441045,
+      "value": 75440963,
       "budget": 100000000,
       "ok": true
     },
