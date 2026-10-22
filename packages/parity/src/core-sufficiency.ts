@@ -2,14 +2,15 @@
 // the full read model". This is the check that would have caught the Flexible component count moving from 10 to 11
 // "not enough data".
 //
-// INTERFACE ONLY. WP-25 (shards and completeness) supplies the adapter that answers from the core alone and registers it
-// here; until then the check says "not computable" and names why. It is never part of a default run and never zero.
+// The adapter is core-hook.ts (WP-25): it answers from the published core alone, cut with the declarations the page and the writer
+// use, and the CLI registers it when the core surface is asked for. Without a registered hook the check says "not computable" and
+// names why, never zero. It is never part of a default run.
 import { runParity } from './compare.ts';
 import type { Db } from './old-adapter.ts';
 import { cannotCompare } from './surface.ts';
 import type { Adapter, CorpusCase, ParityReport, SurfaceReport } from './types.ts';
 
-/** What WP-25 provides: an adapter fed only the public core (no shards, no records tier) for the same data. */
+/** What core-hook.ts provides: an adapter fed only the public core (no detail shards) for the same data. */
 export interface CoreSufficiencyHook {
   /** Built from the same db the full read model was; it must not read anything outside the public core. */
   coreAdapter(db: Db): Adapter | Promise<Adapter>;
@@ -17,7 +18,7 @@ export interface CoreSufficiencyHook {
 
 let registered: CoreSufficiencyHook | null = null;
 
-/** WP-25 calls this once. Registering twice is a mistake, not an override. */
+/** core-hook.ts calls this once (installCoreHook). Registering twice is a mistake, not an override. */
 export function registerCoreSufficiency(hook: CoreSufficiencyHook): void {
   if (registered) throw new Error('a core-sufficiency hook is already registered');
   registered = hook;

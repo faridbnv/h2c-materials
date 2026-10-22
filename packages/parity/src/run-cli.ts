@@ -5,6 +5,7 @@ import { pathToFileURL } from 'node:url';
 import { checkDb } from '@atlas/data';
 import { exitCode, runParity } from './compare.ts';
 import { coreSufficiencyHook, runCoreSufficiency } from './core-sufficiency.ts';
+import { installCoreHook } from './core-hook.ts';
 import { MILESTONE_REPLAYS, PR_REPLAYS, engineCorpusCases, mutationCases } from './corpora.ts';
 import { loadCorpus } from './corpus.ts';
 import { REPO_ROOT, copyEngine } from './engine-copy.ts';
@@ -381,6 +382,7 @@ async function runBuildOrPages(run: Run, surface: 'build' | 'pages'): Promise<vo
 }
 
 async function runCore(run: Run): Promise<void> {
+  installCoreHook();
   const { plan, log } = run;
   const full = await createOld(readDb(plan.dbPath));
   const result = await log.timed('core', () => runCoreSufficiency({ cases: run.selectedCases(), full, db: readDb(plan.dbPath) }));

@@ -5,16 +5,15 @@
 // means the wrapper loses nothing and changes nothing. Their own tests cover them (tests/parity/engine-wrapper.test.mjs).
 import { createContext, loadOldEngine, loadPortedEngine, scenarioFrom } from '@atlas/engine';
 import type { EngineOutput, PortableModule } from '@atlas/engine';
-import type { ConstraintId, RequirementResult, RowResult } from '@atlas/domain';
-import type { Db } from '@atlas/data';
+import type { ConstraintId, CoreReadModel, RequirementResult, RowResult } from '@atlas/domain';
 import { canon, composite } from './canon.ts';
 import { atom, linkOptionsOf, openWith } from './old-adapter.ts';
 import type { Adapter, CorpusCase, NormalizedCase, RecordFacts, Value } from './types.ts';
 
 export interface NewAdapterOptions {
   name?: string;
-  /** The typed db (checkDb). The adapter does not copy it, so give each adapter its own parse. */
-  db: Db;
+  /** The typed db (checkDb), or only what the engine reads of it (the published core). The adapter does not copy it, so give each adapter its own parse. */
+  db: CoreReadModel;
   /** Directory of the engine files to wrap, as they are (a byte copy, with a fault patched in: the harness' own tests). Without it the wrapper runs the engine with the port switch applied, in fresh module instances. */
   engineDir?: string;
   /** The modules to run from their TypeScript port; the switch's choice (WP-18) when absent. Ignored with `engineDir`. */
