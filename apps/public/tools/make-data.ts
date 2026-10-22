@@ -120,7 +120,7 @@ export async function makeData(root: string, stamp: ReleaseStamp): Promise<MadeD
   const files = new Map<string, string>([['result.json', JSON.stringify(result)]]);
   for (const e of output.evaluations) {
     const products: ProductLine[] = (e.products ?? []).map((p) => ({
-      gradeId: p.gradeId, label: labelOf.get(p.gradeId) ?? p.gradeId, verdict: verdictOf(p.verdict, p.gradeId), group: p.group, results: p.results.map(lineOf),
+      gradeId: p.gradeId, label: required(labelOf.get(p.gradeId), `${e.materialId}: its product ${p.gradeId} is not in the database`), verdict: verdictOf(p.verdict, p.gradeId), group: p.group, results: p.results.map(lineOf),
     }));
     const file: MaterialFile = {
       kind: 'material', release: stamp.id, materialId: e.materialId, name: nameFor(e.materialId), verdict: verdictOf(e.verdict, e.materialId), group: e.group,

@@ -160,20 +160,29 @@ function viewIn(dir) {
   return { release, assets };
 }
 
-/** Copies the folders a stale page of the view in `repo` still asks for (its data/<release>/ without detail/, and the chunks it was built with) to a scratch folder. */
+/**
+ * Copies the folders a stale page of the view in `repo` still asks for (its data/<release>/ without detail/, and the chunks it was built
+ * with) to a scratch folder, and counts what it copied. Null: the repository holds no view. A view whose data folder or a listed chunk is
+ * not there is an error: carrying less than the manifest lists would make a stale page fail in a way nobody saw at deploy time.
+ */
 function carryView(repo) {
   const view = viewIn(repo);
   if (view === null) return null;
-  const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
   const data = join(repo, V3_DIR, 'data', view.release);
-  // Slim copy (owner decision 2026-10-22, WP-25 site budget): the parts the results need, never the per-material detail/ folder.
-  // A stale page that opens a detail panel gets a 404 for its release, which the page's guard answers by reloading once.
-  if (existsSync(data)) cpSync(data, join(dir, 'data', view.release), { recursive: true, filter: (from) => !relative(data, from).split(/[\\/]/).includes('detail') });
-  for (const name of view.assets) {
-    const from = join(repo, V3_DIR, 'assets', name);
-    if (existsSync(from)) cpSync(from, join(dir, 'assets', name));
+  if (!existsSync(data)) throw new Error(`${V3_DIR}/release.json names release ${view.release}, but ${V3_DIR}/data/${view.release}/ is not in the preview repository: nothing to carry for its pages`);
+  const lost = view.assets.filter((name) => !existsSync(join(repo, V3_DIR, 'assets', name)));
+  if (lost.length) throw new Error(`${V3_DIR}/release.json lists chunks the preview repository does not hold: ${lost.join(', ')}`);
+  const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
+  try {
+    // Slim copy (owner decision 2026-10-22, WP-25 site budget): the parts the results need, never the per-material detail/ folder.
+    // A stale page that opens a detail panel gets a 404 for its release, which the page's guard answers by reloading once.
+    cpSync(data, join(dir, 'data', view.release), { recursive: true, filter: (from) => !relative(data, from).split(/[\\/]/).includes('detail') });
+    for (const name of view.assets) cpSync(join(repo, V3_DIR, 'assets', name), join(dir, 'assets', name));
+    return { release: view.release, dir, files: [...walk(join(dir, 'data', view.release))].length, chunks: view.assets.length };
+  } catch (e) {
+    rmSync(dir, { recursive: true, force: true });
+    throw e;
   }
-  return { release: view.release, dir };
 }
 
 // Moves what the preview repo serves now into previous/<its release> (only one previous release is kept), then copies the
@@ -204,6 +213,7 @@ export function stage(site, repo) {
     writeFileSync(join(repo, '.nojekyll'), '');
     const view = viewIn(repo);
     let carriedRelease = null;
+    let viewCarried = null;
     if (carried && view !== null && carried.release !== view.release) {
       for (const sub of [join('data', carried.release), 'assets']) {
         const from = join(carried.dir, sub);
@@ -211,10 +221,14 @@ export function stage(site, repo) {
         if (existsSync(from)) cpSync(from, join(repo, V3_DIR, sub), { recursive: true, force: false });
       }
       carriedRelease = carried.release;
+      viewCarried = { files: carried.files, chunks: carried.chunks };
+      // The smoke test checks that the kept release still answers, and for that it has to know which one it is.
+      const infoPath = join(repo, 'preview.json');
+      writeFileSync(infoPath, JSON.stringify({ ...JSON.parse(readFileSync(infoPath, 'utf8')), v3Previous: carried.release }, null, 2) + '\n');
     }
     // What the push will carry, previous/ included. The repository's own .git folder and README.md are not the site's.
     assertClean(scanTree(repo, { skip: (rel) => rel === '.git', allowPaths: ['README.md'] }), 'the staged preview repository');
-    return { release: newRelease, previousKept: moved ?? (existsSync(join(repo, 'previous')) ? readdirSync(join(repo, 'previous')) : []), viewKept: carriedRelease };
+    return { release: newRelease, previousKept: moved ?? (existsSync(join(repo, 'previous')) ? readdirSync(join(repo, 'previous')) : []), viewKept: carriedRelease, viewCarried };
   } finally {
     if (carried) rmSync(carried.dir, { recursive: true, force: true });
   }
@@ -237,7 +251,8 @@ if (isMain(import.meta.url)) {
       console.log(`built the public view into ${V3_DIR}/: release ${r.release}, ${r.files} files`);
     } else if (argv[0] === 'stage') {
       const r = stage(arg(argv, '--site'), arg(argv, '--repo'));
-      console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}; public view's previous data kept: ${r.viewKept ?? 'none'}`);
+      const carried = r.viewCarried ? `${r.viewKept} (${r.viewCarried.files} data files, ${r.viewCarried.chunks} chunks)` : 'none';
+      console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}; public view's previous data kept: ${carried}`);
     } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR | build-v3 --site DIR');
   } catch (e) { console.error(`preview-assemble failed: ${e.message}`); process.exitCode = 1; }
 }

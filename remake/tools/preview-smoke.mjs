@@ -32,8 +32,25 @@ export async function fetchRetry(url, { fetchFn = fetch, tries = 3, delayMs = 50
   throw last;
 }
 
+/** One JSON file of the view, parsed, or null (and a failed check) when it is not served as 200 JSON. */
+async function viewJson(name, path, { page, check }) {
+  const text = await page(name, path);
+  if (text === null) return null;
+  try { return JSON.parse(text); } catch (e) { check(`${name} parses`, false, e.message); return null; }
+}
+
+/** The first material of a release's result.json, and the result itself: what a page of that release asks for first. */
+async function sampleOf(release, ctx) {
+  const result = await viewJson(`v3 result.json of ${release}`, `v3/data/${release}/result.json`, ctx);
+  if (result === null) return null;
+  const id = result.materials?.[0]?.materialId;
+  ctx.check(`v3 result.json of ${release} names its release and a material`, result.release === release && /^M\d+$/.test(id ?? ''), `release ${result.release}, first material ${String(id)}`);
+  return /^M\d+$/.test(id ?? '') ? id : null;
+}
+
 /** The view's page names its release, its release.json agrees, and its core, estimates and reference parts are what the manifest says (sha256 and size). */
-async function checkView(base, release, { page, check, fetchFn, sleep, now }) {
+async function checkView(base, release, previous, ctx) {
+  const { page, check, fetchFn, sleep, now } = ctx;
   const index = await page('v3/index.html', 'v3/index.html');
   if (index !== null) check('v3/index.html carries the view\'s release id', index.includes(release), release);
   const text = await page('v3/release.json', 'v3/release.json');
@@ -51,6 +68,20 @@ async function checkView(base, release, { page, check, fetchFn, sleep, now }) {
       const sha = createHash('sha256').update(bytes).digest('hex');
       check(`v3 ${part} part is the one release.json lists`, sha === file.sha256 && bytes.length === file.bytes, `${bytes.length} bytes, sha256 ${sha.slice(0, 12)}, listed ${file.bytes} bytes, ${String(file.sha256).slice(0, 12)}`);
     } catch (e) { check(`v3 ${part} part: fetch`, false, e.message); }
+  }
+  // What the page asks for first: the results, and one material's file, of this release.
+  const id = await sampleOf(release, ctx);
+  if (id !== null) {
+    const material = await viewJson(`v3 material/${id}.json`, `v3/data/${release}/material/${id}.json`, ctx);
+    if (material !== null) check(`v3 material/${id}.json is that material of this release`, material.kind === 'material' && material.release === release && material.materialId === id, `${material.kind} ${material.materialId} of ${material.release}`);
+  }
+  // The deploy keeps the previous release without its detail/ folder (owner decision 2026-10-22): a page cached from it still loads its
+  // results, and a request for a detail gets the 404 its guard answers with a reload. Both halves are the design; either missing is a fault.
+  if (previous !== null) {
+    const old = await sampleOf(previous, ctx);
+    if (old !== null) {
+      await page(`v3 previous release ${previous}: detail/${old}.json is gone`, `v3/data/${previous}/detail/${old}.json`, { status: 404 });
+    }
   }
 }
 
@@ -127,7 +158,8 @@ export async function runSmoke(cfg, deps = {}) {
 
   // The public view, when this deploy has one: its release.json is the smoke test's own manifest (the page never fetches it), and every
   // part it names must be served whole, byte for byte, by the address the page will ask for (pack 02 section 6.2).
-  if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, { page, check, fetchFn, sleep, now });
+  if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, typeof info.v3Previous === 'string' ? info.v3Previous : null, { page, check, fetchFn, sleep, now });
+  else check('v3 view checked', false, 'preview.json names no v3Release, so the public view was not part of this deploy and was not checked');
 
   // A missing path must be a real 404, not a 200 that serves the shell.
   try {

@@ -7,9 +7,10 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
 import { DetailsIncomplete, REQUIRES, loadCited, loadDetails, loadParts } from '../../apps/public/src/parts.ts';
-import { NetworkError } from '../../apps/public/src/load.ts';
+import { NetworkError, NoMaterialError, loadMaterial } from '../../apps/public/src/load.ts';
 import { DataShapeError } from '../../apps/public/src/model.ts';
 import { StaleShellError } from '../../apps/public/src/release.ts';
+import { blockedBy } from '../../apps/public/src/useLoad.ts';
 
 const root = fileURLToPath(new URL('../..', import.meta.url));
 const R = 'aaaaaaaaaaaa';
@@ -64,6 +65,11 @@ test('completeness: a mode fetches exactly the parts it needs, and the result ho
   assert.deepEqual(b.model.grades[0].estimate.density, { evidence: [{ measurementIds: ['V1'] }], lo: 1, hi: 2 }, 'the estimates are joined with what the core holds of the same field');
   assert.equal(b.model.materials[0].headline.density.estimate.lo, 1);
   assert.deepEqual(b.model.meta.estimateModel, { v: 1 });
+  assert.deepEqual(b.estimates, { status: 'available', withheld: null }, 'whether the estimates were published whole reaches the caller');
+  assert.equal('estimates' in a, false, 'a mode that did not ask for the estimates has no status to report');
+  const record = { status: 'withheld', groups: [{ name: 'density' }], cells: { 'grades/G001-01/density': 'estimate withheld: model check failed' } };
+  const held = await loadParts(R, 'exploreEstimates', server(parts(), { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], status: 'withheld', withheld: record } }).fetchFn);
+  assert.deepEqual(held.estimates, { status: 'withheld', withheld: record }, 'the build\'s record of what was withheld arrives, so the view can label it (OQ-05 A)');
 
   const ashby = server(parts());
   const c = await loadParts(R, 'ashby', ashby.fetchFn);
@@ -80,6 +86,9 @@ test('completeness: one part missing, from another release, damaged or unreachab
     ['core without its materials', { [`data/${R}/core.json`]: { kind: 'core', release: R, model: { ...model(), materials: undefined } } }, DataShapeError],
     ['a part of another kind', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/reference.json`] } }, DataShapeError],
     ['estimates for a grade the core lacks', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], overlay: { grades: { 'G999-01': {} }, materials: {}, meta: {} } } }, DataShapeError],
+    ['estimates that say withheld and record nothing', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], status: 'withheld' } }, DataShapeError],
+    ['estimates that record a withholding and say available', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], withheld: { status: 'withheld' } } }, DataShapeError],
+    ['estimates with no status', { [`data/${R}/estimates.json`]: { ...parts()[`data/${R}/estimates.json`], status: undefined } }, DataShapeError],
     ['estimates that carry no overlay', { [`data/${R}/estimates.json`]: { kind: 'estimates', release: R } }, DataShapeError],
     ['the connection fails', { [`data/${R}/estimates.json`]: new TypeError('offline') }, NetworkError],
     ['a server error', { [`data/${R}/estimates.json`]: { httpStatus: 503 } }, NetworkError],
@@ -107,6 +116,9 @@ test('details: all of the shards asked for, or none; a stale part stays stale, a
   await assert.rejects(loadDetails(R, ['M001', 'M002'], mismatched.fetchFn), StaleShellError);
   const down = server(parts(), { [`data/${R}/detail/M002.json`]: new TypeError('offline') });
   await assert.rejects(loadDetails(R, ['M001', 'M002'], down.fetchFn), (e) => e instanceof DetailsIncomplete && e.materialId === 'M002' && /nothing is emitted/.test(e.message));
+  // Stale wins wherever it sits: a failure listed before it must not hide it, or the stale page would not reload.
+  const mixed = server(parts(), { [`data/${R}/detail/M001.json`]: new TypeError('offline'), [`data/${R}/detail/M002.json`]: null });
+  await assert.rejects(loadDetails(R, ['M001', 'M002'], mixed.fetchFn), StaleShellError, 'a failure before a 404 does not hide it');
   const wrong = server(parts(), { [`data/${R}/detail/M001.json`]: { kind: 'detail', release: R, materialId: 'M002', records: {} } });
   await assert.rejects(loadDetails(R, ['M001'], wrong.fetchFn), (e) => e instanceof DetailsIncomplete && e.materialId === 'M001');
   await assert.rejects(loadDetails(R, ['M001', 'not-a-material'], ok.fetchFn), DataShapeError, 'an address that is not a material is refused before anything is fetched');
@@ -124,6 +136,50 @@ test('the brief and the export: the core and every cited detail together, or not
   // the core arriving is not enough while one citation is missing
   await assert.rejects(loadCited(R, 'export', ['M001', 'M002'], server(parts(), { [`data/${R}/detail/M002.json`]: null }).fetchFn).then(() => { emitted++; }), StaleShellError);
   assert.equal(emitted, 0);
+  // stale wins over another failure in the other half, too
+  const mixed = server(parts(), { [`data/${R}/core.json`]: new TypeError('offline'), [`data/${R}/detail/M002.json`]: null });
+  await assert.rejects(loadCited(R, 'export', ['M001', 'M002'], mixed.fetchFn), StaleShellError);
+  const offline = server(parts(), { [`data/${R}/core.json`]: new TypeError('offline') });
+  await assert.rejects(loadCited(R, 'export', ['M001', 'M002'], offline.fetchFn), NetworkError, 'with nothing stale, the failure is reported as it is');
+});
+
+const resultFile = (release = R) => ({
+  kind: 'result', release, snapshot: '2026-01-01', template: { name: 't', description: 'd', notChecked: 'n', caseId: 'c' }, requirements: [],
+  counts: { pass: 0, fail: 0, unknown: 0, screened: 0, total: 0 }, materials: [],
+});
+
+test('material: a 404 is a stale page only when the release is gone; where the release answers, the address names no material', async () => {
+  const files = { ...parts(), [`data/${R}/result.json`]: resultFile() };
+  await assert.rejects(loadMaterial(R, 'M999', server(files).fetchFn), (e) => e instanceof NoMaterialError && e instanceof DataShapeError && /M999/.test(e.message), 'the release is here, the material is not');
+  const gone = server({});
+  await assert.rejects(loadMaterial(R, 'M001', gone.fetchFn), StaleShellError, 'the release is gone too: stale');
+  assert.deepEqual(gone.asked, [`data/${R}/material/M001.json`, `data/${R}/result.json`], 'the same release is probed');
+  const other = server({ [`data/${R}/result.json`]: resultFile(OTHER) });
+  await assert.rejects(loadMaterial(R, 'M001', other.fetchFn), StaleShellError, 'results of another release: stale');
+  const offline = server({ [`data/${R}/result.json`]: new TypeError('offline') });
+  await assert.rejects(loadMaterial(R, 'M001', offline.fetchFn), StaleShellError, 'a probe that fails leaves the 404 to be what it was');
+  await assert.rejects(loadMaterial(R, 'M001', server({ [`data/${R}/material/M001.json`]: new TypeError('offline') }).fetchFn), NetworkError);
+  await assert.rejects(loadMaterial(R, 'x', server(files).fetchFn), (e) => e instanceof DataShapeError && !(e instanceof NoMaterialError), 'a malformed address is checked before anything is fetched');
+});
+
+test('what the view says: a missing shard and a missing material each have their own words, and an unexpected error is logged', () => {
+  const incomplete = blockedBy(new DetailsIncomplete('M002', new NetworkError('data/x', new Error('boom'))));
+  assert.equal(incomplete.kind, 'failed');
+  assert.match(incomplete.why, /detail of M002.*nothing is emitted.*could not fetch data\/x/);
+  assert.doesNotMatch(incomplete.why, /unexpected/);
+  assert.deepEqual(blockedBy(new NoMaterialError('M999')), { kind: 'failed', why: 'the address: names no material in this release (M999)', noMaterial: true });
+  assert.equal(blockedBy(new DataShapeError('a', 'b')).noMaterial, undefined);
+  const logged = [];
+  const original = console.error;
+  console.error = (...args) => { logged.push(args); };
+  try {
+    const stopped = blockedBy(new RangeError('surprise'));
+    assert.match(stopped.why, /unexpected.*surprise/);
+  } finally {
+    console.error = original;
+  }
+  assert.equal(logged.length, 1, 'the error is in the console, not only in a sentence');
+  assert.ok(logged[0][0] instanceof RangeError);
 });
 
 test('the page never fetches release.json (it is the smoke test\'s manifest) and names its release inline in every page', () => {
@@ -166,17 +222,30 @@ function pageWithGuard({ release = R, storage = new Map(), storageThrows = false
   };
 }
 
-test('guard: a page reloads once per release, then says what happened; settling lets a later publish reload again', () => {
+test('guard: a page reloads once per release, then says what happened; a shell of another release has its own turn', () => {
   const p = pageWithGuard();
   assert.equal(p.guard.reloadOnce(), true);
   assert.equal(p.log.reloads, 1);
-  assert.equal(p.guard.reloadOnce(), false, 'the reload did not help (the shell is still old): no loop');
-  assert.equal(p.log.reloads, 1);
-  p.guard.settled();
-  assert.equal(p.guard.reloadOnce(), true, 'after a good load the mark is gone');
-  // another release has its own mark
+  assert.equal(p.guard.reloadOnce(), true, 'while the reload is under way another failure is the same event');
+  assert.equal(p.log.reloads, 1, 'and does not reload again');
+  // The page after that reload (same tab, same storage): the shell is still the old one.
+  const again = pageWithGuard({ storage: p.storage });
+  assert.equal(again.guard.reloadOnce(), false, 'the reload did not help (the shell is still old): no loop');
+  assert.equal(again.log.reloads, 0);
+  // A mark that names another release is forgotten once this shell's data has arrived, so a later publish can reload again.
   const q = pageWithGuard({ release: OTHER, storage: new Map([['h2c-reloaded', R]]) });
+  q.guard.settled();
+  assert.equal(q.storage.has('h2c-reloaded'), false);
   assert.equal(q.guard.reloadOnce(), true);
+});
+
+test('guard: a stale shell that reloaded and then loaded its data keeps its mark, so its hash does not reload it in a loop', () => {
+  const p = pageWithGuard({ storage: new Map([['h2c-reloaded', R]]) });
+  p.guard.settled();
+  assert.equal(p.storage.get('h2c-reloaded'), R, 'the mark names this shell');
+  p.preloadError();
+  assert.equal(p.log.reloads, 0, 'a later failed chunk does not reload it again');
+  assert.equal(p.log.notices.length, 1);
 });
 
 test('guard: a script or stylesheet that does not load reloads once and then shows the notice; other elements are none of its business', () => {
@@ -188,11 +257,15 @@ test('guard: a script or stylesheet that does not load reloads once and then sho
   assert.equal(p.log.notices.length, 0);
   p.scriptFailed('LINK');
   assert.equal(p.log.reloads, 1, 'not twice');
-  assert.equal(p.log.notices.length, 1);
-  assert.equal(p.log.notices[0].attrs['data-testid'], 'load-notice');
-  assert.equal(p.log.notices[0].attrs.role, 'alert');
-  p.scriptFailed('SCRIPT');
-  assert.equal(p.log.notices.length, 1, 'one notice');
+  assert.equal(p.log.notices.length, 0, 'two assets failing together: the reload is under way, no notice flashes');
+  const after = pageWithGuard({ storage: p.storage });
+  after.scriptFailed('LINK');
+  assert.equal(after.log.reloads, 0);
+  assert.equal(after.log.notices.length, 1);
+  assert.equal(after.log.notices[0].attrs['data-testid'], 'load-notice');
+  assert.equal(after.log.notices[0].attrs.role, 'alert');
+  after.scriptFailed('SCRIPT');
+  assert.equal(after.log.notices.length, 1, 'one notice');
 });
 
 test('guard: a page that has loaded ignores later failures of other things; a preload error takes the same path as a script failure', () => {
@@ -204,9 +277,10 @@ test('guard: a page that has loaded ignores later failures of other things; a pr
   q.preloadError();
   assert.equal(q.log.prevented, 1, 'the default error is cancelled');
   assert.equal(q.log.reloads, 1);
-  q.preloadError();
-  assert.equal(q.log.reloads, 1);
-  assert.equal(q.log.notices.length, 1);
+  const r = pageWithGuard({ storage: q.storage });
+  r.preloadError();
+  assert.equal(r.log.reloads, 0);
+  assert.equal(r.log.notices.length, 1);
 });
 
 test('guard: where storage is blocked it cannot remember a reload, so it never reloads (no loop) and says so', () => {

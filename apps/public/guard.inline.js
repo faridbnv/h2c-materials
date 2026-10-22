@@ -3,7 +3,9 @@
 //
 //   reloadOnce()  reload this page once per release (a sessionStorage mark); false when it already did, or cannot remember that it did.
 //                 The scenario lives in the address hash, which a reload keeps, so nothing is lost.
-//   settled()     the page's data arrived and agrees with the page: forget the mark, so a later publish can reload again.
+//   settled()     the page's data arrived and agrees with the page: forget a mark that names another release, so a later publish can reload
+//                 again. A mark that names this shell's own release stays: a shell that reloaded and is still this one is the stale one
+//                 (its hash opens a part the server dropped), and forgetting the mark there would reload it again, for ever.
 //   notice()      say what happened when a reload is not (or no longer) the answer.
 //
 // A script or stylesheet of the page that fails to load, and Vite's `vite:preloadError` (a chunk import that failed), take the same path.
@@ -14,13 +16,17 @@
     var meta = document.querySelector('meta[name="h2c-release"]');
     return meta ? meta.getAttribute('content') || '' : '';
   };
+  // A reload is under way: another stale asset failing in the meantime is the same event, not a reason to flash the notice.
+  var reloading = false;
   var guard = {
     booted: false,
     reloadOnce: function () {
+      if (reloading) return true;
       try {
         var mine = release();
         if (sessionStorage.getItem(KEY) === mine) return false;
         sessionStorage.setItem(KEY, mine);
+        reloading = true;
         location.reload();
         return true;
       } catch (e) {
@@ -29,7 +35,9 @@
     },
     settled: function () {
       guard.booted = true;
-      try { sessionStorage.removeItem(KEY); } catch (e) { /* nothing was remembered */ }
+      try {
+        if (sessionStorage.getItem(KEY) !== release()) sessionStorage.removeItem(KEY);
+      } catch (e) { /* nothing was remembered */ }
     },
     notice: function () {
       if (document.querySelector('[data-testid="load-notice"][data-state="stale"]')) return;

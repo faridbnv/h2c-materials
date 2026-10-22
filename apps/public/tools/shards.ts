@@ -34,16 +34,24 @@ export interface Shards {
   readonly manifest: PartsManifest;
 }
 
+const isRecord = (value: unknown): value is Obj => typeof value === 'object' && value !== null && !Array.isArray(value);
+
+/** A section of the database: its rows. A section that is not a list of records is a build fault, not an empty section. */
 const rowsOf = (db: Obj, section: string): Obj[] => {
   const rows = db[section];
-  return Array.isArray(rows) ? rows.filter((row): row is Obj => typeof row === 'object' && row !== null) : [];
+  if (!Array.isArray(rows)) throw new Error(`the database's ${section} is not a list`);
+  return rows.map((row: unknown, i): Obj => {
+    if (!isRecord(row)) throw new Error(`${section}[${i}] is not a record`);
+    return row;
+  });
 };
 
-function groupBy(rows: readonly Obj[], key: string): Map<string, Obj[]> {
+/** The rows by the text of `key`. A row without one would be in no group, so in no detail: it throws, naming the row. */
+function groupBy(rows: readonly Obj[], key: string, section: string): Map<string, Obj[]> {
   const out = new Map<string, Obj[]>();
   for (const row of rows) {
     const k = row[key];
-    if (typeof k !== 'string') continue;
+    if (typeof k !== 'string') throw new Error(`${section} ${String(row['id'])} has no ${key}, so no detail would carry it`);
     const list = out.get(k);
     if (list) list.push(row);
     else out.set(k, [row]);
@@ -57,10 +65,19 @@ const idsIn = (value: unknown): string[] => (typeof value === 'string' ? value.s
 /** The per-material records of the database, indexed once. A material's detail is these, plus the sources they cite. */
 function detailIndex(db: Obj) {
   const sections = ['grades', 'measurements', 'profiles', 'evidence', 'coverage', 'prices', 'knowHow', 'polymerEvidence'] as const;
-  const byMaterial = new Map(sections.map((s) => [s, groupBy(rowsOf(db, s), 'materialId')]));
+  const materialIds = new Set(rowsOf(db, 'materials').map((m) => String(m['id'])));
+  const byMaterial = new Map(sections.map((s) => [s, groupBy(rowsOf(db, s), 'materialId', s)]));
+  // Every row of a section lands in some material's detail: the groups add up to the section, or a row would be left out of every shard.
+  for (const section of sections) {
+    const groups = byMaterial.get(section) ?? new Map<string, Obj[]>();
+    const orphan = [...groups].find(([id]) => !materialIds.has(id));
+    if (orphan) throw new Error(`${section} ${String(orphan[1][0]?.['id'])} is on material ${orphan[0]}, which the database does not hold`);
+  }
   const sources = new Map(rowsOf(db, 'sources').map((s) => [String(s['id']), s]));
   const polymers = new Map(rowsOf(db, 'polymers').map((p) => [String(p['id']), p]));
-  const environment = groupBy(rowsOf(db, 'polymerEnvironment'), 'polymerId');
+  const environment = groupBy(rowsOf(db, 'polymerEnvironment'), 'polymerId', 'polymerEnvironment');
+  const unheld = [...environment].find(([id]) => !polymers.has(id));
+  if (unheld) throw new Error(`polymerEnvironment ${String(unheld[1][0]?.['id'])} is on polymer ${unheld[0]}, which the database does not hold`);
   return { sections, byMaterial, sources, polymers, environment };
 }
 
@@ -81,8 +98,12 @@ function detailOf(material: Obj, index: ReturnType<typeof detailIndex>, release:
     records[section] = rows.map((row) => restOf(row, CORE_SECTION[section]));
     for (const row of rows) for (const key of ['sourceId', 'h2cSourceId', 'sourceIds']) for (const s of idsIn(row[key])) cited.add(s);
   }
-  const polymerId = typeof material['estimateIdentity'] === 'string' ? material['estimateIdentity'] : String(material['basePolymer'] ?? '');
+  // The estimate identity names a row of polymers (the build requires it to); a material with none is looked up by its base polymer, and
+  // may have no row (20 of the 175 today: an excluded engineering polymer, a blend), which is the material's state, not a fault.
+  const identity = material['estimateIdentity'];
+  const polymerId = typeof identity === 'string' ? identity : String(material['basePolymer'] ?? '');
   const polymer = index.polymers.get(polymerId);
+  if (typeof identity === 'string' && !polymer) throw new Error(`${id} names polymer ${identity}, which the database does not hold`);
   if (polymer) {
     records['polymer'] = polymer;
     for (const s of idsIn(polymer['sourceId'])) cited.add(s);

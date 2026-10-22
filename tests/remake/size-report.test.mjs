@@ -14,15 +14,15 @@ const tool = fileURLToPath(new URL('../../remake/tools/size-report.mjs', import.
 const R = 'aaaaaaaaaaaa';
 
 /** A view: a page, an entry that imports a chunk statically and another dynamically, a style, and the four parts. `coreBytes` of core.json are incompressible. */
-function view({ coreBytes = 1000, detail = [100, 200, 300] } = {}) {
+function view({ coreBytes = 1000, detail = [100, 200, 300], listed = detail.length, page = '' } = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'h2c-size-'));
   const put = (path, bytes) => { mkdirSync(join(dir, path, '..'), { recursive: true }); writeFileSync(join(dir, path), bytes); };
-  put('index.html', '<!doctype html><html><head><link rel="stylesheet" href="./assets/s.css"><script type="module" src="./assets/a.js"></script><link rel="modulepreload" href="./assets/b.js"></head><body></body></html>');
+  put('index.html', page || '<!doctype html><html><head><link rel="stylesheet" href="./assets/s.css"><script type="module" src="./assets/a.js"></script><link rel="modulepreload" href="./assets/b.js"></head><body></body></html>');
   put('assets/a.js', 'import{x}from"./b.js";const lazy=()=>import("./c.js");export{x,lazy};');
   put('assets/b.js', `export const x=${JSON.stringify('b'.repeat(500))};`);
   put('assets/c.js', `export const y=${JSON.stringify(randomBytes(5000).toString('hex'))};`);
   put('assets/s.css', 'body{margin:0}');
-  put('release.json', JSON.stringify({ release: R }));
+  put('release.json', JSON.stringify({ release: R, files: { detail: { count: listed } } }));
   put(`data/${R}/core.json`, randomBytes(coreBytes));
   put(`data/${R}/estimates.json`, 'x'.repeat(2000));
   put(`data/${R}/reference.json`, '{}');
@@ -38,6 +38,23 @@ test('strict boot is the page, the scripts and styles it names and their static 
   assert.equal(report.defaultBoot.gzipBytes, report.strictBoot.gzipBytes + report.defaultBoot.estimatesGzipBytes);
   assert.equal(report.ok, true);
   assert.equal(report.release, R);
+});
+
+test('an absolute Vite base is stripped: the same boot is found under /h2c-materials/v3/', () => {
+  const page = '<!doctype html><html><head><link rel="stylesheet" href="/h2c-materials/v3/assets/s.css"><script type="module" src="/h2c-materials/v3/assets/a.js"></script></head><body></body></html>';
+  const files = measure({ view: view({ page }) }).strictBoot.files.map((f) => f.path).sort();
+  assert.deepEqual(files, ['assets/a.js', 'assets/b.js', 'assets/s.css', `data/${R}/core.json`, 'index.html']);
+});
+
+test('a report that measured nothing is not a pass: no detail, a count that differs from the build\'s, a named asset that is missing, no script', () => {
+  assert.throws(() => measure({ view: view({ detail: [], listed: 0 }) }), /holds 0 detail shards/);
+  assert.throws(() => measure({ view: view({ detail: [100, 200], listed: 3 }) }), /holds 2 detail shards.*wrote 3/);
+  assert.throws(() => measure({ view: view({ page: '<html><head><script type="module" src="./assets/gone.js"></script></head></html>' }) }), /names \.\/assets\/gone\.js, which is not in/);
+  assert.throws(() => measure({ view: view({ page: '<html><head><link rel="stylesheet" href="./assets/s.css"></head></html>' }) }), /names no script/);
+  assert.throws(() => measure({ view: view({ page: '<html><head><script type="module" src="/h2c-materials/assets/none.js"></script></head></html>' }) }), /none\.js, which is not in/);
+  const noCount = view();
+  writeFileSync(join(noCount, 'release.json'), JSON.stringify({ release: R }));
+  assert.throws(() => measure({ view: noCount }), /does not say how many detail shards/);
 });
 
 test('the detail shards are measured by gzip size, median and largest', () => {
@@ -68,4 +85,7 @@ test('CLI: writes the JSON and exits 0 when every budget is met, 1 when one is n
   assert.match(over.stdout, /OVER strictBootGzip/);
   const none = spawnSync(process.execPath, [tool, '--view', mkdtempSync(join(tmpdir(), 'h2c-size-none-')), '--out', out], { encoding: 'utf8' });
   assert.equal(none.status, 2);
+  const empty = spawnSync(process.execPath, [tool, '--view', view({ detail: [], listed: 0 }), '--out', out], { encoding: 'utf8' });
+  assert.equal(empty.status, 2, 'a view with no detail shards could not be measured, which is not a pass');
+  assert.match(empty.stderr, /holds 0 detail shards/);
 });

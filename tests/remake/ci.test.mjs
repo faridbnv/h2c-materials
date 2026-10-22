@@ -337,7 +337,10 @@ test('stage keeps the public view\'s previous release (its data and its chunks) 
   };
   const A = 'aaaaaaaaaaaa', B = 'bbbbbbbbbbbb', C = 'cccccccccccc';
   assert.equal(deploy('111111111111', A).viewKept, null, 'the first deploy has nothing to keep');
-  assert.equal(deploy('222222222222', B).viewKept, A);
+  const second = deploy('222222222222', B);
+  assert.equal(second.viewKept, A);
+  assert.deepEqual(second.viewCarried, { files: 4, chunks: 1 }, 'the log can say what was carried: the four parts (no detail/) and the one chunk');
+  assert.equal(JSON.parse(readFileSync(join(repo, 'preview.json'), 'utf8')).v3Previous, A, 'the smoke test is told which release was kept');
   const has = (p) => existsSync(join(repo, V3_DIR, p));
   assert.ok(has(`data/${A}/core.json`) && has(`assets/index-${A}.js`), 'the old page\'s data and chunk are still served');
   assert.ok(has(`data/${B}/core.json`) && has(`assets/index-${B}.js`), 'and the new page\'s');
@@ -350,8 +353,27 @@ test('stage keeps the public view\'s previous release (its data and its chunks) 
   assert.ok(has(`data/${B}/core.json`) && has(`assets/index-${B}.js`) && has(`data/${C}/core.json`));
   assert.ok(!has(`data/${A}`) && !has(`assets/index-${A}.js`), 'only one previous view release is kept: the one before it goes');
   // The same view release again carries nothing and loses nothing.
-  assert.equal(deploy('333333333333', C).viewKept, null);
+  const same = deploy('333333333333', C);
+  assert.equal(same.viewKept, null);
+  assert.equal(same.viewCarried, null);
+  assert.equal(JSON.parse(readFileSync(join(repo, 'preview.json'), 'utf8')).v3Previous, undefined, 'nothing was kept, so nothing is claimed');
   assert.ok(has(`data/${C}/core.json`) && !has(`data/${B}`));
+});
+
+test('stage refuses to carry less than the previous view lists: a data folder or a chunk that is not in the repository is an error, not a smaller carry', () => {
+  const deployTo = (repo, release, view) => {
+    const site = fakeSite(release);
+    buildV3(site, { build: fakePublicBuild({ release: view }) });
+    inject(site, { remake: SHA, main: OLD_SHA });
+    return stage(site, repo);
+  };
+  const fresh = () => { const repo = tmp(); mkdirSync(join(repo, '.git')); deployTo(repo, '111111111111', 'aaaaaaaaaaaa'); return repo; };
+  const noData = fresh();
+  rmSync(join(noData, V3_DIR, 'data', 'aaaaaaaaaaaa'), { recursive: true });
+  assert.throws(() => deployTo(noData, '222222222222', 'bbbbbbbbbbbb'), /data\/aaaaaaaaaaaa\/ is not in the preview repository/);
+  const noChunk = fresh();
+  rmSync(join(noChunk, V3_DIR, 'assets', 'index-aaaaaaaaaaaa.js'));
+  assert.throws(() => deployTo(noChunk, '222222222222', 'bbbbbbbbbbbb'), /lists chunks the preview repository does not hold: index-aaaaaaaaaaaa\.js/);
 });
 
 test('a site without a view is injected as before, and the view is never half published', () => {
@@ -399,11 +421,29 @@ async function serve(handler) {
   return { url: `http://127.0.0.1:${server.address().port}/`, close: () => new Promise((r) => { server.closeAllConnections?.(); server.close(r); }) };
 }
 const MARKED = `<html><head>${NOINDEX}</head><body><div ${BANNER_MARK}>b</div>release rel123456789</body></html>`;
+const VIEW = '0123456789ab';
+const PREVIOUS_VIEW = 'fedcba987654';
+const json = (body) => ({ body: JSON.stringify(body), type: 'application/json' });
+const viewPart = (release, name, body) => ({ path: `data/${release}/${name}.json`, body, sha256: createHash('sha256').update(body).digest('hex'), bytes: Buffer.byteLength(body) });
+/** What a deploy of the public view serves: the page, release.json, the parts it lists, a results file and one material. `previous` adds a kept release (no detail/). */
+function viewFiles({ over = {}, manifest = {}, previous = false, release = VIEW } = {}) {
+  const parts = Object.fromEntries(['core', 'estimates', 'reference'].map((n) => [n, viewPart(release, n, `{"kind":"${n}"}`)]));
+  const result = (r) => json({ kind: 'result', release: r, materials: [{ materialId: 'M001' }] });
+  return {
+    '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html', v3Release: release, ...(previous ? { v3Previous: PREVIOUS_VIEW } : {}) }),
+    '/v3/index.html': { body: `${MARKED}<meta name="h2c-release" content="${release}">` },
+    '/v3/release.json': json({ release, files: Object.fromEntries(Object.entries(parts).map(([k, v]) => [k, { path: v.path, sha256: v.sha256, bytes: v.bytes }])), ...manifest }),
+    ...Object.fromEntries(Object.values(parts).map((v) => [`/v3/${v.path}`, { body: v.body, type: 'application/json' }])),
+    [`/v3/data/${release}/result.json`]: result(release),
+    [`/v3/data/${release}/material/M001.json`]: json({ kind: 'material', release, materialId: 'M001' }),
+    ...(previous ? { [`/v3/data/${PREVIOUS_VIEW}/result.json`]: result(PREVIOUS_VIEW) } : {}),
+    ...over,
+  };
+}
 function siteHandler(over = {}) {
   const files = {
-    '/preview.json': { body: JSON.stringify({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html' }), type: 'application/json' },
     '/index.html': { body: MARKED }, '/materials/M001.html': { body: MARKED }, '/404.html': { body: MARKED },
-    '/manifest.json': { body: JSON.stringify({ release: 'rel123456789' }), type: 'application/json' }, ...over,
+    '/manifest.json': { body: JSON.stringify({ release: 'rel123456789' }), type: 'application/json' }, ...viewFiles(), ...over,
   };
   return (req, res) => {
     const path = new URL(req.url, 'http://x').pathname;
@@ -481,25 +521,40 @@ test('smoke fails (never passes silently) on timeout, wrong commit, missing bann
   assert.match(gone.checks[0].detail, /timed out after 20s/);
 });
 
-test('smoke also checks the public view when the deploy has one: its parts are served whole and are the ones its release.json lists', async () => {
-  const VIEW = '0123456789ab';
-  const part = (name, body) => ({ path: `data/${VIEW}/${name}.json`, body, sha256: createHash('sha256').update(body).digest('hex'), bytes: Buffer.byteLength(body) });
-  const parts = { core: part('core', '{"kind":"core"}'), estimates: part('estimates', '{"kind":"estimates"}'), reference: part('reference', '{"kind":"reference"}') };
-  const view = (over = {}, manifest = {}) => ({
-    '/preview.json': { body: JSON.stringify({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html', v3Release: VIEW }), type: 'application/json' },
-    '/v3/index.html': { body: `${MARKED}<meta name="h2c-release" content="${VIEW}">` },
-    '/v3/release.json': { body: JSON.stringify({ release: VIEW, files: Object.fromEntries(Object.entries(parts).map(([k, v]) => [k, { path: v.path, sha256: v.sha256, bytes: v.bytes }])), ...manifest }), type: 'application/json' },
-    ...Object.fromEntries(Object.values(parts).map((v) => [`/v3/${v.path}`, { body: v.body, type: 'application/json' }])), ...over,
-  });
-  const run = async (over, manifest) => { const s = await serve(siteHandler(view(over, manifest))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
+test('smoke also checks the public view: its parts are served whole and are the ones its release.json lists, and its results and a material answer', async () => {
+  const run = async (over, manifest, extra = {}) => { const s = await serve(siteHandler(viewFiles({ over, manifest, ...extra }))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
   const ok = await run();
   assert.equal(ok.status, 'pass', JSON.stringify(failed(ok)));
   assert.ok(ok.checks.some((c) => c.name === 'v3 core part is the one release.json lists'));
-  assert.deepEqual(failed(await run({ [`/v3/${parts.core.path}`]: { body: '{"kind":"corX"}' } })), ['v3 core part is the one release.json lists'], 'bytes that are not the listed ones');
-  assert.deepEqual(failed(await run({ [`/v3/${parts.estimates.path}`]: { status: 404, body: 'x' } })), ['v3 estimates part: HTTP 200'], 'a part that is not served');
+  assert.ok(ok.checks.some((c) => c.name === 'v3 material/M001.json is that material of this release'), 'one material of the current release is fetched');
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/core.json`]: { body: '{"kind":"corX"}' } })), ['v3 core part is the one release.json lists'], 'bytes that are not the listed ones');
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/estimates.json`]: { status: 404, body: 'x' } })), ['v3 estimates part: HTTP 200'], 'a part that is not served');
   assert.deepEqual(failed(await run({}, { release: 'ffffffffffff' })), ['v3/release.json names the view\'s release']);
   assert.deepEqual(failed(await run({ '/v3/index.html': { body: MARKED } })), ['v3/index.html carries the view\'s release id']);
   assert.deepEqual(failed(await run({ '/v3/release.json': { status: 404, body: 'x' } })), ['v3/release.json: HTTP 200']);
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/result.json`]: { status: 404, body: 'x' } })), [`v3 result.json of ${VIEW}: HTTP 200`], 'no results file');
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/result.json`]: json({ kind: 'result', release: 'ffffffffffff', materials: [{ materialId: 'M001' }] }) })), [`v3 result.json of ${VIEW} names its release and a material`]);
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/material/M001.json`]: { status: 404, body: 'x' } })), ['v3 material/M001.json: HTTP 200'], 'no material file');
+  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/material/M001.json`]: json({ kind: 'material', release: 'ffffffffffff', materialId: 'M001' }) })), ['v3 material/M001.json is that material of this release']);
+});
+
+test('smoke never skips the public view: a preview.json with no v3Release is a failed check', async () => {
+  const noView = { '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html' }) };
+  const s = await serve(siteHandler(noView));
+  try {
+    const m = await runSmoke(cfg(s.url), fastDeps());
+    assert.deepEqual(failed(m), ['v3 view checked']);
+    assert.equal(m.status, 'fail');
+  } finally { await s.close(); }
+});
+
+test('smoke checks the kept release: its results answer and its detail is gone (the slim copy), and says which part is wrong', async () => {
+  const run = async (over) => { const s = await serve(siteHandler(viewFiles({ over, previous: true }))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
+  const ok = await run();
+  assert.equal(ok.status, 'pass', JSON.stringify(failed(ok)));
+  assert.ok(ok.checks.some((c) => c.name === `v3 previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`));
+  assert.deepEqual(failed(await run({ [`/v3/data/${PREVIOUS_VIEW}/result.json`]: { status: 404, body: 'x' } })), [`v3 result.json of ${PREVIOUS_VIEW}: HTTP 200`], 'a stale shell would lose its results');
+  assert.deepEqual(failed(await run({ [`/v3/data/${PREVIOUS_VIEW}/detail/M001.json`]: json({ kind: 'detail' }) })), [`v3 previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`], 'the detail folder was meant to go');
 });
 
 test('fetchRetry retries 5xx and network errors, then throws; it returns a 404 for the caller to judge', async () => {

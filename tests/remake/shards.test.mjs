@@ -156,6 +156,28 @@ test('every source a record cites is in its detail (a missing one stops the buil
   assert.throws(() => makeShards(broken, {}, 'aaaaaaaaaaaa'), /cites source NOT-A-SOURCE/);
 });
 
+test('a record the shards would leave out stops the build: a row with no material, on a material the database lacks, or a section that is not a list', () => {
+  const orphaned = (section, change) => { const broken = structuredClone(db); change(broken[section][0]); return broken; };
+  const id = (section) => db[section][0].id;
+  assert.throws(() => makeShards(orphaned('measurements', (r) => { delete r.materialId; }), {}, 'aaaaaaaaaaaa'), new RegExp(`measurements ${id('measurements')} has no materialId`));
+  assert.throws(() => makeShards(orphaned('coverage', (r) => { r.materialId = 'M999'; }), {}, 'aaaaaaaaaaaa'), new RegExp(`coverage ${id('coverage')} is on material M999`));
+  assert.throws(() => makeShards(orphaned('polymerEnvironment', (r) => { r.polymerId = 'NOPE'; }), {}, 'aaaaaaaaaaaa'), /polymerEnvironment .* is on polymer NOPE/);
+  assert.throws(() => makeShards({ ...structuredClone(db), prices: null }, {}, 'aaaaaaaaaaaa'), /prices is not a list/);
+  assert.throws(() => makeShards({ ...structuredClone(db), grades: [...db.grades, 7] }, {}, 'aaaaaaaaaaaa'), /grades\[\d+\] is not a record/);
+});
+
+test('a material that names a polymer the database lacks stops the build; one found only by its base polymer may have no row', () => {
+  const named = structuredClone(db);
+  const material = named.materials.find((m) => typeof m.estimateIdentity === 'string');
+  material.estimateIdentity = 'NOT-A-POLYMER';
+  assert.throws(() => makeShards(named, {}, 'aaaaaaaaaaaa'), new RegExp(`${material.id} names polymer NOT-A-POLYMER`));
+  const polymers = new Set(db.polymers.map((p) => p.id));
+  const bare = db.materials.filter((m) => typeof m.estimateIdentity !== 'string' && !polymers.has(String(m.basePolymer)));
+  assert.ok(bare.length > 0, 'the real data has materials with only a base polymer and no polymer row');
+  const detail = JSON.parse(shards.files.get(`detail/${bare[0].id}.json`));
+  assert.equal(detail.records.polymer, undefined);
+});
+
 test('the parts name the release the database is, and refuse another', () => {
   assert.throws(() => makeShards(db, {}, 'bbbbbbbbbbbb'), /not bbbbbbbbbbbb/);
   for (const part of ['core', 'estimates', 'reference']) assert.equal(JSON.parse(shards.files.get(`${part}.json`)).release, 'aaaaaaaaaaaa');

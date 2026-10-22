@@ -45,24 +45,43 @@ const median = (xs) => {
   return s.length % 2 ? s[mid] : Math.round((s[mid - 1] + s[mid]) / 2);
 };
 
-/** The files a module graph pulls in from its entry: static imports and the modulepreload links the HTML names. */
+/**
+ * Where a reference of the page is in the view. A relative one is resolved from the view. An absolute one (a Vite build with a base
+ * such as /h2c-materials/v3/) has the base in front: drop leading folders until the rest is a file of the view. Null: there is none.
+ */
+function fileOf(view, ref) {
+  if (!ref.startsWith('/')) {
+    const abs = resolve(view, ref);
+    return existsSync(abs) ? abs : null;
+  }
+  const parts = ref.split('/').filter(Boolean);
+  for (let i = 0; i < parts.length; i++) {
+    const abs = resolve(view, ...parts.slice(i));
+    if (existsSync(abs) && statSync(abs).isFile()) return abs;
+  }
+  return null;
+}
+
+/** The files a module graph pulls in from its entry: static imports and the modulepreload links the HTML names. A file that is named and not there is a failure to measure, never a smaller boot. */
 function bootAssets(view, html) {
   const found = new Set();
-  const visit = (rel) => {
-    const abs = resolve(view, rel);
-    if (found.has(abs) || !existsSync(abs)) return;
+  const visit = (rel, from) => {
+    const abs = fileOf(view, rel);
+    if (abs === null) throw new Error(`${from} names ${rel}, which is not in ${view}`);
+    if (found.has(abs)) return;
     found.add(abs);
     if (!abs.endsWith('.js')) return;
     const text = readFileSync(abs, 'utf8');
     // `import"./x.js"`, `from"./x.js"`, `import("./x.js")` is dynamic and not boot: only the static forms are followed.
-    for (const m of text.matchAll(/(?:\bimport|\bfrom)\s*["'](\.[^"']+\.(?:js|css))["']/g)) visit(relative(view, resolve(dirname(abs), m[1])));
+    for (const m of text.matchAll(/(?:\bimport|\bfrom)\s*["'](\.[^"']+\.(?:js|css))["']/g)) visit(relative(view, resolve(dirname(abs), m[1])), relative(view, abs));
   };
   for (const m of html.matchAll(/<(?:script|link)\b[^>]*?(?:src|href)=["']([^"']+)["'][^>]*>/g)) {
     if (/^(?:[a-z]+:)?\/\//i.test(m[1]) || m[1].startsWith('data:')) continue;
     const tag = m[0];
     if (/rel=["']?(?:icon|canonical)/.test(tag)) continue;
-    visit(m[1].split('#')[0].split('?')[0]);
+    visit(m[1].split('#')[0].split('?')[0], 'index.html');
   }
+  if (![...found].some((f) => f.endsWith('.js'))) throw new Error('index.html names no script that is in the view, so there is no boot to measure');
   return [...found];
 }
 
@@ -70,7 +89,7 @@ function bootAssets(view, html) {
 export function measure({ view, site = view }) {
   const manifestPath = join(view, 'release.json');
   if (!existsSync(manifestPath)) throw new Error(`${manifestPath} is missing: build the view first (npm run build:next)`);
-  const { release } = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  const { release, files } = JSON.parse(readFileSync(manifestPath, 'utf8'));
   const data = join(view, 'data', release);
   const page = join(view, 'index.html');
   if (!existsSync(page) || !existsSync(join(data, 'core.json'))) throw new Error(`${view} has no index.html and data/${release}/core.json`);
@@ -86,7 +105,11 @@ export function measure({ view, site = view }) {
   const codeGzip = [shell, ...assets].reduce((n, f) => n + f.gzip, 0);
 
   const detailDir = join(data, 'detail');
-  const detail = [...walk(detailDir)].map((p) => ({ path: relative(view, p), gzip: gz(readFileSync(p)) }));
+  const detail = (existsSync(detailDir) ? [...walk(detailDir)] : []).map((p) => ({ path: relative(view, p), gzip: gz(readFileSync(p)) }));
+  // A report that measured no detail, or fewer than the build says it wrote, would pass its detail budgets on nothing.
+  const expected = files?.detail?.count;
+  if (!Number.isInteger(expected)) throw new Error(`${manifestPath} does not say how many detail shards the build wrote (files.detail.count)`);
+  if (detail.length === 0 || detail.length !== expected) throw new Error(`${detailDir} holds ${detail.length} detail shards, and release.json says the build wrote ${expected}`);
   const gzips = detail.map((d) => d.gzip);
   const largest = detail.reduce((a, b) => (b.gzip > a.gzip ? b : a), { path: '', gzip: 0 });
 

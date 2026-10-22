@@ -71,6 +71,20 @@ test('stale shell: a page whose data is right neither reloads nor leaves a mark 
   expect(await page.evaluate(() => Object.keys(sessionStorage).filter((k) => k.endsWith('h2c-reloaded')))).toEqual([]);
 });
 
+test('stale shell: a shell that reloaded and then loaded its data keeps its mark, so a later failed chunk says so instead of reloading in a loop', async ({ page, appUrl, newPage }) => {
+  expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
+  const release = await page.locator('meta[name="h2c-release"]').getAttribute('content');
+  // The state a stale shell is in after its one reload: the mark names this shell's release, and its data (the results) still loads.
+  await page.evaluate((r) => sessionStorage.setItem('h2c-reloaded', r), release);
+  const documents = countDocuments(page, /\/v3\/(?:#.*)?$/);
+  expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
+  expect(await page.evaluate(() => sessionStorage.getItem('h2c-reloaded')), 'loading its data does not forget the mark').toBe(release);
+  await page.evaluate(() => dispatchEvent(new Event('vite:preloadError', { cancelable: true })));
+  await expect(notice(page)).toBeVisible();
+  await page.waitForTimeout(1000);
+  expect(documents, 'the page asked for itself once: the navigation above, no reload after it').toHaveLength(1);
+});
+
 for (const depth of [1, 2, 3]) {
   test(`404.html at depth ${depth}: served with status 404, fetches nothing else, and its link reaches the site root`, async ({ page, appUrl, base, site }) => {
     const path = `${'nested/'.repeat(depth - 1)}nothing.html`;
