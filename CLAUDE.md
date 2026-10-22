@@ -72,3 +72,15 @@ edits to the old paths above. No change to Pages settings, DNS, releases, tags, 
 means a wp:attest record (the owner's, or an agent's under ruling R-ATTEST-AGENT: posted only once every other required
 check on that head is green, with each attested transition named in the PR body; never for main or the cutover) or the
 owner's own Merge click, never a chat message. Owner questions go in the pack's 11-QUESTIONS-FOR-YOU.md format: plain English, tick boxes, an answer line.
+
+## Agent authority (ruling R-AGENT-AUTHORITY, 2026-10-22, until the remake closes at WP-39)
+The owner authorises the agents of this project to act without asking first:
+- create, commit and push branches (wp-*, sync/*, and a cloud session's claude/* branch), open PRs into remake/v3, re-run CI,
+  and merge on green;
+- attest PRs into remake/v3 (R-ATTEST-AGENT), including PRs that change workflows, the gate (remake/tools/ci-gates.mjs),
+  guards and hooks, tests, CLAUDE.md, rulings, transitions and the parity corpus;
+- add, change and fix tests, CI and tooling as the work needs, never weakening a check to make it pass (AGENTS.md).
+Still the owner's: merging into main, the cutover (WP-37), Pages settings, DNS, secrets, branch protection, releases and
+tags, and any force push but to the agent's own branch. Every agent-attested transition and every change to a gate, guard
+or rule is listed in the milestone record for the owner's review at milestone close. Where a line above says otherwise,
+this section wins.
