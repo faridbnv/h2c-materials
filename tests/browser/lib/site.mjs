@@ -1,5 +1,5 @@
 // The site the browser suite serves, laid out as the preview is (WP-30): the selector of the remake at the root (apps/public, built by
-// remake/tools/preview-assemble.mjs build-view), the material pages beside it (materials/), 404.html, and today's site as pages.yml
+// remake/tools/preview-assemble.mjs build-view), the material pages of the remake beside it (materials/: packages/pages, rendered by the same build as the view's parts), 404.html, and today's site as pages.yml
 // assembles it at legacy/ (the selector, the release-stamped copy, manifest.json, the validation report, its own materials/). It is built
 // from dist/ and apps/public, never from anything the suite writes, and a missing or half-built piece is an error: a suite that served a
 // smaller site would pass on a smaller site.
@@ -82,12 +82,10 @@ export function assembleSite({ root = repoRoot(), out = SITE_DIR } = {}) {
   if (existsSync(join(root, 'build/reports/validation-report.md'))) copyFileSync(join(root, 'build/reports/validation-report.md'), join(old, 'validation-report.md'));
   copyFileSync(join(dist, 'manifest.json'), join(old, 'manifest.json'));
   cpSync(join(dist, 'materials'), join(old, 'materials'), { recursive: true });
-  // The material pages beside the new selector, where its drawer's Full page links find them.
-  cpSync(join(dist, 'materials'), join(out, 'materials'), { recursive: true });
   writeFileSync(join(out, '.nojekyll'), '');
   // Pages serves this for any missing path, from any depth; the preview deploy adds the same page (preview-assemble inject).
   writeFileSync(join(out, '404.html'), NOT_FOUND_HTML);
-  buildView(out, { root });
+  buildView(out, { root }); // the view, and the new material pages at materials/
   buildSameDatabaseView(out, root);
   return describeSite(out);
 }

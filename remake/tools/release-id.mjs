@@ -12,9 +12,12 @@
 //
 // What only draws the page (apps/public/src, CSS) or runs the write service (the workspace code, the editor) is not an
 // input: two pages that differ only there give the same answers and share the ID (D96, D142). What decides the answers of
-// /v3/ is: the engine, the question it asks and how its snapshot is compiled (apps/public/tools), the words layer it
-// imports (app/js/ui/labels.js, registry.js, templates.js), the compile, case and staging files of the impact module, and
-// the corpus the question comes from. Node built-ins only, so a deploy job can run it without an install.
+// the public view is: the engine, the question it asks and how its snapshot is compiled (apps/public/tools), the new build
+// (packages/build) and the data code that reconstructs the tables for it, the field lists and facts the parts are cut with
+// (apps/public/src/view-*.ts), the words layer it imports (app/js/ui), the compile, case and staging files of the impact
+// module, and the corpus the question comes from. tests/remake/release-id.test.mjs walks the import graph of the data
+// writer (remake/tools/import-graph.mjs) and fails on any file it reaches that is neither an input nor named as deciding nothing.
+// Node built-ins only, so a deploy job can run it without an install.
 //
 //   npm run release:id            prints the 12-character ID
 //   npm run release:id -- --json  prints the ID, the part digests and the runtime
@@ -31,20 +34,35 @@ import { isMain, repoRoot } from './wp-lib.mjs';
 export const RELEASE_INPUTS = {
   data: { paths: ['data/tables'], named: true },
   schema: { paths: ['schema'], named: true },
-  rules: { paths: ['build/src', 'build/mappings', 'packages/domain/src'] },
+  // the compile and the estimate stage of the new build decide what the parts hold (packages/build); its command line does not
+  rules: { paths: ['build/src', 'build/mappings', 'packages/domain/src', 'packages/build/src'], exclude: [/^packages\/build\/src\/cli\.ts$/] },
   engine: {
     paths: [
       'app/js/engine', 'app/js/ui/templates.js', 'app/js/ui/labels.js', 'app/js/ui/registry.js',
       'packages/engine/src',
-      // the write service's code decides no answer; only the contract that checks the database the engine reads does
-      'packages/data/src/db-contract.ts', 'packages/data/src/shape.ts', 'packages/data/src/generated/db-shape.ts',
+      // the write service's code (workspace, editor, export) decides no answer; the code that reconstructs the tables into the database
+      // the build reads, and the contract that checks the database the engine reads, do (tests/remake/release-id.test.mjs: every file
+      // the data writer imports is an input)
+      'packages/data/src/index.ts', 'packages/data/src/cell.ts', 'packages/data/src/csv.ts', 'packages/data/src/driver.ts', 'packages/data/src/json-patch.ts',
+      'packages/data/src/rebuild.ts', 'packages/data/src/schema-model.ts', 'packages/data/src/storage.ts', 'packages/data/src/db-contract.ts',
+      'packages/data/src/shape.ts', 'packages/data/src/generated', 'remake/tools/types-gen.mjs',
+      // the old words layer and facts the engine and the cutting code read
+      'app/js/ui/axes.js', 'app/js/ui/material-facts.js', 'app/js/ui/material-highlights.js', 'app/js/ui/material-stats.js',
+      'app/js/ui/page-rule.js', 'app/js/ui/print-spread.js', 'app/js/ui/scales.js', 'app/js/ui/text.js',
     ],
     // the impact preview and the command line decide no answer, except the three files the /v3/ data is compiled through
     exclude: [/^packages\/engine\/src\/impact\/(?!(compile|cases|stage)\.ts$)/, /^packages\/engine\/src\/cli\.ts$/],
   },
   // the question /v3/ asks (CASE_ID) and how its snapshot is compiled are in the tool that makes the data, and what each part of
   // the release carries is decided by the declarations (packages/domain/src/core, in the rules part) and by the cutting code
-  view: { paths: ['apps/public/tools', 'packages/publish/src'] },
+  view: {
+    paths: [
+      'apps/public/tools', 'packages/publish/src',
+      // what the cutting code imports from the page's own folder and from the pages package: the field lists, the facts, the verdict words, the dates
+      'apps/public/src/model.ts', 'apps/public/src/view-facts.ts', 'apps/public/src/view-fields.ts',
+      'packages/pages/src/facts/dates.ts', 'packages/pages/src/loose.ts',
+    ],
+  },
   // the questions themselves, read only
   questions: { paths: ['parity/corpus'] },
   dependencies: { paths: ['build/package-lock.json'] },
@@ -58,6 +76,13 @@ export const RELEASE_ID_PATTERN = /^[0-9a-f]{12}$/;
 // Operating-system litter never decides anything, and a copy made on a Mac would otherwise differ from its clone.
 const IGNORED = /(^|\/)(\.DS_Store|Thumbs\.db|node_modules)(\/|$)/;
 
+/** Every file the release identity hashes, as root-relative paths with forward slashes (a part may list a file more than once). */
+export function releaseInputFiles(root = repoRoot()) {
+  const files = new Set();
+  for (const spec of Object.values(RELEASE_INPUTS)) for (const file of specFiles(root, spec)) files.add(file);
+  return files;
+}
+
 function sha256(data) {
   return createHash('sha256').update(data).digest('hex');
 }
@@ -67,18 +92,25 @@ function* filesUnder(abs) {
   for (const name of readdirSync(abs).sort()) yield* filesUnder(join(abs, name));
 }
 
-/** The part's entries: one line per file, `<digest>` or `<base name> <digest>`, sorted. Folders and the checkout's path never enter. */
-function partEntries(root, { paths, named = false, exclude = [] }) {
-  const entries = [];
+/** The part's files as [root-relative path, absolute path]: operating-system litter and the part's exclusions left out. */
+function* specFiles(root, { paths, exclude = [] }) {
   for (const p of paths) {
     const abs = join(root, p);
     if (!existsSync(abs)) continue;
     for (const file of filesUnder(abs)) {
       const logical = relative(root, file).split('\\').join('/');
       if (IGNORED.test(logical) || exclude.some((re) => re.test(logical))) continue;
-      const digest = sha256(readFileSync(file));
-      entries.push(named ? `${basename(file)} ${digest}` : digest);
+      yield logical;
     }
+  }
+}
+
+/** The part's entries: one line per file, `<digest>` or `<base name> <digest>`, sorted. Folders and the checkout's path never enter. */
+function partEntries(root, spec) {
+  const entries = [];
+  for (const logical of specFiles(root, spec)) {
+    const digest = sha256(readFileSync(join(root, logical)));
+    entries.push(spec.named ? `${basename(logical)} ${digest}` : digest);
   }
   return entries.sort();
 }

@@ -9,3 +9,7 @@ export const CHART_FAILED = {
 export const RETRY = 'Try again';
 /** An export or a brief that could not be written: it waits for the records it cites and writes nothing without them (D103). */
 export const exportBlocked = (what: string, why: string): string => `Nothing was written: ${what} cites records that could not all be loaded. ${why} Check the connection and try again.`;
+/** The same, when the page itself is older than the data on the server (a part of its release is gone): the page reloads once, or says so and offers it. */
+export const exportStale = (what: string, reloading: boolean): string => (reloading
+  ? `Nothing was written: ${what} could not be made because a newer version was published. Reloading; your selection is kept in the address. Then try again.`
+  : `Nothing was written: ${what} could not be made because this page is older than the data on the server. Reload the page to get the current version, then try again. Your selection is kept in the address.`);

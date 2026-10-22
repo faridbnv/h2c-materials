@@ -7,8 +7,9 @@
 //   node remake/tools/preview-assemble.mjs stage  --site _site --repo DIR
 //        moves the preview repo's current site into previous/<release> (one previous release is kept), copies _site over it
 //   node remake/tools/preview-assemble.mjs build-view --site _site
-//        builds the public view (apps/public: the selector of the remake) and copies it to the root of _site, beside the material
-//        pages (_site/materials/) and the old site (_site/legacy/, put there by the build job's assembly step); `inject` then
+//        builds the public view (apps/public: the selector of the remake) and its material pages (packages/pages, rendered from the
+//        database the view's data parts are cut from) and copies both to the root of _site, beside the old site (_site/legacy/, with the
+//        old build's pages at _site/legacy/materials/, put there by the build job's assembly step); `inject` then
 //        marks its pages like the others. Needs the repository's npm install (Vite, Vue) and the old build's, so it runs where
 //        the site is built (the build job), not in the deploy job, which holds the key and installs nothing.
 //
@@ -72,7 +73,7 @@ export function* walk(dir) {
 }
 
 // The preview (WP-30; pack 08): the site's root is the selector of the remake (apps/public), the material pages stand beside it
-// (materials/), and today's site stays at /legacy/ for side-by-side use. The old site never ships to the live site; this layout is the
+// (materials/, rendered by packages/pages from the same database as the view's parts), and today's site (with the old build's own pages) stays at /legacy/ for side-by-side use. The old site never ships to the live site; this layout is the
 // preview's, and the cutover publishes the root alone.
 export const LEGACY_DIR = 'legacy';
 
@@ -82,7 +83,7 @@ function runPublicBuild({ root, out, materialPages = 'materials/', selectorStubs
     if (!existsSync(join(root, need))) throw new Error(`${need} is not installed: the public view builds where the site is built, after npm ci in the root and in build/`);
   }
   const stubs = selectorStubs.flatMap((name) => ['--selector-stub', name]);
-  const run = spawnSync(process.execPath, [join(root, 'apps/public/tools/build.ts'), '--out', out, '--material-pages', materialPages, ...stubs], { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] });
+  const run = spawnSync(process.execPath, [join(root, 'apps/public/tools/build.ts'), '--out', out, '--material-pages', materialPages, '--pages', ...stubs], { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] });
   if (run.status !== 0) throw new Error(`the public view's build failed (exit ${run.status})`);
 }
 
@@ -95,6 +96,9 @@ function viewRelease(dir, who) {
   for (const part of ['result.json', 'core.json', 'estimates.json', 'reference.json']) {
     if (!existsSync(join(dir, 'data', release, part))) throw new Error(`${who} has no data/${release}/${part}`);
   }
+  // The material pages of this same build (packages/pages, from the database the parts are cut from), never a copy of the old build's.
+  const pages = join(dir, 'materials');
+  if (!existsSync(join(pages, 'index.html')) || !readdirSync(pages).some((f) => /^M\d+\.html$/.test(f))) throw new Error(`${who} has no materials/ pages: the new site's pages are rendered with the view, not copied from the old build`);
   return release;
 }
 
@@ -108,7 +112,7 @@ const stampedNames = (dir) => (existsSync(dir) ? readdirSync(dir).filter((n) => 
  * the selector with its hash. `build` is replaceable for tests.
  */
 export function buildView(site, { root = repoRoot(), build = runPublicBuild } = {}) {
-  for (const own of ['index.html', 'release.json', 'assets', 'data']) {
+  for (const own of ['index.html', 'release.json', 'assets', 'data', 'materials']) {
     if (existsSync(join(site, own))) throw new Error(`${join(site, own)} exists already; refusing to overwrite it`);
   }
   const out = mkdtempSync(join(tmpdir(), 'h2c-view-'));
@@ -187,7 +191,7 @@ function carryView(repo) {
   if (lost.length) throw new Error(`release.json lists chunks the preview repository does not hold: ${lost.join(', ')}`);
   const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
   try {
-    // Slim copy (owner decision 2026-10-22, WP-25 site budget): the parts the results need, never the per-material detail/ folder.
+    // Slim copy (owner ruling R-M3-SITE-SCOPE, 2026-10-22): the parts the results need, never the per-material detail/ folder.
     // A stale page that opens a detail panel gets a 404 for its release, which the page's guard answers by reloading once.
     cpSync(data, join(dir, 'data', view.release), { recursive: true, filter: (from) => !relative(data, from).split(/[\\/]/).includes('detail') });
     for (const name of view.assets) cpSync(join(repo, 'assets', name), join(dir, 'assets', name));

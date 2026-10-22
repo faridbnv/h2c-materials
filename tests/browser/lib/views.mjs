@@ -38,6 +38,9 @@ export const mask = (text) => text.replace(/\bbuild \d{4}-\d{2}-\d{2}\b/g, 'buil
  * owed view was produced and equals its baseline. `checked` counts the views that were compared. `notOwed` names what the page does not draw yet
  * (the new selector before WP-27): `pattern` the views of this step that are not owed (a page that produced one is still told), and `lines` the
  * baseline lines of an owed view the page does not have (a view name to the lines), each with the reason the adapter gives for it.
+ * `registered` lists the views a registered display transition changes on purpose (parity/transitions): `{ pattern, reason, undo }`, where `undo`
+ * takes the page's text back to what the old page drew by undoing that one change, and the view must then equal the baseline. A page that does not
+ * show the registered change is told, so the allowance cannot outlive the change.
  */
 export function compareViews(views, pattern, dir = BASELINE_DIR, notOwed = null) {
   const owed = baselineNames(dir).filter((k) => pattern.test(k) && !notOwed?.pattern?.test(k));
@@ -50,7 +53,13 @@ export function compareViews(views, pattern, dir = BASELINE_DIR, notOwed = null)
   if (extra.length) problems.push(`views this run produced that the baseline does not have: ${extra.join(', ')}`);
   let checked = 0;
   for (const k of owed.filter((name) => name in views)) {
-    const text = mask(views[k]);
+    let text = mask(views[k]);
+    const rule = notOwed?.registered?.find((r) => r.pattern.test(k));
+    if (rule) {
+      const undone = rule.undo(text);
+      if (undone === text) { problems.push(`${k}: the registered change (${rule.reason}) is not on the page, so its allowance is stale`); continue; }
+      text = undone;
+    }
     if (text.split('\n').length < 3) { problems.push(`${k} is empty (fewer than 3 lines)`); continue; }
     const left = notOwed?.lines?.[k] ?? [];
     const was = readFileSync(join(dir, `${k}.txt`), 'utf8').split('\n').filter((l) => !left.includes(l)).join('\n');

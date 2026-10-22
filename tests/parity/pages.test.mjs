@@ -76,7 +76,7 @@ test('the two page transitions are valid, list only the case `pages`, and are na
     assert.ok(f.differences.every((d) => d.case === PAGES_CASE && d.tier === 'wording'), f.id);
   }
   const [display, medians] = files;
-  assert.equal(display.differences.length, 534);
+  assert.equal(display.differences.length, 426);
   assert.equal(medians.differences.length, 491);
   // The two lists are disjoint: no difference is accounted for twice.
   const key = (d) => JSON.stringify([d.record, d.field, d.before, d.after]);
@@ -93,7 +93,7 @@ test('the two page transitions are valid, list only the case `pages`, and are na
   });
   assert.equal(kinds.filter((k) => k === null).length, 0, 'every listed difference is one of the four');
   const count = (k) => kinds.filter((x) => x === k).length;
-  assert.deepEqual([count('a'), count('b'), count('c'), count('d')], [333, 2, 197, 2]);
+  assert.deepEqual([count('a'), count('b'), count('c'), count('d')], [333, 2, 89, 2]);
   const { TRANSITION_NOTES } = await import('../../remake/tools/preview-assemble.mjs');
   for (const f of files) assert.ok(TRANSITION_NOTES[f.id], `${f.id} is named in the preview banner`);
 });
@@ -104,8 +104,8 @@ test('P-pages on the new side: the old build\'s pages against the pages rendered
   const out = `${r.stdout}${r.stderr}`;
   assert.equal(r.status, 0, out.slice(-3000));
   assert.match(out, /RESULT: matches-transition/);
-  assert.match(out, /transitions \[2026-10-22-pages-display, 2026-10-22-pages-reprint-medians\]: 1025 listed, 0 unexpected, 0 missing/);
-  assert.match(out, /248 pages compared, 1025 differences/);
+  assert.match(out, /transitions \[2026-10-22-pages-display, 2026-10-22-pages-reprint-medians\]: 917 listed, 0 unexpected, 0 missing/);
+  assert.match(out, /248 pages compared, 917 differences/);
 });
 
 test('P-pages on the new side can fail: one difference more or one fewer than the registered lists is `differs`, and the lists settle exactly what they list', () => {

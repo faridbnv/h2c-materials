@@ -6,7 +6,7 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { cpus, platform, release } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { allowanceFor } from '../allowed-skips.mjs';
+import { ALLOWED_SKIPS, allowanceFor } from '../allowed-skips.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..');
 export const RESULTS_FILE = process.env['H2C_BROWSER_RESULTS'] ?? join(root, '.cache', 'browser-results', 'results.json');
@@ -40,8 +40,21 @@ function outcomeOf(test, result, title) {
   }
 }
 
-/** The verdict of a run from its tests: 'pass' only when something ran, everything planned reported, and nothing failed or was skipped unnamed. */
-export function verdict({ planned, tests, interrupted = false }) {
+/**
+ * The named allowances (allowed-skips.mjs) no skipped test used. An allowance that matches a test which ran and passed is stale, and so is one that
+ * matches no test at all when the whole suite ran (`full`): the check it excused is gone or renamed. A subset run (`fast`) does not plan every check,
+ * so there an allowance that matches nothing planned is not judged.
+ * @param {{ titles: string[], tests: { title: string, status: string }[], full: boolean, allowances?: { match: RegExp }[] }} run
+ */
+export function unusedAllowances({ titles, tests, full, allowances = ALLOWED_SKIPS }) {
+  return allowances.filter((a) => {
+    if (tests.some((t) => t.status === 'skipped' && a.match.test(t.title))) return false;
+    return full || titles.some((title) => a.match.test(title));
+  }).map((a) => String(a.match));
+}
+
+/** The verdict of a run from its tests: 'pass' only when something ran, everything planned reported, and nothing failed or was skipped unnamed (or an allowance went unused). */
+export function verdict({ planned, tests, interrupted = false, unused = [] }) {
   const count = (status) => tests.filter((t) => t.status === status).length;
   const notRun = planned - tests.length + count('not-run');
   const counts = { planned, pass: count('pass'), fail: count('fail'), skipped: count('skipped'), allowedSkipped: tests.filter((t) => t.status === 'skipped' && t.allowed).length, notRun };
@@ -52,6 +65,7 @@ export function verdict({ planned, tests, interrupted = false }) {
   else if (counts.pass === 0) status = 'not-run';
   else if (interrupted || notRun > 0) status = 'not-run';
   else if (unnamed > 0) status = 'skipped';
+  else if (unused.length > 0) status = 'stale-allowance';
   return { status, counts };
 }
 
@@ -61,6 +75,7 @@ export default class TriStateReporter {
   onBegin(config, suite) {
     this.mode = process.env['H2C_BROWSER_MODE'] ?? 'fast';
     this.planned = suite.allTests().map((t) => t.id);
+    this.titles = suite.allTests().map((t) => titleOf(t));
     this.projects = config.projects.map((p) => p.name);
   }
   onTestEnd(test, result) {
@@ -69,7 +84,8 @@ export default class TriStateReporter {
   }
   onEnd(result) {
     const tests = [...this.tests.values()];
-    const { status, counts } = verdict({ planned: this.planned.length, tests, interrupted: result.status === 'interrupted' });
+    const unused = unusedAllowances({ titles: this.titles ?? [], tests, full: this.mode === 'full' });
+    const { status, counts } = verdict({ planned: this.planned.length, tests, interrupted: result.status === 'interrupted', unused });
     const byProject = Object.fromEntries((this.projects ?? []).map((name) => {
       const mine = tests.filter((t) => t.project === name);
       return [name, { pass: mine.filter((t) => t.status === 'pass').length, fail: mine.filter((t) => t.status === 'fail').length, skipped: mine.filter((t) => t.status === 'skipped').length }];
@@ -79,7 +95,7 @@ export default class TriStateReporter {
     const finalStatus = status === 'pass' && emptyProjects.length ? 'not-run' : status;
     const out = {
       schema: 1, runId: process.env['H2C_BROWSER_RUN_ID'] ?? null, mode: this.mode, status: finalStatus, counts, byProject,
-      evidence: sumEvidence(tests), notRunProjects: emptyProjects, durationMs: Date.now() - this.started,
+      evidence: sumEvidence(tests), unusedAllowances: unused, notRunProjects: emptyProjects, durationMs: Date.now() - this.started,
       machine: { os: `${platform()} ${release()}`, cores: cpus().length, node: process.version }, tests,
     };
     mkdirSync(dirname(RESULTS_FILE), { recursive: true });

@@ -232,11 +232,10 @@ const STAMPED = 'H2C_Material_Selector_2026-01-01_x.html';
 function fakeSite(release = 'abcdef012345') {
   const site = tmp();
   const page = '<!doctype html><html><head><title>t</title></head><body>x</body></html>';
-  for (const dir of [join(site, 'materials'), join(site, LEGACY_DIR, 'materials')]) {
-    mkdirSync(dir, { recursive: true });
-    writeFileSync(join(dir, 'M001.html'), page);
-    writeFileSync(join(dir, 'M001-products.html'), page);
-  }
+  const dir = join(site, LEGACY_DIR, 'materials');
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'M001.html'), page);
+  writeFileSync(join(dir, 'M001-products.html'), page);
   writeFileSync(join(site, LEGACY_DIR, 'index.html'), page);
   writeFileSync(join(site, LEGACY_DIR, STAMPED), page);
   writeFileSync(join(site, LEGACY_DIR, 'validation-report.md'), '# report');
@@ -244,11 +243,15 @@ function fakeSite(release = 'abcdef012345') {
   return site;
 }
 /** A fake of apps/public's build: the files the real one writes, under `out`, with the stub the real one leaves under each stamped name it is given. */
-function fakePublicBuild({ release = V3_RELEASE, data = true, index = true } = {}) {
+function fakePublicBuild({ release = V3_RELEASE, data = true, index = true, pages = true } = {}) {
   return ({ out, selectorStubs = [] }) => {
     const page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>v</title></head><body><div id="app"></div></body></html>';
     if (index) { writeFileSync(join(out, 'index.html'), page); writeFileSync(join(out, 'material.html'), page); }
     for (const name of selectorStubs) writeFileSync(join(out, name), page);
+    if (pages) {
+      mkdirSync(join(out, 'materials'));
+      for (const name of ['index.html', 'M001.html', 'M001-products.html']) writeFileSync(join(out, 'materials', name), page);
+    }
     mkdirSync(join(out, 'assets'));
     const chunk = `index-${release.replace(/\W/g, '_')}.js`;
     writeFileSync(join(out, 'assets', chunk), 'export {}');
@@ -278,7 +281,7 @@ test('inject marks every html file, adds 404.html and preview.json, and refuses 
   assert.equal(info.v3Release, V3_RELEASE, "the view's release is its own");
   assert.equal(info.sampleMaterial, 'materials/M001.html');
   assert.equal(info.stampedSelector, STAMPED);
-  assert.equal(info.htmlFiles, 10, 'legacy 4 (its selector, its stamped copy, two pages), the root pages 2, the view 2, the stub 1, the 404 page 1');
+  assert.equal(info.htmlFiles, 11, 'legacy 4 (its selector, its stamped copy, two pages), the root pages 3 (index and two), the view 2, the stub 1, the 404 page 1');
   for (const f of ['index.html', '404.html', 'material.html', STAMPED, 'materials/M001.html', 'materials/M001-products.html', 'legacy/index.html', 'legacy/materials/M001.html']) {
     const t = readFileSync(join(site, f), 'utf8');
     assert.ok(t.includes(BANNER_MARK) && t.includes(NOINDEX) && t.includes(STORAGE_SHIM), f);
@@ -398,6 +401,9 @@ test('a site without a view is refused, and the view is never half published', (
   assert.throws(() => buildView(partial, { build: ({ out }) => { fakePublicBuild()({ out }); rmSync(join(out, 'data', V3_RELEASE, 'estimates.json')); } }), /no data\/0123456789ab\/estimates\.json/, 'a view missing one of its parts is never published');
   assert.ok(!existsSync(join(site, 'index.html')) && !existsSync(join(site, 'data')), 'nothing is copied when the data is missing');
   assert.throws(() => buildView(fakeSite(), { build: fakePublicBuild({ index: false }) }), /has no index\.html/);
+  assert.throws(() => buildView(fakeSite(), { build: fakePublicBuild({ pages: false }) }), /has no materials\/ pages/, 'a view without its own rendered pages is never published');
+  const copied = fakeSite(); mkdirSync(join(copied, 'materials')); writeFileSync(join(copied, 'materials', 'M001.html'), 'old');
+  assert.throws(() => buildView(copied, { build: fakePublicBuild() }), /exists already/, 'a copy of the old build\'s pages at the root is refused, not merged');
   assert.throws(() => buildView(fakeSite(), { build: fakePublicBuild({ release: '../evil' }) }), /no valid release/);
   const twice = fakeSite();
   buildView(twice, { build: fakePublicBuild() });
@@ -449,6 +455,7 @@ function viewFiles({ over = {}, manifest = {}, previous = false, release = VIEW,
     core: viewPart(release, 'core', JSON.stringify({ ...CORE, release })),
     estimates: viewPart(release, 'estimates', JSON.stringify({ ...ESTIMATES, release })),
     reference: viewPart(release, 'reference', JSON.stringify({ kind: 'reference', release })),
+    shared: viewPart(release, 'shared', JSON.stringify({ kind: 'shared', release })),
   };
   const result = (r) => json({ kind: 'result', release: r, materials: [{ materialId: 'M001', verdict: 'PASS' }] });
   return {
@@ -458,6 +465,7 @@ function viewFiles({ over = {}, manifest = {}, previous = false, release = VIEW,
     ...Object.fromEntries(Object.values(parts).map((v) => [`/${v.path}`, { body: v.body, type: 'application/json' }])),
     [`/data/${release}/result.json`]: result(release),
     [`/data/${release}/material/M001.json`]: json({ kind: 'material', release, materialId: 'M001' }),
+    [`/data/${release}/detail/M001.json`]: json({ kind: 'detail', release, materialId: 'M001' }),
     ...(previous ? { [`/data/${PREVIOUS_VIEW}/result.json`]: result(PREVIOUS_VIEW) } : {}),
     ...over,
   };
@@ -477,7 +485,14 @@ function siteHandler(over = {}) {
     res.end(f.body);
   };
 }
-const fastDeps = (extra = {}) => ({ sleep: async () => {}, ...extra });
+/** The engine, replaced: every material of the model the smoke hands over passes in the Strict question; Explore answers for the same ones. */
+const fakeAnswer = (over = () => ({})) => async ({ caseId, model, release }) => {
+  const ids = model.materials.map((m) => m.id);
+  const strict = caseId.endsWith('/strict');
+  const counts = { pass: strict ? ids.length : 0, unknown: 0, fail: 0, screened: 0, total: ids.length, ...over({ strict, ids, release }).counts };
+  return { counts, verdicts: new Map(ids.map((id) => [id, 'PASS'])), ...over({ strict, ids, release }).rest };
+};
+const fastDeps = (extra = {}) => ({ sleep: async () => {}, answer: fakeAnswer(), ...extra });
 const cfg = (url, extra = {}) => ({ baseUrl: url, expectCommit: SHA, timeoutS: 5, pollS: 0.01, pushedAt: Date.now() - 60000, ...extra });
 const failed = (m) => m.checks.filter((c) => !c.ok).map((c) => c.name);
 
@@ -549,15 +564,16 @@ test('smoke fails (never passes silently) on timeout, wrong commit, missing bann
   assert.match(gone.checks[0].detail, /timed out after 20s/);
 });
 
-test('smoke also checks the public view at the root: its parts are served whole and are the ones its release.json lists, its results and a material answer, and the two scenarios read from the bytes', async () => {
-  const run = async (over, manifest, extra = {}) => { const s = await serve(siteHandler(viewFiles({ over, manifest, ...extra }))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
+test('smoke also checks the public view at the root: its parts are served whole and are the ones its release.json lists, its results, a material and a detail answer, and two real questions are answered by the engine', async () => {
+  const run = async (over, manifest, extra = {}, deps = {}) => { const s = await serve(siteHandler(viewFiles({ over, manifest, ...extra }))); try { return await runSmoke(cfg(s.url), fastDeps(deps)); } finally { await s.close(); } };
   const ok = await run();
   assert.equal(ok.status, 'pass', JSON.stringify(failed(ok)));
-  assert.ok(ok.checks.some((c) => c.name === 'core part is the one release.json lists'));
-  assert.ok(ok.checks.some((c) => c.name === 'material/M001.json is that material of this release'), 'one material of the current release is fetched');
-  assert.ok(ok.checks.some((c) => c.name === 'Strict scenario: result.json lists as many verdicts as release.json counts'));
-  assert.ok(ok.checks.some((c) => c.name === 'Explore scenario: the estimates part joins the core part'));
-  assert.deepEqual(failed(await run({ [`/data/${VIEW}/core.json`]: { body: '{"kind":"corX"}' } })).sort(), ['Explore scenario: the estimates part joins the core part', 'Strict scenario: every material it lists is in the core part', 'core part is the one release.json lists'], 'bytes that are not the listed ones');
+  for (const name of ['core part is the one release.json lists', 'shared part is the one release.json lists', 'material/M001.json is that material of this release', 'detail/M001.json is that material\'s detail of this release',
+    'shared.json is the shared part of this release', 'Strict scenario: the engine\'s counts on the served core part are the ones release.json states', 'Strict scenario: the engine\'s verdict for every material is the one result.json lists',
+    'Explore scenario: the estimates part joins the core part', 'Explore scenario: the engine answers for every material', 'Explore scenario: an estimate never makes a material pass (no more pass than in Strict)']) {
+    assert.ok(ok.checks.some((c) => c.name === name && c.ok), name);
+  }
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/core.json`]: { body: '{"kind":"corX"}' } })).sort(), ['Explore scenario: the estimates part joins the core part and the engine answers', 'Strict scenario: the engine answers on the served core part', 'core part is the one release.json lists'], 'bytes that are not the listed ones');
   assert.deepEqual(failed(await run({ [`/data/${VIEW}/estimates.json`]: { status: 404, body: 'x' } })), ['estimates part: HTTP 200', 'the two scenarios could be read'], 'a part that is not served');
   assert.deepEqual(failed(await run({}, { release: 'ffffffffffff' })), ["release.json names the view's release"]);
   assert.deepEqual(failed(await run({ '/index.html': { body: MARKED } })), ["index.html carries the view's release id"]);
@@ -566,10 +582,19 @@ test('smoke also checks the public view at the root: its parts are served whole 
   assert.deepEqual(failed(await run({ [`/data/${VIEW}/result.json`]: json({ kind: 'result', release: 'ffffffffffff', materials: [{ materialId: 'M001' }] }) })).includes(`result.json of ${VIEW} names its release and a material`), true);
   assert.deepEqual(failed(await run({ [`/data/${VIEW}/material/M001.json`]: { status: 404, body: 'x' } })), ['material/M001.json: HTTP 200'], 'no material file');
   assert.deepEqual(failed(await run({ [`/data/${VIEW}/material/M001.json`]: json({ kind: 'material', release: 'ffffffffffff', materialId: 'M001' }) })), ['material/M001.json is that material of this release']);
-  // the Strict scenario's counts are release.json's: a count that disagrees with the verdicts listed is a failed check
-  assert.deepEqual(failed(await run({}, undefined, { counts: { pass: 0, unknown: 0, fail: 1, total: 1 } })), ['Strict scenario: result.json lists as many verdicts as release.json counts']);
+  // the shared part and one detail part of the current release
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/detail/M001.json`]: { status: 404, body: 'x' } })), ['detail/M001.json: HTTP 200'], 'no detail part');
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/detail/M001.json`]: json({ kind: 'detail', release: 'ffffffffffff', materialId: 'M001' }) })), ['detail/M001.json is that material\'s detail of this release']);
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/shared.json`]: { body: '{"kind":"sharX"}' } })).sort(), ['shared part is the one release.json lists', 'shared.json is the shared part of this release']);
+  // the Strict question is the engine's: counts that are not release.json's, a verdict that is not result.json's, and an engine that cannot answer are failed checks
+  assert.deepEqual(failed(await run({}, undefined, { counts: { pass: 0, unknown: 0, fail: 1, total: 1 } })), ['Strict scenario: the engine\'s counts on the served core part are the ones release.json states']);
+  assert.deepEqual(failed(await run({}, undefined, {}, { answer: async ({ caseId }) => ({ counts: { pass: 1, unknown: 0, fail: 0, screened: 0, total: 1 }, verdicts: new Map([['M001', caseId.endsWith('/strict') ? 'FAIL' : 'PASS']]) }) })), ['Strict scenario: the engine\'s verdict for every material is the one result.json lists']);
+  assert.deepEqual(failed(await run({}, undefined, {}, { answer: async () => { throw new Error('Cannot find package \'@atlas/engine\''); } })), ['Strict scenario: the engine answers on the served core part', 'Explore scenario: the estimates part joins the core part and the engine answers']);
+  // Explore: an answer for fewer materials, and an estimate that makes a material pass
+  assert.deepEqual(failed(await run({}, undefined, {}, { answer: fakeAnswer(({ strict }) => (strict ? {} : { counts: { total: 0 }, rest: { verdicts: new Map() } })) })), ['Explore scenario: the engine answers for every material']);
+  assert.deepEqual(failed(await run({}, undefined, {}, { answer: fakeAnswer(({ strict }) => (strict ? { counts: { pass: 0, unknown: 1 } } : { counts: { pass: 1, unknown: 0 } })) })).includes('Explore scenario: an estimate never makes a material pass (no more pass than in Strict)'), true);
   // an estimates part that is not of this core is refused, as the page refuses it
-  assert.deepEqual(failed(await run({ [`/data/${VIEW}/estimates.json`]: { body: JSON.stringify({ ...ESTIMATES, release: VIEW, overlay: { grades: { 'G999-01': {} }, materials: {}, meta: {} } }) } })).includes('Explore scenario: the estimates part joins the core part'), true);
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/estimates.json`]: { body: JSON.stringify({ ...ESTIMATES, release: VIEW, overlay: { grades: { 'G999-01': {} }, materials: {}, meta: {} } }) } })).includes('Explore scenario: the estimates part joins the core part and the engine answers'), true);
 });
 
 test('smoke never skips the public view: a preview.json with no v3Release is a failed check', async () => {

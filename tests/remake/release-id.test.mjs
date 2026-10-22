@@ -7,7 +7,8 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
-import { NODE_PIN_FILE, RELEASE_ID_PATTERN, RELEASE_INPUTS, currentRuntime, releaseIdentity } from '../../remake/tools/release-id.mjs';
+import { NODE_PIN_FILE, RELEASE_ID_PATTERN, RELEASE_INPUTS, currentRuntime, releaseIdentity, releaseInputFiles } from '../../remake/tools/release-id.mjs';
+import { importClosure } from '../../remake/tools/import-graph.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
@@ -157,9 +158,55 @@ test('the compile, case and stage files of the impact module, the corpus and the
 
 test('the write service alone is not an input: a change to its workspace, export or command code keeps the ID', () => {
   const b = fresh('w1');
-  for (const file of ['workspace.ts', 'export.ts', 'write.ts', 'cli.ts', 'replay.ts', 'rebuild.ts']) {
+  for (const file of ['workspace.ts', 'export.ts', 'write.ts', 'cli.ts', 'replay.ts']) {
     // the checkout holds only the inputs, so the write service's file is put there, edited: present or changed, it is no input
     writeFileSync(join(b, 'packages/data/src', file), `${readFileSync(join(root, 'packages/data/src', file), 'utf8')}\n// edit\n`);
   }
   assert.equal(releaseIdentity(b).id, base.id);
+});
+
+// ---- WP20-D1: nothing the data writer imports may be left out of the ID ---------------------------------------------------------
+// The first release ID left out packages/build/src, packages/data/src, apps/public/src/view-*.ts and packages/pages/src/facts/dates.ts: a change to
+// the new build's compile gave the same ID (404531898d15 before and after 3f769fa6), so a cached part could be served for answers it no longer held.
+/** Reached from the writer, and deliberately not an input: the impact module's preview and old-build comparison, which `loadImpactCases` pulls in through its index. */
+const DECIDE_NOTHING = new Map([
+  ['packages/engine/src/impact/index.ts', 'the module index: re-exports; the files that decide (compile, cases, stage) are inputs'],
+  ['packages/engine/src/impact/base-worker.ts', 'the impact preview'],
+  ['packages/engine/src/impact/diff.ts', 'the impact preview'],
+  ['packages/engine/src/impact/old-build.ts', 'the impact preview'],
+  ['packages/engine/src/impact/preview.ts', 'the impact preview'],
+  ['packages/engine/src/impact/records.ts', 'the impact preview'],
+  ['packages/engine/src/impact/side.ts', 'the impact preview'],
+]);
+
+test('every file the data writer imports is a release input, or is named as deciding nothing', () => {
+  const inputs = releaseInputFiles(root);
+  const reached = importClosure(root, ['apps/public/tools/make-data.ts']);
+  assert.ok(reached.length > 100, 'the walk found the writer\'s imports');
+  for (const must of ['packages/build/src/products.ts', 'packages/data/src/rebuild.ts', 'apps/public/src/view-fields.ts', 'apps/public/src/view-facts.ts', 'packages/pages/src/facts/dates.ts']) {
+    assert.ok(reached.includes(must), `${must} is reached from the writer (the walk follows workspace imports)`);
+  }
+  const left = reached.filter((f) => !inputs.has(f) && !DECIDE_NOTHING.has(f));
+  assert.deepEqual(left, [], 'files the data writer imports that the release ID does not hash: add them to RELEASE_INPUTS, or name them in DECIDE_NOTHING with the reason');
+  for (const f of DECIDE_NOTHING.keys()) assert.ok(reached.includes(f) && !inputs.has(f), `${f} no longer needs to be listed as deciding nothing`);
+});
+
+test('a change to the new build, the data code, the view-field lists or the dates facts is a new release, through the part that owns it', () => {
+  for (const [dir, file, part] of [
+    ['n1', 'packages/build/src/products.ts', 'rules'],
+    ['n2', 'packages/data/src/rebuild.ts', 'engine'],
+    ['n3', 'apps/public/src/view-fields.ts', 'view'],
+    ['n4', 'apps/public/src/view-facts.ts', 'view'],
+    ['n5', 'packages/pages/src/facts/dates.ts', 'view'],
+  ]) {
+    const { id, moved } = movedBy(dir, file);
+    assert.notEqual(id, base.id, file);
+    assert.deepEqual(moved, [part], file);
+  }
+});
+
+test('the walk follows what the writer imports and nothing else: a draw-only file of the page is not reached', () => {
+  const reached = importClosure(root, ['apps/public/tools/make-data.ts']);
+  assert.ok(!reached.some((f) => f.endsWith('.vue') || f.startsWith('apps/public/src/selector/')));
+  assert.ok(!reached.includes('packages/build/src/cli.ts'));
 });

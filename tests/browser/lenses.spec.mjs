@@ -143,22 +143,60 @@ test('exports and decision brief: the files the new page writes equal the old pa
   test.info().annotations.push({ type: 'files-compared', description: String(files) });
 });
 
-test('exports and decision brief: with the detail of a material they cite blocked they write nothing, and say so', async ({ page, newPage, watch, base, site, meta }) => {
+test('exports and decision brief: with the detail of a material they cite gone (a 404: the page is stale) they write nothing, reload once keeping the address, and then say so', async ({ page, newPage, watch, base, site, meta }) => {
   watch.allow(/detail\/M\d+\.json|status of 404/, 'the detail parts are withheld on purpose');
   const scenarios = await twelveScenarios(root);
   const s = scenarios.find((x) => x.chosen) ?? scenarios[0];
   const next = createNewSelector({ page, origin: site.origin, base, meta, root });
   await next.open(`${next.pageUrl}#${s.hash}`);
   await page.route('**/detail/*.json', (route) => route.fulfill({ status: 404, contentType: 'text/plain', body: 'gone' }));
-  await page.locator('[data-testid="save-share"]').click();
   const downloads = [];
   page.on('download', (d) => downloads.push(d.suggestedFilename()));
-  for (const id of ['export-rows', 'export-products', ...(s.chosen ? ['download-brief'] : [])]) {
+  const documents = [];
+  page.on('request', (r) => { if (r.isNavigationRequest() && r.resourceType() === 'document') documents.push(r.url()); });
+  await sleep(600); // the page writes its question into the address (its canonical form) a moment after it opens
+  // The address holds the question and the panel the reader has open; what must survive is the question (requirements, mode, estimates).
+  const question = () => { const link = JSON.parse(decodeURIComponent(new URL(page.url()).hash.slice(1))); return { x: link.x, c: link.c, u: link.u, e: link.e }; };
+  const asked = question();
+  const ready = () => next.until(`document.querySelector('[data-testid="lens"]')?.dataset.state === 'ready'`, 'the page to render again');
+  const ids = ['export-rows', 'export-products', ...(s.chosen ? ['download-brief'] : [])];
+  // The first press: a part of the page's release is gone, so the page is old. It reloads once, and the address (the question) is kept.
+  await page.locator('[data-testid="save-share"]').click();
+  await Promise.all([page.waitForEvent('load'), page.locator(`[data-testid="${ids[0]}"]`).click()]);
+  await ready();
+  expect(documents, 'the one reload the guard allows').toHaveLength(1);
+  expect(question(), 'the question survives the reload').toEqual(asked);
+  // The reload is spent: now each export says the page is old, offers the reload, and writes nothing.
+  await page.locator('[data-testid="save-share"]').click();
+  for (const id of ids) {
     await page.locator(`[data-testid="${id}"]`).click();
-    await expect(page.locator('[data-testid="export-problem"]')).toBeVisible();
-    await expect(page.locator('[data-testid="export-problem"]')).toContainText('Nothing was written');
+    const problem = page.locator('[data-testid="export-problem"]');
+    await expect(problem).toBeVisible();
+    await expect(problem).toContainText('Nothing was written');
+    await expect(problem).toContainText('older than the data on the server');
+    await expect(problem).not.toContainText('Check the connection');
   }
   await sleep(500);
+  expect(documents, 'no second reload').toHaveLength(1);
   expect(downloads, 'a file was written although the records it cites could not be loaded').toEqual([]);
+  void newPage;
+});
+
+test('exports and decision brief: with the detail of a material failing for another reason (HTTP 500: the connection) they write nothing and say to check the connection', async ({ page, newPage, watch, base, site, meta }) => {
+  watch.allow(/detail\/M\d+\.json|status of 500/, 'the detail parts fail on purpose');
+  const scenarios = await twelveScenarios(root);
+  const s = scenarios[0];
+  const next = createNewSelector({ page, origin: site.origin, base, meta, root });
+  await next.open(`${next.pageUrl}#${s.hash}`);
+  await page.route('**/detail/*.json', (route) => route.fulfill({ status: 500, contentType: 'text/plain', body: 'down' }));
+  const downloads = [];
+  page.on('download', (d) => downloads.push(d.suggestedFilename()));
+  await page.locator('[data-testid="save-share"]').click();
+  await page.locator('[data-testid="export-rows"]').click();
+  const problem = page.locator('[data-testid="export-problem"]');
+  await expect(problem).toContainText('Nothing was written');
+  await expect(problem).toContainText('Check the connection and try again');
+  await sleep(300);
+  expect(downloads).toEqual([]);
   void newPage;
 });

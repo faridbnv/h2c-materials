@@ -4,7 +4,8 @@
 //
 //   0  PASS      every planned check ran, under both base paths, and passed
 //   1  FAIL      a check failed
-//   3  SKIPPED   a check was skipped and is not named in tests/browser/allowed-skips.mjs, or a planned check never reported (not run)
+//   3  SKIPPED   a check was skipped and is not named in tests/browser/allowed-skips.mjs, a planned check never reported (not run), or a named
+//                allowance was never used (the check it excused now passes or is gone: remove it)
 //   4  NO RESULT no verdict file for this run: Playwright could not start, crashed, or ran nothing
 //
 //   node tests/browser/run.mjs            the fast subset (npm run test:browser)
@@ -42,7 +43,7 @@ const run = spawnSync(process.execPath, [cli, 'test', '-c', join(root, 'tests', 
   env: { ...process.env, H2C_BROWSER_MODE: mode, H2C_BROWSER_RUN_ID: runId, H2C_BROWSER_RESULTS: resultsFile },
 });
 
-const WORDS = { pass: 'PASS', fail: 'FAIL', skipped: 'SKIPPED', 'not-run': 'NOT RUN' };
+const WORDS = { pass: 'PASS', fail: 'FAIL', skipped: 'SKIPPED', 'not-run': 'NOT RUN', 'stale-allowance': 'STALE ALLOWANCE' };
 if (!existsSync(resultsFile)) { console.error(`browser: NO RESULT. Playwright exited ${run.status ?? run.signal} and wrote no verdict. Not a pass.`); process.exit(4); }
 const verdict = JSON.parse(readFileSync(resultsFile, 'utf8'));
 if (verdict.runId !== runId) { console.error('browser: NO RESULT. The verdict file belongs to another run. Not a pass.'); process.exit(4); }
@@ -53,6 +54,7 @@ console.log(`  checked: ${verdict.evidence['views-checked']} views, ${verdict.ev
 for (const [name, p] of Object.entries(verdict.byProject)) console.log(`  ${name}: ${p.pass} pass, ${p.fail} fail, ${p.skipped} skipped`);
 for (const t of verdict.tests.filter((x) => x.status === 'skipped')) console.log(`  ${t.allowed ? 'SKIPPED (named)' : 'SKIPPED (NOT NAMED)'} [${t.project}] ${t.title}: ${t.reason}`);
 for (const t of verdict.tests.filter((x) => x.status === 'fail')) console.log(`  FAIL [${t.project}] ${t.title}: ${t.reason}`);
+for (const a of verdict.unusedAllowances ?? []) console.log(`  STALE ALLOWANCE ${a}: no skipped check used it; remove it from tests/browser/allowed-skips.mjs`);
 if (verdict.notRunProjects.length) console.log(`  NOT RUN: no check passed under ${verdict.notRunProjects.join(', ')}`);
 
 if (args.includes('--record')) {
@@ -60,7 +62,7 @@ if (args.includes('--record')) {
   mkdirSync(dest, { recursive: true });
   copyFileSync(resultsFile, join(dest, `${mode}.json`));
 }
-const code = { pass: 0, fail: 1, skipped: 3, 'not-run': 3 }[verdict.status];
+const code = { pass: 0, fail: 1, skipped: 3, 'not-run': 3, 'stale-allowance': 3 }[verdict.status];
 if (code === undefined) { console.error(`browser: unknown verdict "${verdict.status}"`); process.exit(4); }
 // Playwright's own exit code must agree: a pass verdict with a failing Playwright is a harness fault, not a pass.
 if (verdict.status === 'pass' && run.status !== 0) { console.error(`browser: the verdict says PASS but Playwright exited ${run.status}. Not a pass.`); process.exit(4); }

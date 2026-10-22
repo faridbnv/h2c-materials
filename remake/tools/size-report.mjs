@@ -22,11 +22,11 @@ import { isMain, repoRoot } from './wp-lib.mjs';
 export const BUDGETS = Object.freeze({
   strictBootGzip: 900_000,
   detailMedianGzip: 15_000,
-  // Owner decision 2026-10-22: one material's detail part may reach 350 KB (PLA, the most products, was 325 KB); it loads only
-  // when that material's detail opens. The pack's line was 300 KB.
+  // Owner ruling R-M3-DETAIL-CAP (docs/next/rulings.csv, 2026-10-22): one material's detail part may reach 350 KB (PLA, the most products,
+  // was 325 KB); it loads only when that material's detail opens. The pack's line was 300 KB.
   detailMaxGzip: 350_000,
   // The new site as deployed live: the public view, its data, the material pages beside it, and the slim copy of the previous release a
-  // deploy keeps (owner decision 2026-10-22). The old site the preview carries for comparison (legacy/) is reported but not counted:
+  // deploy keeps (owner ruling R-M3-SITE-SCOPE, 2026-10-22; the detail parts are stored compactly to fit, R-M3-DETAIL-COMPACT). The old site the preview carries for comparison (legacy/) is reported but not counted:
   // it is never published live.
   siteBytes: 100_000_000,
 });

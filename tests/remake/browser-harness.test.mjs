@@ -14,7 +14,7 @@ import { ALLOWED_SKIPS, allowanceFor } from '../browser/allowed-skips.mjs';
 import { BEHAVIOURS, SELECTOR_STEPS, assertAdapter, isUnsupported, unsupported } from '../browser/lib/adapters/contract.mjs';
 import { createNewPublic } from '../browser/lib/adapters/new-public.mjs';
 import { createOldSelector } from '../browser/lib/adapters/old-selector.mjs';
-import TriStateReporter, { verdict } from '../browser/lib/reporter.mjs';
+import TriStateReporter, { unusedAllowances, verdict } from '../browser/lib/reporter.mjs';
 import { BASE_PATHS, CACHE_CONTROL, startServer } from '../browser/lib/server.mjs';
 import { siteProblems } from '../browser/lib/site.mjs';
 import { VIEW_GROUPS, baselineNames, compareViews, mask } from '../browser/lib/views.mjs';
@@ -91,10 +91,24 @@ test('verdict: PASS only when everything planned reported and passed; a skip, a 
   assert.deepEqual(verdict({ planned: 4, tests: [...pass(2), { status: 'fail' }, { status: 'skipped', allowed: true }] }).counts, { planned: 4, pass: 2, fail: 1, skipped: 1, allowedSkipped: 1, notRun: 0 });
 });
 
+test('an allowance no skipped check used fails the run: it excused a check that now passes or is gone', () => {
+  // The real list is empty now, so the rule is shown on a list of its own.
+  const allowances = [{ match: /^a: x$/, reason: 'first, long enough to be a reason' }, { match: /^b: y$/, reason: 'second, long enough to be a reason' }];
+  const used = [{ title: 'a: x', status: 'skipped' }];
+  assert.deepEqual(unusedAllowances({ titles: ['a: x'], tests: used, full: true, allowances }), ['/^b: y$/'], 'in a full run an allowance no skip used is stale, even if no planned check matches it');
+  assert.deepEqual(unusedAllowances({ titles: ['a: x', 'b: y'], tests: [...used, { title: 'b: y', status: 'pass' }], full: false, allowances }), ['/^b: y$/'], 'a planned check that now passes makes its allowance stale, even in a subset run');
+  assert.deepEqual(unusedAllowances({ titles: ['a: x'], tests: used, full: false, allowances }), [], 'a subset run that planned nothing the allowance covers does not judge it');
+  assert.deepEqual(unusedAllowances({ titles: [], tests: [], full: true }), [], 'with no allowance there is nothing to be stale');
+  const pass = [{ status: 'pass' }];
+  assert.equal(verdict({ planned: 1, tests: pass, unused: ['/x/'] }).status, 'stale-allowance');
+  assert.equal(verdict({ planned: 1, tests: pass, unused: [] }).status, 'pass');
+  assert.equal(verdict({ planned: 2, tests: [...pass, { status: 'fail' }], unused: ['/x/'] }).status, 'fail', 'a failure still reads as a failure');
+});
+
 test('skips: only the named ones are allowed, and each says why', () => {
-  assert.ok(allowanceFor('new selector: Ashby decision workspace'));
-  assert.ok(allowanceFor('new selector: material pages, laptop'));
-  assert.ok(allowanceFor('new selector: material pages: the return trip'));
+  assert.equal(allowanceFor('new selector: Ashby decision workspace'), null, 'the Ashby workspace is drawn since WP-27: its allowance is gone');
+  assert.equal(allowanceFor('new selector: material pages, laptop'), null, 'the material pages are the new pages: their checks run');
+  assert.equal(allowanceFor('new selector: material pages: the return trip'), null);
   assert.equal(allowanceFor('new selector: family rail'), null, 'a step the new selector answers may not be skipped');
   assert.equal(allowanceFor('old selector: Ashby decision workspace'), null);
   assert.equal(allowanceFor('public view: the results page'), null);
@@ -209,15 +223,16 @@ test('site: a site missing a piece is not whole, and the problems name what is m
 
 test('reporter: a skip is named by the title after the file, so the allow-list matches what Playwright really reports', () => {
   const reporter = new TriStateReporter();
-  reporter.onBegin({ projects: [{ name: 'live-path' }] }, { allTests: () => [{ id: 'a' }, { id: 'b' }, { id: 'c' }] });
   const test = (id, path, annotations = []) => ({ id, titlePath: () => ['', 'live-path', 'views.spec.mjs', ...path], annotations, parent: { project: () => ({ name: 'live-path' }) } });
+  reporter.onBegin({ projects: [{ name: 'live-path' }] }, { allTests: () => [test('a', ['new selector: Ashby decision workspace']), test('b', ['old selector: Ashby decision workspace']), test('c', ['old selector: other'])] });
   reporter.onTestEnd(test('a', ['new selector: Ashby decision workspace'], [{ type: 'skip', description: 'not run: WP-27' }]), { status: 'skipped', duration: 1 });
   reporter.onTestEnd(test('b', ['old selector: Ashby decision workspace'], [{ type: 'skip', description: 'x' }]), { status: 'skipped', duration: 1 });
   reporter.onTestEnd(test('c', ['old selector: other']), { status: 'failed', duration: 1, error: { message: 'boom' } });
   const [a, b, c] = [...reporter.tests.values()];
   assert.equal(a.title, 'new selector: Ashby decision workspace');
-  assert.equal(a.allowed, true, 'the named skip is recognised');
+  assert.equal(a.allowed, false, 'no skip is named now, so a skip of the new selector is a SKIPPED verdict');
   assert.equal(b.allowed, false, 'an old-selector skip is not named');
+  assert.deepEqual(reporter.titles, ['new selector: Ashby decision workspace', 'old selector: Ashby decision workspace', 'old selector: other'], 'the planned titles are kept for the stale-allowance check');
   assert.equal(c.status, 'fail');
   assert.equal(verdict({ planned: 2, tests: [{ status: 'fail' }, { status: 'fail' }] }).status, 'fail', 'a run in which everything failed is FAIL, not NOT RUN');
 });

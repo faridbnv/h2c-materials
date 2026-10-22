@@ -6,7 +6,8 @@
 import type { Loose } from '../loose.ts';
 
 import { esc, tableBox } from '../html.ts';
-import { productNameOrId, stated, readerText, shownGap, GAP_DOMAIN_WORDS } from '../facts/material-facts.ts';
+import { isReprintEntry } from '@atlas/domain';
+import { productNameOrId, stated, readerText, shownGap, GAP_DOMAIN_WORDS, spreadEntries } from '../facts/material-facts.ts';
 import { REGISTRY } from '../facts/registry.ts';
 import { sourceKind } from '../facts/labels.ts';
 import * as FIGURES from '../figures.ts';
@@ -139,6 +140,8 @@ export const headA = (c: Loose, g: Loose, short: Loose) => `<a class="prod" href
 
 /** The line under a table with a value read from a shared sheet: what its grey says. */
 export const SHARED_NOTE = 'In grey, a value a product reads from a data sheet it shares, where its own sheet is silent. The median counts that table once.';
+/** The same note where no grey value of the table is one the median counts (every one is set apart): it says nothing about the median. */
+export const SHARED_NOTE_APART = 'In grey, a value a product reads from a data sheet it shares, where its own sheet is silent.';
 
 /**
  * What each product publishes of `keys` (grades[].headline: each product's own value, as the strips would draw it), as a
@@ -161,19 +164,24 @@ export function headlineTable(c: Loose, keys: Loose, { fmt, caption = 'As each s
   const note = (h: Loose, v: Loose) => [v.level === 'as-published' ? apart(h, v) : v.admitted?.includes('bar') ? 'glassy: counts' : null, v.anneal ? 'after annealing' : null, code(h, v)].filter(Boolean).join(', ');
   const COUNTED = 'Its document does not describe the test bar; the value counts, since a plastic that cannot crystallise deflects near its glass transition however its bar was made';
   const twinOf = (v: Loose) => (v?.from?.origin === 'twin' ? c.gradeById.get(v.from.gradeId) ?? null : null);
+  // "Counted once in the median" is said only where the build's rule excludes the value as a reprint (domain isReprintEntry, the build's own
+  // test): a value set apart (a variant's, or not comparable) is a shared sheet's too, and the median does not count it at all.
+  const entryOf = new Map<string, Map<string, Loose>>(live.map((h: Loose) => [h.key, new Map<string, Loose>(spreadEntries(c.m, c, h.key).map((e: Loose) => [e.g.id, e]))]));
+  const reprint = (g: Loose, h: Loose) => { const e = entryOf.get(h.key)?.get(g.id); return !!e && isReprintEntry(e); };
   const cell = (g: Loose, h: Loose, label: Loose) => {
     const v = g.headline?.[h.key];
     if (!v) return `<td class="num none" data-label="${esc(label)}">not published</td>`;
     const n = note(h, v), twin = twinOf(v);
     const cls = ['num', v.level === 'as-published' ? 'open' : '', twin ? 'from' : ''].filter(Boolean).join(' ');
-    const title = [twin ? `From the data sheet shared with ${productNameOrId(twin)}. Counted once in the median` : null, v.admitted?.includes('bar') ? COUNTED : null].filter(Boolean).join('. ');
+    const title = [twin ? `From the data sheet shared with ${productNameOrId(twin)}${reprint(g, h) ? '. Counted once in the median' : ''}` : null, v.admitted?.includes('bar') ? COUNTED : null].filter(Boolean).join('. ');
     return `<td class="${cls}" data-label="${esc(label)}"${v.measurementId ? ` data-mid="${esc(v.measurementId)}"` : ''}${title ? ` title="${esc(title)}"` : ''}>`
       + `<span class="cv"><span class="cv-n">${esc(`${sign(v)}${fmt(v.value, h.unit)}`)}</span>${n ? `<small>${esc(n)}</small>` : ''}</span></td>`;
   };
   // A published bound keeps its sign here as on the plate and in the drawer ("> 200 °C"), from the value's record.
   const sign = (v: Loose) => { const op = c.msById?.get(v.measurementId)?.operator; return op && /^[<>≤≥]=?$/.test(op) ? `${({ '>=': '≥', '<=': '≤' } as Record<string, Loose>)[op] ?? op} ` : ''; };
   const shared = live.some((h: Loose) => all.some((g: Loose) => twinOf(g.headline?.[h.key])));
-  const foot = shared ? `<p class="sec-note">${esc(SHARED_NOTE)}</p>` : '';
+  const counted = live.some((h: Loose) => all.some((g: Loose) => reprint(g, h)));
+  const foot = shared ? `<p class="sec-note">${esc(counted ? SHARED_NOTE : SHARED_NOTE_APART)}</p>` : '';
   if (all.length <= ACROSS_MAX) {
     const short = shortHeads(all);
     const inner = `<thead><tr><th scope="col" class="prop">${esc(caption)}</th>${all.map((g: Loose) => `<th scope="col" class="num col-p">${headA(c, g, short.get(g.id))}</th>`).join('')}</tr></thead><tbody>`

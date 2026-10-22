@@ -48,7 +48,9 @@ The entries below are disagreements only on values the current data never holds.
 The port keeps the old behaviour (R-Q2-19): `db.json` and `reference.json` are byte for byte what the old build writes. The
 entries below are what the port exposed; none is fixed here, and none moves an answer today.
 
-### WP20-D1. A release ID does not cover the new build's rules
+### WP20-D1. A release ID does not cover the new build's rules (fixed in the M3-close fixes)
+
+- **Fixed.** `remake/tools/release-id.mjs` now hashes `packages/build/src`, the data code that reconstructs the tables, `apps/public/src/view-fields.ts`, `view-facts.ts`, `model.ts` and `packages/pages/src/facts/dates.ts`; `tests/remake/release-id.test.mjs` walks the import graph of the parts writer and fails on any file it reaches that is neither an input nor named as deciding nothing. The text below is the defect as found.
 
 - **Where.** `build/src/release.js` `RELEASE_INPUTS` digests `build/src` and `build/mappings` as "the rules". The new build's
   rules are `packages/build/src` (and the reconstruction in `packages/data`), which `packages/build/src/release.ts` still

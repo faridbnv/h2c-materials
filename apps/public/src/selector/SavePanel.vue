@@ -15,7 +15,9 @@ import { deserialize, serialize, toHash } from '@atlas/engine/port/scenario.ts';
 import { dayWords } from '@atlas/pages/facts/dates';
 import { POLICY_CONTROL, policyLabel } from '@atlas/pages/facts/labels';
 import type { Loose } from '@atlas/pages/loose';
-import { exportBlocked } from './lenses/copy.ts';
+import { StaleShellError } from '../release.ts';
+import { blockedBy } from '../useLoad.ts';
+import { exportBlocked, exportStale } from './lenses/copy.ts';
 import { productLabel } from './product-label.ts';
 import { candidateCount } from './start.ts';
 import { rankOf, sortStateOf } from './table.ts';
@@ -88,7 +90,12 @@ async function citedDetails(kind: 'brief' | 'export', ids: readonly string[], wh
   try {
     return await (await props.store.lens()).loadCited(kind, ids);
   } catch (error) {
-    exportProblem.value = exportBlocked(what, error instanceof Error ? `${error.message}.` : String(error));
+    // A part of the page's release that is gone means the page is old, not that the connection failed: the store has already written the
+    // address (flushHash, in the lens hooks), so the one reload the guard allows keeps the question.
+    if (error instanceof StaleShellError) {
+      const blocked = blockedBy(error);
+      exportProblem.value = exportStale(what, blocked.kind === 'stale' && blocked.reloading);
+    } else exportProblem.value = exportBlocked(what, error instanceof Error ? `${error.message}.` : String(error));
     return null;
   } finally {
     state.lensLoading--;
