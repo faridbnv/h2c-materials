@@ -6,7 +6,8 @@ import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join } from 'node:path';
-import { DetailsIncomplete, REQUIRES, loadCited, loadDetails, loadParts, loadShared } from '../../apps/public/src/parts.ts';
+import { DetailsIncomplete, REQUIRES, loadDetails, loadParts, loadShared } from '../../apps/public/src/parts.ts';
+import { loadCited } from '../../apps/public/src/lens-parts.ts';
 import { NetworkError, NoMaterialError, loadMaterial } from '../../apps/public/src/load.ts';
 import { DataShapeError } from '../../apps/public/src/model.ts';
 import { StaleShellError } from '../../apps/public/src/release.ts';
@@ -27,8 +28,8 @@ const facts = () => ({ profiles: { total: 3, dryingRequired: 1, dryingOptional: 
 const parts = (release = R) => ({
   [`data/${release}/core.json`]: { kind: 'core', release, model: model(), facts: facts() },
   [`data/${release}/estimates.json`]: { kind: 'estimates', release, status: 'available', withheld: null, overlay: { grades: { 'G001-01': { estimate: { density: { lo: 1, hi: 2 } } } }, materials: { M001: { headline: { density: { estimate: { lo: 1 } } }, print: {} } }, meta: { estimateModel: { v: 1 } } } },
-  [`data/${release}/reference.json`]: { kind: 'reference', release, reference: { meta: { caveat: 'x' } } },
-  ...Object.fromEntries(['M001', 'M002'].map((id) => [`data/${release}/detail/${id}.json`, { kind: 'detail', release, materialId: id, records: { material: { id } } }])),
+  [`data/${release}/reference.json`]: { kind: 'reference', release, reference: { meta: { caveat: 'x' } }, headlines: {}, meta: { sparseProperties: [] } },
+  ...Object.fromEntries(['M001', 'M002'].map((id) => [`data/${release}/detail/${id}.json`, { kind: 'detail', release, materialId: id, encoding: 'rows-1', records: { material: { id } } }])),
 });
 /** A fetch over a map of url -> body, recording what it was asked. An unknown url is a 404; `over` replaces or removes (null) files. */
 const server = (files, over = {}) => {

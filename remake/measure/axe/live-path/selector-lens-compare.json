@@ -4,7 +4,7 @@
   "title": "selector: compare lens",
   "adapter": "old",
   "project": "live-path",
-  "path": "/h2c-materials/",
+  "path": "/h2c-materials/legacy/",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",

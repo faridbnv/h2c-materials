@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { test, expect, FULL } from './fixtures.mjs';
 
-const dataOf = (site, path) => JSON.parse(readFileSync(join(site.site, 'v3', 'data', site.v3Release, path), 'utf8'));
+const dataOf = (site, path) => JSON.parse(readFileSync(join(site.site, 'data', site.v3Release, path), 'utf8'));
 
 test('public view: the selector names its release and shows exactly the materials and verdicts the engine decided', async ({ newPage, page, site }) => {
   const result = dataOf(site, 'result.json');
@@ -96,9 +96,9 @@ test('public view: an address that names no material says so', async ({ newPage,
   await expect(page.locator('[data-testid="material-name"]')).toHaveCount(0);
 });
 
-test('public view: its release is the one the build wrote, and the old site beside it is the old release', async ({ request, appUrl, site }) => {
-  const view = await (await request.get(`${appUrl}v3/release.json`)).json();
-  const old = await (await request.get(`${appUrl}manifest.json`)).json();
+test('public view: its release is the one the build wrote, and the old site at legacy/ is the old release', async ({ request, appUrl, site }) => {
+  const view = await (await request.get(`${appUrl}release.json`)).json();
+  const old = await (await request.get(`${appUrl}legacy/manifest.json`)).json();
   expect(view.release).toBe(site.v3Release);
   expect(old.release).toBe(site.release);
   expect(old.release).toMatch(/^[0-9a-f]{12}$/);

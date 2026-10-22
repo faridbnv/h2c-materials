@@ -1,4 +1,4 @@
-// The NEW page adapter (WP-22, WP-26): the public view of the remake (apps/public, published at /v3/) read through its data-testid hooks, never
+// The NEW page adapter (WP-22, WP-26): the public view of the remake (apps/public, the site's root since WP-30) read through its data-testid hooks, never
 // through its classes. Its root is the selector of the remake (WP-26: new-selector.mjs answers the contract's selector steps, behaviours and
 // fuzz tab); beside it stands the material page of the first slice (material.html), read here as it was in WP-14.
 //
@@ -10,7 +10,7 @@ import { createNewSelector } from './new-selector.mjs';
 const WAIT_MS = 30_000;
 
 export function createNewPublic({ page, origin, base, meta = {}, root = null, watch = null, scratch = null }) {
-  const viewUrl = `${origin}${base}v3/`;
+  const viewUrl = `${origin}${base}`;
   const materialUrl = (id) => `${viewUrl}material.html?m=${encodeURIComponent(id)}`;
   const answered = '[data-testid="lens"][data-state="ready"], [data-testid="material-name"], [data-testid="load-notice"]:not([data-state="loading"])';
 

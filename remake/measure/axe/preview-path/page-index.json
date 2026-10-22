@@ -4,7 +4,7 @@
   "title": "material page: index",
   "adapter": "old",
   "project": "preview-path",
-  "path": "/h2c-material-temp-page/materials/index.html",
+  "path": "/h2c-material-temp-page/legacy/materials/index.html",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",

@@ -5,9 +5,36 @@
   "branch": null,
   "pr": null,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-22T14:05:36.265Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "node --test tests/remake/ci.test.mjs tests/remake/size-report.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: preview-smoke green at the preview root and /legacy/ (after the first deploy)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: task suite green under both base paths (tests/browser/tasks.spec.mjs)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: timings measured, not gated (remake/measure/perf-new.json)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-22T14:06:09.997Z"
 }

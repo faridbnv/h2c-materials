@@ -4,7 +4,7 @@
   "title": "selector: ashby lens",
   "adapter": "old",
   "project": "preview-path",
-  "path": "/h2c-material-temp-page/",
+  "path": "/h2c-material-temp-page/legacy/",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",

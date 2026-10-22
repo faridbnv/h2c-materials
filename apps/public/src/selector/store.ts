@@ -11,15 +11,17 @@ import { baseContextOf, browserEngine, candidatesOf, contextOf } from '@atlas/en
 import type { BaseContext } from '@atlas/engine/browser';
 import { UNKNOWN_POLICY, normalizePolicy } from '@atlas/engine/port/constraints.ts';
 import { indexById } from '@atlas/engine/port/indices.ts';
+import { goalAxes } from '@atlas/engine/port/goal-axes.ts';
 import { matchesQuery } from '@atlas/engine/port/search.ts';
 import { DECISIONS_MAX, SHORTLIST_MAX, applyAssumptions, fromHash, newScenario, toHash } from '@atlas/engine/port/scenario.ts';
-import { goalAxes } from '@atlas/engine/port/workspace.ts';
 import { dayWords, provenanceWords } from '@atlas/pages/facts/dates';
 import { esc } from '@atlas/pages/facts/format';
 import { setEnvironmentLabels, setH2cBaseline, screenedByKind, unknownGroups, unknownGroupWords, POLICY_CONTROL, POLICY_LABELS } from '@atlas/pages/facts/labels';
 import { useRegistry } from '@atlas/pages/facts/registry';
 import type { Loose } from '@atlas/pages/loose';
+import type { LensHooks } from '../lens-hooks.ts';
 import type { Loaded } from '../parts.ts';
+import { forgetZoom } from './lenses/zoom.ts';
 import { candidateCount } from './start.ts';
 import { sortForColumnSet } from './table.ts';
 import { PRINTABLE } from './templates.ts';
@@ -31,9 +33,13 @@ export const defaultShowStates = (policy: string): Set<string> =>
 /** The verdicts in the order every count names them, never alphabetical: "FAIL + PASS" read as a ranking. */
 const VERDICT_ORDER = ['PASS', 'UNKNOWN', 'FAIL'];
 
-/** The lenses this selector draws. The others a saved scenario may name (Ashby, parallel lines, coverage, compare) arrive with part 2 and open on the table. */
+/** The lenses, in the order the tabs stand. The four that are not the table or the explanation are drawn by lazy code (lenses/LensHost.vue); the chart library loads only with the Ashby chart. */
 export const LENSES = [
   { id: 'table', label: 'Table', title: 'The candidates as a sortable list' },
+  { id: 'ashby', label: 'Ashby', title: 'Ashby chart: two properties against each other, to see the trade-offs' },
+  { id: 'parallel', label: 'Parallel lines', title: 'Each candidate across several properties at once' },
+  { id: 'coverage', label: 'Data coverage', title: 'How much data is on file for each candidate, and where the gaps are' },
+  { id: 'compare', label: 'Compare', title: 'Your shortlist, property by property' },
   { id: 'explain', label: 'Why excluded', title: 'Which requirement removed how many materials' },
 ] as const;
 
@@ -43,7 +49,14 @@ export interface Notice { readonly id: number; readonly text: string }
 const emptyList = <T>(): T[] => [];
 const nothing = <T>(): T | null => null;
 
-export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () => Promise<Loose>; readonly loadDrawerParts: (id: string) => Promise<{ readonly detail: Loose; readonly shared: Loose }> }) {
+export interface StoreHooks {
+  readonly loadEstimates: () => Promise<Loose>;
+  readonly loadDrawerParts: (id: string) => Promise<{ readonly detail: Loose; readonly shared: Loose }>;
+  /** The wiring of the chart lenses' parts, the exports and the brief (lens-hooks.ts); `flush` writes the address before a failure goes on to the stale-shell guard. */
+  readonly lens: (flush: () => void) => Promise<LensHooks>;
+}
+
+export function createStore(loaded: Loaded, hooks: StoreHooks) {
   const db: Loose = markRaw(loaded.model);
   const facts = markRaw(loaded.facts);
   const base: BaseContext = markRaw(baseContextOf(browserEngine, loaded.model));
@@ -87,10 +100,17 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     drawerLoading: 0,
     // Bumped when the engine's answer changed (the drawer depends on it), and when anything the table draws changed (`vrev`): components read a
     // plain object the engine owns (the scenario), which Vue cannot see change, through these.
-    rev: 0, vrev: 0,
+    rev: 0, vrev: 0, lrev: 0,
+    // The lenses of part 2: the Ashby chart's reference set, the reader's place in it (a picked material, an open mark), whether the reader has
+    // asked anything of the exercise yet, the estimated ranges drawn on it, and how many lenses are fetching the parts they need (data-busy).
+    reference: nothing<Loose>(), ashbyStarted: false, selected: nothing<string>(), revealMaterial: nothing<string>(), inspect: nothing<Loose>(), inspectFocus: false,
+    ashbyEstimates: nothing<Loose>(), lensLoading: 0, hostLoading: false,
   });
 
-  const touch = () => { state.vrev++; };
+  /** Something the lenses draw changed (the answer, the rows, the plot, the reader's place in a chart). */
+  const touch = () => { state.vrev++; state.lrev++; };
+  /** Only the panel beside the results changed (a drawer opened, a tab, the save panel): the lenses keep what they show. */
+  const touchPanel = () => { state.vrev++; };
   let noticeId = 0;
   const say = (text: string) => { state.notices = [...state.notices, { id: ++noticeId, text }]; };
 
@@ -113,6 +133,7 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     state.columnSet = scenario.columnSet ?? 'properties';
     state.sortNotice = null;
     state.baseline = scenario.baseline ?? null;
+    state.inspect = null;
     state.sortOverride = false;
     state.lens = LENSES.some((l) => l.id === scenario.lens) ? scenario.lens : 'table';
   }
@@ -239,19 +260,19 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
       state.selectedMaterialId = id; state.drawerTab = tab; state.panel = 'material';
       state.highlightMeasurement = null; state.highlightSource = null;
       state.scenario.openMaterial = id;
-      touch(); pushHash();
+      touchPanel(); pushHash();
     },
-    setDrawerTab(tab: string) { state.drawerTab = tab; state.highlightMeasurement = null; state.highlightSource = null; touch(); },
+    setDrawerTab(tab: string) { state.drawerTab = tab; state.highlightMeasurement = null; state.highlightSource = null; touchPanel(); },
     // From a measurement to the source that published it: the Sources tab (internally still "Evidence"), taken to that source's block.
     openSource(sourceId: string) {
       state.drawerTab = 'Evidence';
       state.highlightMeasurement = null;
       state.highlightSource = sourceId;
-      touch();
+      touchPanel();
     },
     closeDrawer() {
       state.selectedMaterialId = null; state.scenario.openMaterial = null; state.panel = null;
-      touch(); pushHash();
+      touchPanel(); pushHash();
     },
     openMeasurement(id: string) {
       const m = db.measurements.find((x: Loose) => x.id === id);
@@ -262,13 +283,13 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
       state.drawerTab = 'Evidence';
       state.highlightMeasurement = id;
       state.highlightSource = null;
-      touch(); pushHash();
+      touchPanel(); pushHash();
     },
-    openScenario() { state.panel = 'scenario'; touch(); },
+    openScenario() { state.panel = 'scenario'; touchPanel(); },
     setBaseline(id: string) {
       state.baseline = id || null;
       state.scenario.baseline = state.baseline;
-      touch(); pushHash();
+      touchPanel(); pushHash();
     },
     setPolicy(p: string) {
       const policy = normalizePolicy(p);
@@ -314,7 +335,11 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     setGoal(id: string) {
       const index = id ? indexById(id) : null;
       state.scenario.rankBy = index ? index.id : null;
-      if (index) Object.assign(state.scenario.plot, goalAxes(index), { indexM: null });
+      if (index) {
+        const a = goalAxes(index), p = state.scenario.plot;
+        if (a.x !== p.x || a.y !== p.y || !p.xLog || !p.yLog) forgetZoom();
+        Object.assign(p, a, { indexM: null });
+      }
       state.sortOverride = false;
       state.sortNotice = null;
       touch(); pushHash();
@@ -533,17 +558,16 @@ export function createStore(loaded: Loaded, hooks: { readonly loadEstimates: () 
     return true;
   }
 
+  /** A loader that writes the address before its failure goes on to the guard. */
+  const guarded = <A extends unknown[], R>(load: (...args: A) => Promise<R>) => async (...args: A): Promise<R> => {
+    try { return await load(...args); } catch (error) { flushHash(); throw error; }
+  };
+
   return {
     state, actions, render, start, followHash, hydrate, validationOptions,
-    countHtml, statusView, provenance, ensureEstimates,
-    loadDrawerParts: async (id: string) => {
-      try {
-        return await hooks.loadDrawerParts(id);
-      } catch (error) {
-        flushHash();
-        throw error;
-      }
-    },
+    touch, pushHash, countHtml, statusView, provenance, ensureEstimates,
+    // A part that fails reaches the stale-shell guard, which may reload the page: the address keeps the question first (flushHash).
+    loadDrawerParts: guarded(hooks.loadDrawerParts), lens: () => hooks.lens(flushHash),
     policyControl: POLICY_CONTROL, policyLabels: POLICY_LABELS,
   };
 }

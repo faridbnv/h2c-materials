@@ -16,8 +16,8 @@ import { createOldBehaviours } from './old-behaviours.mjs';
 import { createOldFuzzTab, waitUntil } from './old-fuzz-tab.mjs';
 
 const CALL_MS = 60_000;
-// The lenses of the old selector. The new page's adapter (new-selector.mjs) runs these same steps on the remake's selector, which draws fewer of them
-// until WP-27: a step then leaves out the part that needs a lens the page does not have, and the views of that part are named as not owed.
+// The lenses of the old selector. The new page's adapter (new-selector.mjs) runs these same steps on the remake's selector, which draws all of them since
+// WP-27 (a page that draws fewer says which, and the steps leave out what needs the lens it lacks).
 const ALL_LENSES = Object.freeze(['table', 'ashby', 'parallel', 'coverage', 'compare', 'explain']);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -31,11 +31,12 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * @param {object|null} [o.watch]    the page's watcher (lib/watch.mjs), which the behaviours that read dialogs need
  * @param {string|null} [o.scratch]  a folder to write files in, which the behaviours that import a file need
  * @param {readonly string[]} [o.lenses]  the lenses the page draws; the steps skip what needs another
+ * @param {string} [o.materialsBase]  where the material pages are served (the base of the site whose materials/ folder the steps open); the selector's own base by default
  */
-export function createOldSelector({ page, origin, base, meta, root, watch = null, scratch = null, lenses = ALL_LENSES }) {
+export function createOldSelector({ page, origin, base, meta, root, watch = null, scratch = null, lenses = ALL_LENSES, materialsBase = base }) {
   const has = (lens) => lenses.includes(lens);
   const pageUrl = `${origin}${base}`;
-  const materialUrl = (file) => `${origin}${base}materials/${file}`;
+  const materialUrl = (file) => `${origin}${materialsBase}materials/${file}`;
   const productsCheck = readFileSync(join(root, 'scripts/lib/page-products-check.js'), 'utf8');
   let results = {}, layoutProblems = [], notes = {}, errors = [];
 

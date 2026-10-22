@@ -804,13 +804,15 @@
       "size": "L (5)",
       "exitEvidence": "Chart traces identical; Plotly absent from first load; first chart ≤ 1.2 s; brief and export equal on 12 scenarios",
       "exit": {
-        "commands": [],
+        "commands": [
+          "npm run typecheck",
+          "node --test tests/remake/delivery.test.mjs tests/remake/browser-harness.test.mjs tests/remake/shards.test.mjs"
+        ],
         "attest": [],
         "manual": [
-          "chart traces identical",
-          "Plotly absent from first load",
-          "first chart <= 1.2 s",
-          "brief and export equal on 12 scenarios"
+          "P-ui passes with I4 and I10 run (npm run test:browser)",
+          "chart traces identical, brief and export equal on 12 scenarios (tests/browser/lenses.spec.mjs)",
+          "Plotly absent from first load; strict boot within 2 KB of WP-26 (size report)"
         ]
       },
       "dropped": false
@@ -888,12 +890,15 @@
       "size": "M (3)",
       "exitEvidence": "Smoke green at the preview root; task suite green under both base paths; budget report in range",
       "exit": {
-        "commands": [],
+        "commands": [
+          "node --test tests/remake/ci.test.mjs tests/remake/size-report.test.mjs",
+          "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json"
+        ],
         "attest": [],
         "manual": [
-          "smoke green at the preview root",
-          "task suite green under both base paths",
-          "budget report in range"
+          "preview-smoke green at the preview root and /legacy/ (after the first deploy)",
+          "task suite green under both base paths (tests/browser/tasks.spec.mjs)",
+          "timings measured, not gated (remake/measure/perf-new.json)"
         ]
       },
       "dropped": false

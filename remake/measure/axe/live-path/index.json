@@ -1,11 +1,114 @@
 {
   "schema": 1,
-  "runId": "local-1792617762843",
+  "runId": "95776359-885b-483d-bc3d-94e51a79d32d",
   "mode": "full",
   "axe": "4.13.0",
   "blocking": false,
   "note": "Reported, not blocking (owner ruling OQ-15 B). A count here is a finding to read, not a failed check.",
   "pages": [
+    {
+      "page": "new-public-material",
+      "violatedRules": 0,
+      "violatingNodes": 0,
+      "byImpact": {},
+      "passedRules": 41,
+      "incompleteRules": 0,
+      "inapplicableRules": 49
+    },
+    {
+      "page": "new-selector-drawer",
+      "violatedRules": 3,
+      "violatingNodes": 11,
+      "byImpact": {
+        "minor": 3,
+        "moderate": 1,
+        "serious": 7
+      },
+      "passedRules": 51,
+      "incompleteRules": 1,
+      "inapplicableRules": 38
+    },
+    {
+      "page": "new-selector-lens-ashby",
+      "violatedRules": 4,
+      "violatingNodes": 35,
+      "byImpact": {
+        "moderate": 2,
+        "serious": 33
+      },
+      "passedRules": 44,
+      "incompleteRules": 1,
+      "inapplicableRules": 45
+    },
+    {
+      "page": "new-selector-lens-compare",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 40,
+      "incompleteRules": 1,
+      "inapplicableRules": 49
+    },
+    {
+      "page": "new-selector-lens-coverage",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 47,
+      "incompleteRules": 1,
+      "inapplicableRules": 42
+    },
+    {
+      "page": "new-selector-lens-explain",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 41,
+      "incompleteRules": 1,
+      "inapplicableRules": 48
+    },
+    {
+      "page": "new-selector-lens-parallel",
+      "violatedRules": 2,
+      "violatingNodes": 2,
+      "byImpact": {
+        "moderate": 2
+      },
+      "passedRules": 42,
+      "incompleteRules": 1,
+      "inapplicableRules": 47
+    },
+    {
+      "page": "new-selector-lens-table",
+      "violatedRules": 3,
+      "violatingNodes": 5,
+      "byImpact": {
+        "minor": 3,
+        "moderate": 2
+      },
+      "passedRules": 45,
+      "incompleteRules": 1,
+      "inapplicableRules": 43
+    },
+    {
+      "page": "new-selector-start",
+      "violatedRules": 4,
+      "violatingNodes": 5,
+      "byImpact": {
+        "minor": 1,
+        "moderate": 2,
+        "serious": 2
+      },
+      "passedRules": 46,
+      "incompleteRules": 1,
+      "inapplicableRules": 43
+    },
     {
       "page": "page-index",
       "violatedRules": 0,
@@ -103,26 +206,6 @@
       "passedRules": 35,
       "incompleteRules": 0,
       "inapplicableRules": 55
-    },
-    {
-      "page": "public-material",
-      "violatedRules": 0,
-      "violatingNodes": 0,
-      "byImpact": {},
-      "passedRules": 41,
-      "incompleteRules": 0,
-      "inapplicableRules": 49
-    },
-    {
-      "page": "public-results",
-      "violatedRules": 1,
-      "violatingNodes": 1,
-      "byImpact": {
-        "moderate": 1
-      },
-      "passedRules": 44,
-      "incompleteRules": 1,
-      "inapplicableRules": 45
     },
     {
       "page": "selector-drawer",

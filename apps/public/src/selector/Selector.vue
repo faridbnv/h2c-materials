@@ -24,6 +24,20 @@ import { TEMPLATES } from './templates.ts';
 
 const Drawer = defineAsyncComponent(() => import('./drawer/Drawer.vue'));
 const SavePanel = defineAsyncComponent(() => import('./SavePanel.vue'));
+// The chart lenses, parallel lines, coverage and compare: their code (and the chart library, for Ashby) is fetched when one is first opened.
+// While its code is on the way the page is waiting (data-busy), until the host takes over from setup.
+const LensHost = defineAsyncComponent(async () => {
+  state.lensLoading++;
+  state.hostLoading = true;
+  try {
+    return await import('./lenses/LensHost.vue');
+  } catch (error) {
+    state.lensLoading--;
+    state.hostLoading = false;
+    throw error;
+  }
+});
+const HOSTED = new Set(['ashby', 'parallel', 'coverage', 'compare']);
 
 const props = defineProps<{ readonly store: Store }>();
 const { store } = props;
@@ -64,6 +78,8 @@ const exclusions = computed(() => { void state.vrev; return ready.value && (stat
 const lensEl = ref<HTMLElement | null>(null);
 
 function onLensClick(event: MouseEvent): void {
+  // The hosted lenses wire their own controls; a second, delegated handler here would act twice.
+  if (HOSTED.has(state.lens)) return;
   const target = event.target instanceof Element ? event.target : null;
   if (!target) return;
   const by = (selector: string): HTMLElement | null => target.closest<HTMLElement>(selector);
@@ -102,6 +118,7 @@ function onLensClick(event: MouseEvent): void {
 }
 
 function onLensKey(event: KeyboardEvent): void {
+  if (HOSTED.has(state.lens)) return;
   // Only the row itself. Enter on the star or the buy link inside it used to bubble up here and open the drawer as well as doing its own job.
   // The key is consumed: the drawer takes focus on its close button while this keydown runs, and the same Enter's keypress then pressed that button, so the drawer shut as it opened.
   const row = event.target instanceof HTMLElement && event.target.matches('tr[data-material]') ? event.target : null;
@@ -296,7 +313,7 @@ const SHORTLIST_OF = 6;
 
 <template>
   <a id="skip-link" ref="skipLink" class="skip-link" href="#lens" data-testid="skip-link" @click="onSkip">{{ SKIP_LINK }}</a>
-  <div ref="appEl" class="app" :data-busy="state.pending !== null || state.drawerLoading > 0 ? 'true' : undefined">
+  <div ref="appEl" class="app" :data-busy="state.pending !== null || state.drawerLoading > 0 || state.lensLoading > 0 ? 'true' : undefined">
     <header class="topbar">
       <button id="btn-filters" ref="railButton" type="button" class="btn btn-sm btn-icon" aria-controls="rail" :aria-expanded="filtersExpanded" data-testid="filters-button" @click="onFilters"><svg class="icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5.5h8M15 5.5h2M3 14.5h2M9 14.5h8" /><circle cx="13" cy="5.5" r="2" /><circle cx="7" cy="14.5" r="2" /></svg>Filters</button>
       <h1 class="brand"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" /><path d="M9 22h14M11 16.5h10M13 11h6" /></svg><span class="brand-name">Filament Atlas</span></h1>
@@ -374,6 +391,7 @@ const SHORTLIST_OF = 6;
               </div>
             </template>
             <div v-else-if="state.lens === 'explain'" v-html="exclusions.html"></div>
+            <LensHost v-else-if="HOSTED.has(state.lens)" :store="store" :lens="state.lens" />
           </template>
         </div>
       </section>

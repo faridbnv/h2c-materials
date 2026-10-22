@@ -10,6 +10,8 @@
 import { createHash } from 'node:crypto';
 import { writeFileSync } from 'node:fs';
 import { isMain } from './wp-lib.mjs';
+import { applyEstimates } from '../../packages/publish/src/shards.ts';
+import { SELECTOR_NAME } from './site-pages.mjs';
 import { BANNER_MARK, NOINDEX } from './preview-assemble.mjs';
 
 export const BUDGET_SECONDS = 900;
@@ -41,46 +43,68 @@ async function viewJson(name, path, { page, check }) {
 
 /** The first material of a release's result.json, and the result itself: what a page of that release asks for first. */
 async function sampleOf(release, ctx) {
-  const result = await viewJson(`v3 result.json of ${release}`, `v3/data/${release}/result.json`, ctx);
+  const result = await viewJson(`result.json of ${release}`, `data/${release}/result.json`, ctx);
   if (result === null) return null;
   const id = result.materials?.[0]?.materialId;
-  ctx.check(`v3 result.json of ${release} names its release and a material`, result.release === release && /^M\d+$/.test(id ?? ''), `release ${result.release}, first material ${String(id)}`);
-  return /^M\d+$/.test(id ?? '') ? id : null;
+  ctx.check(`result.json of ${release} names its release and a material`, result.release === release && /^M\d+$/.test(id ?? ''), `release ${result.release}, first material ${String(id)}`);
+  return /^M\d+$/.test(id ?? '') ? { id, result } : null;
+}
+
+/**
+ * Two scenarios, read from the bytes the deploy serves (the question's answer itself is the browser suite's, run on the same files): the Strict one
+ * is the release's own template, whose verdicts result.json lists and whose counts release.json states; the Explore one joins the estimates part
+ * to the core part, which is what the page does before it shows an answer with estimates on, and which refuses a part that is not of this core.
+ */
+function checkScenarios({ manifest, result, core, estimates, check }) {
+  const tally = { PASS: 0, UNKNOWN: 0, FAIL: 0 };
+  for (const m of result.materials ?? []) if (m.verdict in tally) tally[m.verdict]++;
+  const said = manifest.counts ?? {};
+  check('Strict scenario: result.json lists as many verdicts as release.json counts', tally.PASS === said.pass && tally.UNKNOWN === said.unknown && tally.FAIL === said.fail,
+    `listed ${JSON.stringify(tally)}, counted ${JSON.stringify({ pass: said.pass, unknown: said.unknown, fail: said.fail })}`);
+  check('Strict scenario: every material it lists is in the core part', (result.materials ?? []).every((m) => core.model?.materials?.some((c) => c.id === m.materialId)), '');
+  try {
+    applyEstimates(core.model, estimates.overlay);
+    check('Explore scenario: the estimates part joins the core part', estimates.status === 'available' || estimates.status === 'withheld', `status ${estimates.status}`);
+  } catch (e) { check('Explore scenario: the estimates part joins the core part', false, e.message); }
 }
 
 /** The view's page names its release, its release.json agrees, and its core, estimates and reference parts are what the manifest says (sha256 and size). */
 async function checkView(base, release, previous, ctx) {
   const { page, check, fetchFn, sleep, now } = ctx;
-  const index = await page('v3/index.html', 'v3/index.html');
-  if (index !== null) check('v3/index.html carries the view\'s release id', index.includes(release), release);
-  const text = await page('v3/release.json', 'v3/release.json');
+  const index = await page('index.html', 'index.html');
+  if (index !== null) check('index.html carries the view\'s release id', index.includes(release), release);
+  const text = await page('release.json', 'release.json');
   if (text === null) return;
   let manifest;
-  try { manifest = JSON.parse(text); } catch (e) { check('v3/release.json parses', false, e.message); return; }
-  check('v3/release.json names the view\'s release', manifest.release === release, `${manifest.release} against ${release}`);
+  try { manifest = JSON.parse(text); } catch (e) { check('release.json parses', false, e.message); return; }
+  check('release.json names the view\'s release', manifest.release === release, `${manifest.release} against ${release}`);
+  const parsed = {};
   for (const part of ['core', 'estimates', 'reference']) {
     const file = manifest.files?.[part];
-    if (!file?.path || !/^data\/[0-9a-f]{12}\/[a-z]+\.json$/.test(file.path)) { check(`v3 ${part} part is listed`, false, JSON.stringify(file)); continue; }
+    if (!file?.path || !/^data\/[0-9a-f]{12}\/[a-z]+\.json$/.test(file.path)) { check(`${part} part is listed`, false, JSON.stringify(file)); continue; }
     try {
-      const res = await fetchRetry(`${base}v3/${file.path}?cb=${now()}`, { fetchFn, sleep });
-      if (res.status !== 200) { check(`v3 ${part} part: HTTP 200`, false, `got ${res.status}`); continue; }
+      const res = await fetchRetry(`${base}${file.path}?cb=${now()}`, { fetchFn, sleep });
+      if (res.status !== 200) { check(`${part} part: HTTP 200`, false, `got ${res.status}`); continue; }
       const bytes = Buffer.from(await res.arrayBuffer());
       const sha = createHash('sha256').update(bytes).digest('hex');
-      check(`v3 ${part} part is the one release.json lists`, sha === file.sha256 && bytes.length === file.bytes, `${bytes.length} bytes, sha256 ${sha.slice(0, 12)}, listed ${file.bytes} bytes, ${String(file.sha256).slice(0, 12)}`);
-    } catch (e) { check(`v3 ${part} part: fetch`, false, e.message); }
+      check(`${part} part is the one release.json lists`, sha === file.sha256 && bytes.length === file.bytes, `${bytes.length} bytes, sha256 ${sha.slice(0, 12)}, listed ${file.bytes} bytes, ${String(file.sha256).slice(0, 12)}`);
+      try { parsed[part] = JSON.parse(bytes.toString('utf8')); } catch { /* the sha256 above is the check; a part that is not JSON fails the scenarios below */ }
+    } catch (e) { check(`${part} part: fetch`, false, e.message); }
   }
   // What the page asks for first: the results, and one material's file, of this release.
-  const id = await sampleOf(release, ctx);
-  if (id !== null) {
-    const material = await viewJson(`v3 material/${id}.json`, `v3/data/${release}/material/${id}.json`, ctx);
-    if (material !== null) check(`v3 material/${id}.json is that material of this release`, material.kind === 'material' && material.release === release && material.materialId === id, `${material.kind} ${material.materialId} of ${material.release}`);
+  const sample = await sampleOf(release, ctx);
+  if (sample !== null) {
+    const material = await viewJson(`material/${sample.id}.json`, `data/${release}/material/${sample.id}.json`, ctx);
+    if (material !== null) check(`material/${sample.id}.json is that material of this release`, material.kind === 'material' && material.release === release && material.materialId === sample.id, `${material.kind} ${material.materialId} of ${material.release}`);
+    if (parsed.core && parsed.estimates) checkScenarios({ manifest, result: sample.result, core: parsed.core, estimates: parsed.estimates, check });
+    else check('the two scenarios could be read', false, 'the core or the estimates part was not served as JSON');
   }
   // The deploy keeps the previous release without its detail/ folder (owner decision 2026-10-22): a page cached from it still loads its
   // results, and a request for a detail gets the 404 its guard answers with a reload. Both halves are the design; either missing is a fault.
   if (previous !== null) {
     const old = await sampleOf(previous, ctx);
     if (old !== null) {
-      await page(`v3 previous release ${previous}: detail/${old}.json is gone`, `v3/data/${previous}/detail/${old}.json`, { status: 404 });
+      await page(`previous release ${previous}: detail/${old.id}.json is gone`, `data/${previous}/detail/${old.id}.json`, { status: 404 });
     }
   }
 }
@@ -145,21 +169,31 @@ export async function runSmoke(cfg, deps = {}) {
     check(`${name}: banner`, body.includes(BANNER_MARK), '');
     check(`${name}: noindex`, body.includes(NOINDEX), '');
   };
+  // The root is the selector of the remake; today's site is at legacy/ (WP-30).
   const index = await page('index.html', 'index.html');
   marked('index.html', index);
-  if (index !== null) check('index.html carries the release id', Boolean(info.release) && index.includes(info.release), info.release ?? 'no release in preview.json');
-  const manifest = await page('manifest.json', 'manifest.json');
-  if (manifest !== null) { try { check('manifest.json release equals preview.json release', JSON.parse(manifest).release === info.release); } catch (e) { check('manifest.json parses', false, e.message); } }
   const sample = info.sampleMaterial;
   if (!/^materials\/M\d+\.html$/.test(sample ?? '')) check('preview.json names a material page', false, String(sample));
   else { const body = await page(`${sample}`, sample); marked(sample, body); }
   const nf = await page('404.html', '404.html');
   marked('404.html', nf);
-
-  // The public view, when this deploy has one: its release.json is the smoke test's own manifest (the page never fetches it), and every
-  // part it names must be served whole, byte for byte, by the address the page will ask for (pack 02 section 6.2).
   if (typeof info.v3Release === 'string') await checkView(base, info.v3Release, typeof info.v3Previous === 'string' ? info.v3Previous : null, { page, check, fetchFn, sleep, now });
-  else check('v3 view checked', false, 'preview.json names no v3Release, so the public view was not part of this deploy and was not checked');
+  else check('the public view checked', false, 'preview.json names no v3Release, so the public view was not part of this deploy and was not checked');
+
+  // An old link: the release-stamped address of today's selector opens the selector with its hash (a stub), and one of an older release gets the 404 page whose script
+  // sends it there. The stamped page of today's site is at legacy/ as well, and is the old release's.
+  if (typeof info.stampedSelector === 'string' && SELECTOR_NAME.test(info.stampedSelector)) {
+    const stub = await page(`old link ${info.stampedSelector}`, info.stampedSelector);
+    if (stub !== null) check('an old link\'s stub keeps the hash on its way to the selector', stub.includes('location.hash'), '');
+    const gone = await page('an older release\'s link', 'H2C_Material_Selector_2000-01-01_aaaaaaaaaaaa.html', { status: 404 });
+    if (gone !== null) check('an older release\'s link is sent to the selector by the 404 page', gone.includes('H2C_Material_Selector'), '');
+  } else check('preview.json names the stamped selector page', false, String(info.stampedSelector));
+  const old = await page('legacy/index.html', 'legacy/index.html');
+  marked('legacy/index.html', old);
+  if (old !== null) check('legacy/index.html carries the old release id', Boolean(info.release) && old.includes(info.release), info.release ?? 'no release in preview.json');
+  const manifest = await page('legacy/manifest.json', 'legacy/manifest.json');
+  if (manifest !== null) { try { check('legacy/manifest.json release equals preview.json release', JSON.parse(manifest).release === info.release); } catch (e) { check('legacy/manifest.json parses', false, e.message); } }
+  if (/^materials\/M\d+\.html$/.test(sample ?? '')) marked(`legacy/${sample}`, await page(`legacy/${sample}`, `legacy/${sample}`));
 
   // A missing path must be a real 404, not a 200 that serves the shell.
   try {

@@ -4,7 +4,7 @@
   "title": "material page: m110-pctg-gf-products",
   "adapter": "old",
   "project": "preview-path",
-  "path": "/h2c-material-temp-page/materials/M110-products.html",
+  "path": "/h2c-material-temp-page/legacy/materials/M110-products.html",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",

@@ -7,7 +7,7 @@
 // `loadParts` and `loadDetails` return a whole set or throw. There is no partial result to misuse. The page never fetches release.json.
 import { isCoreReadModel } from '@atlas/domain';
 import type { CoreReadModel, DetailShard } from '@atlas/domain';
-import { applyEstimates, EstimatesDoNotFitError } from '@atlas/publish/shards';
+import { applyEstimates, decodeDetail, DetailEncodingError, EstimatesDoNotFitError } from '@atlas/publish/shards';
 import type { Overlay } from '@atlas/publish/shards';
 import { DetailsIncomplete, fetchPart, isMaterialId } from './load.ts';
 import type { FetchLike } from './load.ts';
@@ -46,10 +46,10 @@ export interface Loaded {
   readonly reference?: unknown;
 }
 
-const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
+export const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v);
 
 /** A part's wrapper, once it is the kind asked for and names the page's release. */
-function envelope(json: unknown, kind: string, what: string, embedded: string): Record<string, unknown> {
+export function envelope(json: unknown, kind: string, what: string, embedded: string): Record<string, unknown> {
   if (!isObject(json)) throw new DataShapeError(what, 'is not an object');
   if (json['kind'] !== kind) throw new DataShapeError(what, `is not a ${kind} part (it says ${String(json['kind'])})`);
   if (typeof json['release'] !== 'string') throw new DataShapeError(what, 'names no release');
@@ -80,13 +80,7 @@ function parseEstimates(json: unknown, embedded: string): EstimatesStatus & { re
   return { overlay, status, withheld };
 }
 
-function parseReference(json: unknown, embedded: string): unknown {
-  const file = envelope(json, 'reference', 'the reference part', embedded);
-  if (!isObject(file['reference'])) throw new DataShapeError('the reference part', 'carries no reference set');
-  return file['reference'];
-}
-
-async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn: FetchLike): Promise<Loaded> {
+export async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn: FetchLike): Promise<Loaded> {
   const core = fetchPart(fetchFn, embedded, 'core.json', 'the core part');
   const estimates = needs.includes('estimates') ? fetchPart(fetchFn, embedded, 'estimates.json', 'the estimates part') : null;
   const reference = needs.includes('reference') ? fetchPart(fetchFn, embedded, 'reference.json', 'the reference part') : null;
@@ -106,7 +100,12 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
       throw error;
     }
   }
-  return reference === null ? loaded : { ...loaded, reference: parseReference(referenceJson, embedded) };
+  if (reference === null) return loaded;
+  // The reference part's reading is with the chart lenses' code (lens-parts.ts), loaded here when the mode asks for it.
+  const { parseReference, joinHeadlines } = await import('./lens-parts.ts');
+  const parsed = parseReference(referenceJson, embedded);
+  joinHeadlines(model, parsed);
+  return { ...loaded, reference: parsed.reference };
 }
 
 /**
@@ -162,7 +161,7 @@ export async function loadParts(embedded: string, mode: Mode, fetchFn: FetchLike
 
 export { DetailsIncomplete };
 
-const isStale = (reason: unknown): reason is StaleShellError => reason instanceof Error && reason.name === 'StaleShellError';
+export const isStale = (reason: unknown): reason is StaleShellError => reason instanceof Error && reason.name === 'StaleShellError';
 
 const isDetail = (file: Record<string, unknown>): file is DetailShard & Record<string, unknown> =>
   typeof file['release'] === 'string' && typeof file['materialId'] === 'string' && isObject(file['records']);
@@ -170,8 +169,15 @@ const isDetail = (file: Record<string, unknown>): file is DetailShard & Record<s
 function parseDetail(json: unknown, embedded: string, materialId: string): DetailShard {
   const file = envelope(json, 'detail', `the detail of ${materialId}`, embedded);
   if (file['materialId'] !== materialId) throw new DataShapeError(`the detail of ${materialId}`, `holds ${String(file['materialId'])}`);
-  if (!isDetail(file)) throw new DataShapeError(`the detail of ${materialId}`, 'carries no records');
-  return file;
+  let decoded: Record<string, unknown>;
+  try {
+    decoded = decodeDetail(file);
+  } catch (error) {
+    if (error instanceof DetailEncodingError) throw new DataShapeError(`the detail of ${materialId}`, error.message);
+    throw error;
+  }
+  if (!isDetail(decoded)) throw new DataShapeError(`the detail of ${materialId}`, 'carries no records');
+  return decoded;
 }
 
 /**
@@ -195,15 +201,3 @@ export async function loadDetails(embedded: string, materialIds: readonly string
   return out;
 }
 
-/**
- * The brief and the export: the core and the detail shard of every material they cite, together or not at all. A row is never written
- * without its citation, so a caller that holds this holds every citation it can need.
- */
-export async function loadCited(embedded: string, mode: 'brief' | 'export', citedMaterialIds: readonly string[], fetchFn: FetchLike): Promise<Loaded & { readonly details: ReadonlyMap<string, DetailShard> }> {
-  // Both settle before either is used, and a stale part wins over any other failure, so a stale page reloads.
-  const [loaded, details] = await Promise.allSettled([loadNeeded(embedded, REQUIRES[mode], fetchFn), loadDetails(embedded, citedMaterialIds, fetchFn)]);
-  for (const outcome of [loaded, details]) if (outcome.status === 'rejected' && isStale(outcome.reason)) throw outcome.reason;
-  if (loaded.status === 'rejected') throw loaded.reason;
-  if (details.status === 'rejected') throw details.reason;
-  return { ...loaded.value, details: details.value };
-}

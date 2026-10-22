@@ -1,5 +1,5 @@
 // The site under this base path, before any interface check (WP-22; pack 07 section 7.1): the server answers like GitHub Pages, every page
-// of the old site and the public view loads from HTTP under the base path, and a page that is not there is an error, never a quiet empty
+// of the public view (the root since WP-30) and of the old site (legacy/) loads from HTTP under the base path, and a page that is not there is an error, never a quiet empty
 // view. These run in the fast subset under both base paths.
 import { request as rawRequest } from 'node:http';
 import { test, expect, FULL } from './fixtures.mjs';
@@ -15,8 +15,9 @@ const rawStatus = (origin, path) => new Promise((resolve, reject) => {
 const get = (request, url, headers = {}) => request.get(url, { headers, maxRedirects: 0, failOnStatusCode: false });
 
 test('site: every piece of the site answers 200 under this base path, compressed and cacheable', async ({ request, appUrl, site }) => {
-  const pieces = ['', 'index.html', site.stamped, 'manifest.json', 'materials/M001.html', 'materials/M001-products.html', 'materials/index.html', 'materials/method.html',
-    'v3/', 'v3/material.html?m=M001', 'v3/release.json', `v3/data/${site.v3Release}/result.json`];
+  const pieces = ['', 'index.html', 'material.html?m=M001', 'release.json', `data/${site.v3Release}/result.json`, site.stamped,
+    'materials/M001.html', 'materials/M001-products.html', 'materials/index.html', 'materials/method.html',
+    'legacy/', 'legacy/index.html', `legacy/${site.stamped}`, 'legacy/manifest.json', 'legacy/materials/M001.html', 'legacy/materials/M001-products.html'];
   for (const piece of pieces) {
     const response = await get(request, `${appUrl}${piece}`, { 'accept-encoding': 'gzip' });
     expect(response.status(), `${piece || '(the root)'} answered HTTP ${response.status()}`).toBe(200);
@@ -24,8 +25,9 @@ test('site: every piece of the site answers 200 under this base path, compressed
     if (/html|json/.test(response.headers()['content-type'] ?? '')) expect(response.headers()['content-encoding'], `${piece} is gzipped`).toBe('gzip');
     expect((await response.body()).length, `${piece} is empty`).toBeGreaterThan(100);
   }
-  const root = await get(request, appUrl);
-  expect(await root.text()).toContain('id="count"');   // the root is the selector
+  // The root is the selector of the remake and legacy/ is today's.
+  expect(await (await get(request, appUrl)).text()).toContain('name="h2c-release"');
+  expect(await (await get(request, `${appUrl}legacy/`)).text()).toContain('id="count"');
 });
 
 test('site: nothing answers outside the base path, a folder without its slash redirects, a path out of the site is refused', async ({ request, site, base }) => {
@@ -47,24 +49,26 @@ test('site: a page that is not there is a 404 the suite can see, not an empty pa
   expect(page.url()).toContain('materials/M999.html');
 });
 
-test('site: every material page of the old site is served under this base path', async ({ request, appUrl, site }) => {
+test('site: every material page is served under this base path, at the root and at legacy/', async ({ request, appUrl, site }) => {
   const ids = await request.get(`${appUrl}materials/index.html`).then((r) => r.text()).then((html) => [...new Set([...html.matchAll(/href="(M\d+)\.html"/g)].map((m) => m[1]))]);
   expect(ids.length, 'the index lists no material: the page list is empty').toBeGreaterThan(50);
   const sample = FULL ? ids : ids.filter((_, i) => i % 9 === 0);
   const bad = [];
   for (const id of sample) {
     for (const file of [`${id}.html`, `${id}-products.html`]) {
-      const response = await get(request, `${appUrl}materials/${file}`);
-      if (response.status() !== 200 || !(await response.text()).includes('data-page=')) bad.push(`${file} (HTTP ${response.status()})`);
+      for (const where of ['', 'legacy/']) {
+        const response = await get(request, `${appUrl}${where}materials/${file}`);
+        if (response.status() !== 200 || !(await response.text()).includes('data-page=')) bad.push(`${where}${file} (HTTP ${response.status()})`);
+      }
     }
   }
   expect(bad, `pages that did not load whole: ${bad.join(', ')}`).toEqual([]);
   expect(site.release).toMatch(/^[0-9a-f]{12}$/);
 });
 
-test('site: the old selector loads from HTTP under this base path and renders', async ({ page, oldPage, site, base }) => {
+test('site: the old selector loads from HTTP under this base path (legacy/) and renders', async ({ page, oldPage, site, base }) => {
   await oldPage.open(oldPage.pageUrl);
-  expect(new URL(page.url()).pathname).toBe(base);
+  expect(new URL(page.url()).pathname).toBe(`${base}legacy/`);
   expect(await oldPage.evaluate(`document.getElementById('count').textContent.trim()`)).toMatch(/\d/);
   expect(await oldPage.evaluate(`document.querySelectorAll('[data-template]').length`)).toBeGreaterThan(0);
   expect(site.stamped).toContain(site.release);

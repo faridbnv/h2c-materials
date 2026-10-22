@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "page": "public-material",
+  "page": "new-public-material",
   "title": "public view: a material",
   "adapter": "new",
   "project": "live-path",
-  "path": "/h2c-materials/v3/material.html?m=M001",
+  "path": "/h2c-materials/material.html?m=M001",
   "axe": "4.13.0",
   "tags": [
     "wcag2a",

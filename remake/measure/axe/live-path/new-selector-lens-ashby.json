@@ -1,0 +1,119 @@
+{
+  "schema": 1,
+  "page": "new-selector-lens-ashby",
+  "title": "selector: ashby lens",
+  "adapter": "new",
+  "project": "live-path",
+  "path": "/h2c-materials/olddb/",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 4,
+    "violatingNodes": 35,
+    "byImpact": {
+      "moderate": 2,
+      "serious": 33
+    },
+    "passedRules": 44,
+    "incompleteRules": 1,
+    "inapplicableRules": 45
+  },
+  "violations": [
+    {
+      "rule": "landmark-one-main",
+      "impact": "moderate",
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/landmark-one-main?application=playwright",
+      "tags": [
+        "best-practice"
+      ],
+      "nodes": 1,
+      "examples": [
+        {
+          "target": "html",
+          "html": "<html lang=\"en\">"
+        }
+      ]
+    },
+    {
+      "rule": "nested-interactive",
+      "impact": "serious",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=playwright",
+      "tags": [
+        "wcag2a",
+        "wcag412"
+      ],
+      "nodes": 1,
+      "examples": [
+        {
+          "target": "#plot",
+          "html": "<div id=\"plot\" role=\"img\" aria-label=\"Products: Tensile modulus (XY) against Density. The list beside the chart holds every mark.\" class=\"js-plotly-plot\" style="
+        }
+      ]
+    },
+    {
+      "rule": "region",
+      "impact": "moderate",
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/region?application=playwright",
+      "tags": [
+        "best-practice"
+      ],
+      "nodes": 1,
+      "examples": [
+        {
+          "target": ".lens-bar",
+          "html": "<div class=\"lens-bar\">"
+        }
+      ]
+    },
+    {
+      "rule": "target-size",
+      "impact": "serious",
+      "help": "All touch targets must be 24px large, or leave sufficient space",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/target-size?application=playwright",
+      "tags": [
+        "wcag22aa",
+        "wcag258"
+      ],
+      "nodes": 32,
+      "examples": [
+        {
+          "target": "button[data-select-material=\"M033\"]",
+          "html": "<button type=\"button\" class=\"link-btn ws-mat-name\" data-select-material=\"M033\" aria-pressed=\"false\" title=\"Pick it out on the chart: its products stay bright, t"
+        },
+        {
+          "target": "button[data-focus-material=\"M033\"]",
+          "html": "<button type=\"button\" class=\"icon-btn ws-zoom-btn\" data-focus-material=\"M033\" title=\"Zoom the chart to ASA-CF's products\" aria-label=\"Zoom to ASA-CF\">⤢</button>"
+        },
+        {
+          "target": "button[data-pin=\"M033\"]",
+          "html": "<button type=\"button\" class=\"shortlist-btn btn btn-sm\" data-pin=\"M033\" aria-pressed=\"false\" title=\"Shortlist this material to investigate (a product is chosen i"
+        },
+        {
+          "target": "details[data-mat-pairs=\"M033\"] > summary",
+          "html": "<summary>2 products drawn</summary>"
+        },
+        {
+          "target": "button[data-select-material=\"M050\"]",
+          "html": "<button type=\"button\" class=\"link-btn ws-mat-name\" data-select-material=\"M050\" aria-pressed=\"false\" title=\"Pick it out on the chart: its products stay bright, t"
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 41
+    }
+  ]
+}

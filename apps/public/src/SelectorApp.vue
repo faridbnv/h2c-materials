@@ -39,6 +39,8 @@ onMounted(async () => {
         details.set(id, detail);
         return { detail, shared: await shared };
       },
+      // The chart lenses, the exports and the brief: their parts and their wiring come when one is first used.
+      lens: async (flush) => (await import('./lens-hooks.ts')).lensHooks(release, loaded.model, fetchPart, details, flush),
     });
     made.start(location.hash.slice(1));
     await made.render();

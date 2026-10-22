@@ -1,4 +1,4 @@
-// The selector steps of the NEW page adapter (WP-26): the selector of the remake (apps/public, published at /v3/) answering the contract of
+// The selector steps of the NEW page adapter (WP-26, WP-27): the selector of the remake (apps/public, the site's root since WP-30) answering the contract of
 // contract.mjs, so that the same probe, fuzz and behaviours that judge the old page judge it.
 //
 // How the views are read. The new selector keeps the old page's markup where the facts layer writes it (the drawer, the cells, the rail's
@@ -9,24 +9,17 @@
 // the steps are given waits until the page says it is no longer waiting (data-busy) before it reads. The fuzz tab (new-fuzz-tab.mjs) and the
 // behaviours (new-behaviours.mjs) are the new page's own and read it through data-testid hooks.
 //
-// What the page does not draw yet, and so what no step of it owes: the Ashby lens, the parallel lines, the coverage view and Compare arrive
-// with WP-27 (their views are named in NOT_OWED, with the reason), and the material pages are the old pages until their own package.
+// Since WP-27 the page draws every lens, the Ashby decision workspace among them, and the decision brief and the exports, so every view of the baseline is
+// owed. The material pages are the pages of the site (materials/, beside the page), read through the steps the old adapter has.
 import { createOldSelector } from './old-selector.mjs';
 import { createNewBehaviours } from './new-behaviours.mjs';
 import { createNewFuzzTab } from './new-fuzz-tab.mjs';
-import { unsupported } from './contract.mjs';
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-const WP27 = 'the Ashby lens, the parallel lines, the coverage view and Compare are rebuilt in WP-27';
-const PAGES = 'the material pages stay the old pages until their own package; the selector rebuild does not change them';
 
-/** The lenses the new selector draws, and the baseline views no step of it owes, with why. A step reports a view it does not owe as named, never as passed. */
-export const NEW_LENSES = Object.freeze(['table', 'explain']);
-export const NOT_OWED = Object.freeze({
-  selectorTemplates: { pattern: /^20-/, reason: WP27 },
-  selectorLayout: { pattern: /^30-[a-z]+-(ashby|compare|coverage|parallel)$/, reason: WP27 },
-  selectorRanked: { lines: { '16-chosen-product': ['Download the decision brief'] }, reason: 'the decision brief and the export are rebuilt in their own package; the chosen product, its record and its notes are drawn' },
-});
+/** The lenses the new selector draws. A step reports a view it does not owe as named, never as passed; none is left out now. */
+export const NEW_LENSES = Object.freeze(['table', 'ashby', 'parallel', 'coverage', 'compare', 'explain']);
+export const NOT_OWED = Object.freeze({});
 
 /** A page whose reads wait for the selector to have finished what it was doing: its estimates part or a drawer's parts arriving. */
 export function settled(page) {
@@ -51,11 +44,12 @@ export function settled(page) {
 export function createNewSelector({ page, origin, base, meta, root, watch = null, scratch = null }) {
   // The page under the checks that compare it with the old page and the old engine is the public view built from the OLD database (lib/site.mjs,
   // SAME_DATABASE_DIR): the same code on the data the old page drew, so the registered reprint transition, which moves the new build's medians,
-  // is not read as a fault of the page. The view of the release itself (v3/) is the delivery and release checks' (new-page.spec, delivery.spec).
-  const view = `${base}v3-olddb/`;
+  // is not read as a fault of the page. The view of the release itself (the root) is the delivery and release checks' (new-page.spec, delivery.spec).
+  const view = `${base}olddb/`;
   const pageUrl = `${origin}${view}`;
   const waiting = settled(page);
-  const old = createOldSelector({ page: waiting, origin, base: view, meta, root, watch, scratch, lenses: NEW_LENSES });
+  // The material pages stand beside the view, at the site's root (materials/).
+  const old = createOldSelector({ page: waiting, origin, base: view, meta, root, watch, scratch, lenses: NEW_LENSES, materialsBase: base });
   const tid = (id) => `[data-testid="${id}"]`;
   const evaluate = (expression) => waiting.evaluate(expression);
   const click = (selector) => evaluate(`(() => { const el = document.querySelector(${JSON.stringify(selector)}); if (!el) throw new Error('no ' + ${JSON.stringify(selector)}); el.click(); return true; })()`);
@@ -73,13 +67,8 @@ export function createNewSelector({ page, origin, base, meta, root, watch = null
   };
   const behaviours = createNewBehaviours({ page: waiting, root, meta, pageUrl, scratch, evaluate, until: old.until, open, click, sleep, view: read });
 
-  const steps = {
-    ...old.steps,
-    selectorAshby: unsupported(WP27),
-    materialPages: unsupported(PAGES),
-    returnTrip: unsupported(PAGES),
-  };
-  // The pages axe is run on: the start screen, the two lenses the page draws, and the drawer.
+  const steps = { ...old.steps };
+  // The pages axe is run on: the start screen, every lens the page draws, and the drawer.
   const explored = async () => {
     await old.open(pageUrl);
     await click('[data-template="0"]');
@@ -89,9 +78,9 @@ export function createNewSelector({ page, origin, base, meta, root, watch = null
   };
   const axeTargets = () => [
     { slug: 'selector-start', title: 'selector: start screen', prepare: () => old.open(pageUrl) },
-    ...NEW_LENSES.map((lens) => ({ slug: `selector-lens-${lens}`, title: `selector: ${lens} lens`, prepare: async () => { await explored(); await click(tid(`lens-${lens}`)); await sleep(400); } })),
+    ...NEW_LENSES.map((lens) => ({ slug: `selector-lens-${lens}`, title: `selector: ${lens} lens`, prepare: async () => { await explored(); await click(tid(`lens-${lens}`)); await sleep(600); } })),
     { slug: 'selector-drawer', title: 'selector: material drawer', prepare: async () => { await explored(); await click(`${tid('lens')} ${tid('result-row')}`); await old.until(`!!document.querySelector('${tid('drawer')} [data-tab]')`, 'the drawer'); await sleep(300); } },
   ];
-  const perfTarget = { url: `${origin}${base}v3/`, ready: `document.querySelector('${tid('lens')}')?.dataset.state === 'ready' && !!document.querySelector('${tid('count')}')?.textContent.trim()` };
-  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, open, readView: read, settle: () => evaluate('true') };
+  const perfTarget = { url: `${origin}${base}`, ready: `document.querySelector('${tid('lens')}')?.dataset.state === 'ready' && !!document.querySelector('${tid('count')}')?.textContent.trim()` };
+  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, open, readView: read, settle: () => evaluate('true'), evaluate, until: old.until };
 }

@@ -6,10 +6,11 @@
 //        adds 404.html, puts the banner and <meta name="robots" content="noindex"> into EVERY html file, writes preview.json
 //   node remake/tools/preview-assemble.mjs stage  --site _site --repo DIR
 //        moves the preview repo's current site into previous/<release> (one previous release is kept), copies _site over it
-//   node remake/tools/preview-assemble.mjs build-v3 --site _site
-//        builds the public view (apps/public, WP-14) and copies it to _site/v3/; `inject` then marks its pages like the others.
-//        Needs the repository's npm install (Vite, Vue) and the old build's, so it runs where the site is built (the build
-//        job), not in the deploy job, which holds the key and installs nothing.
+//   node remake/tools/preview-assemble.mjs build-view --site _site
+//        builds the public view (apps/public: the selector of the remake) and copies it to the root of _site, beside the material
+//        pages (_site/materials/) and the old site (_site/legacy/, put there by the build job's assembly step); `inject` then
+//        marks its pages like the others. Needs the repository's npm install (Vite, Vue) and the old build's, so it runs where
+//        the site is built (the build job), not in the deploy job, which holds the key and installs nothing.
 //
 // Anything unexpected throws: a page without <head> or <body>, a missing manifest, an unsafe release name, and private
 // material in what is about to be published (private-scan.mjs, run at the end of `inject` over the site and at the end of
@@ -19,7 +20,7 @@ import { readFileSync, writeFileSync, readdirSync, lstatSync, existsSync, mkdirS
 import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { RELEASE_ID_PATTERN } from './release-id.mjs';
-import { NOT_FOUND_HTML } from './site-pages.mjs';
+import { NOT_FOUND_HTML, SELECTOR_NAME } from './site-pages.mjs';
 import { assertClean, scanTree } from './private-scan.mjs';
 import { isMain, repoRoot } from './wp-lib.mjs';
 
@@ -70,16 +71,19 @@ export function* walk(dir) {
   }
 }
 
-// The public view of WP-14 (apps/public) lives at _site/v3/, beside the old site; it never ships to the live site.
-export const V3_DIR = 'v3';
+// The preview (WP-30; pack 08): the site's root is the selector of the remake (apps/public), the material pages stand beside it
+// (materials/), and today's site stays at /legacy/ for side-by-side use. The old site never ships to the live site; this layout is the
+// preview's, and the cutover publishes the root alone.
+export const LEGACY_DIR = 'legacy';
 
 /** Run apps/public's build into `out`. Needs the repository's npm install; says so when it is missing. */
-function runPublicBuild({ root, out }) {
+function runPublicBuild({ root, out, materialPages = 'materials/', selectorStubs = [] }) {
   for (const need of ['node_modules/vite', 'node_modules/vue', 'build/node_modules']) {
-    if (!existsSync(join(root, need))) throw new Error(`${need} is not installed: the /v3/ view builds where the site is built, after npm ci in the root and in build/`);
+    if (!existsSync(join(root, need))) throw new Error(`${need} is not installed: the public view builds where the site is built, after npm ci in the root and in build/`);
   }
-  const run = spawnSync(process.execPath, [join(root, 'apps/public/tools/build.ts'), '--out', out], { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] });
-  if (run.status !== 0) throw new Error(`the /v3/ build failed (exit ${run.status})`);
+  const stubs = selectorStubs.flatMap((name) => ['--selector-stub', name]);
+  const run = spawnSync(process.execPath, [join(root, 'apps/public/tools/build.ts'), '--out', out, '--material-pages', materialPages, ...stubs], { cwd: root, stdio: ['ignore', 'inherit', 'inherit'] });
+  if (run.status !== 0) throw new Error(`the public view's build failed (exit ${run.status})`);
 }
 
 /** The release a built view names, once it is whole: its page, its manifest and its data parts are all there. `who` starts the error. */
@@ -94,19 +98,25 @@ function viewRelease(dir, who) {
   return release;
 }
 
+/** The old release-stamped selector pages of today's site (H2C_Material_Selector_<date>_<id>.html), which the view leaves a redirect stub under. */
+const stampedNames = (dir) => (existsSync(dir) ? readdirSync(dir).filter((n) => SELECTOR_NAME.test(n)) : []);
+
 /**
- * Builds the public view and puts it in <site>/v3/. The release it names is read back from the build's own release.json, and
- * its results file must be there: a view without its data is never published. `build` is replaceable for tests.
+ * Builds the public view and puts it at the root of `site`. The release it names is read back from the build's own release.json, and its
+ * data must be there: a view without its data is never published. The root must not hold a page of its own yet (today's site goes to
+ * legacy/ before this runs). A stamped selector name in legacy/ gets a redirect stub at the root, so an old link from this release opens
+ * the selector with its hash. `build` is replaceable for tests.
  */
-export function buildV3(site, { root = repoRoot(), build = runPublicBuild } = {}) {
-  const target = join(site, V3_DIR);
-  if (existsSync(target)) throw new Error(`${target} exists already; refusing to overwrite it`);
-  const out = mkdtempSync(join(tmpdir(), 'h2c-v3-'));
+export function buildView(site, { root = repoRoot(), build = runPublicBuild } = {}) {
+  for (const own of ['index.html', 'release.json', 'assets', 'data']) {
+    if (existsSync(join(site, own))) throw new Error(`${join(site, own)} exists already; refusing to overwrite it`);
+  }
+  const out = mkdtempSync(join(tmpdir(), 'h2c-view-'));
   try {
-    build({ root, out });
-    const release = viewRelease(out, 'the /v3/ build');
-    cpSync(out, target, { recursive: true });
-    return { release, files: [...walk(target)].length };
+    build({ root, out, materialPages: 'materials/', selectorStubs: stampedNames(join(site, LEGACY_DIR)) });
+    const release = viewRelease(out, 'the public view build');
+    cpSync(out, site, { recursive: true });
+    return { release, files: [...walk(out)].length };
   } finally {
     rmSync(out, { recursive: true, force: true });
   }
@@ -115,11 +125,13 @@ export function buildV3(site, { root = repoRoot(), build = runPublicBuild } = {}
 export function inject(site, { remake, main, runId = null, now = new Date() }) {
   if (!/^[0-9a-f]{40}$/.test(remake)) throw new Error(`--remake must be a 40-character commit SHA, got "${remake}"`);
   if (!/^[0-9a-f]{40}$/.test(main)) throw new Error(`--main must be a 40-character commit SHA, got "${main}"`);
-  const manifestPath = join(site, 'manifest.json');
+  // The old site's manifest names the old release; it is at legacy/ (the root is the new view, whose release is its own).
+  const manifestPath = join(site, LEGACY_DIR, 'manifest.json');
   if (!existsSync(manifestPath)) throw new Error(`${manifestPath} missing: the site was not assembled`);
   const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
   if (!/^[0-9a-f]{12}$/.test(manifest.release ?? '')) throw new Error(`manifest.release is not a 12-character release id: "${manifest.release}"`);
   if (!existsSync(join(site, 'index.html'))) throw new Error('index.html missing from the site');
+  if (!existsSync(join(site, LEGACY_DIR, 'index.html'))) throw new Error(`${LEGACY_DIR}/index.html missing: today's site belongs beside the new one`);
   for (const bad of ['.git', '.github', 'previous']) if (existsSync(join(site, bad))) throw new Error(`the site has a top-level ${bad}; refusing to publish it`);
   if (!existsSync(join(site, '404.html'))) writeFileSync(join(site, '404.html'), NOT_FOUND_HTML);
   const pages = [...walk(site)].filter((p) => /\.html?$/i.test(p));
@@ -131,12 +143,13 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
   }
   const materials = existsSync(join(site, 'materials')) ? readdirSync(join(site, 'materials')).filter((f) => /^M\d+\.html$/.test(f)).sort() : [];
   if (materials.length === 0) throw new Error('no materials/M<id>.html page in the site: the smoke test needs one');
+  if (!existsSync(join(site, LEGACY_DIR, 'materials', materials[0]))) throw new Error(`${LEGACY_DIR}/materials/${materials[0]} missing: the old site keeps its own pages`);
   const info = {
     remakeCommit: remake, mainCommit: main, builtAt: now.toISOString(), release: manifest.release, snapshot: manifest.snapshot ?? null,
-    sampleMaterial: `materials/${materials[0]}`, htmlFiles: pages.length, runId, note: 'Preview of the Filament Atlas remake. Not the live tool.',
+    sampleMaterial: `materials/${materials[0]}`, stampedSelector: stampedNames(join(site, LEGACY_DIR))[0] ?? null, htmlFiles: pages.length, runId, note: 'Preview of the Filament Atlas remake. Not the live tool.',
   };
-  // The public view, when this build made one: its release is its own (release identity v2), and its pages are already marked above.
-  if (existsSync(join(site, V3_DIR))) info.v3Release = viewRelease(join(site, V3_DIR), `${V3_DIR}/`);
+  // The public view, at the root: its release is its own (release identity v2), and its pages are already marked above.
+  info.v3Release = viewRelease(site, 'the site root');
   writeFileSync(join(site, 'preview.json'), JSON.stringify(info, null, 2) + '\n');
   // Fail closed: nothing private, and nothing the scan cannot vouch for, goes on to be published (pack 02 section 10).
   assertClean(scanTree(site), 'the preview site');
@@ -146,17 +159,17 @@ export function inject(site, { remake, main, runId = null, now = new Date() }) {
 const SAFE_NAME = /^[0-9a-f]{12}$/;
 
 /**
- * The public view in `dir` (v3/release.json): its release and the chunks it was built with, or null where the folder holds no view.
+ * The public view in `dir` (its release.json at the root): its release and the chunks it was built with, or null where the folder holds no view.
  * A stale page (index.html cached for up to ten minutes) asks the server for its own release's data and chunks, so a deploy that
  * replaces them with the new release's alone would 404 it (pack 02 section 6.2). The build lists its own chunks, so a chunk carried
  * from an older release is not carried again.
  */
 function viewIn(dir) {
-  const manifest = join(dir, V3_DIR, 'release.json');
+  const manifest = join(dir, 'release.json');
   if (!existsSync(manifest)) return null;
   const { release, assets = [] } = JSON.parse(readFileSync(manifest, 'utf8'));
-  if (!SAFE_NAME.test(release ?? '')) throw new Error(`${V3_DIR}/release.json names an unsafe release "${release}"`);
-  for (const a of assets) if (typeof a !== 'string' || a.includes('/') || a.includes('\\') || a.startsWith('.')) throw new Error(`${V3_DIR}/release.json lists an unsafe chunk name "${a}"`);
+  if (!SAFE_NAME.test(release ?? '')) throw new Error(`release.json names an unsafe release "${release}"`);
+  for (const a of assets) if (typeof a !== 'string' || a.includes('/') || a.includes('\\') || a.startsWith('.')) throw new Error(`release.json lists an unsafe chunk name "${a}"`);
   return { release, assets };
 }
 
@@ -168,16 +181,16 @@ function viewIn(dir) {
 function carryView(repo) {
   const view = viewIn(repo);
   if (view === null) return null;
-  const data = join(repo, V3_DIR, 'data', view.release);
-  if (!existsSync(data)) throw new Error(`${V3_DIR}/release.json names release ${view.release}, but ${V3_DIR}/data/${view.release}/ is not in the preview repository: nothing to carry for its pages`);
-  const lost = view.assets.filter((name) => !existsSync(join(repo, V3_DIR, 'assets', name)));
-  if (lost.length) throw new Error(`${V3_DIR}/release.json lists chunks the preview repository does not hold: ${lost.join(', ')}`);
+  const data = join(repo, 'data', view.release);
+  if (!existsSync(data)) throw new Error(`release.json names release ${view.release}, but data/${view.release}/ is not in the preview repository: nothing to carry for its pages`);
+  const lost = view.assets.filter((name) => !existsSync(join(repo, 'assets', name)));
+  if (lost.length) throw new Error(`release.json lists chunks the preview repository does not hold: ${lost.join(', ')}`);
   const dir = mkdtempSync(join(tmpdir(), 'h2c-carry-'));
   try {
     // Slim copy (owner decision 2026-10-22, WP-25 site budget): the parts the results need, never the per-material detail/ folder.
     // A stale page that opens a detail panel gets a 404 for its release, which the page's guard answers by reloading once.
     cpSync(data, join(dir, 'data', view.release), { recursive: true, filter: (from) => !relative(data, from).split(/[\\/]/).includes('detail') });
-    for (const name of view.assets) cpSync(join(repo, V3_DIR, 'assets', name), join(dir, 'assets', name));
+    for (const name of view.assets) cpSync(join(repo, 'assets', name), join(dir, 'assets', name));
     return { release: view.release, dir, files: [...walk(join(dir, 'data', view.release))].length, chunks: view.assets.length };
   } catch (e) {
     rmSync(dir, { recursive: true, force: true });
@@ -218,7 +231,7 @@ export function stage(site, repo) {
       for (const sub of [join('data', carried.release), 'assets']) {
         const from = join(carried.dir, sub);
         // force: false keeps the new file wherever the names meet (a chunk with the same hash is the same chunk).
-        if (existsSync(from)) cpSync(from, join(repo, V3_DIR, sub), { recursive: true, force: false });
+        if (existsSync(from)) cpSync(from, join(repo, sub), { recursive: true, force: false });
       }
       carriedRelease = carried.release;
       viewCarried = { files: carried.files, chunks: carried.chunks };
@@ -246,13 +259,13 @@ if (isMain(import.meta.url)) {
     if (argv[0] === 'inject') {
       const info = inject(arg(argv, '--site'), { remake: arg(argv, '--remake'), main: arg(argv, '--main'), runId: arg(argv, '--run-id', false) ?? null });
       console.log(`injected banner and noindex into ${info.htmlFiles} html files; release ${info.release}; sample ${info.sampleMaterial}`);
-    } else if (argv[0] === 'build-v3') {
-      const r = buildV3(arg(argv, '--site'));
-      console.log(`built the public view into ${V3_DIR}/: release ${r.release}, ${r.files} files`);
+    } else if (argv[0] === 'build-view') {
+      const r = buildView(arg(argv, '--site'));
+      console.log(`built the public view into the site root: release ${r.release}, ${r.files} files`);
     } else if (argv[0] === 'stage') {
       const r = stage(arg(argv, '--site'), arg(argv, '--repo'));
       const carried = r.viewCarried ? `${r.viewKept} (${r.viewCarried.files} data files, ${r.viewCarried.chunks} chunks)` : 'none';
       console.log(`staged release ${r.release}; previous kept: ${JSON.stringify(r.previousKept)}; public view's previous data kept: ${carried}`);
-    } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR | build-v3 --site DIR');
+    } else throw new Error('usage: inject --site DIR --remake SHA --main SHA [--run-id ID] | stage --site DIR --repo DIR | build-view --site DIR');
   } catch (e) { console.error(`preview-assemble failed: ${e.message}`); process.exitCode = 1; }
 }

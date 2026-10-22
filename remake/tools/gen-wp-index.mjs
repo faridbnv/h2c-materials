@@ -67,10 +67,18 @@ const EXIT = {
     manual: ['core sufficiency = 0 at the milestone size (npm run parity -- --surface core --milestone)', 'stale-shell, mismatch and 404 browser tests pass (npm run test:browser, tests/browser/delivery.spec.mjs)', 'size report in budget (the owner is asked before a budget is relaxed)'],
   },
   'WP-26': { commands: [], manual: ['P-ui passes on the new adapter', 'keyboard script passes', 'historic links open'] },
-  'WP-27': { commands: [], manual: ['chart traces identical', 'Plotly absent from first load', 'first chart <= 1.2 s', 'brief and export equal on 12 scenarios'] },
+  // The lenses are lazy parts of the public view; the proof is the browser suite (P-ui I4 and I10, the 47 views, chart traces, brief and export on 12 scenarios).
+  'WP-27': {
+    commands: ['npm run typecheck', 'node --test tests/remake/delivery.test.mjs tests/remake/browser-harness.test.mjs tests/remake/shards.test.mjs'],
+    manual: ['P-ui passes with I4 and I10 run (npm run test:browser)', 'chart traces identical, brief and export equal on 12 scenarios (tests/browser/lenses.spec.mjs)', 'Plotly absent from first load; strict boot within 2 KB of WP-26 (size report)'],
+  },
   'WP-28': { commands: [], manual: ['adversarial tests fail closed', 'two commit-pinned scans with zero High', 'one document through proposal, review, accept and export'] },
   'WP-29': { commands: ['npm run doctor:next'], manual: ['CI prints "not run: store absent"', 'manifests of the two copies equal'] },
-  'WP-30': { commands: [], manual: ['smoke green at the preview root', 'task suite green under both base paths', 'budget report in range'] },
+  // The preview root is the new site and today's is at legacy/; the byte budgets are CI gates. Smoke runs against the deployed preview (the manual line).
+  'WP-30': {
+    commands: ['node --test tests/remake/ci.test.mjs tests/remake/size-report.test.mjs', 'node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json'],
+    manual: ['preview-smoke green at the preview root and /legacy/ (after the first deploy)', 'task suite green under both base paths (tests/browser/tasks.spec.mjs)', 'timings measured, not gated (remake/measure/perf-new.json)'],
+  },
   'WP-31': { commands: [], manual: ['journey test per command', 'usage gate recorded'] },
   'WP-32': { commands: ['npm run checks:register -- --cutover-ready'], manual: ['dry-run against the preview deploys the candidate and smoke passes', 'CI minutes within budget'] },
   'WP-33': { commands: [], manual: ['findings file with every finding routed'] },

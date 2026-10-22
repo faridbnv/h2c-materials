@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 import {
   globToRegExp, oldPathViolations, needsReviewSection, hasReviewSection, classifyTier, tierGate, findAttest, parseChangedFiles, attestText, OWNER_GLOBS,
 } from '../../remake/tools/ci-gates.mjs';
-import { injectBanner, inject, stage, buildV3, BANNER_MARK, BANNER_TEXT, TRANSITION_NOTES, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX, NOT_FOUND_HTML, V3_DIR } from '../../remake/tools/preview-assemble.mjs';
+import { injectBanner, inject, stage, buildView, BANNER_MARK, BANNER_TEXT, TRANSITION_NOTES, NOINDEX, STORAGE_SHIM, STORAGE_PREFIX, NOT_FOUND_HTML, LEGACY_DIR } from '../../remake/tools/preview-assemble.mjs';
 import { runSmoke, fetchRetry } from '../../remake/tools/preview-smoke.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -219,46 +219,77 @@ test('the banner names every registered transition, and only those', () => {
   for (const note of Object.values(TRANSITION_NOTES)) assert.ok(BANNER_TEXT.includes(note));
 });
 
+const STAMPED = 'H2C_Material_Selector_2026-01-01_x.html';
+/** The site as the build job's assembly step leaves it before the view is built: today's site at legacy/, its pages beside the place of the new selector, the 404 page. */
 function fakeSite(release = 'abcdef012345') {
   const site = tmp();
-  mkdirSync(join(site, 'materials'));
   const page = '<!doctype html><html><head><title>t</title></head><body>x</body></html>';
-  writeFileSync(join(site, 'index.html'), page);
-  writeFileSync(join(site, 'H2C_Material_Selector_2026-01-01_x.html'), page);
-  writeFileSync(join(site, 'materials', 'M001.html'), page);
-  writeFileSync(join(site, 'materials', 'M001-products.html'), page);
-  writeFileSync(join(site, 'validation-report.md'), '# report');
-  writeFileSync(join(site, 'manifest.json'), JSON.stringify({ release, snapshot: '2026-01-01' }));
+  for (const dir of [join(site, 'materials'), join(site, LEGACY_DIR, 'materials')]) {
+    mkdirSync(dir, { recursive: true });
+    writeFileSync(join(dir, 'M001.html'), page);
+    writeFileSync(join(dir, 'M001-products.html'), page);
+  }
+  writeFileSync(join(site, LEGACY_DIR, 'index.html'), page);
+  writeFileSync(join(site, LEGACY_DIR, STAMPED), page);
+  writeFileSync(join(site, LEGACY_DIR, 'validation-report.md'), '# report');
+  writeFileSync(join(site, LEGACY_DIR, 'manifest.json'), JSON.stringify({ release, snapshot: '2026-01-01' }));
+  return site;
+}
+/** A fake of apps/public's build: the files the real one writes, under `out`, with the stub the real one leaves under each stamped name it is given. */
+function fakePublicBuild({ release = V3_RELEASE, data = true, index = true } = {}) {
+  return ({ out, selectorStubs = [] }) => {
+    const page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>v</title></head><body><div id="app"></div></body></html>';
+    if (index) { writeFileSync(join(out, 'index.html'), page); writeFileSync(join(out, 'material.html'), page); }
+    for (const name of selectorStubs) writeFileSync(join(out, name), page);
+    mkdirSync(join(out, 'assets'));
+    const chunk = `index-${release.replace(/\W/g, '_')}.js`;
+    writeFileSync(join(out, 'assets', chunk), 'export {}');
+    writeFileSync(join(out, 'release.json'), JSON.stringify({ release, assets: [chunk] }));
+    if (data) {
+      mkdirSync(join(out, 'data', release), { recursive: true });
+      for (const part of ['result', 'core', 'estimates', 'reference']) writeFileSync(join(out, 'data', release, `${part}.json`), '{}');
+      mkdirSync(join(out, 'data', release, 'detail'));
+      writeFileSync(join(out, 'data', release, 'detail', 'M001.json'), '{}');
+    }
+  };
+}
+const V3_RELEASE = '0123456789ab';
+/** A whole deploy site: today's site at legacy/, and the view at the root. */
+function fakeDeploy(release = 'abcdef012345', view = V3_RELEASE) {
+  const site = fakeSite(release);
+  buildView(site, { build: fakePublicBuild({ release: view }) });
   return site;
 }
 
 test('inject marks every html file, adds 404.html and preview.json, and refuses an unassembled site', () => {
-  const site = fakeSite();
+  const site = fakeDeploy();
   const info = inject(site, { remake: SHA, main: OLD_SHA, runId: '7' });
   assert.equal(info.remakeCommit, SHA);
   assert.equal(info.mainCommit, OLD_SHA);
-  assert.equal(info.release, 'abcdef012345');
+  assert.equal(info.release, 'abcdef012345', "the old site's release, read at legacy/");
+  assert.equal(info.v3Release, V3_RELEASE, "the view's release is its own");
   assert.equal(info.sampleMaterial, 'materials/M001.html');
-  assert.equal(info.htmlFiles, 5);
-  for (const f of ['index.html', '404.html', 'materials/M001.html', 'materials/M001-products.html']) {
+  assert.equal(info.stampedSelector, STAMPED);
+  assert.equal(info.htmlFiles, 10, 'legacy 4 (its selector, its stamped copy, two pages), the root pages 2, the view 2, the stub 1, the 404 page 1');
+  for (const f of ['index.html', '404.html', 'material.html', STAMPED, 'materials/M001.html', 'materials/M001-products.html', 'legacy/index.html', 'legacy/materials/M001.html']) {
     const t = readFileSync(join(site, f), 'utf8');
-    assert.ok(t.includes(BANNER_MARK) && t.includes(NOINDEX), f);
+    assert.ok(t.includes(BANNER_MARK) && t.includes(NOINDEX) && t.includes(STORAGE_SHIM), f);
   }
-  assert.equal(readFileSync(join(site, 'validation-report.md'), 'utf8'), '# report');
-  assert.deepEqual(JSON.parse(readFileSync(join(site, 'preview.json'), 'utf8')).release, 'abcdef012345');
+  assert.equal(readFileSync(join(site, 'legacy', 'validation-report.md'), 'utf8'), '# report');
+  assert.equal(JSON.parse(readFileSync(join(site, 'preview.json'), 'utf8')).release, 'abcdef012345');
+  assert.equal(readFileSync(join(site, 'assets', `index-${V3_RELEASE}.js`), 'utf8'), 'export {}', 'non-html files are copied untouched');
   assert.throws(() => inject(tmp(), { remake: SHA, main: OLD_SHA }), /manifest\.json missing/);
-  assert.throws(() => inject(fakeSite(), { remake: 'abc', main: OLD_SHA }), /40-character/);
-  const badRelease = fakeSite('../evil');
-  assert.throws(() => inject(badRelease, { remake: SHA, main: OLD_SHA }), /12-character release id/);
+  assert.throws(() => inject(fakeDeploy(), { remake: 'abc', main: OLD_SHA }), /40-character/);
+  assert.throws(() => inject(fakeDeploy('../evil'), { remake: SHA, main: OLD_SHA }), /12-character release id/);
 });
 
 test('inject refuses symbolic links and top-level .git/.github/previous in the site', () => {
-  const a = fakeSite(); symlinkSync(join(a, 'index.html'), join(a, 'link.html'));
+  const a = fakeDeploy(); symlinkSync(join(a, 'index.html'), join(a, 'link.html'));
   assert.throws(() => inject(a, { remake: SHA, main: OLD_SHA }), /symbolic link/);
-  const nested = fakeSite(); mkdirSync(join(nested, 'materials', '.git'));
+  const nested = fakeDeploy(); mkdirSync(join(nested, 'materials', '.git'));
   assert.throws(() => inject(nested, { remake: SHA, main: OLD_SHA }), /\.git folder inside the site/);
   for (const d of ['.git', '.github', 'previous']) {
-    const b = fakeSite(); mkdirSync(join(b, d));
+    const b = fakeDeploy(); mkdirSync(join(b, d));
     assert.throws(() => inject(b, { remake: SHA, main: OLD_SHA }), /top-level/);
   }
 });
@@ -266,14 +297,14 @@ test('inject refuses symbolic links and top-level .git/.github/previous in the s
 test('stage keeps exactly the previous release in previous/ and leaves it alone when the release is unchanged', () => {
   const repo = tmp();
   mkdirSync(join(repo, '.git'));
-  const deploy = (release, marker) => {
-    const site = fakeSite(release);
+  const deploy = (release, marker, view = V3_RELEASE) => {
+    const site = fakeDeploy(release, view);
     writeFileSync(join(site, 'marker.txt'), marker);
     inject(site, { remake: SHA, main: OLD_SHA });
     return stage(site, repo);
   };
   deploy('111111111111', 'one');
-  assert.deepEqual(readdirSync(repo).sort(), ['.git', '.nojekyll', '404.html', 'H2C_Material_Selector_2026-01-01_x.html', 'index.html', 'manifest.json', 'marker.txt', 'materials', 'preview.json', 'validation-report.md']);
+  assert.deepEqual(readdirSync(repo).sort(), ['.git', '.nojekyll', '404.html', STAMPED, 'assets', 'data', 'index.html', 'legacy', 'marker.txt', 'material.html', 'materials', 'preview.json', 'release.json']);
   deploy('222222222222', 'two');
   assert.deepEqual(readdirSync(join(repo, 'previous')), ['111111111111']);
   assert.equal(readFileSync(join(repo, 'previous', '111111111111', 'marker.txt'), 'utf8'), 'one');
@@ -290,48 +321,24 @@ test('stage keeps exactly the previous release in previous/ and leaves it alone 
   assert.throws(() => deploy('555555555555', 'five'), /names no release/);
 });
 
-// ---- the public view at /v3/ (WP-14) --------------------------------------------------------------------------------
-const V3_RELEASE = '0123456789ab';
-/** A stand-in for apps/public's build: the files the real one writes, under `out`. */
-function fakePublicBuild({ release = V3_RELEASE, data = true, index = true } = {}) {
-  return ({ out }) => {
-    const page = '<!doctype html><html lang="en"><head><meta charset="utf-8"><title>v</title></head><body><div id="app"></div></body></html>';
-    if (index) { writeFileSync(join(out, 'index.html'), page); writeFileSync(join(out, 'material.html'), page); }
-    mkdirSync(join(out, 'assets'));
-    const chunk = `index-${release.replace(/\W/g, '_')}.js`;
-    writeFileSync(join(out, 'assets', chunk), 'export {}');
-    writeFileSync(join(out, 'release.json'), JSON.stringify({ release, assets: [chunk] }));
-    if (data) {
-      mkdirSync(join(out, 'data', release), { recursive: true });
-      for (const part of ['result', 'core', 'estimates', 'reference']) writeFileSync(join(out, 'data', release, `${part}.json`), '{}');
-      mkdirSync(join(out, 'data', release, 'detail'));
-      writeFileSync(join(out, 'data', release, 'detail', 'M001.json'), '{}');
-    }
-  };
-}
-
-test('build-v3 puts the view in _site/v3/, and inject then marks its pages like every other page and records its release', () => {
+// ---- the public view at the root (WP-30; the view of WP-14 was at /v3/) -----------------------------------------------------
+test('build-view puts the view at the root of _site, beside the old site at legacy/, and inject then marks its pages like every other page and records its release', () => {
   const site = fakeSite();
-  const built = buildV3(site, { build: fakePublicBuild() });
+  const built = buildView(site, { build: fakePublicBuild() });
   assert.equal(built.release, V3_RELEASE);
-  assert.ok(existsSync(join(site, V3_DIR, 'data', V3_RELEASE, 'result.json')));
+  assert.ok(existsSync(join(site, 'data', V3_RELEASE, 'result.json')));
+  assert.ok(existsSync(join(site, STAMPED)), 'a stamped address of this release opens the selector: a stub stands under it');
+  assert.ok(existsSync(join(site, LEGACY_DIR, 'index.html')), "today's site is untouched");
   const info = inject(site, { remake: SHA, main: OLD_SHA });
   assert.equal(info.v3Release, V3_RELEASE);
   assert.equal(info.release, 'abcdef012345', "the old site's release is untouched");
-  assert.equal(info.htmlFiles, 7, 'the five of the old site and the two of the view');
-  for (const f of ['v3/index.html', 'v3/material.html']) {
-    const t = readFileSync(join(site, f), 'utf8');
-    assert.ok(t.includes(BANNER_MARK) && t.includes(NOINDEX) && t.includes(STORAGE_SHIM), `${f}: banner, noindex and storage shim`);
-  }
-  assert.equal(readFileSync(join(site, 'v3', 'assets', `index-${V3_RELEASE}.js`), 'utf8'), 'export {}', 'non-html files are copied untouched');
 });
 
 test('stage keeps the public view\'s previous release (its data and its chunks) beside the new one, so a page cached before the deploy still loads', () => {
   const repo = tmp();
   mkdirSync(join(repo, '.git'));
   const deploy = (release, view) => {
-    const site = fakeSite(release);
-    buildV3(site, { build: fakePublicBuild({ release: view }) });
+    const site = fakeDeploy(release, view);
     inject(site, { remake: SHA, main: OLD_SHA });
     return stage(site, repo);
   };
@@ -341,13 +348,13 @@ test('stage keeps the public view\'s previous release (its data and its chunks) 
   assert.equal(second.viewKept, A);
   assert.deepEqual(second.viewCarried, { files: 4, chunks: 1 }, 'the log can say what was carried: the four parts (no detail/) and the one chunk');
   assert.equal(JSON.parse(readFileSync(join(repo, 'preview.json'), 'utf8')).v3Previous, A, 'the smoke test is told which release was kept');
-  const has = (p) => existsSync(join(repo, V3_DIR, p));
+  const has = (p) => existsSync(join(repo, p));
   assert.ok(has(`data/${A}/core.json`) && has(`assets/index-${A}.js`), 'the old page\'s data and chunk are still served');
   assert.ok(has(`data/${B}/core.json`) && has(`assets/index-${B}.js`), 'and the new page\'s');
   // Owner decision 2026-10-22 (site budget): the previous release is kept slim, without its per-material detail parts.
   assert.ok(!has(`data/${A}/detail`) && has(`data/${A}/estimates.json`) && has(`data/${A}/reference.json`), 'the previous release keeps its parts but not detail/');
   assert.ok(has(`data/${B}/detail/M001.json`), 'the current release keeps its detail parts');
-  assert.equal(readFileSync(join(repo, V3_DIR, 'release.json'), 'utf8').includes(B), true, 'the view that is current is the new one');
+  assert.equal(readFileSync(join(repo, 'release.json'), 'utf8').includes(B), true, 'the view that is current is the new one');
   // The old site's release is unchanged, the view's is not: the view's previous release is still carried.
   assert.equal(deploy('222222222222', C).viewKept, B);
   assert.ok(has(`data/${B}/core.json`) && has(`assets/index-${B}.js`) && has(`data/${C}/core.json`));
@@ -362,42 +369,41 @@ test('stage keeps the public view\'s previous release (its data and its chunks) 
 
 test('stage refuses to carry less than the previous view lists: a data folder or a chunk that is not in the repository is an error, not a smaller carry', () => {
   const deployTo = (repo, release, view) => {
-    const site = fakeSite(release);
-    buildV3(site, { build: fakePublicBuild({ release: view }) });
+    const site = fakeDeploy(release, view);
     inject(site, { remake: SHA, main: OLD_SHA });
     return stage(site, repo);
   };
   const fresh = () => { const repo = tmp(); mkdirSync(join(repo, '.git')); deployTo(repo, '111111111111', 'aaaaaaaaaaaa'); return repo; };
   const noData = fresh();
-  rmSync(join(noData, V3_DIR, 'data', 'aaaaaaaaaaaa'), { recursive: true });
+  rmSync(join(noData, 'data', 'aaaaaaaaaaaa'), { recursive: true });
   assert.throws(() => deployTo(noData, '222222222222', 'bbbbbbbbbbbb'), /data\/aaaaaaaaaaaa\/ is not in the preview repository/);
   const noChunk = fresh();
-  rmSync(join(noChunk, V3_DIR, 'assets', 'index-aaaaaaaaaaaa.js'));
+  rmSync(join(noChunk, 'assets', 'index-aaaaaaaaaaaa.js'));
   assert.throws(() => deployTo(noChunk, '222222222222', 'bbbbbbbbbbbb'), /lists chunks the preview repository does not hold: index-aaaaaaaaaaaa\.js/);
 });
 
-test('a site without a view is injected as before, and the view is never half published', () => {
-  assert.equal(inject(fakeSite(), { remake: SHA, main: OLD_SHA }).v3Release, undefined);
+test('a site without a view is refused, and the view is never half published', () => {
+  assert.throws(() => inject(fakeSite(), { remake: SHA, main: OLD_SHA }), /index\.html missing/);
   const site = fakeSite();
-  assert.throws(() => buildV3(site, { build: fakePublicBuild({ data: false }) }), /no data\/0123456789ab\/result\.json/);
+  assert.throws(() => buildView(site, { build: fakePublicBuild({ data: false }) }), /no data\/0123456789ab\/result\.json/);
   const partial = fakeSite();
-  assert.throws(() => buildV3(partial, { build: ({ out }) => { fakePublicBuild()({ out }); rmSync(join(out, 'data', V3_RELEASE, 'estimates.json')); } }), /no data\/0123456789ab\/estimates\.json/, 'a view missing one of its parts is never published');
-  assert.ok(!existsSync(join(site, V3_DIR)), 'nothing is copied when the data is missing');
-  assert.throws(() => buildV3(fakeSite(), { build: fakePublicBuild({ index: false }) }), /no index\.html/);
-  assert.throws(() => buildV3(fakeSite(), { build: fakePublicBuild({ release: '../evil' }) }), /no valid release/);
+  assert.throws(() => buildView(partial, { build: ({ out }) => { fakePublicBuild()({ out }); rmSync(join(out, 'data', V3_RELEASE, 'estimates.json')); } }), /no data\/0123456789ab\/estimates\.json/, 'a view missing one of its parts is never published');
+  assert.ok(!existsSync(join(site, 'index.html')) && !existsSync(join(site, 'data')), 'nothing is copied when the data is missing');
+  assert.throws(() => buildView(fakeSite(), { build: fakePublicBuild({ index: false }) }), /has no index\.html/);
+  assert.throws(() => buildView(fakeSite(), { build: fakePublicBuild({ release: '../evil' }) }), /no valid release/);
   const twice = fakeSite();
-  buildV3(twice, { build: fakePublicBuild() });
-  assert.throws(() => buildV3(twice, { build: fakePublicBuild() }), /exists already/);
-  const broken = fakeSite(); mkdirSync(join(broken, V3_DIR));
-  assert.throws(() => inject(broken, { remake: SHA, main: OLD_SHA }), /v3\/ has no index\.html and release\.json/);
-  const nodata = fakeSite(); buildV3(nodata, { build: fakePublicBuild() }); rmSync(join(nodata, 'v3', 'data'), { recursive: true });
+  buildView(twice, { build: fakePublicBuild() });
+  assert.throws(() => buildView(twice, { build: fakePublicBuild() }), /exists already/);
+  const nodata = fakeDeploy(); rmSync(join(nodata, 'data'), { recursive: true });
   assert.throws(() => inject(nodata, { remake: SHA, main: OLD_SHA }), /has no data\/0123456789ab\/result\.json/);
+  const noLegacy = fakeDeploy(); rmSync(join(noLegacy, LEGACY_DIR), { recursive: true });
+  assert.throws(() => inject(noLegacy, { remake: SHA, main: OLD_SHA }), /manifest\.json missing/);
 });
 
-test('build-v3 says so, and writes nothing, where the toolchain is not installed', () => {
+test('build-view says so, and writes nothing, where the toolchain is not installed', () => {
   const site = fakeSite();
-  assert.throws(() => buildV3(site, { root: tmp() }), /node_modules\/vite is not installed/);
-  assert.ok(!existsSync(join(site, V3_DIR)));
+  assert.throws(() => buildView(site, { root: tmp() }), /node_modules\/vite is not installed/);
+  assert.ok(!existsSync(join(site, 'index.html')));
 });
 
 test('the 404 page finds the site root from the first segment of its own address, at any depth', () => {
@@ -408,7 +414,7 @@ test('the 404 page finds the site root from the first segment of its own address
     new Function('location', 'document', script)({ pathname }, { getElementById: (id) => (id === 'home' ? anchor : null) });
     return anchor.href;
   };
-  assert.equal(link('/h2c-material-temp-page/v3/missing/deeper/x'), '/h2c-material-temp-page/');
+  assert.equal(link('/h2c-material-temp-page/legacy/missing/deeper/x'), '/h2c-material-temp-page/');
   assert.equal(link('/h2c-materials-next/nothing.html'), '/h2c-materials-next/');
   assert.equal(link('/'), './', 'at the root the relative link stands');
   assert.doesNotMatch(NOT_FOUND_HTML, /<script[^>]*\ssrc=/, 'no script from another file');
@@ -425,30 +431,40 @@ const VIEW = '0123456789ab';
 const PREVIOUS_VIEW = 'fedcba987654';
 const json = (body) => ({ body: JSON.stringify(body), type: 'application/json' });
 const viewPart = (release, name, body) => ({ path: `data/${release}/${name}.json`, body, sha256: createHash('sha256').update(body).digest('hex'), bytes: Buffer.byteLength(body) });
-/** What a deploy of the public view serves: the page, release.json, the parts it lists, a results file and one material. `previous` adds a kept release (no detail/). */
-function viewFiles({ over = {}, manifest = {}, previous = false, release = VIEW } = {}) {
-  const parts = Object.fromEntries(['core', 'estimates', 'reference'].map((n) => [n, viewPart(release, n, `{"kind":"${n}"}`)]));
-  const result = (r) => json({ kind: 'result', release: r, materials: [{ materialId: 'M001' }] });
+const STUB = '<html><head><script>location.replace("./"+location.search+location.hash)</script></head><body></body></html>';
+/** A tiny core part and the estimates that fit it, which is what the Explore scenario joins. */
+const CORE = { kind: 'core', model: { materials: [{ id: 'M001', headline: { density: { known: true } }, print: {} }], grades: [{ id: 'G001-01' }], meta: {} } };
+const ESTIMATES = { kind: 'estimates', status: 'available', overlay: { grades: {}, materials: {}, meta: {} } };
+/** What a deploy of the public view serves at the root: the page, release.json, the parts it lists, a results file and one material. `previous` adds a kept release (no detail/). */
+function viewFiles({ over = {}, manifest = {}, previous = false, release = VIEW, counts = { pass: 1, unknown: 0, fail: 0, total: 1 } } = {}) {
+  const parts = {
+    core: viewPart(release, 'core', JSON.stringify({ ...CORE, release })),
+    estimates: viewPart(release, 'estimates', JSON.stringify({ ...ESTIMATES, release })),
+    reference: viewPart(release, 'reference', JSON.stringify({ kind: 'reference', release })),
+  };
+  const result = (r) => json({ kind: 'result', release: r, materials: [{ materialId: 'M001', verdict: 'PASS' }] });
   return {
-    '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html', v3Release: release, ...(previous ? { v3Previous: PREVIOUS_VIEW } : {}) }),
-    '/v3/index.html': { body: `${MARKED}<meta name="h2c-release" content="${release}">` },
-    '/v3/release.json': json({ release, files: Object.fromEntries(Object.entries(parts).map(([k, v]) => [k, { path: v.path, sha256: v.sha256, bytes: v.bytes }])), ...manifest }),
-    ...Object.fromEntries(Object.values(parts).map((v) => [`/v3/${v.path}`, { body: v.body, type: 'application/json' }])),
-    [`/v3/data/${release}/result.json`]: result(release),
-    [`/v3/data/${release}/material/M001.json`]: json({ kind: 'material', release, materialId: 'M001' }),
-    ...(previous ? { [`/v3/data/${PREVIOUS_VIEW}/result.json`]: result(PREVIOUS_VIEW) } : {}),
+    '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html', stampedSelector: 'H2C_Material_Selector_2026-01-01_x.html', v3Release: release, ...(previous ? { v3Previous: PREVIOUS_VIEW } : {}) }),
+    '/index.html': { body: `${MARKED}<meta name="h2c-release" content="${release}">` },
+    '/release.json': json({ release, counts, files: Object.fromEntries(Object.entries(parts).map(([k, v]) => [k, { path: v.path, sha256: v.sha256, bytes: v.bytes }])), ...manifest }),
+    ...Object.fromEntries(Object.values(parts).map((v) => [`/${v.path}`, { body: v.body, type: 'application/json' }])),
+    [`/data/${release}/result.json`]: result(release),
+    [`/data/${release}/material/M001.json`]: json({ kind: 'material', release, materialId: 'M001' }),
+    ...(previous ? { [`/data/${PREVIOUS_VIEW}/result.json`]: result(PREVIOUS_VIEW) } : {}),
     ...over,
   };
 }
 function siteHandler(over = {}) {
   const files = {
-    '/index.html': { body: MARKED }, '/materials/M001.html': { body: MARKED }, '/404.html': { body: MARKED },
-    '/manifest.json': { body: JSON.stringify({ release: 'rel123456789' }), type: 'application/json' }, ...viewFiles(), ...over,
+    '/materials/M001.html': { body: MARKED }, '/404.html': { body: MARKED },
+    '/H2C_Material_Selector_2026-01-01_x.html': { body: STUB },
+    '/legacy/index.html': { body: MARKED }, '/legacy/materials/M001.html': { body: MARKED },
+    '/legacy/manifest.json': { body: JSON.stringify({ release: 'rel123456789' }), type: 'application/json' }, ...viewFiles(), ...over,
   };
   return (req, res) => {
     const path = new URL(req.url, 'http://x').pathname;
     const f = files[path === '/' ? '/index.html' : path];
-    if (!f) { res.writeHead(404, { 'content-type': 'text/html' }); res.end(MARKED); return; }
+    if (!f) { res.writeHead(404, { 'content-type': 'text/html' }); res.end(path.includes('H2C_Material_Selector_') ? `${MARKED}H2C_Material_Selector` : MARKED); return; }
     res.writeHead(f.status ?? 200, { 'content-type': f.type ?? 'text/html', age: '3' });
     res.end(f.body);
   };
@@ -500,11 +516,15 @@ test('smoke fails (never passes silently) on timeout, wrong commit, missing bann
   const unknown = await run({}, { pushedAt: null, requirePushedAt: true });
   assert.deepEqual(failed(unknown), ['PUSHED_AT is known (the deploy job reports when it pushed)']);
   // missing banner / noindex on the index
-  const plain = await run({ '/index.html': { body: '<html><head></head><body>rel123456789</body></html>' } });
+  const plain = await run({ '/index.html': { body: `<html><head></head><body>${VIEW}</body></html>` } });
   assert.deepEqual(failed(plain), ['index.html: banner', 'index.html: noindex']);
   // the sample material is 404, the 404 page is absent, the manifest disagrees
-  const broken = await run({ '/materials/M001.html': { status: 404, body: 'x' }, '/manifest.json': { body: JSON.stringify({ release: 'other' }) } });
-  assert.deepEqual(failed(broken).sort(), ['manifest.json release equals preview.json release', 'materials/M001.html: HTTP 200']);
+  const broken = await run({ '/materials/M001.html': { status: 404, body: 'x' }, '/legacy/manifest.json': { body: JSON.stringify({ release: 'other' }) } });
+  assert.deepEqual(failed(broken).sort(), ['legacy/manifest.json release equals preview.json release', 'materials/M001.html: HTTP 200']);
+  // the old site beside the new one, and an old link
+  assert.deepEqual(failed(await run({ '/legacy/index.html': { body: '<html><head></head><body>x</body></html>' } })).sort(), ['legacy/index.html carries the old release id', 'legacy/index.html: banner', 'legacy/index.html: noindex']);
+  assert.deepEqual(failed(await run({ '/H2C_Material_Selector_2026-01-01_x.html': { status: 404, body: 'x' } })), ['old link H2C_Material_Selector_2026-01-01_x.html: HTTP 200']);
+  assert.deepEqual(failed(await run({ '/H2C_Material_Selector_2026-01-01_x.html': { body: '<html>no hash</html>' } })), ["an old link's stub keeps the hash on its way to the selector"]);
   const noNf = await run({ '/404.html': { status: 404, body: 'x' } });
   assert.deepEqual(failed(noNf), ['404.html: HTTP 200']);
   // a missing path that answers 200 is wrong
@@ -521,29 +541,35 @@ test('smoke fails (never passes silently) on timeout, wrong commit, missing bann
   assert.match(gone.checks[0].detail, /timed out after 20s/);
 });
 
-test('smoke also checks the public view: its parts are served whole and are the ones its release.json lists, and its results and a material answer', async () => {
+test('smoke also checks the public view at the root: its parts are served whole and are the ones its release.json lists, its results and a material answer, and the two scenarios read from the bytes', async () => {
   const run = async (over, manifest, extra = {}) => { const s = await serve(siteHandler(viewFiles({ over, manifest, ...extra }))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
   const ok = await run();
   assert.equal(ok.status, 'pass', JSON.stringify(failed(ok)));
-  assert.ok(ok.checks.some((c) => c.name === 'v3 core part is the one release.json lists'));
-  assert.ok(ok.checks.some((c) => c.name === 'v3 material/M001.json is that material of this release'), 'one material of the current release is fetched');
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/core.json`]: { body: '{"kind":"corX"}' } })), ['v3 core part is the one release.json lists'], 'bytes that are not the listed ones');
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/estimates.json`]: { status: 404, body: 'x' } })), ['v3 estimates part: HTTP 200'], 'a part that is not served');
-  assert.deepEqual(failed(await run({}, { release: 'ffffffffffff' })), ['v3/release.json names the view\'s release']);
-  assert.deepEqual(failed(await run({ '/v3/index.html': { body: MARKED } })), ['v3/index.html carries the view\'s release id']);
-  assert.deepEqual(failed(await run({ '/v3/release.json': { status: 404, body: 'x' } })), ['v3/release.json: HTTP 200']);
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/result.json`]: { status: 404, body: 'x' } })), [`v3 result.json of ${VIEW}: HTTP 200`], 'no results file');
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/result.json`]: json({ kind: 'result', release: 'ffffffffffff', materials: [{ materialId: 'M001' }] }) })), [`v3 result.json of ${VIEW} names its release and a material`]);
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/material/M001.json`]: { status: 404, body: 'x' } })), ['v3 material/M001.json: HTTP 200'], 'no material file');
-  assert.deepEqual(failed(await run({ [`/v3/data/${VIEW}/material/M001.json`]: json({ kind: 'material', release: 'ffffffffffff', materialId: 'M001' }) })), ['v3 material/M001.json is that material of this release']);
+  assert.ok(ok.checks.some((c) => c.name === 'core part is the one release.json lists'));
+  assert.ok(ok.checks.some((c) => c.name === 'material/M001.json is that material of this release'), 'one material of the current release is fetched');
+  assert.ok(ok.checks.some((c) => c.name === 'Strict scenario: result.json lists as many verdicts as release.json counts'));
+  assert.ok(ok.checks.some((c) => c.name === 'Explore scenario: the estimates part joins the core part'));
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/core.json`]: { body: '{"kind":"corX"}' } })).sort(), ['Explore scenario: the estimates part joins the core part', 'Strict scenario: every material it lists is in the core part', 'core part is the one release.json lists'], 'bytes that are not the listed ones');
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/estimates.json`]: { status: 404, body: 'x' } })), ['estimates part: HTTP 200', 'the two scenarios could be read'], 'a part that is not served');
+  assert.deepEqual(failed(await run({}, { release: 'ffffffffffff' })), ["release.json names the view's release"]);
+  assert.deepEqual(failed(await run({ '/index.html': { body: MARKED } })), ["index.html carries the view's release id"]);
+  assert.deepEqual(failed(await run({ '/release.json': { status: 404, body: 'x' } })), ['release.json: HTTP 200']);
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/result.json`]: { status: 404, body: 'x' } })), [`result.json of ${VIEW}: HTTP 200`], 'no results file');
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/result.json`]: json({ kind: 'result', release: 'ffffffffffff', materials: [{ materialId: 'M001' }] }) })).includes(`result.json of ${VIEW} names its release and a material`), true);
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/material/M001.json`]: { status: 404, body: 'x' } })), ['material/M001.json: HTTP 200'], 'no material file');
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/material/M001.json`]: json({ kind: 'material', release: 'ffffffffffff', materialId: 'M001' }) })), ['material/M001.json is that material of this release']);
+  // the Strict scenario's counts are release.json's: a count that disagrees with the verdicts listed is a failed check
+  assert.deepEqual(failed(await run({}, undefined, { counts: { pass: 0, unknown: 0, fail: 1, total: 1 } })), ['Strict scenario: result.json lists as many verdicts as release.json counts']);
+  // an estimates part that is not of this core is refused, as the page refuses it
+  assert.deepEqual(failed(await run({ [`/data/${VIEW}/estimates.json`]: { body: JSON.stringify({ ...ESTIMATES, release: VIEW, overlay: { grades: { 'G999-01': {} }, materials: {}, meta: {} } }) } })).includes('Explore scenario: the estimates part joins the core part'), true);
 });
 
 test('smoke never skips the public view: a preview.json with no v3Release is a failed check', async () => {
-  const noView = { '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html' }) };
+  const noView = { '/preview.json': json({ remakeCommit: SHA, mainCommit: OLD_SHA, builtAt: 'now', release: 'rel123456789', sampleMaterial: 'materials/M001.html', stampedSelector: 'H2C_Material_Selector_2026-01-01_x.html' }) };
   const s = await serve(siteHandler(noView));
   try {
     const m = await runSmoke(cfg(s.url), fastDeps());
-    assert.deepEqual(failed(m), ['v3 view checked']);
+    assert.deepEqual(failed(m), ['the public view checked']);
     assert.equal(m.status, 'fail');
   } finally { await s.close(); }
 });
@@ -552,9 +578,9 @@ test('smoke checks the kept release: its results answer and its detail is gone (
   const run = async (over) => { const s = await serve(siteHandler(viewFiles({ over, previous: true }))); try { return await runSmoke(cfg(s.url), fastDeps()); } finally { await s.close(); } };
   const ok = await run();
   assert.equal(ok.status, 'pass', JSON.stringify(failed(ok)));
-  assert.ok(ok.checks.some((c) => c.name === `v3 previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`));
-  assert.deepEqual(failed(await run({ [`/v3/data/${PREVIOUS_VIEW}/result.json`]: { status: 404, body: 'x' } })), [`v3 result.json of ${PREVIOUS_VIEW}: HTTP 200`], 'a stale shell would lose its results');
-  assert.deepEqual(failed(await run({ [`/v3/data/${PREVIOUS_VIEW}/detail/M001.json`]: json({ kind: 'detail' }) })), [`v3 previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`], 'the detail folder was meant to go');
+  assert.ok(ok.checks.some((c) => c.name === `previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`));
+  assert.deepEqual(failed(await run({ [`/data/${PREVIOUS_VIEW}/result.json`]: { status: 404, body: 'x' } })), [`result.json of ${PREVIOUS_VIEW}: HTTP 200`], 'a stale shell would lose its results');
+  assert.deepEqual(failed(await run({ [`/data/${PREVIOUS_VIEW}/detail/M001.json`]: json({ kind: 'detail' }) })), [`previous release ${PREVIOUS_VIEW}: detail/M001.json is gone: HTTP 404`], 'the detail folder was meant to go');
 });
 
 test('fetchRetry retries 5xx and network errors, then throws; it returns a 404 for the caller to judge', async () => {

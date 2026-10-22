@@ -4,7 +4,8 @@
 //                         the rail print beside it (src/view-fields.ts), with the release's view facts (src/view-facts.ts) next to the model
 //   estimates.json        the estimate stage's overlay cut to ESTIMATE_FIELDS: what Explore with estimates reads on top of the core
 //   shared.json           what every material's drawer reads and no material owns: the filament guide's rows, the method's rules, the topics makers are asked on
-//   reference.json        the Ashby reference set
+//   reference.json        the Ashby reference set, and the rest of every material's headline values (the core carries the ones a decision and the table read; the chart
+//                         lenses, parallel lines, coverage and compare read them all, and fetch this part when first opened)
 //   detail/<M>.json       one material's records and the sources they cite: drawer, pages, brief, export. Never read by a decision.
 //
 // Every part names its release, and every source address in a part has been through publicUrl (owner ruling R3 C): a path on the
@@ -12,7 +13,7 @@
 import { createHash } from 'node:crypto';
 import type { Db } from '@atlas/data';
 import { CORE_FIELDS, ESTIMATE_FIELDS } from '@atlas/domain';
-import { mergeSpecs, omitRecord, overlayOf, pruneOverlay, pruneRecord, publicize } from '@atlas/publish/shards';
+import { encodeDetail, mergeSpecs, omitRecord, overlayOf, pruneOverlay, pruneRecord, publicize } from '@atlas/publish/shards';
 import type { FieldSpec, Obj } from '@atlas/publish/shards';
 import { VIEW_FIELDS } from '../src/view-fields.ts';
 import { viewFactsOf } from './view-facts.ts';
@@ -156,6 +157,12 @@ function detailOf(material: Obj, index: ReturnType<typeof detailIndex>, release:
   return { kind: 'detail', release, materialId: id, records: publicize(records) };
 }
 
+/** Every material's detail part as the page reads it, before it is written in rows (tests/remake/detail-encoding.test.mjs holds the written part to it). */
+export function plainDetails(db: Db, release: string): Map<string, Obj> {
+  const index = detailIndex(db);
+  return new Map(rowsOf(db, 'materials').map((material) => [String(material['id']), detailOf(material, index, release)]));
+}
+
 const info = (path: string, text: string): PartInfo => ({ path, sha256: createHash('sha256').update(text).digest('hex'), bytes: Buffer.byteLength(text) });
 
 /**
@@ -176,7 +183,14 @@ export function makeShards(db: Db, reference: unknown, release: string): Shards 
   const withheld = meta['estimateWithheld'] ?? null;
   const status = withheld === null ? 'available' : 'withheld';
   const estimates = text('estimates.json', publicize({ kind: 'estimates', release, status, withheld, overlay: pruneOverlay(overlayOf(db), ESTIMATE_FIELDS) }));
-  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference }));
+  // The rest of each material's headline, as the detail carries the rest of its records: the page joins it to the core's (publish/shards applyHeadlines).
+  const dbMeta: Obj = db.meta;
+  const materialsSpec = section('materials');
+  const headlines = Object.fromEntries(rowsOf(db, 'materials').map((material) => {
+    const rest = omitRecord(material, materialsSpec ?? true);
+    return [String(material['id']), isRecord(rest?.['headline']) ? rest['headline'] : {}];
+  }));
+  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference, headlines, meta: { sparseProperties: dbMeta['sparseProperties'] ?? [] } }));
   const index = detailIndex(db);
   // The documents the filament guide's rows cite are not any one material's records, so no detail part holds them; the drawer names them in its sentences.
   const guideSources = [...new Set(rowsOf(db, 'printGuide').flatMap((row) => ['sourceId', 'h2cSourceId', 'sourceIds'].flatMap((key) => idsIn(row[key]))))].sort().map((sourceId) => {
@@ -187,7 +201,7 @@ export function makeShards(db: Db, reference: unknown, release: string): Shards 
   const sharedText = text('shared.json', publicize({ kind: 'shared', release, tables: { printGuide: db.printGuide, method: db.method }, sources: guideSources, knowHow: meta['knowHow'] ?? null, registry: { comparisons: db.registry.comparisons, properties: db.registry.properties, relations: db.registry.relations } }));
 
   const materials = rowsOf(db, 'materials');
-  for (const material of materials) text(`detail/${String(material['id'])}.json`, detailOf(material, index, release));
+  for (const material of materials) text(`detail/${String(material['id'])}.json`, encodeDetail(detailOf(material, index, release)));
 
   return {
     files,
