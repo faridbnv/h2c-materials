@@ -1,13 +1,28 @@
 {
   "id": "WP-34",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-m4-cutover-kit",
   "pr": null,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-22T19:21:15.284Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run candidate:check",
+      "result": "not-run",
+      "code": 0,
+      "note": "exit 0 but the output says it skipped, ran no test or left a test todo; that is not a pass",
+      "tail": "candidate:check: not run: no candidate is named and remake/candidates/ holds no receipt"
+    },
+    {
+      "cmd": "attest safari-check",
+      "result": "not-run",
+      "note": "no row in remake/attest.csv"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-22T19:21:15.511Z",
+  "note": "Built in the M4 branch wp-m4-cutover-kit: candidate:receipt and candidate:check, the main-unchanged check, the defects-disposition gate (all 16 defects dispositioned). No candidate has been named, so no receipt exists; the owner's safari-check row is the person-step."
 }

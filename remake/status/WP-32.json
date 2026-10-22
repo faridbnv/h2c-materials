@@ -1,13 +1,32 @@
 {
   "id": "WP-32",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-m4-cutover-kit",
   "pr": null,
-  "exitCheck": "not-run",
-  "lastRun": null,
+  "exitCheck": "fail",
+  "lastRun": "2026-10-22T19:21:14.781Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run checks:register -- --cutover-ready",
+      "result": "fail",
+      "code": 1,
+      "tail": "e-at-cutover): the owner has not approved retiring it. To record the owner's approval, the owner runs: npm run wp:attest -- retire-approved J-pages-keep-release\nchecks:register: not ready: J-pages-assemble (successor): its successor is owned by WP-32, which is todo\nchecks:register: not ready: J-pages-deploy (successor): its successor is owned by WP-32, which is todo\nchecks:register: not ready: J-pages-deploy (successor): its successor is owned by WP-35, which is todo\nchecks:register: NOT cutover-ready: 0 register problem(s), 36 row(s) without a proved successor or an approval to retire, of 155"
+    },
+    {
+      "cmd": "manual: dry-run against the preview deploys the candidate and smoke passes",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: CI minutes within budget",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-22T19:21:15.059Z",
+  "note": "Built in the M4 branch wp-m4-cutover-kit (one change for WP-32, WP-34 and WP-35): next-main.yml, the plan (cutover.mjs), the artifact digest, restore from the saved site, DEPLOY_HOLD, checks:register --cutover-ready. The exit check fails today on purpose: it lists 36 rows without a proved successor or an approval to retire (8 need the owner's retire-approved rows; 28 wait for the owner packages to be done). The dry run on the preview has not run (it needs the merge)."
 }
