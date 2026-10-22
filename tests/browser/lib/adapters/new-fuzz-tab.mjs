@@ -6,9 +6,8 @@
 // Reading is not synchronous as it was on the old page: a change of policy or of the estimates switch may fetch the estimates part
 // first. A step therefore waits for the lens's data-vrev to change and for its data-state to be "ready" before it reads.
 //
-// What this page does not draw yet: the Ashby lens and the decision view arrive with WP-27. The tab says so (`lenses`), the fuzz reads
-// the lens the page has, and the invariant families that only the Ashby lens can check (I4 the plotted points, I10 the decision marks)
-// are reported as not run, with the reason, never as passed (`notRun`).
+// Since WP-27 the page draws the Ashby lens and its decision view, so the tab reads the chart as the old tab does (the data handed to the chart
+// library, the legend and the reading sentence) and the families that only the Ashby lens can check (I4 the plotted points, I10 the decision marks) run.
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { waitUntil } from './old-fuzz-tab.mjs';
@@ -38,6 +37,27 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
       if (v) out.rail[k] = [q('[data-testid="rail-op"][data-op-for="' + k + '"]').value, v.value, q('[data-testid="rail-soft"][data-soft="' + k + '"]')?.checked ?? null];
     }
     let badSrc = lensText + ' ' + count;
+    const plot = document.getElementById('plot');
+    if (plot) {
+      out.points = []; out.envs = []; out.front = null;
+      for (const t of plot.data ?? []) {
+        if (t.legendgroup === 'pareto') out.front = t.x.map((x, i) => [x, t.y[i]]);
+        else if (typeof t.hovertemplate === 'string' && t.hovertemplate.includes('Estimated material range')) out.envs.push([t.customdata[0][0], t.x, t.y]);
+        else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 8) t.customdata.forEach((cd, i) => out.points.push([cd[0], t.x[i], t.y[i], cd[2], cd[7]]));
+        else if (Array.isArray(t.customdata) && t.customdata[0]?.length === 9) t.customdata.forEach((cd, i) => (out.pairs ??= []).push([cd[8], t.x[i], t.y[i], cd[2], cd[0]]));
+        badSrc += ' ' + (t.name ?? '') + ' ' + (Array.isArray(t.text) ? t.text.join(' ') : '') + ' ' + (t.hovertemplate ?? '');
+      }
+      // Its text whether or not the reader has opened it (D111 folds it, as the other views do).
+      out.legend = (root.querySelector('.legend-note')?.textContent ?? '').replace(/\s+/g, ' ').trim();
+      out.pairs ??= [];
+      out.wsReading = txt(root.querySelector('.ws-summary')) + ' ' + txt(root.querySelector('.ws-reading'));
+      out.layerOn = Object.fromEntries(['unresolved', 'failed'].map((k) => [k, root.querySelector('button[data-layer="' + k + '"]')?.getAttribute('aria-pressed') === 'true']));
+      out.axisX = document.querySelector('#ashby-x option:checked')?.textContent.trim();
+      out.axisY = document.querySelector('#ashby-y option:checked')?.textContent.trim();
+      out.estLabel = root.querySelector('[data-show-estimates]')?.closest('label')?.textContent.replace(/\s+/g, ' ').trim() ?? null;
+      out.estDisabled = !!root.querySelector('[data-show-estimates]')?.disabled;
+      out.estState = txt(root.querySelector('.plot-data-state'));
+    } else {
     const grids = qa('[data-testid="results-table"]', root);
     out.noResults = !grids.length && !tid('excluded', root) && !q('.table-bar', root);
     out.rows = [];
@@ -65,19 +85,29 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
     }
     folds.forEach((d, i) => { d.open = wasOpen[i]; });
     out.excluded = qa('[data-testid="excluded-row"]', root).map((tr) => [tr.dataset.material, q('.chip', tr)?.textContent.trim(), txt(tid('excluded-why', tr))]);
+    }
     const m = badSrc.match(BAD);
     out.bad = m ? [...new Set(m)] : [];
     if (m) { const at = badSrc.search(BAD); out.badContext = badSrc.slice(Math.max(0, at - 80), at + 40); }
     return out;
   }
-  // A step waits for the page to have drawn what it changed: the lens's revision moves and its state is ready again.
+  // A step waits for the page to have drawn what it changed: the lens's revision moves, its state is ready again, and nothing is being fetched. A hosted
+  // lens (the chart) draws a frame after the revision moves, so the page is given that frame before it is asked whether it is busy.
   async function settle(before) {
-    for (let i = 0; i < 4000; i++) {
+    for (let i = 0; i < 6000; i++) {
       const l = lens();
-      if (l && l.dataset.state === 'ready' && l.dataset.vrev !== before) { await frame(); return; }
+      if (l && l.dataset.state === 'ready' && l.dataset.vrev !== before) {
+        await frame(); await frame();
+        if (!document.querySelector('[data-busy="true"]')) return;
+      }
       await new Promise((r) => setTimeout(r, 5));
     }
     throw new Error('the page did not settle after a step (state ' + lens()?.dataset.state + ')');
+  }
+  // Nothing is being drawn or fetched: a hosted lens (the chart) is drawn a frame after the revision it follows.
+  async function idle() {
+    for (let i = 0; i < 6000; i++) { await frame(); await frame(); if (!document.querySelector('[data-busy="true"]')) return; await new Promise((r) => setTimeout(r, 5)); }
+    throw new Error('the page stayed busy');
   }
   async function act(fn) { const before = lens().dataset.vrev; fn(); await settle(before); }
   const click = (id) => { const e = tid(id); if (!e) throw new Error('no ' + id); e.click(); };
@@ -96,17 +126,27 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
   }
   // plan: { search, order: ['S1','S0',...], keys, sample }
   async function run(plan) {
+    await idle();
     await search(plan.search);
     const res = {};
+    const other = plan.lens0 === 'table' ? 'ashby' : 'table';
+    // The reading in the lens the scenario opened on, then in the other, then back (as the old tab does).
+    const both = async (name) => {
+      res[name + '|' + plan.lens0] = read(plan.keys);
+      await act(() => click('lens-' + other));
+      res[name + '|' + other] = read(plan.keys);
+      await act(() => click('lens-' + plan.lens0));
+    };
     for (const st of plan.order) {
       await go(st);
-      res[st + '|table'] = read(plan.keys);
+      await idle();
+      await both(st);
       // HIDDEN shows under Include with estimates off too, where a property that does not apply hides (D148).
       if (plan.sample && (st === 'X1' || st === 'X0') && !tid('status-screened').hidden) {
-        await act(() => click('status-screened')); res[st + 'scr|table'] = read(plan.keys); await act(() => click('status-screened'));
+        await act(() => click('status-screened')); await both(st + 'scr'); await act(() => click('status-screened'));
       }
       if (plan.sample && st === 'S0' && !tid('status-FAIL').disabled && !tid('status-FAIL').hidden) {
-        await act(() => click('status-FAIL')); res['S0fail|table'] = read(plan.keys); await act(() => click('status-FAIL'));
+        await act(() => click('status-FAIL')); await both('S0fail'); await act(() => click('status-FAIL'));
       }
     }
     return res;
@@ -123,8 +163,8 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
 export function createNewFuzzTab(page, k, tmpDir) {
   const t = {
     k, errors: [], dialogs: [], loaded: false, sinceLoad: 0, file: join(tmpDir, `tab${k}.json`),
-    lenses: ['table'],
-    notRun: { I4: 'the Ashby lens is rebuilt in WP-27', I10: 'the decision view is rebuilt in WP-27' },
+    lenses: ['table', 'ashby'],
+    notRun: {},
   };
   page.on('pageerror', (error) => t.errors.push(error.stack ?? error.message));
   page.on('console', (message) => {

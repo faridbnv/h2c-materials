@@ -4,7 +4,8 @@
 //                         the rail print beside it (src/view-fields.ts), with the release's view facts (src/view-facts.ts) next to the model
 //   estimates.json        the estimate stage's overlay cut to ESTIMATE_FIELDS: what Explore with estimates reads on top of the core
 //   shared.json           what every material's drawer reads and no material owns: the filament guide's rows, the method's rules, the topics makers are asked on
-//   reference.json        the Ashby reference set
+//   reference.json        the Ashby reference set, and the rest of every material's headline values (the core carries the ones a decision and the table read; the chart
+//                         lenses, parallel lines, coverage and compare read them all, and fetch this part when first opened)
 //   detail/<M>.json       one material's records and the sources they cite: drawer, pages, brief, export. Never read by a decision.
 //
 // Every part names its release, and every source address in a part has been through publicUrl (owner ruling R3 C): a path on the
@@ -176,7 +177,13 @@ export function makeShards(db: Db, reference: unknown, release: string): Shards 
   const withheld = meta['estimateWithheld'] ?? null;
   const status = withheld === null ? 'available' : 'withheld';
   const estimates = text('estimates.json', publicize({ kind: 'estimates', release, status, withheld, overlay: pruneOverlay(overlayOf(db), ESTIMATE_FIELDS) }));
-  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference }));
+  // The rest of each material's headline, as the detail carries the rest of its records: the page joins it to the core's (publish/shards applyHeadlines).
+  const materialsSpec = section('materials');
+  const headlines = Object.fromEntries(rowsOf(db, 'materials').map((material) => {
+    const rest = omitRecord(material, materialsSpec ?? true);
+    return [String(material['id']), isRecord(rest?.['headline']) ? rest['headline'] : {}];
+  }));
+  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference, headlines }));
   const index = detailIndex(db);
   // The documents the filament guide's rows cite are not any one material's records, so no detail part holds them; the drawer names them in its sentences.
   const guideSources = [...new Set(rowsOf(db, 'printGuide').flatMap((row) => ['sourceId', 'h2cSourceId', 'sourceIds'].flatMap((key) => idsIn(row[key]))))].sort().map((sourceId) => {

@@ -13,7 +13,7 @@ const RUN = process.env['H2C_BROWSER_RUN_ID'] ?? `local-${Date.now()}`;
 if (FULL) {
   test('old selector: boot performance baseline (bytes, time to first results, 4x CPU throttle)', async ({ browser, page, site, base, meta }, testInfo) => {
     test.setTimeout(10 * 60_000);
-    const { perfTarget } = createOldSelector({ page, origin: site.origin, base, meta, root });
+    const { perfTarget } = createOldSelector({ page, origin: site.origin, base: `${base}legacy/`, meta, root });
     const plain = await measureBoot(browser, { ...perfTarget, throttle: 1 });
     const slow = await measureBoot(browser, { ...perfTarget, throttle: 4 });
     expect(plain.transferBytes, 'no bytes were counted: the measurement saw nothing').toBeGreaterThan(100_000);

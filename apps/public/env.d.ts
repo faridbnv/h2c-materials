@@ -8,3 +8,6 @@ declare module '*.vue' {
   const component: DefineComponent<object, object, unknown>;
   export default component;
 }
+
+/** The chart library's basic bundle ships no types; the lenses call it through the Loose seam of plotly.ts. */
+declare module 'plotly.js-basic-dist-min';

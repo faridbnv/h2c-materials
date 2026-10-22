@@ -8,12 +8,17 @@
 import './drawer.css';
 import { computed, ref } from 'vue';
 import { UNKNOWN_POLICY } from '@atlas/engine/port/constraints.ts';
+import { sortRows } from '@atlas/engine/browser';
+import { indexById, indexValue } from '@atlas/engine/port/indices.ts';
+import { productView, stateOf } from '@atlas/engine/port/products.ts';
 import { deserialize, serialize, toHash } from '@atlas/engine/port/scenario.ts';
 import { dayWords } from '@atlas/pages/facts/dates';
 import { POLICY_CONTROL, policyLabel } from '@atlas/pages/facts/labels';
 import type { Loose } from '@atlas/pages/loose';
+import { exportBlocked } from './lenses/copy.ts';
 import { productLabel } from './product-label.ts';
 import { candidateCount } from './start.ts';
+import { rankOf, sortStateOf } from './table.ts';
 import type { Store } from './store.ts';
 import { TEMPLATES } from './templates.ts';
 
@@ -72,6 +77,63 @@ async function onFile(event: Event): Promise<void> {
   for (const w of loaded.warnings) actions.say(w);
 }
 
+// ---- the exports and the brief: each waits for the detail of every material it cites, and writes nothing if any is missing
+const exportProblem = ref('');
+const fileStamp = `${db.meta.snapshot}${db.meta.release ? `-${db.meta.release.id}` : ''}`;
+
+/** The detail of the materials a file cites: all of it, or nothing is written and the panel says why. */
+async function citedDetails(kind: 'brief' | 'export', ids: readonly string[], what: string): Promise<ReadonlyMap<string, Loose> | null> {
+  exportProblem.value = '';
+  state.lensLoading++;
+  try {
+    return await props.store.loadCited(kind, ids);
+  } catch (error) {
+    exportProblem.value = exportBlocked(what, error instanceof Error ? `${error.message}.` : String(error));
+    return null;
+  } finally {
+    state.lensLoading--;
+  }
+}
+
+/** The rows on screen in the table's order, with the ranking the table shows. */
+const tableOrder = () => {
+  const ranks = rankOf(state.rows, state);
+  return { rows: sortRows(state.rows, sortStateOf(state, ranks)) as Loose[], ranks };
+};
+
+async function exportRows(products: boolean): Promise<void> {
+  if (!await citedDetails('export', [...new Set<string>(state.rows.map((r: Loose) => r.material.id))], products ? 'the products file' : 'the candidates file')) return;
+  const { toCSV, productsCSV, download: save } = await import('./lenses/export.ts');
+  const { rows, ranks } = tableOrder();
+  if (products) save(`h2c-products-${fileStamp}.csv`, productsCSV(rows, db, { scenario: scenario.value, productsByMaterial: state.ctx.productsByMaterial, ctx: state.ctx }), 'text/csv');
+  else save(`h2c-candidates-${fileStamp}.csv`, toCSV(rows, db.meta, { scenario: scenario.value, useEstimates: state.ctx.showEstimates, ranking: ranks, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv');
+}
+
+async function downloadBrief(gradeId: string): Promise<void> {
+  const decision = scenario.value.decisions.find((x: Loose) => x.gradeId === gradeId);
+  const own = state.gradeById.get(gradeId);
+  const material = db.materials.find((m: Loose) => m.id === own?.materialId);
+  if (!decision || !own || !material) return;
+  const details = await citedDetails('brief', [material.id], 'this brief');
+  if (!details) return;
+  const [{ decisionBrief }, { citedDbOf }, { download: save }] = await Promise.all([import('./lenses/brief.ts'), import('./lenses/cited.ts'), import('./lenses/export.ts')]);
+  const whole = citedDbOf(db, details);
+  const evaluation = sel.value.evaluations.find((e: Loose) => e.materialId === material.id);
+  const entry = evaluation?.products?.find((p: Loose) => p.gradeId === gradeId);
+  // The goal as the chart and the table rank it (D107): this product state's own index, and the material's place.
+  const index = scenario.value.rankBy ? indexById(scenario.value.rankBy) : null;
+  const objective = index ? {
+    index, M: entry ? indexValue(productView(material, own, state.ctx, stateOf(own, entry.state?.id ?? null)), index) : null,
+    rank: rankOf(state.rows, state)?.get(material.id) ?? null,
+  } : null;
+  save(`h2c-decision-${gradeId}-${fileStamp}.md`, decisionBrief({
+    db: whole, scenario: scenario.value, material: whole.materials.find((m: Loose) => m.id === material.id), grade: whole.grades.find((g: Loose) => g.id === gradeId),
+    evaluation, entry, decision, objective,
+    // Served over http(s) the pages' addresses are written in full; from a file they stay relative to this page (C38).
+    pagesBase: location.protocol === 'file:' ? null : location.href.split(/[?#]/)[0],
+  }), 'text/markdown');
+}
+
 // ---- the chosen products
 const note = (gradeId: string, event: Event): void => { actions.setDecisionNote(gradeId, (event.target as HTMLInputElement).value.trim()); };
 const FIELDS: [string, string][] = [['date', 'Date'], ['operator', 'Operator'], ['recipe', 'Printer and recipe'], ['orientation', 'Orientation'], ['conditioning', 'Conditioning'], ['method', 'Method'], ['result', 'Result'], ['notes', 'Notes']];
@@ -104,8 +166,11 @@ function record(gradeId: string, event: Event): void {
       </div>
 
       <h3 class="sec">Take it with you</h3>
+      <div v-if="exportProblem" class="notice-line" role="alert" data-testid="export-problem">{{ exportProblem }}</div>
       <div v-if="problem" class="notice-line" role="alert" data-testid="import-problem" style="white-space:pre-line">{{ problem }}</div>
       <div class="sc-actions">
+        <button id="sc-csv" type="button" class="btn" data-testid="export-rows" @click="exportRows(false)"><b>Export the rows on screen</b><span>CSV in the table's order: the requirements, each row's result and why</span></button>
+        <button id="sc-products" type="button" class="btn" data-testid="export-products" @click="exportRows(true)"><b>Export their products</b><span>CSV of every product of those materials: maker, values and whether each is comparable, print settings, and its result</span></button>
         <button id="sc-link" type="button" class="btn" data-testid="copy-link" @click="copyLink"><b>Copy a link to this selection</b><span>{{ copied ? 'Copied' : 'Reopens the requirements, shortlist, assumptions, goal and view. Search text is not included.' }}</span></button>
         <p v-if="copyProblem" class="fine" role="status">The browser would not copy it. Copy this link: <input type="text" readonly :value="copyProblem" aria-label="Link to this selection" style="width:100%"></p>
         <button id="sc-json" type="button" class="btn" data-testid="save-file" @click="saveFile"><b>Save the scenario</b><span>A small file anyone with this tool can load</span></button>
@@ -120,6 +185,7 @@ function record(gradeId: string, event: Event): void {
           <span v-if="x.e" :class="`chip chip-${x.e.verdict}`">{{ x.e.verdict }}</span><span v-else class="chip chip-neutral">not judged</span>
           <span class="fine">chosen {{ dayWords(x.d.chosenOn ?? '') }} on release {{ x.d.release ?? 'unidentified' }}<template v-if="x.d.release && x.d.release !== today">; this page is release {{ today ?? '' }}</template></span></div>
         <div class="sc-actions chosen-actions">
+          <button type="button" class="btn btn-sm" :data-brief="x.d.gradeId" data-testid="download-brief" @click="downloadBrief(x.d.gradeId)">Download the decision brief</button>
           <button type="button" class="btn btn-sm" :data-unchoose="x.d.gradeId" @click="actions.toggleDecision(x.d.gradeId)">Remove</button>
         </div>
         <label class="chosen-note">Note <input type="text" :data-note="x.d.gradeId" :value="x.d.note ?? ''" placeholder="Why this product, for whom" @change="note(x.d.gradeId, $event)"></label>

@@ -20,7 +20,7 @@ import type { Ctx, MaterialView, Result } from './constraints.ts';
 import type { EvaluatedProducts, Index } from './indices.ts';
 import type { Admitted, Elsewhere, Interval, ProductGrade, ProductState, RegistryHeadline, TwinOrigin, Treatment } from './products.ts';
 import { productView, stateOf, valueStateOf, firstState } from './products.ts';
-import { indexValue, rankingFor, indexAxes, indexOrientation, COST_AXIS } from './indices.ts';
+import { indexValue, rankingFor, indexAxes, indexOrientation, goalAxes, COST_AXIS } from './indices.ts';
 import { paretoFront } from './pareto.ts';
 import { publishedBound } from './constraints.ts';
 import { fillerOf } from './filler.ts';
@@ -488,10 +488,4 @@ export function buildWorkspace({ rows, contextRows = rows, ctx, xKey, yKey, xLog
   };
 }
 
-/** The axes and scales a goal prepares (D107): its property up, density or cost per volume across, both on Log. */
-export function goalAxes(index: Index) {
-  const a = indexAxes(index);
-  return { x: a.x, y: a.y, xLog: true, yLog: true };
-}
-
-export { indexAxes, indexOrientation, firstState };
+export { goalAxes, indexAxes, indexOrientation, firstState };

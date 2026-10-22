@@ -53,7 +53,7 @@ test('historic links: every link of the corpus opens in the new selector as it d
     page.on('console', (m) => { if (m.type() === 'error' && !/favicon/.test(m.location().url)) faults.push(`${name}: console error ${m.text()}`); });
     page.on('dialog', (d) => { dialogs[name].push(d.message()); d.accept().catch(() => {}); });
   }
-  const old = createOldSelector({ page: oldPage, origin: site.origin, base, meta, root });
+  const old = createOldSelector({ page: oldPage, origin: site.origin, base: `${base}legacy/`, meta, root });
   const next = createNewSelector({ page: newPage, origin: site.origin, base, meta, root, scratch });
   const dir = mkdtempSync(join(tmpdir(), 'h2c-links-'));
   const differences = [];
@@ -98,10 +98,9 @@ test('historic links: every link of the corpus opens in the new selector as it d
         opened[link.expect === 'opened' ? 'new' : 'old']++;
         if (newRefused) differences.push(`${link.id}: the corpus says it opens, and the new page refused it`);
       }
-      // A link that names a lens the new selector does not draw yet (the Ashby lens and its kin, WP-27) opens on the table: it is read, never refused,
-      // and what it shows is the table's. The old page shows the lens it names, so the two are not compared.
+      // A link that names a lens opens on it, as the old page does (the lenses of WP-27 are drawn): what the two show is compared, the lens included.
       const lens = lensOf(link);
-      if (lens && !['table', 'explain'].includes(lens)) { named.push(`${link.id} (${lens})`); continue; }
+      if (lens && !['table', 'explain'].includes(lens)) named.push(`${link.id} (${lens})`);
       if (oldRead !== newRead) {
         const a = oldRead.split('\n'), b = newRead.split('\n');
         const at = a.findIndex((line, i) => line !== b[i]);
@@ -115,5 +114,5 @@ test('historic links: every link of the corpus opens in the new selector as it d
   expect(faults, `the pages raised errors:\n  ${faults.join('\n  ')}`).toEqual([]);
   expect(differences, `${differences.length} link(s) differ:\n  ${differences.join('\n  ')}`).toEqual([]);
   expect(opened.new, 'some link opened').toBeGreaterThan(0);
-  test.info().annotations.push({ type: 'links-opened', description: `${sample.length} links read, ${named.length} named a lens WP-27 draws: ${named.join(', ')}` });
+  test.info().annotations.push({ type: 'links-opened', description: `${sample.length} links read, ${named.length} named a chart or compare lens: ${named.join(', ')}` });
 });

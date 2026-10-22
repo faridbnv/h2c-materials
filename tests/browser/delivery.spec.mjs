@@ -10,7 +10,7 @@ import { join } from 'node:path';
 import { rolldown } from 'rolldown';
 import { test, expect, root } from './fixtures.mjs';
 
-const dataOf = (site, path) => JSON.parse(readFileSync(join(site.site, 'v3', 'data', site.v3Release, path), 'utf8'));
+const dataOf = (site, path) => JSON.parse(readFileSync(join(site.site, 'data', site.v3Release, path), 'utf8'));
 const notice = (page) => page.locator('[data-testid="load-notice"][data-state="stale"]');
 
 /** The page's document requests for one address: how many times the browser asked for the page itself. */
@@ -22,10 +22,10 @@ function countDocuments(page, pattern) {
 
 test('stale shell: an index whose chunks the server no longer has reloads once and then says so, keeping the address hash', async ({ page, appUrl, watch }) => {
   watch.allow(/assets\/|status of 404/, 'the chunks of the page in this tab are gone, as after a deploy');
-  await page.route('**/v3/assets/**', (route) => route.fulfill({ status: 404, contentType: 'text/plain', body: 'gone' }));
-  const documents = countDocuments(page, /\/v3\/(?:#.*)?$/);
+  await page.route('**/assets/**', (route) => route.fulfill({ status: 404, contentType: 'text/plain', body: 'gone' }));
+  const documents = countDocuments(page, /\/h2c-[a-z-]+\/(?:#.*)?$/);
   const hash = '#x=2&c=%5B%5D';
-  await page.goto(`${appUrl}v3/${hash}`, { waitUntil: 'load' });
+  await page.goto(`${appUrl}${hash}`, { waitUntil: 'load' });
   await expect(notice(page)).toBeVisible();
   await expect(notice(page).getByRole('button')).toBeVisible();
   await expect(page.locator('[data-testid="result-row"]')).toHaveCount(0);
@@ -38,9 +38,9 @@ test('stale shell: an index whose chunks the server no longer has reloads once a
 
 test('stale shell: a material page whose chunks are gone does the same', async ({ page, appUrl, watch }) => {
   watch.allow(/assets\/|status of 404/, 'the chunks of the page in this tab are gone');
-  await page.route('**/v3/assets/**', (route) => route.fulfill({ status: 404, contentType: 'text/plain', body: 'gone' }));
+  await page.route('**/assets/**', (route) => route.fulfill({ status: 404, contentType: 'text/plain', body: 'gone' }));
   const documents = countDocuments(page, /material\.html/);
-  await page.goto(`${appUrl}v3/material.html?m=M001`, { waitUntil: 'load' });
+  await page.goto(`${appUrl}material.html?m=M001`, { waitUntil: 'load' });
   await expect(notice(page)).toBeVisible();
   expect(documents).toHaveLength(2);
 });
@@ -53,8 +53,8 @@ test('stale shell: a data part that is gone, or is of another release, reloads o
     ['another release', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...core, release: 'ffffffffffff' }) })],
   ]) {
     await page.route('**/core.json', fulfil);
-    const documents = countDocuments(page, /\/v3\/$/);
-    await page.goto(`${appUrl}v3/`, { waitUntil: 'load' });
+    const documents = countDocuments(page, /\/h2c-[a-z-]+\/$/);
+    await page.goto(appUrl, { waitUntil: 'load' });
     await expect(notice(page).getByRole('button'), what).toBeVisible();
     await expect(notice(page).locator('h1'), `${what}: the second time it says it, it does not say it is reloading`).toBeVisible();
     await expect(page.locator('[data-testid="result-row"]'), what).toHaveCount(0);
@@ -65,19 +65,19 @@ test('stale shell: a data part that is gone, or is of another release, reloads o
 });
 
 test('stale shell: a page whose data is right neither reloads nor leaves a mark behind', async ({ page, appUrl, newPage }) => {
-  const documents = countDocuments(page, /\/v3\/$/);
-  expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
+  const documents = countDocuments(page, /\/h2c-[a-z-]+\/$/);
+  expect(await newPage.open(appUrl)).toBe('ready');
   expect(documents).toHaveLength(1);
   expect(await page.evaluate(() => Object.keys(sessionStorage).filter((k) => k.endsWith('h2c-reloaded')))).toEqual([]);
 });
 
 test('stale shell: a shell that reloaded and then loaded its data keeps its mark, so a later failed chunk says so instead of reloading in a loop', async ({ page, appUrl, newPage }) => {
-  expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
+  expect(await newPage.open(appUrl)).toBe('ready');
   const release = await page.locator('meta[name="h2c-release"]').getAttribute('content');
   // The state a stale shell is in after its one reload: the mark names this shell's release, and its data (the core part) still loads.
   await page.evaluate((r) => sessionStorage.setItem('h2c-reloaded', r), release);
-  const documents = countDocuments(page, /\/v3\/(?:#.*)?$/);
-  expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
+  const documents = countDocuments(page, /\/h2c-[a-z-]+\/(?:#.*)?$/);
+  expect(await newPage.open(appUrl)).toBe('ready');
   expect(await page.evaluate(() => sessionStorage.getItem('h2c-reloaded')), 'loading its data does not forget the mark').toBe(release);
   await page.evaluate(() => dispatchEvent(new Event('vite:preloadError', { cancelable: true })));
   await expect(notice(page)).toBeVisible();
@@ -129,7 +129,7 @@ async function bundledParts() {
 
 test('details: the cited shards load whole; with one blocked the API gives nothing, and says the page is stale', async ({ page, appUrl, site, watch }) => {
   watch.allow(/detail\/M008\.json|status of 404/, 'one detail shard is withheld on purpose');
-  await page.goto(`${appUrl}v3/`, { waitUntil: 'load' });
+  await page.goto(appUrl, { waitUntil: 'load' });
   await page.addScriptTag({ content: await bundledParts() });
   const release = site.v3Release;
   const load = (ids) => page.evaluate(async ([r, wanted]) => {
@@ -153,7 +153,7 @@ test('details: the cited shards load whole; with one blocked the API gives nothi
 
 test('parts: the core and the estimates load and join in the page, of the release the page names, and a missing part gives no model', async ({ page, appUrl, site, watch }) => {
   watch.allow(/estimates\.json|status of 404/, 'the estimates part is withheld on purpose');
-  await page.goto(`${appUrl}v3/`, { waitUntil: 'load' });
+  await page.goto(appUrl, { waitUntil: 'load' });
   await page.addScriptTag({ content: await bundledParts() });
   const release = site.v3Release;
   const core = dataOf(site, 'core.json');

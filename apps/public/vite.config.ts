@@ -32,6 +32,13 @@ export default defineConfig({
   build: {
     outDir: process.env['H2C_OUT'] ?? here('dist'),
     emptyOutDir: true,
-    rollupOptions: { input: { index: here('index.html'), material: here('material.html') } },
+    rolldownOptions: {
+      input: { index: here('index.html'), material: here('material.html') },
+      output: {
+        // The code only the lenses of part 2 use stays out of the chunk the first screen loads: a module the first screen and a lens share is
+        // emitted whole, so a lens-only module that landed there would add to the boot (the strict boot budget, pack 02 section 11).
+        codeSplitting: { groups: [{ name: 'lens-support', test: /packages\/(engine\/src\/port\/(pareto)|pages\/src\/facts\/axes)\.ts$/, priority: 10 }] },
+      },
+    },
   },
 });

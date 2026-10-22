@@ -83,7 +83,7 @@ export const test = base.extend({
 /** The adapter of one kind of page, 'old' or 'new', on a page. Only the old adapter's behaviours use `watch` and `scratch`. */
 export function adapterFor(kind, { page, origin, base, meta, watch = null, scratch = null }) {
   return kind === 'old'
-    ? createOldSelector({ page, origin, base, meta, root, watch, scratch })
+    ? createOldSelector({ page, origin, base: `${base}legacy/`, meta, root, watch, scratch })
     : createNewPublic({ page, origin, base, meta, root, watch, scratch });
 }
 

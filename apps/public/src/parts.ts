@@ -7,7 +7,7 @@
 // `loadParts` and `loadDetails` return a whole set or throw. There is no partial result to misuse. The page never fetches release.json.
 import { isCoreReadModel } from '@atlas/domain';
 import type { CoreReadModel, DetailShard } from '@atlas/domain';
-import { applyEstimates, EstimatesDoNotFitError } from '@atlas/publish/shards';
+import { applyEstimates, applyHeadlines, EstimatesDoNotFitError, HeadlinesDoNotFitError } from '@atlas/publish/shards';
 import type { Overlay } from '@atlas/publish/shards';
 import { DetailsIncomplete, fetchPart, isMaterialId } from './load.ts';
 import type { FetchLike } from './load.ts';
@@ -80,10 +80,23 @@ function parseEstimates(json: unknown, embedded: string): EstimatesStatus & { re
   return { overlay, status, withheld };
 }
 
-function parseReference(json: unknown, embedded: string): unknown {
+/** The reference part: the Ashby reference set, and the rest of every material's headline values, which the chart lenses read and the core does not carry. */
+function parseReference(json: unknown, embedded: string): { readonly reference: unknown; readonly headlines: Record<string, Record<string, unknown>> } {
   const file = envelope(json, 'reference', 'the reference part', embedded);
   if (!isObject(file['reference'])) throw new DataShapeError('the reference part', 'carries no reference set');
-  return file['reference'];
+  const headlines = file['headlines'];
+  if (!isObject(headlines)) throw new DataShapeError('the reference part', 'carries no headline values');
+  return { reference: file['reference'], headlines: headlines as Record<string, Record<string, unknown>> };
+}
+
+/** The headlines on the core, in place; a part that does not fit this core is a damaged one. */
+function joinHeadlines(model: Record<string, unknown>, headlines: Record<string, Record<string, unknown>>): void {
+  try {
+    applyHeadlines(model, headlines);
+  } catch (error) {
+    if (error instanceof HeadlinesDoNotFitError) throw new DataShapeError('the reference part', `does not fit the core part (${error.message})`);
+    throw error;
+  }
 }
 
 async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn: FetchLike): Promise<Loaded> {
@@ -106,7 +119,10 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
       throw error;
     }
   }
-  return reference === null ? loaded : { ...loaded, reference: parseReference(referenceJson, embedded) };
+  if (reference === null) return loaded;
+  const parsed = parseReference(referenceJson, embedded);
+  joinHeadlines(model, parsed.headlines);
+  return { ...loaded, reference: parsed.reference };
 }
 
 /**
@@ -158,6 +174,16 @@ const needsDetail = (mode: Mode): boolean => REQUIRES[mode].some((part) => part 
 export async function loadParts(embedded: string, mode: Mode, fetchFn: FetchLike): Promise<Loaded> {
   if (needsDetail(mode)) throw new Error(`the ${mode} mode needs detail shards: load them with loadDetails (the drawer) or loadCited (the brief and the export)`);
   return loadNeeded(embedded, REQUIRES[mode], fetchFn);
+}
+
+/**
+ * The reference part (reference.json), on a core already loaded: whole and of the page's release, or a throw. The Ashby reference set comes back, and the rest of
+ * every material's headline values is put on the model, which is then as `loadParts(…, 'ashby')` would have made it. A chart lens asks for it when first opened.
+ */
+export async function loadReference(embedded: string, model: CoreReadModel, fetchFn: FetchLike): Promise<unknown> {
+  const parsed = parseReference(await fetchPart(fetchFn, embedded, 'reference.json', 'the reference part'), embedded);
+  joinHeadlines(model, parsed.headlines);
+  return parsed.reference;
 }
 
 export { DetailsIncomplete };
