@@ -81,18 +81,20 @@ function parseEstimates(json: unknown, embedded: string): EstimatesStatus & { re
 }
 
 /** The reference part: the Ashby reference set, and the rest of every material's headline values, which the chart lenses read and the core does not carry. */
-function parseReference(json: unknown, embedded: string): { readonly reference: unknown; readonly headlines: Record<string, Record<string, unknown>> } {
+function parseReference(json: unknown, embedded: string): { readonly reference: unknown; readonly headlines: Record<string, Record<string, unknown>>; readonly meta: Record<string, unknown> } {
   const file = envelope(json, 'reference', 'the reference part', embedded);
   if (!isObject(file['reference'])) throw new DataShapeError('the reference part', 'carries no reference set');
   const headlines = file['headlines'];
   if (!isObject(headlines)) throw new DataShapeError('the reference part', 'carries no headline values');
-  return { reference: file['reference'], headlines: headlines as Record<string, Record<string, unknown>> };
+  const meta = file['meta'];
+  if (!isObject(meta)) throw new DataShapeError('the reference part', 'carries no meta facts');
+  return { reference: file['reference'], headlines: headlines as Record<string, Record<string, unknown>>, meta };
 }
 
 /** The headlines on the core, in place; a part that does not fit this core is a damaged one. */
-function joinHeadlines(model: Record<string, unknown>, headlines: Record<string, Record<string, unknown>>): void {
+function joinHeadlines(model: Record<string, unknown>, parsed: { readonly headlines: Record<string, Record<string, unknown>>; readonly meta: Record<string, unknown> }): void {
   try {
-    applyHeadlines(model, headlines);
+    applyHeadlines(model, parsed.headlines, parsed.meta);
   } catch (error) {
     if (error instanceof HeadlinesDoNotFitError) throw new DataShapeError('the reference part', `does not fit the core part (${error.message})`);
     throw error;
@@ -121,7 +123,7 @@ async function loadNeeded(embedded: string, needs: readonly PartName[], fetchFn:
   }
   if (reference === null) return loaded;
   const parsed = parseReference(referenceJson, embedded);
-  joinHeadlines(model, parsed.headlines);
+  joinHeadlines(model, parsed);
   return { ...loaded, reference: parsed.reference };
 }
 
@@ -182,7 +184,7 @@ export async function loadParts(embedded: string, mode: Mode, fetchFn: FetchLike
  */
 export async function loadReference(embedded: string, model: CoreReadModel, fetchFn: FetchLike): Promise<unknown> {
   const parsed = parseReference(await fetchPart(fetchFn, embedded, 'reference.json', 'the reference part'), embedded);
-  joinHeadlines(model, parsed.headlines);
+  joinHeadlines(model, parsed);
   return parsed.reference;
 }
 

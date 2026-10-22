@@ -102,8 +102,10 @@ const tableOrder = () => {
 };
 
 async function exportRows(products: boolean): Promise<void> {
-  if (!await citedDetails('export', [...new Set<string>(state.rows.map((r: Loose) => r.material.id))], products ? 'the products file' : 'the candidates file')) return;
-  const { toCSV, productsCSV, download: save } = await import('./lenses/export.ts');
+  const details = await citedDetails('export', [...new Set<string>(state.rows.map((r: Loose) => r.material.id))], products ? 'the products file' : 'the candidates file');
+  if (!details) return;
+  const [{ toCSV, productsCSV, download: save }, { joinCited }] = await Promise.all([import('./lenses/export.ts'), import('./lenses/cited.ts')]);
+  joinCited(db, details);
   const { rows, ranks } = tableOrder();
   if (products) save(`h2c-products-${fileStamp}.csv`, productsCSV(rows, db, { scenario: scenario.value, productsByMaterial: state.ctx.productsByMaterial, ctx: state.ctx }), 'text/csv');
   else save(`h2c-candidates-${fileStamp}.csv`, toCSV(rows, db.meta, { scenario: scenario.value, useEstimates: state.ctx.showEstimates, ranking: ranks, productsByMaterial: state.ctx.productsByMaterial }), 'text/csv');
@@ -112,7 +114,7 @@ async function exportRows(products: boolean): Promise<void> {
 async function downloadBrief(gradeId: string): Promise<void> {
   const decision = scenario.value.decisions.find((x: Loose) => x.gradeId === gradeId);
   const own = state.gradeById.get(gradeId);
-  const material = db.materials.find((m: Loose) => m.id === own?.materialId);
+  const material = db.materials.find((m: Loose) => m.gradeIds?.includes(gradeId));
   if (!decision || !own || !material) return;
   const details = await citedDetails('brief', [material.id], 'this brief');
   if (!details) return;

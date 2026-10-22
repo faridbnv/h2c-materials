@@ -52,6 +52,8 @@ export interface StoreHooks {
   readonly loadDrawerParts: (id: string) => Promise<{ readonly detail: Loose; readonly shared: Loose }>;
   /** The Ashby reference set (reference.json), whole and of this release, or a throw. */
   readonly loadReference: () => Promise<Loose>;
+  /** The detail of the materials a chart view reads measurements of (the test pairs, an open mark's records), whole and of this release, or a throw. */
+  readonly loadMeasurements: (materialIds: readonly string[]) => Promise<ReadonlyMap<string, Loose>>;
   /** The detail of every material an export or a brief cites, whole and of this release, or a throw (the completeness rule: nothing is written without its citations). */
   readonly loadCited: (kind: 'brief' | 'export', materialIds: readonly string[]) => Promise<ReadonlyMap<string, Loose>>;
 }
@@ -104,7 +106,7 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
     // The lenses of part 2: the Ashby chart's reference set, the reader's place in it (a picked material, an open mark), whether the reader has
     // asked anything of the exercise yet, the estimated ranges drawn on it, and how many lenses are fetching the parts they need (data-busy).
     reference: nothing<Loose>(), ashbyStarted: false, selected: nothing<string>(), revealMaterial: nothing<string>(), inspect: nothing<Loose>(), inspectFocus: false,
-    ashbyEstimates: nothing<Loose>(), lensLoading: 0,
+    ashbyEstimates: nothing<Loose>(), lensLoading: 0, hostLoading: false,
   });
 
   /** Something the lenses draw changed (the answer, the rows, the plot, the reader's place in a chart). */
@@ -565,6 +567,14 @@ export function createStore(loaded: Loaded, hooks: StoreHooks) {
     loadDrawerParts: async (id: string) => {
       try {
         return await hooks.loadDrawerParts(id);
+      } catch (error) {
+        flushHash();
+        throw error;
+      }
+    },
+    loadMeasurements: async (ids: readonly string[]) => {
+      try {
+        return await hooks.loadMeasurements(ids);
       } catch (error) {
         flushHash();
         throw error;

@@ -15,7 +15,7 @@ import { AXIS_DEFS } from '@atlas/pages/facts/axes';
 import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH, H2C_CHECK } from '@atlas/pages/facts/labels';
 import { printCheck, printGatesMissing } from '../templates.ts';
 import {
-  wireResize, placeLabels, axisRange, hexToRgba, requirementOverlay, anchorRequirementLabels, referenceOverlay,
+  wireResize, placeLabels, drawing, axisRange, hexToRgba, requirementOverlay, anchorRequirementLabels, referenceOverlay,
   anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP, errorBars, applyZoom, watchZoom, zoomSig, zoomMemory,
   lensChartSize, applyLogTicks, watchLogTicks, anchorReferenceLabels,
 } from './chart.ts';
@@ -795,7 +795,9 @@ export function drawWorkspacePlot(host: Loose, state: Loose, ws: Loose, actions:
   gd._labelPlan = { ...labelPlan, annotations };
   let pending: Loose = null;
   const relabel = () => { clearTimeout(pending); pending = setTimeout(() => placeLabels(gd), 30); };
-  Plotly.newPlot(gd, traces, layout, { displaylogo: false, responsive: false, modeBarButtonsToRemove: ['select2d'] }).then(relabel);
+  const started = Plotly.newPlot(gd, traces, layout, { displaylogo: false, responsive: false, modeBarButtonsToRemove: ['select2d'] });
+  started.then(relabel);
+  drawing(gd, started);
   for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
   watchZoom(gd, zoomSig(p), { onZoom: () => actions.zoomed?.(), onReset: () => actions.setFocus([]) });
   watchLogTicks(gd);

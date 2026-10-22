@@ -221,8 +221,16 @@ export function placeLabels(gd: Loose) {
     && JSON.stringify(gd.data[i].textposition) === JSON.stringify(texts.get(i).textposition))
     && JSON.stringify((gd.layout.annotations ?? []).map((a: Loose) => [a.text, a.ax, a.ay])) === JSON.stringify(annotations.map((a: Loose) => [a.text, a.ax, a.ay]));
   if (same) return;
-  Plotly.update(gd, { text: traces.map((i: Loose) => texts.get(i).text), textposition: traces.map((i: Loose) => texts.get(i).textposition) },
+  gd._labelling = Plotly.update(gd, { text: traces.map((i: Loose) => texts.get(i).text), textposition: traces.map((i: Loose) => texts.get(i).textposition) },
     { annotations }, traces);
+}
+
+let drawn: Promise<void> = Promise.resolve();
+/** The chart last drawn is settled once its labels are placed: nothing reads it, and nothing is said to have drawn, before. */
+export const whenDrawn = (): Promise<void> => drawn;
+/** Note that a chart was handed to the library: `started` is its first draw. The labels are placed a moment after it (placeLabels, 30 ms), and their update is awaited. */
+export function drawing(gd: Loose, started: Promise<unknown>): void {
+  drawn = started.then(() => new Promise<void>((resolve) => { setTimeout(resolve, 45); })).then(() => gd._labelling).then(() => undefined, () => undefined);
 }
 
 /** Give a family colour a nearly transparent fill without changing its outline colour. */

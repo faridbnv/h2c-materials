@@ -6,25 +6,56 @@ import type { DetailShard } from '@atlas/domain';
 import type { Loose } from '@atlas/pages/loose';
 import { join } from '@atlas/publish/shards';
 
+/** The parts of a product's print recipe, in the order the build lists them (build/src/products.js RECIPE_AXES). */
+const RECIPE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'];
+
 const rowsOf = (value: unknown): Loose[] => (Array.isArray(value) ? value : []);
 
-/** The rows of one section: each rest joined to the core row it completes, by ID. */
-function joined(coreRows: readonly Loose[], rests: unknown): Loose[] {
-  const byId = new Map<string, Loose>(coreRows.map((row) => [row.id, row]));
-  return rowsOf(rests).map((rest) => join(byId.get(rest.id), rest) as Loose);
-}
-
 export function citedDbOf(core: Loose, details: ReadonlyMap<string, DetailShard>): Loose {
-  const ids = new Set(details.keys());
   const records = (shard: DetailShard): Loose => shard.records;
-  const outside = (rows: readonly Loose[]) => rows.filter((row) => !ids.has(row.materialId));
   const sources = new Map<string, Loose>();
   for (const shard of details.values()) for (const source of rowsOf(records(shard).sources)) sources.set(source.id, source);
+  // A section's rows, each completed by the detail's rest of it where a cited material has one.
+  const completed = (rows: readonly Loose[], section: string): Loose[] => {
+    const rest = new Map<string, Loose>();
+    for (const shard of details.values()) for (const row of rowsOf(records(shard)[section])) rest.set(row.id, row);
+    return rows.map((row) => (rest.has(row.id) ? (join(row, rest.get(row.id)) as Loose) : row));
+  };
   return {
     ...core,
     materials: core.materials.map((m: Loose) => { const shard = details.get(m.id); return shard ? join(m, records(shard).material) : m; }),
-    grades: [...outside(core.grades), ...[...details.values()].flatMap((shard) => joined(core.grades, records(shard).grades))],
-    measurements: [...outside(core.measurements), ...[...details.values()].flatMap((shard) => joined(core.measurements, records(shard).measurements))],
+    grades: completed(core.grades, 'grades'),
+    measurements: completed(core.measurements, 'measurements'),
     sources: [...sources.values()],
   };
+}
+
+/**
+ * The cited materials' records put on the rows the engine reads, in place: each material's headline values, each product's and each measurement's rest of its row. An
+ * export writes the rows on screen, and a row is whole only with its detail; this is done once every shard it cites has arrived, never before.
+ */
+export function joinCited(core: Loose, details: ReadonlyMap<string, DetailShard>): void {
+  const on = (rows: readonly Loose[], section: string): void => {
+    const byId = new Map<string, Loose>(rows.map((row) => [row.id, row]));
+    for (const shard of details.values()) {
+      for (const rest of rowsOf(records(shard)[section])) {
+        const row = byId.get(rest.id);
+        if (!row) throw new Error(`the detail of ${shard.materialId} names ${section} ${rest.id}, which the core does not hold`);
+        Object.assign(row, join(row, rest));
+      }
+    }
+  };
+  const records = (shard: DetailShard): Loose => shard.records;
+  for (const shard of details.values()) {
+    const material = core.materials.find((m: Loose) => m.id === shard.materialId);
+    if (!material) throw new Error(`the detail of ${shard.materialId} is of a material the core does not hold`);
+    Object.assign(material, join(material, records(shard).material));
+  }
+  on(core.grades, 'grades');
+  // Where a product's recipe was read from is listed in the order the build wrote it; the core's part of the list and the detail's part join in two runs.
+  for (const grade of core.grades) {
+    const from = grade.print?.from;
+    if (from && typeof from === 'object') grade.print.from = Object.fromEntries([...RECIPE_AXES, ...Object.keys(from)].filter((k, i, all) => k in from && all.indexOf(k) === i).map((k) => [k, from[k]]));
+  }
+  on(core.measurements, 'measurements');
 }

@@ -82,5 +82,5 @@ export function createNewSelector({ page, origin, base, meta, root, watch = null
     { slug: 'selector-drawer', title: 'selector: material drawer', prepare: async () => { await explored(); await click(`${tid('lens')} ${tid('result-row')}`); await old.until(`!!document.querySelector('${tid('drawer')} [data-tab]')`, 'the drawer'); await sleep(300); } },
   ];
   const perfTarget = { url: `${origin}${base}`, ready: `document.querySelector('${tid('lens')}')?.dataset.state === 'ready' && !!document.querySelector('${tid('count')}')?.textContent.trim()` };
-  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, open, readView: read, settle: () => evaluate('true') };
+  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, open, readView: read, settle: () => evaluate('true'), evaluate, until: old.until };
 }

@@ -178,12 +178,13 @@ export function makeShards(db: Db, reference: unknown, release: string): Shards 
   const status = withheld === null ? 'available' : 'withheld';
   const estimates = text('estimates.json', publicize({ kind: 'estimates', release, status, withheld, overlay: pruneOverlay(overlayOf(db), ESTIMATE_FIELDS) }));
   // The rest of each material's headline, as the detail carries the rest of its records: the page joins it to the core's (publish/shards applyHeadlines).
+  const dbMeta: Obj = db.meta;
   const materialsSpec = section('materials');
   const headlines = Object.fromEntries(rowsOf(db, 'materials').map((material) => {
     const rest = omitRecord(material, materialsSpec ?? true);
     return [String(material['id']), isRecord(rest?.['headline']) ? rest['headline'] : {}];
   }));
-  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference, headlines }));
+  const referenceText = text('reference.json', publicize({ kind: 'reference', release, reference, headlines, meta: { sparseProperties: dbMeta['sparseProperties'] ?? [] } }));
   const index = detailIndex(db);
   // The documents the filament guide's rows cite are not any one material's records, so no detail part holds them; the drawer names them in its sentences.
   const guideSources = [...new Set(rowsOf(db, 'printGuide').flatMap((row) => ['sourceId', 'h2cSourceId', 'sourceIds'].flatMap((key) => idsIn(row[key]))))].sort().map((sourceId) => {

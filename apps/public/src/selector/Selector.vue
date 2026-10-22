@@ -25,7 +25,18 @@ import { TEMPLATES } from './templates.ts';
 const Drawer = defineAsyncComponent(() => import('./drawer/Drawer.vue'));
 const SavePanel = defineAsyncComponent(() => import('./SavePanel.vue'));
 // The chart lenses, parallel lines, coverage and compare: their code (and the chart library, for Ashby) is fetched when one is first opened.
-const LensHost = defineAsyncComponent(() => import('./lenses/LensHost.vue'));
+// While its code is on the way the page is waiting (data-busy), until the host takes over from setup.
+const LensHost = defineAsyncComponent(async () => {
+  state.lensLoading++;
+  state.hostLoading = true;
+  try {
+    return await import('./lenses/LensHost.vue');
+  } catch (error) {
+    state.lensLoading--;
+    state.hostLoading = false;
+    throw error;
+  }
+});
 const HOSTED = new Set(['ashby', 'parallel', 'coverage', 'compare']);
 
 const props = defineProps<{ readonly store: Store }>();

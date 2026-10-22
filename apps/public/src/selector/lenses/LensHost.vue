@@ -12,12 +12,15 @@ import { blockedBy } from '../../useLoad.ts';
 import type { Blocked } from '../../useLoad.ts';
 import type { Store } from '../store.ts';
 import { lensActions } from './actions.ts';
+import { joinMeasurements, measurementsNeeded, stampGrades } from './measurements.ts';
 import './lenses.css';
 
-type Renderer = (host: HTMLElement, state: unknown, actions: unknown) => void;
+type Renderer = (host: HTMLElement, state: unknown, actions: unknown) => void | Promise<void>;
 
 const props = defineProps<{ readonly store: Store; readonly lens: string }>();
 const { state } = props.store;
+// The code of this component was the wait the page was in (Selector.vue); from here the component's own drawing is.
+if (state.hostLoading) { state.hostLoading = false; state.lensLoading--; }
 const actions = lensActions(props.store);
 
 const host = ref<HTMLElement | null>(null);
@@ -33,13 +36,15 @@ let drawn = '';
 async function prepare(lens: string): Promise<Renderer> {
   const reference = state.reference ?? await props.store.loadReference();
   state.reference = reference;
+  stampGrades(state.db);
   switch (lens) {
     case 'ashby': {
-      const [module, { loadPlotly }] = await Promise.all([import('./ashby.ts'), import('./plotly.ts')]);
+      const [module, { loadPlotly }, { whenDrawn }] = await Promise.all([import('./ashby.ts'), import('./plotly.ts'), import('./chart.ts')]);
       await loadPlotly();
       // A zoom the reader makes rewrites the chart's pills in place, without a redraw.
       const own = { ...actions, zoomed: () => { if (host.value) module.refreshPills(host.value, state, own); } };
-      return (el, s) => { module.renderAshby(el, s, own); };
+      // The page is not done until the chart has its labels, so what is read of it is the same whenever it is read.
+      return async (el, s) => { module.renderAshby(el, s, own); await whenDrawn(); };
     }
     case 'parallel': {
       const module = await import('./parallel.ts');
@@ -81,15 +86,27 @@ async function draw(): Promise<void> {
     }
     // A newer draw (or another lens) took over while the parts arrived.
     if (mine !== drawing || !host.value || !state.selection) return;
+    // What a chart view reads of the measurements comes with its material's detail, whole, before the view draws.
+    if (lens === 'ashby') {
+      try {
+        await joinMeasurements(props.store, measurementsNeeded(state));
+      } catch (error) {
+        if (mine === drawing) problem.value = blockedBy(error);
+        return;
+      }
+      if (mine !== drawing || !host.value) return;
+      problem.value = null;
+    }
     if (drawn !== lens) { host.value.replaceChildren(); drawn = lens; }
     await nextTick();
-    if (mine === drawing && host.value) render(host.value, state, actions);
+    if (mine === drawing && host.value) await render(host.value, state, actions);
   } finally {
     state.lensLoading--;
   }
 }
 
-onMounted(() => { void draw(); });
+// A page opened on a lens writes its canonical address, as choosing the lens does (the old page's setLens at start).
+onMounted(() => { props.store.pushHash(); void draw(); });
 watch(() => [state.lrev, props.lens], () => { void draw(); }, { flush: 'post' });
 onBeforeUnmount(() => { drawing++; });
 </script>

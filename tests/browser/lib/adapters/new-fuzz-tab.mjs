@@ -152,7 +152,7 @@ const PAGE_HELPER = String.raw`window.__fz = (() => {
     return res;
   }
   const notices = () => qa('[data-testid="notice-text"]').map((e) => e.textContent.trim());
-  return { run, read, search, settle, notices, lens };
+  return { run, read, search, settle, notices, lens, idle };
 })(); true`;
 
 /**
@@ -186,6 +186,8 @@ export function createNewFuzzTab(page, k, tmpDir) {
     if (response === null || !response.ok()) throw new Error(`${url} answered ${response === null ? 'nothing' : `HTTP ${response.status()}`}`);
     await waitUntil(page, `document.querySelector('[data-testid="lens"]')?.dataset.state === 'ready' && !!document.querySelector('[data-testid="count"]')?.textContent.trim()`, 'page render', { ms: 20000, polling: 20 });
     await ev(PAGE_HELPER);
+    // A page opened on the chart draws it a moment after the results: it has been read once the page says it is no longer waiting.
+    await ev('__fz.idle()');
     t.loaded = true; t.sinceLoad = 0;
     await takeNotices();
   };
@@ -198,13 +200,13 @@ export function createNewFuzzTab(page, k, tmpDir) {
     // A scenario that loads closes the panel and draws again: that is how the import is known to have finished.
     await page.locator('[data-testid="save-panel"]').waitFor({ state: 'detached', timeout: 5000 });
     await waitUntil(page, `document.querySelector('[data-testid="lens"]')?.dataset.state === 'ready'`, 'import render', { ms: 20000, polling: 20 });
-    await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => r(true))));
+    await ev('__fz.idle()');
     await takeNotices();
   };
   /** Run a plan on the loaded page (see __fz.run in the page-side reader) and give back one reading per setting and lens. */
   t.runPlan = async (plan) => { const out = await ev(`__fz.run(${JSON.stringify(plan)})`); await takeNotices(); return out; };
   /** Type a search and read the page as it stands. */
-  t.readWithSearch = (search, keys) => ev(`(async () => { await __fz.search(${JSON.stringify(search)}); return __fz.read(${JSON.stringify(keys)}); })()`);
+  t.readWithSearch = (search, keys) => ev(`(async () => { await __fz.search(${JSON.stringify(search)}); await __fz.idle(); return __fz.read(${JSON.stringify(keys)}); })()`);
   t.close = () => page.close();
   return t;
 }

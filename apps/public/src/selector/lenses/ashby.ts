@@ -31,7 +31,7 @@ import { AXIS_DEFS, measurementMatches, pairCompatibility } from '@atlas/pages/f
 import { prop } from '@atlas/pages/facts/labels';
 import { headlineDef } from '@atlas/pages/facts/registry';
 import {
-  chartFit, wireResize, placeLabels, axisRange, hexToRgba, errorBars, requirementOverlay, anchorRequirementLabels,
+  chartFit, wireResize, placeLabels, drawing, axisRange, hexToRgba, errorBars, requirementOverlay, anchorRequirementLabels,
   referenceOverlay, anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, applyZoom, watchZoom, zoomSig, forgetZoom,
   lensChartSize, applyLogTicks, watchLogTicks, anchorReferenceLabels,
 } from './chart.ts';
@@ -728,11 +728,13 @@ function drawLegacyPlot(host: Loose, state: Loose, { xDef, yDef, pts, envelopes 
   // the rest of that draw, and the labels were in the data but not on the chart.
   let pending: Loose = null;
   const relabel = () => { clearTimeout(pending); pending = setTimeout(() => placeLabels(gd), 30); };
-  Plotly.newPlot(gd, traces, layout, {
+  const started = Plotly.newPlot(gd, traces, layout, {
     displaylogo: false, responsive: false,
     modeBarButtonsToRemove: ['select2d'],
     modeBarButtonsToAdd: [],
-  }).then(relabel);
+  });
+  started.then(relabel);
+  drawing(gd, started);
   // Placed again whenever what is on screen moves: a zoom, a resize, a family hidden from the legend.
   for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
   watchZoom(gd, zoomSig(p), { onZoom: () => actions.zoomed?.(), onReset: () => actions.setFocus([]) });

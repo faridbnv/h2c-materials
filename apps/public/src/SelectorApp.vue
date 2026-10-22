@@ -30,6 +30,12 @@ onMounted(async () => {
     let shared: Promise<Shared> | null = null;
     const made = createStore(loaded, {
       loadEstimates: () => loadEstimates(release, loaded.model, fetchPart),
+      // The detail of the materials a chart view needs the measurements of; what the drawer has fetched is not fetched again.
+      loadMeasurements: async (ids) => {
+        const need = ids.filter((id) => !details.has(id));
+        if (need.length) for (const [id, shard] of await loadDetails(release, need, fetchPart)) details.set(id, shard);
+        return new Map(ids.flatMap((id) => { const shard = details.get(id); return shard ? [[id, shard] as const] : []; }));
+      },
       // The chart lens's reference set, fetched when it is first opened.
       loadReference: () => loadReference(release, loaded.model, fetchPart),
       // The brief and the export write nothing until the detail of every material they cite has arrived (D103): all of it, or a throw.

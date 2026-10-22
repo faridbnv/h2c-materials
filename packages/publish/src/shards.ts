@@ -256,7 +256,7 @@ export function applyEstimates(model: Obj, overlay: Overlay): void {
  * read, and the chart lenses read every headline). A field the core already has stays as it is; a material or a headline the core lacks is an error,
  * never skipped.
  */
-export function applyHeadlines(model: Obj, headlines: { readonly [materialId: string]: Obj }): void {
+export function applyHeadlines(model: Obj, headlines: { readonly [materialId: string]: Obj }, meta: Obj = {}): void {
   const materials = new Map(rowsOf(model['materials']).map((m) => [String(m['id']), m]));
   for (const [id, rest] of Object.entries(headlines)) {
     const material = materials.get(id);
@@ -270,6 +270,9 @@ export function applyHeadlines(model: Obj, headlines: { readonly [materialId: st
       for (const [field, value] of Object.entries(fields)) if (!Object.hasOwn(target, field)) target[field] = value;
     }
   }
+  // The few facts of the database's meta the lenses read and the core does not carry (the properties almost no sheet publishes).
+  const own = isObject(model['meta']) ? model['meta'] : (model['meta'] = {});
+  for (const [field, value] of Object.entries(meta)) if (!Object.hasOwn(own, field)) own[field] = value;
 }
 
 /** The headlines do not belong to the core they were applied to. */
