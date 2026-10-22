@@ -51,7 +51,10 @@ for (const kind of ['old', 'new']) {
         expect(results.importFallbacks / tried, `in-app imports fell back to a page load ${results.importFallbacks} of ${tried} times (first: ${results.firstImportError})`).toBeLessThanOrEqual(0.25);
       }
       expect(violated, `violations (examples in ${fuzz.vfile}):\n  ${examples.join('\n  ')}`).toEqual([]);
-      const never = FAMILIES.filter((family) => checks(family) === 0);
+      // A family only a lens the page does not draw yet can check (the new selector's Ashby, WP-27) is reported as not run, with its reason.
+      const notRun = tabs[0].notRun ?? {};
+      for (const [family, why] of Object.entries(notRun)) testInfo.annotations.push({ type: 'family-not-run', description: `${family}: ${why}` });
+      const never = FAMILIES.filter((family) => checks(family) === 0 && !(family in notRun));
       expect(never, `invariant families that ran no check: ${never.join(', ')}`).toEqual([]);
     } finally {
       await context.close();

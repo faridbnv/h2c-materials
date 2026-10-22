@@ -92,8 +92,11 @@ test('verdict: PASS only when everything planned reported and passed; a skip, a 
 });
 
 test('skips: only the named ones are allowed, and each says why', () => {
-  assert.ok(allowanceFor('new selector: family rail'));
-  assert.equal(allowanceFor('old selector: family rail'), null);
+  assert.ok(allowanceFor('new selector: Ashby decision workspace'));
+  assert.ok(allowanceFor('new selector: material pages, laptop'));
+  assert.ok(allowanceFor('new selector: material pages: the return trip'));
+  assert.equal(allowanceFor('new selector: family rail'), null, 'a step the new selector answers may not be skipped');
+  assert.equal(allowanceFor('old selector: Ashby decision workspace'), null);
   assert.equal(allowanceFor('public view: the results page'), null);
   for (const a of ALLOWED_SKIPS) assert.ok(a.reason.length > 20 && a.match instanceof RegExp);
 });
@@ -121,10 +124,17 @@ test('views: a view that moved, went missing, was never owed or is empty is name
     assert.match(compareViews({ ...texts, '01-a': 'short' }, /^01-/, dir).problems.join('\n'), /01-a is empty/);
     assert.match(compareViews({}, /^99-/, dir).problems.join('\n'), /no baseline view matches/);
     assert.throws(() => compareViews(texts, /^01-/, join(dir, 'missing')), /no baseline/);
+    // What the page does not draw yet is named: a view it does not owe is left out, and a line of an owed view it does not have is left out of the baseline.
+    const partial = { '01-a': texts['01-a'] };
+    assert.deepEqual(compareViews(partial, /^01-/, dir, { pattern: /^01-b$/, reason: 'later' }).problems, []);
+    assert.match(compareViews({ ...partial, '01-b': 'x\ny\nz' }, /^01-/, dir, { pattern: /^01-b$/, reason: 'later' }).problems.join('\n'), /does not have: 01-b/, 'a page that produced a view it does not owe is still told');
+    const lines = compareViews({ ...texts, '01-a': 'COUNT 5\nSTATUS x\nrow one' }, /^01-/, dir, { lines: { '01-a': ['row two'] }, reason: 'later' });
+    assert.deepEqual(lines.problems, [], 'a baseline line the page does not draw yet is not owed');
+    assert.match(compareViews({ ...texts, '01-a': 'COUNT 5\nSTATUS x\nrow one' }, /^01-/, dir).problems.join('\n'), /01-a differs[\s\S]*- row two/, 'and is owed when nothing says otherwise');
   } finally { rmSync(dir, { recursive: true, force: true }); }
 });
 
-test('adapters: the old page offers every step and behaviour; the new page names each one it cannot answer yet; a bare object does not meet the contract', () => {
+test('adapters: the old page offers every step and behaviour; the new page offers all but the steps it names as not answered; a bare object does not meet the contract', () => {
   const stub = new EventEmitter();
   const old = assertAdapter(createOldSelector({ page: stub, origin: 'http://127.0.0.1:1', base: '/h2c-materials/', meta: {}, root }));
   for (const name of SELECTOR_STEPS) assert.equal(typeof old.steps[name], 'function', name);
@@ -132,9 +142,12 @@ test('adapters: the old page offers every step and behaviour; the new page names
   assert.equal(typeof old.fuzzTab, 'function');
   assert.ok(old.axeTargets().length >= 16);
   assert.equal(old.pageUrl, 'http://127.0.0.1:1/h2c-materials/');
-  const next = assertAdapter(createNewPublic({ page: stub, origin: 'http://127.0.0.1:1', base: '/h2c-material-temp-page/' }));
-  for (const name of SELECTOR_STEPS) assert.ok(isUnsupported(next.steps[name]), `${name} is not offered by the new page yet and must say so`);
-  for (const name of BEHAVIOURS) assert.ok(isUnsupported(next.behaviours[name]));
+  const next = assertAdapter(createNewPublic({ page: stub, origin: 'http://127.0.0.1:1', base: '/h2c-material-temp-page/', meta: {}, root }));
+  const notYet = ['selectorAshby', 'materialPages', 'returnTrip'];
+  for (const name of SELECTOR_STEPS) assert.ok(notYet.includes(name) ? isUnsupported(next.steps[name]) : typeof next.steps[name] === 'function', `${name}: the new page answers it, or says why it cannot`);
+  for (const name of BEHAVIOURS) assert.equal(typeof next.behaviours[name], 'function', name);
+  assert.equal(typeof next.fuzzTab, 'function');
+  assert.deepEqual(Object.keys(next.notOwed).sort(), ['selectorLayout', 'selectorRanked', 'selectorTemplates'], 'what the new page does not owe is named, step by step');
   assert.equal(next.viewUrl, 'http://127.0.0.1:1/h2c-material-temp-page/v3/');
   assert.throws(() => assertAdapter({ id: 'x', steps: {}, behaviours: {} }), /does not meet the contract/);
   assert.throws(() => assertAdapter({ ...next, steps: { ...next.steps, selectorFamily: unsupported('') } }), /selectorFamily/, 'an unsupported step without a reason is refused');
@@ -199,11 +212,11 @@ test('reporter: a skip is named by the title after the file, so the allow-list m
   const reporter = new TriStateReporter();
   reporter.onBegin({ projects: [{ name: 'live-path' }] }, { allTests: () => [{ id: 'a' }, { id: 'b' }, { id: 'c' }] });
   const test = (id, path, annotations = []) => ({ id, titlePath: () => ['', 'live-path', 'views.spec.mjs', ...path], annotations, parent: { project: () => ({ name: 'live-path' }) } });
-  reporter.onTestEnd(test('a', ['new selector: family rail'], [{ type: 'skip', description: 'not run: WP-26' }]), { status: 'skipped', duration: 1 });
-  reporter.onTestEnd(test('b', ['old selector: family rail'], [{ type: 'skip', description: 'x' }]), { status: 'skipped', duration: 1 });
+  reporter.onTestEnd(test('a', ['new selector: Ashby decision workspace'], [{ type: 'skip', description: 'not run: WP-27' }]), { status: 'skipped', duration: 1 });
+  reporter.onTestEnd(test('b', ['old selector: Ashby decision workspace'], [{ type: 'skip', description: 'x' }]), { status: 'skipped', duration: 1 });
   reporter.onTestEnd(test('c', ['old selector: other']), { status: 'failed', duration: 1, error: { message: 'boom' } });
   const [a, b, c] = [...reporter.tests.values()];
-  assert.equal(a.title, 'new selector: family rail');
+  assert.equal(a.title, 'new selector: Ashby decision workspace');
   assert.equal(a.allowed, true, 'the named skip is recognised');
   assert.equal(b.allowed, false, 'an old-selector skip is not named');
   assert.equal(c.status, 'fail');

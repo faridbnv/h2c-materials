@@ -35,10 +35,12 @@ export const mask = (text) => text.replace(/\bbuild \d{4}-\d{2}-\d{2}\b/g, 'buil
 /**
  * Compare the views a step produced with the baseline. `pattern` selects the baseline views this step owes. Returns the sentences of
  * what is wrong (a view missing, one nobody owes, an empty one, one that differs, with the lines that moved); none means every
- * owed view was produced and equals its baseline. `checked` counts the views that were compared.
+ * owed view was produced and equals its baseline. `checked` counts the views that were compared. `notOwed` names what the page does not draw yet
+ * (the new selector before WP-27): `pattern` the views of this step that are not owed (a page that produced one is still told), and `lines` the
+ * baseline lines of an owed view the page does not have (a view name to the lines), each with the reason the adapter gives for it.
  */
-export function compareViews(views, pattern, dir = BASELINE_DIR) {
-  const owed = baselineNames(dir).filter((k) => pattern.test(k));
+export function compareViews(views, pattern, dir = BASELINE_DIR, notOwed = null) {
+  const owed = baselineNames(dir).filter((k) => pattern.test(k) && !notOwed?.pattern?.test(k));
   const produced = Object.keys(views).sort();
   const problems = [];
   if (!owed.length) problems.push(`no baseline view matches ${pattern}: this step would check nothing`);
@@ -50,7 +52,8 @@ export function compareViews(views, pattern, dir = BASELINE_DIR) {
   for (const k of owed.filter((name) => name in views)) {
     const text = mask(views[k]);
     if (text.split('\n').length < 3) { problems.push(`${k} is empty (fewer than 3 lines)`); continue; }
-    const was = readFileSync(join(dir, `${k}.txt`), 'utf8');
+    const left = notOwed?.lines?.[k] ?? [];
+    const was = readFileSync(join(dir, `${k}.txt`), 'utf8').split('\n').filter((l) => !left.includes(l)).join('\n');
     checked++;
     if (was === `${text}\n`) continue;
     const before = was.trimEnd().split('\n'), now = text.split('\n');

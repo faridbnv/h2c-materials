@@ -578,9 +578,13 @@ export async function createFuzz({ root, pageUrl, html, n: N, seed: SEED, tabs: 
   }
 
   async function worker(t) {
+  const LENSES = t.lenses ?? ['table', 'ashby'];
     while (next < mine.length) {
       const s = mine[next++];
       s.order = perms(s.start);
+      // A page that draws fewer lenses than the old one (the new selector's Ashby arrives with WP-27) is read in the lenses it has; the
+      // scenario's draw is the same, so a seed reads the same scenarios on either page.
+      if (!LENSES.includes(s.startLens)) s.startLens = LENSES[0];
       t.errors.length = 0; t.dialogs.length = 0;
       // The page validates what a link or file carries and leaves out what it cannot evaluate, with a warning (A-05, A-06).
       // The page is sent the raw scenario; the oracle and the checks use what validation keeps.
@@ -620,7 +624,7 @@ export async function createFuzz({ root, pageUrl, html, n: N, seed: SEED, tabs: 
       for (const [key, r] of Object.entries(res)) { compareReading(s, key, r, or(key.split('|')[0])); readings++; }
       checkReasons(s, or('X1'), 'X1'); checkReasons(s, or('S1'), 'S1');
       // I3: Strict renders identically whatever the estimates switch says.
-      for (const lens of ['table', 'ashby']) {
+      for (const lens of LENSES) {
         check('I3-strict-identical');
         if (res[`S1|${lens}`].h !== res[`S0|${lens}`].h) {
           const a1 = res[`S1|${lens}`], a0 = res[`S0|${lens}`];
@@ -644,7 +648,7 @@ export async function createFuzz({ root, pageUrl, html, n: N, seed: SEED, tabs: 
       timing.oracle += Date.now() - a;
       // I7: reopen one setting's link in a fresh load and compare what a reader sees.
       if (s.roundtrip) {
-        const rr = mulberry32(SEED * 7919 + s.i), st = ['S1', 'S0', 'X0', 'X1'][Math.floor(rr() * 4)], lens = ['table', 'ashby'][Math.floor(rr() * 2)];
+        const rr = mulberry32(SEED * 7919 + s.i), st = ['S1', 'S0', 'X0', 'X1'][Math.floor(rr() * 4)], drawn = ['table', 'ashby'][Math.floor(rr() * 2)], lens = LENSES.includes(drawn) ? drawn : LENSES[0];
         try {
           await t.load(urlFor(s, st, lens, `rt${s.i}`)); loads++; roundtrips++;
           const r = await t.readWithSearch(s.search, keys);

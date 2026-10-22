@@ -41,9 +41,11 @@ for (const kind of ['old', 'new']) {
       const result = await step(...args);
       const compared = pattern === null
         ? { problems: Object.keys(result.views).length ? [`this check owes no views and produced ${Object.keys(result.views).join(', ')}`] : [], checked: 0, owed: 0 }
-        : compareViews(result.views, pattern);
+        : compareViews(result.views, pattern, undefined, adapter.notOwed?.[stepName] ?? null);
       if (VIEWS_OUT && kind === 'old') writeViews(result.views, join(VIEWS_OUT, testInfo.project.name));
       testInfo.annotations.push({ type: 'views-checked', description: String(compared.checked) });
+      const left = adapter.notOwed?.[stepName];
+      if (left) testInfo.annotations.push({ type: 'views-not-owed', description: `${left.pattern ?? Object.keys(left.lines ?? {}).join(', ')}: ${left.reason}` });
       const problems = [...result.problems, ...compared.problems];
       expect(problems, `${problems.length} problem(s):\n  ${problems.join('\n  ')}`).toEqual([]);
       expect(compared.checked, 'views compared').toBe(compared.owed);
