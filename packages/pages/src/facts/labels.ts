@@ -448,7 +448,7 @@ export const PROPERTY_WORDS: Record<string, Loose> = { 'Tensile strength (endpoi
 /** A property by its name on the page. */
 export const propertyName = (p: Loose) => PROPERTY_WORDS[p] ?? p;
 /** A measurement's Data status, where it holds the value back, in words. */
-export const STATUS_WORDS = { 'Unresolved unit / layout': 'held back: the sheet\'s unit or table layout is unclear' };
+export const STATUS_WORDS: Record<string, string> = { 'Unresolved unit / layout': 'held back: the sheet\'s unit or table layout is unclear' };
 
 /** What kind of document a source is (sources[].sourceClass), as an engineer would name it. */
 export const SOURCE_KIND: Record<string, Loose> = {

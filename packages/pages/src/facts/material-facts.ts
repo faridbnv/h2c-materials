@@ -954,7 +954,7 @@ export const shownGap = (r: Loose) => readerGap(r) && !GAPS_SAID_ELSEWHERE.has(r
 export const makersOwn = (e: Loose) => e.evidenceType !== 'Selection interpretation';
 
 /** A coverage row's subject in a reader's words. */
-export const GAP_DOMAIN_WORDS = {
+export const GAP_DOMAIN_WORDS: Record<string, string> = {
   'Canadian price': 'Price', 'Moisture / environmental': 'Moisture and chemicals', 'Print setup': 'Printing', 'Source conflict': 'Sources that disagree',
   'Post-processing / application': 'Post-processing', 'H2C status': 'Bambu Lab status', Comparability: 'Comparing values', 'Measurement parsing': 'Reading the values',
   'Sparse properties': 'Not published by any product',

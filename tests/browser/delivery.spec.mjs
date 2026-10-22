@@ -46,20 +46,20 @@ test('stale shell: a material page whose chunks are gone does the same', async (
 });
 
 test('stale shell: a data part that is gone, or is of another release, reloads once; the second time it says so and shows no answer', async ({ page, appUrl, site, watch }) => {
-  watch.allow(/result\.json|status of 404/, 'the data part is withheld on purpose');
-  const result = dataOf(site, 'result.json');
+  watch.allow(/core\.json|status of 404/, 'the data part is withheld on purpose');
+  const core = dataOf(site, 'core.json');
   for (const [what, fulfil] of [
     ['gone', (route) => route.fulfill({ status: 404, body: 'gone' })],
-    ['another release', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...result, release: 'ffffffffffff' }) })],
+    ['another release', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify({ ...core, release: 'ffffffffffff' }) })],
   ]) {
-    await page.route('**/result.json', fulfil);
+    await page.route('**/core.json', fulfil);
     const documents = countDocuments(page, /\/v3\/$/);
     await page.goto(`${appUrl}v3/`, { waitUntil: 'load' });
     await expect(notice(page).getByRole('button'), what).toBeVisible();
     await expect(notice(page).locator('h1'), `${what}: the second time it says it, it does not say it is reloading`).toBeVisible();
     await expect(page.locator('[data-testid="result-row"]'), what).toHaveCount(0);
     expect(documents, `${what}: one reload`).toHaveLength(2);
-    await page.unroute('**/result.json');
+    await page.unroute('**/core.json');
     await page.evaluate(() => sessionStorage.clear());
   }
 });
@@ -74,7 +74,7 @@ test('stale shell: a page whose data is right neither reloads nor leaves a mark 
 test('stale shell: a shell that reloaded and then loaded its data keeps its mark, so a later failed chunk says so instead of reloading in a loop', async ({ page, appUrl, newPage }) => {
   expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');
   const release = await page.locator('meta[name="h2c-release"]').getAttribute('content');
-  // The state a stale shell is in after its one reload: the mark names this shell's release, and its data (the results) still loads.
+  // The state a stale shell is in after its one reload: the mark names this shell's release, and its data (the core part) still loads.
   await page.evaluate((r) => sessionStorage.setItem('h2c-reloaded', r), release);
   const documents = countDocuments(page, /\/v3\/(?:#.*)?$/);
   expect(await newPage.open(`${appUrl}v3/`)).toBe('ready');

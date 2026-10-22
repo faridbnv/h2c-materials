@@ -12,7 +12,7 @@ const TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-prac
 const OUT = join(root, 'remake', 'measure', 'axe');
 const NODES_PER_RULE = 5;
 // The pages of the fast subset; the full run scans every page of both adapters.
-const FAST_PAGES = ['selector-start', 'selector-lens-table', 'selector-lens-ashby', 'page-m001-pla', 'public-results', 'public-material'];
+const FAST_PAGES = ['selector-start', 'selector-lens-table', 'selector-lens-explain', 'selector-lens-ashby', 'selector-drawer', 'page-m001-pla', 'public-material'];
 
 /** One violation, small: the rule, how bad, how many places, and the first few (selector and a clipped piece of the markup). */
 const summarise = (v) => ({
@@ -44,8 +44,10 @@ for (const kind of ['old', 'new']) {
         byImpact[impact] = (byImpact[impact] ?? 0) + v.nodes.length;
       }
       const url = new URL(page.url());
+      // The new page's reports are named apart: its start screen and lenses carry the old page's slugs, and one report must not replace the other.
+      const name = kind === 'old' ? target.slug : `new-${target.slug}`;
       const report = {
-        schema: 1, page: target.slug, title: target.title, adapter: kind, project: testInfo.project.name, path: url.pathname + url.search,
+        schema: 1, page: name, title: target.title, adapter: kind, project: testInfo.project.name, path: url.pathname + url.search,
         axe: axeCore.version, tags: TAGS, blocking: false,
         counts: { violatedRules: results.violations.length, violatingNodes: results.violations.reduce((n, v) => n + v.nodes.length, 0), byImpact, passedRules: results.passes.length, incompleteRules: results.incomplete.length, inapplicableRules: results.inapplicable.length },
         violations: results.violations.map(summarise),
@@ -58,9 +60,9 @@ for (const kind of ['old', 'new']) {
       const earlierRun = existsSync(index) ? JSON.parse(readFileSync(index, 'utf8')) : null;
       if (earlierRun?.runId === RUN) { if (!rows.has(testInfo.project.name)) rows.set(testInfo.project.name, earlierRun.pages); }
       else for (const old of readdirSync(dir).filter((x) => x.endsWith('.json'))) rmSync(join(dir, old));
-      writeFileSync(join(dir, `${target.slug}.json`), `${JSON.stringify(report, null, 2)}\n`);
+      writeFileSync(join(dir, `${name}.json`), `${JSON.stringify(report, null, 2)}\n`);
       const list = rows.get(testInfo.project.name) ?? [];
-      list.push({ page: target.slug, ...report.counts });
+      list.push({ page: name, ...report.counts });
       rows.set(testInfo.project.name, list);
       writeFileSync(join(dir, 'index.json'), `${JSON.stringify({ schema: 1, runId: RUN, mode: FULL ? 'full' : 'fast', axe: axeCore.version, blocking: false, note: 'Reported, not blocking (owner ruling OQ-15 B). A count here is a finding to read, not a failed check.', pages: list.sort((a, b) => (a.page < b.page ? -1 : 1)) }, null, 2)}\n`);
       testInfo.annotations.push({ type: 'axe-pages', description: '1' });

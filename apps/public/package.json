@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
-  "description": "Filament Atlas public site, first slice (WP-14): one static results view for one template, with a product explanation, the release identity and the stale-shell guard. Vue 3 and Vite, relative base, published on the preview at /v3/.",
+  "description": "Filament Atlas public site: the selector of the remake (WP-26: the requirements rail, the results table, the material drawer, save and share) at its root, and the first slice's material page (WP-14). Vue 3 and Vite, relative base, published on the preview at /v3/.",
   "scripts": {
     "build": "node tools/build.ts",
     "dev": "vite"
@@ -12,6 +12,7 @@
     "@atlas/data": "0.0.0",
     "@atlas/domain": "0.0.0",
     "@atlas/engine": "0.0.0",
+    "@atlas/pages": "0.0.0",
     "@atlas/publish": "0.0.0",
     "vue": "3.5.44"
   },

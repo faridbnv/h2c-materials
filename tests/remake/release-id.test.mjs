@@ -139,7 +139,7 @@ test('the compile, case and stage files of the impact module, the corpus and the
     ['i3', 'packages/engine/src/impact/stage.ts', 'engine'],
     ['i4', 'app/js/ui/labels.js', 'engine'],
     ['i5', 'app/js/ui/registry.js', 'engine'],
-    ['i9', 'app/js/ui/table.js', 'engine'],
+    ['i9', 'packages/engine/src/table.ts', 'engine'],
     ['i6', 'packages/data/src/db-contract.ts', 'engine'],
     ['i7', 'apps/public/tools/build.ts', 'view'],
     ['i10', 'packages/publish/src/shards.ts', 'view'],

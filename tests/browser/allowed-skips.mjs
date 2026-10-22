@@ -2,8 +2,12 @@
 // A skip that matches nothing here fails the run. Every entry says why and which work package ends it.
 export const ALLOWED_SKIPS = Object.freeze([
   {
-    match: /^new selector: /,
-    reason: 'the selector of the remake is built in WP-26; its page adapter has only the results and material views (WP-14) to read until then',
+    match: /^new selector: Ashby decision workspace$/,
+    reason: 'the Ashby decision workspace is rebuilt in WP-27; the selector of WP-26 draws the table and the why-excluded lenses, and says so as a named unsupported step',
+  },
+  {
+    match: /^new selector: material pages(, (laptop|tablet|phone)|: the return trip)$/,
+    reason: 'the material pages are the old pages until their own package, and the selector rebuild does not change them; the new selector\'s own way there and back is the behaviour "Back to your results"',
   },
 ]);
 

@@ -133,7 +133,7 @@ export function changedState(x: Loose, v: Loose): Loose {
 }
 
 /** Why a product's value is set apart (its level is as-published, D172), by its headline's caveat. */
-export const LEVEL_NOTE = {
+export const LEVEL_NOTE: Record<string, string> = {
   'not-described': 'Nothing on the document that speaks for this figure says, even implicitly, that its test bar was printed, so it may be a moulded bar, which is stiffer and stronger than a print and, for a plastic that can crystallise, deflects hotter. It is set apart for good: shown, never used to pass a requirement. It can still show that a printed part cannot reach a value, since a print is no better than either kind of bar. The maker\'s word on how the bar was made would settle it. (A heat deflection counts whatever its bar for a plastic that cannot crystallise, whose glass transition sets it, unless its document points to a moulded or resin bar.)',
   'unstated-direction': 'The source gives no orientation the comparison can use (none, or one such as a 0° or 90° raster that is not a build orientation), so this may be a differently oriented bar. It is shown and not used in deciding.',
   'load-not-stated': 'The source does not state the HDT load. At either load the heat deflection at 0.45 MPa is at least this figure, so it bounds that from below only; it is not used at its value.',
@@ -551,7 +551,7 @@ export const foreignPriceWords = (p: Loose) => `${p.retailer} (${p.market}) list
   + `${fmtNumber(p.regularPerKgNative)} ${p.currency}/kg before VAT, × ${p.fx.cadPerUnit} CAD per ${p.currency} (Bank of Canada, ${dayWords(p.fx.date)}). `
   + 'Used only where no Canadian shop in the sample sells the product. Shipping, duty and Canadian stock are not included.';
 /** Why a listing is not used for the price (material-facts.js priceRows().unused). */
-export const UNUSED_WORDS = {
+export const UNUSED_WORDS: Record<string, string> = {
   quarantined: 'A different product; not used.',
   'no-regular': 'No regular price per kilogram was recorded.',
   another: 'Another listing of this product is used instead: Canadian listings come before foreign ones.',

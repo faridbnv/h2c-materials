@@ -1,0 +1,68 @@
+/* Filament Atlas shared design tokens: the palette, light and dark, the status colours, the radii and the font stacks.
+   Read by the selector (bundled ahead of its own stylesheet into its one style element) and by the material
+   pages, so the two are one design. What only the selector uses (its rail and drawer widths, its type scale) is
+   in its own stylesheet. The status palette is reserved for the four constraint states and nothing else. */
+
+:root {
+  --bg: #f7f7f5;
+  --surface: #ffffff;
+  --surface-2: #f2f2ef;
+  --border: #dcdcd6;
+  --border-strong: #bcbcb4;
+  --ink: #1a1a18;
+  --ink-2: #55554e;
+  --ink-3: #85857c;
+  --accent: #1f5f8b;
+  --accent-soft: #e4eef5;
+  /* Text on an accent fill. White on the dark theme's light blue read at about 2:1. */
+  --on-accent: #fff;
+
+  /* Status palette. Used for nothing else. */
+  --pass: #1d6f42;      --pass-bg: #e4f2e9;
+  --fail: #a32b1f;      --fail-bg: #fae8e6;
+  --unknown: #8a6100;   --unknown-bg: #fbf0da;
+  --indet: #24568f;     --indet-bg: #e6eefa;
+  /* A product its maker sells as toughened (D133): a maker's claim, not a verdict, so none of the verdict colours. An
+     orange since 2026-10-17 (D145): the purple read as the accent to a deuteranope; this passes the colour-vision checks
+     against the accent in both themes. */
+  --claim: #b4540a;     --claim-bg: #fbeee3;
+
+  /* Three radii for both surfaces (coherence round, C23): a control (a button, a segment, a field), the track a
+     segmented control sits in, and a plate. The selector's lens tabs and the pages' Overview | Products are one. */
+  --r-ctl: 7px;
+  --r-track: 10px;
+  --r-plate: 12px;
+  --radius: var(--r-ctl);
+  /* The raised selection inside a segmented control, and the frame's panels. */
+  --shadow-sm: 0 1px 2px rgba(20, 20, 18, .10), 0 0 0 1px rgba(20, 20, 18, .06);
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Inter first on both surfaces (coherence round, C50): the selector's bundle embeds the pages' subset. */
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
+    --border: #32353d; --border-strong: #474b55;
+    --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
+    --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+    --pass: #63c68c; --pass-bg: #12301f;
+    --fail: #f08a7d; --fail-bg: #3a1a16;
+    --unknown: #e0b458; --unknown-bg: #352a10;
+    --indet: #85b4ea; --indet-bg: #16283f;
+    --claim: #d4732f; --claim-bg: #3a2414;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15161a; --surface: #1d1f24; --surface-2: #23262c;
+  --border: #32353d; --border-strong: #474b55;
+  --ink: #ecedef; --ink-2: #b4b7bf; --ink-3: #7f838d;
+  --accent: #6fb3e0; --accent-soft: #1b3346; --on-accent: #15161a;
+  --pass: #63c68c; --pass-bg: #12301f;
+  --fail: #f08a7d; --fail-bg: #3a1a16;
+  --unknown: #e0b458; --unknown-bg: #352a10;
+  --indet: #85b4ea; --indet-bg: #16283f;
+  --claim: #d4732f; --claim-bg: #3a2414;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .5), 0 0 0 1px rgba(255, 255, 255, .08);
+}

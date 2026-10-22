@@ -560,7 +560,7 @@ export function keepInView(strip: Loose, item: Loose) {
   strip.scrollLeft += (r.left - s.left) - (s.width - r.width) / 2;
 }
 
-export const chip = (status: Loose, label: Loose) =>
+export const chip = (status: Loose, label?: Loose) =>
   `<span class="chip chip-${esc(status)}">${esc(label ?? status)}</span>`;
 
 /** Marker shapes by filler class: colour is never the only channel. */

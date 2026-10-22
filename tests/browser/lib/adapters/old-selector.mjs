@@ -16,6 +16,9 @@ import { createOldBehaviours } from './old-behaviours.mjs';
 import { createOldFuzzTab, waitUntil } from './old-fuzz-tab.mjs';
 
 const CALL_MS = 60_000;
+// The lenses of the old selector. The new page's adapter (new-selector.mjs) runs these same steps on the remake's selector, which draws fewer of them
+// until WP-27: a step then leaves out the part that needs a lens the page does not have, and the views of that part are named as not owed.
+const ALL_LENSES = Object.freeze(['table', 'ashby', 'parallel', 'coverage', 'compare', 'explain']);
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
@@ -27,8 +30,10 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
  * @param {string} o.root     the repository root
  * @param {object|null} [o.watch]    the page's watcher (lib/watch.mjs), which the behaviours that read dialogs need
  * @param {string|null} [o.scratch]  a folder to write files in, which the behaviours that import a file need
+ * @param {readonly string[]} [o.lenses]  the lenses the page draws; the steps skip what needs another
  */
-export function createOldSelector({ page, origin, base, meta, root, watch = null, scratch = null }) {
+export function createOldSelector({ page, origin, base, meta, root, watch = null, scratch = null, lenses = ALL_LENSES }) {
+  const has = (lens) => lenses.includes(lens);
   const pageUrl = `${origin}${base}`;
   const materialUrl = (file) => `${origin}${base}materials/${file}`;
   const productsCheck = readFileSync(join(root, 'scripts/lib/page-products-check.js'), 'utf8');
@@ -559,15 +564,17 @@ export function createOldSelector({ page, origin, base, meta, root, watch = null
           errors.push(`${name}: the shared link does not reproduce the Explore view (hash ${hash.slice(0, 120)}; first difference at line ${at + 1}: "${a[at]}" vs "${b[at]}")`);
         }
       }
-      await open(pageUrl);
-      await click('[data-template="0"]');
-      await click('#mode-explore');
-      const pins = await evaluate(`[...document.querySelectorAll('#lens [data-pin]')].slice(0, 3).map((b) => (b.click(), b.dataset.pin))`);
-      if (pins.length < 3) errors.push(`only ${pins.length} rows to pin`);
-      await sleep(200);
-      await click('[data-lens="compare"]');
-      await sleep(300);
-      results['20-compare-three-pins'] = await view();
+      if (has('compare')) {
+        await open(pageUrl);
+        await click('[data-template="0"]');
+        await click('#mode-explore');
+        const pins = await evaluate(`[...document.querySelectorAll('#lens [data-pin]')].slice(0, 3).map((b) => (b.click(), b.dataset.pin))`);
+        if (pins.length < 3) errors.push(`only ${pins.length} rows to pin`);
+        await sleep(200);
+        await click('[data-lens="compare"]');
+        await sleep(300);
+        results['20-compare-three-pins'] = await view();
+      }
     }),
     /** The drawer of PLA (its tabs and comparisons) and of the materials that carry the other comparisons. */
     selectorDrawers: () => run(async () => {
@@ -712,11 +719,13 @@ export function createOldSelector({ page, origin, base, meta, root, watch = null
       await recordLayout(screen, 'table-printing');
       await click('[data-colset="properties"]');
 
-      await click('[data-lens="ashby"]');
-      await when('#plot .main-svg', 300);
-      if (await evaluate(`(() => { const c = document.querySelector('[data-show-estimates]'); if (!c || c.checked) return false; c.click(); return true; })()`)) await when('#plot .main-svg', 300);
-      await recordLayout(screen, 'ashby');
-      for (const lens of ['parallel', 'coverage', 'compare', 'explain']) {
+      if (has('ashby')) {
+        await click('[data-lens="ashby"]');
+        await when('#plot .main-svg', 300);
+        if (await evaluate(`(() => { const c = document.querySelector('[data-show-estimates]'); if (!c || c.checked) return false; c.click(); return true; })()`)) await when('#plot .main-svg', 300);
+        await recordLayout(screen, 'ashby');
+      }
+      for (const lens of ['parallel', 'coverage', 'compare', 'explain'].filter(has)) {
         await click(`[data-lens="${lens}"]`);
         await sleep(200);
         await recordLayout(screen, lens);

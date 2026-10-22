@@ -49,9 +49,9 @@ export const test = base.extend({
     await use(assertAdapter(adapterFor('old', { page, origin: site.origin, base, meta })));
   },
   /** The new page's adapter on the default page. */
-  newPage: async ({ page, watch, site, base }, use) => {
+  newPage: async ({ page, watch, site, base, meta }, use) => {
     void watch;
-    await use(assertAdapter(adapterFor('new', { page, origin: site.origin, base })));
+    await use(assertAdapter(adapterFor('new', { page, origin: site.origin, base, meta })));
   },
 
   /** A function giving a watched page, in its own context, on one of the probe's screens; all are closed (and checked) at teardown. */
@@ -84,7 +84,7 @@ export const test = base.extend({
 export function adapterFor(kind, { page, origin, base, meta, watch = null, scratch = null }) {
   return kind === 'old'
     ? createOldSelector({ page, origin, base, meta, root, watch, scratch })
-    : createNewPublic({ page, origin, base });
+    : createNewPublic({ page, origin, base, meta, root, watch, scratch });
 }
 
 /** Skips the running test, naming why, when the page cannot answer the step yet. True when it skipped, so the caller returns. */

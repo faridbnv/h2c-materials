@@ -1,81 +1,86 @@
 {
   "schema": 1,
-  "release": "2686fbded3f3",
-  "measuredAt": "2026-10-22T05:51:25.255Z",
+  "release": "fc9168eaf4e4",
+  "measuredAt": "2026-10-22T09:18:36.518Z",
   "node": "26.12.0",
   "gzipLevel": 6,
   "note": "Budgets are pack 02 section 11, with a kilobyte of 1,000 bytes. A failed check is a failed budget; relaxing one is the owner's decision.",
   "strictBoot": {
-    "gzipBytes": 772318,
-    "codeGzipBytes": 34241,
-    "coreGzipBytes": 738077,
+    "gzipBytes": 892278,
+    "codeGzipBytes": 120061,
+    "coreGzipBytes": 772217,
     "files": [
       {
         "path": "index.html",
-        "bytes": 2918,
-        "gzip": 1190
+        "bytes": 3761,
+        "gzip": 1629
       },
       {
-        "path": "assets/index-BP8pIB0h.js",
-        "bytes": 4473,
-        "gzip": 1727
+        "path": "assets/index-CUkwCfOI.js",
+        "bytes": 131246,
+        "gzip": 43267
       },
       {
-        "path": "assets/style-Cy0svbyP.js",
-        "bytes": 77550,
-        "gzip": 29738
+        "path": "assets/format-9A9U8-jA.js",
+        "bytes": 100643,
+        "gzip": 34039
       },
       {
-        "path": "assets/style-CwiHf5kh.css",
-        "bytes": 3996,
-        "gzip": 1586
+        "path": "assets/useLoad-BbYq9vr6.js",
+        "bytes": 78622,
+        "gzip": 30291
       },
       {
-        "path": "data/2686fbded3f3/core.json",
-        "bytes": 11234824,
-        "gzip": 738077
+        "path": "assets/index-BTjfSm28.css",
+        "bytes": 51473,
+        "gzip": 10835
+      },
+      {
+        "path": "data/fc9168eaf4e4/core.json",
+        "bytes": 11475293,
+        "gzip": 772217
       }
     ]
   },
   "defaultBoot": {
     "note": "Explore with estimates on: strict boot plus the estimates part. Its budget is set from this measurement, with the owner.",
-    "gzipBytes": 972423,
-    "estimatesGzipBytes": 200105
+    "gzipBytes": 1092382,
+    "estimatesGzipBytes": 200104
   },
   "detail": {
     "count": 175,
-    "medianGzipBytes": 13602,
-    "maxGzipBytes": 324841,
-    "largest": "data/2686fbded3f3/detail/M001.json"
+    "medianGzipBytes": 13512,
+    "maxGzipBytes": 324542,
+    "largest": "data/fc9168eaf4e4/detail/M001.json"
   },
   "site": {
     "scope": "the new site: the public view plus the slim copy of the previous release a deploy keeps",
-    "bytes": 68927267,
-    "viewBytes": 51083862,
-    "dataBytes": 50987097,
-    "slimDataBytes": 17754022,
-    "assetsBytes": 89383,
-    "assembledBytes": 97495870,
+    "bytes": 70428389,
+    "viewBytes": 51794292,
+    "dataBytes": 51249004,
+    "slimDataBytes": 18097370,
+    "assetsBytes": 536727,
+    "assembledBytes": 149999528,
     "assembledScope": "the whole assembled preview (the old site for comparison, the 404 page and the public view); not counted"
   },
   "checks": {
     "strictBootGzip": {
-      "value": 772318,
+      "value": 892278,
       "budget": 900000,
       "ok": true
     },
     "detailMedianGzip": {
-      "value": 13602,
+      "value": 13512,
       "budget": 15000,
       "ok": true
     },
     "detailMaxGzip": {
-      "value": 324841,
+      "value": 324542,
       "budget": 350000,
       "ok": true
     },
     "siteBytes": {
-      "value": 68927267,
+      "value": 70428389,
       "budget": 100000000,
       "ok": true
     }
