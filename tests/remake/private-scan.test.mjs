@@ -312,6 +312,7 @@ function previewSite(release = 'abcdef012345') {
   put(site, 'legacy/index.html', PAGE);
   put(site, 'legacy/manifest.json', JSON.stringify({ release, snapshot: '2026-01-01' }));
   put(site, 'legacy/materials/M001.html', PAGE);
+  put(site, 'materials/index.html', PAGE); // the new site's own pages (rendered with the view), index included
   // The new site's release and the parts it names (a view is whole only with all of them).
   put(site, 'release.json', JSON.stringify({ release: NEW_RELEASE }));
   for (const part of ['result.json', 'core.json', 'estimates.json', 'reference.json']) put(site, `data/${NEW_RELEASE}/${part}`, '{}');

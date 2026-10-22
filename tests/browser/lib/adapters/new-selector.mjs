@@ -19,7 +19,17 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** The lenses the new selector draws. A step reports a view it does not owe as named, never as passed; none is left out now. */
 export const NEW_LENSES = Object.freeze(['table', 'ashby', 'parallel', 'coverage', 'compare', 'explain']);
+// The material pages of the site are the new pages (packages/pages). They equal the old pages' views except where a registered display
+// transition changes them on purpose: the method page gains the "Test answers" part (parity/transitions/2026-10-22-pages-display.json, change b,
+// OQ-11 A), which adds one section to its list and one to its bar and anchors. Undoing that one change must give the baseline back.
+const dropOne = (text, word) => text.replace(new RegExp(`(\\b${word} \\()(\\d+)\\)`), (_, head, n) => `${head}${Number(n) - 1})`);
+const undoTestAnswers = (text) => (!text.includes('method-test-answers') ? text
+  : dropOne(text, 'sections').replace(/method-test-answers, /, '').replace(/(\d+) sections listed/, (_, n) => `${Number(n) - 1} sections listed`).replace(/anchors: (\d+) checked/, (_, n) => `anchors: ${Number(n) - 1} checked`));
 export const NOT_OWED = Object.freeze({});
+/** The views a registered display transition changes on purpose, by step (compareViews `registered`). */
+export const REGISTERED = Object.freeze({
+  materialPages: Object.freeze({ registered: Object.freeze([Object.freeze({ pattern: /^50-page-.*-method$/, reason: 'the method page gains its "Test answers" part (pages-display, change b)', undo: undoTestAnswers })]) }),
+});
 
 /** A page whose reads wait for the selector to have finished what it was doing: its estimates part or a drawer's parts arriving. */
 export function settled(page) {
@@ -82,5 +92,5 @@ export function createNewSelector({ page, origin, base, meta, root, watch = null
     { slug: 'selector-drawer', title: 'selector: material drawer', prepare: async () => { await explored(); await click(`${tid('lens')} ${tid('result-row')}`); await old.until(`!!document.querySelector('${tid('drawer')} [data-tab]')`, 'the drawer'); await sleep(300); } },
   ];
   const perfTarget = { url: `${origin}${base}`, ready: `document.querySelector('${tid('lens')}')?.dataset.state === 'ready' && !!document.querySelector('${tid('count')}')?.textContent.trim()` };
-  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, open, readView: read, settle: () => evaluate('true'), evaluate, until: old.until };
+  return { steps, behaviours, axeTargets, perfTarget, fuzzTab: createNewFuzzTab, pageUrl, notOwed: NOT_OWED, registered: REGISTERED, open, readView: read, settle: () => evaluate('true'), evaluate, until: old.until };
 }

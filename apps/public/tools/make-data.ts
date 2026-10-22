@@ -37,6 +37,8 @@ export interface MadeData {
   readonly reconstruction: { readonly tables: number; readonly rows: number; readonly checks: number };
   /** The parts of the release (core, estimates, reference, detail), described for the manifest. Their files are in `files`. */
   readonly parts: PartsManifest;
+  /** The new build's database as the build wrote it (not the stamped copy the engine read): what the material pages are rendered from, so that the pages and the parts come from one build. Null for the old database. */
+  readonly pagesDb: object | null;
 }
 
 // The old words layer, imported read-only and never edited: the template's own sentences and the requirement pills' wording.
@@ -69,7 +71,7 @@ function oldDatabase(root: string): { readonly meta: object } {
 }
 
 /** The new build of the tables, with the estimate stage, as the typed database stamped with the release; and the reference set beside it. */
-async function compiledDatabase(root: string, stamp: ReleaseStamp, source: DatabaseSource): Promise<{ db: Db; reference: unknown; reconstruction: MadeData['reconstruction'] }> {
+async function compiledDatabase(root: string, stamp: ReleaseStamp, source: DatabaseSource): Promise<{ db: Db; reference: unknown; reconstruction: MadeData['reconstruction']; built: object | null }> {
   // The count of what the rebuild verified, for the manifest. The build below reconstructs the same tables again; this is cheap.
   const rebuilt = buildInMemory(join(root, 'data'));
   const reconstruction = { tables: rebuilt.report.tables.length, rows: rebuilt.report.rows, checks: rebuilt.report.checks.length };
@@ -84,7 +86,7 @@ async function compiledDatabase(root: string, stamp: ReleaseStamp, source: Datab
   const stamped = { ...base, meta: { ...base.meta, release: { id: stamp.id, digest: stamp.digest, inputs: stamp.inputs } } };
   const checked = checkDb(JSON.parse(JSON.stringify(stamped)));
   if (!checked.ok) throw new Error(`the compiled database does not satisfy the typed contract: ${checked.problems.slice(0, 3).join('; ')}`);
-  return { db: checked.db, reference: built.reference, reconstruction };
+  return { db: checked.db, reference: built.reference, reconstruction, built: source === 'new' ? built.db : null };
 }
 
 function required<T>(value: T | undefined, what: string): T {
@@ -99,7 +101,7 @@ export async function makeData(root: string, stamp: ReleaseStamp, source: Databa
   const asked = loadImpactCases().find((c) => c.id === CASE_ID);
   if (!asked) throw new Error(`the parity corpus has no question ${CASE_ID}`);
 
-  const { db, reference, reconstruction } = await compiledDatabase(root, stamp, source);
+  const { db, reference, reconstruction, built } = await compiledDatabase(root, stamp, source);
   registry.useRegistry(db.registry);
   const scenario = scenarioFrom(asked.question, db.meta);
   const output = createContext(db, scenario).run({ rankings: false });
@@ -147,5 +149,5 @@ export async function makeData(root: string, stamp: ReleaseStamp, source: Databa
     if (files.has(path)) throw new Error(`${path} is both a view file and a part of the release`);
     files.set(path, text);
   }
-  return { files, output, reconstruction, parts: shards.manifest };
+  return { files, output, reconstruction, parts: shards.manifest, pagesDb: built };
 }

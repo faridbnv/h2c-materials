@@ -52,5 +52,5 @@ export function createNewPublic({ page, origin, base, meta = {}, root = null, wa
     { slug: 'public-material', title: 'public view: a material', prepare: () => openReady(materialUrl('M001'), 'the material page') },
   ];
 
-  return { id: 'new', steps: selector.steps, behaviours: selector.behaviours, axeTargets, perfTarget: selector.perfTarget, fuzzTab: selector.fuzzTab, pageUrl: selector.pageUrl, notOwed: selector.notOwed, viewUrl, materialUrl, open, readMaterial };
+  return { id: 'new', steps: selector.steps, behaviours: selector.behaviours, axeTargets, perfTarget: selector.perfTarget, fuzzTab: selector.fuzzTab, pageUrl: selector.pageUrl, notOwed: selector.notOwed, registered: selector.registered, viewUrl, materialUrl, open, readMaterial };
 }

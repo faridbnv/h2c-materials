@@ -73,7 +73,8 @@ jobs:
         run: npm run build
 
       # pages.yml's "Assemble the site" step, with one change of place (WP-30): today's site goes to legacy/, and the root is the
-      # remake's selector (the next step). The material pages are at both: legacy/materials/ for today's site, materials/ for the new one.
+      # remake's selector (the next step). Material pages: the old build's go to legacy/materials/ for today's site; the root's materials/
+      # are the new pages (packages/pages), rendered by the next step from the same database as the view's data parts.
       - name: Assemble the site
         run: |
           mkdir -p _site/legacy
@@ -84,14 +85,13 @@ jobs:
           cp build/reports/validation-report.md _site/legacy/validation-report.md
           # What the page was built from: commit, input hashes and output hashes.
           cp dist/manifest.json _site/legacy/manifest.json
-          # The material pages, beside each selector, where the drawer's Full page links find them (materials/<id>.html).
+          # The old build's material pages, beside today's selector.
           cp -r dist/materials _site/legacy/materials
-          cp -r dist/materials _site/materials
           # Tell GitHub Pages not to run the output through Jekyll.
           touch _site/.nojekyll
           ls -la _site
 
-      - name: Build the new site into the root (WP-14, WP-30)
+      - name: Build the new site and its material pages into the root (WP-14, WP-24, WP-30)
         run: node remake/tools/preview-assemble.mjs build-view --site _site
 
       - name: The size budgets (WP-25, WP-30); a budget that is missed fails the build
@@ -183,9 +183,17 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
 
-      # Polls preview.json until it names this commit (or a descendant), then fetches index.html, a material page and
-      # 404.html. A failed fetch, a wrong status, a missing banner or a timeout fails the job.
+      # The smoke asks the repository's engine two real questions of the parts the deploy serves, so the workspace packages must be linked
+      # (@atlas/*). No scripts run and no browser is downloaded.
+      - name: Install the workspace packages (no scripts)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      # Polls preview.json until it names this commit (or a descendant), then fetches index.html, a material page, 404.html, the view's
+      # parts (core, estimates, reference, shared, one detail) and evaluates a Strict and an Explore question on them with the engine.
+      # A failed fetch, a wrong status, a missing banner, a wrong answer or a timeout fails the job.
       - name: Smoke
         env:
           PREVIEW_BASE_URL: ${{ vars.PREVIEW_BASE_URL || 'https://pdynamics.ca/h2c-material-temp-page/' }}
