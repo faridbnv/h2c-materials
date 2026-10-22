@@ -26,6 +26,9 @@ export function decodeEntities(text: string): string {
   });
 }
 
+/** The case name P-pages gives its differences: a page is not a corpus case, so a transition lists it as `pages`. */
+export const PAGES_CASE = 'pages';
+
 export interface PageNames {
   /** The release id of the database these pages were built from. */
   release: string;
@@ -131,16 +134,72 @@ export function readPages(dir: string, label: string, names: PageNames): PageSet
   return { label, pages, html };
 }
 
-/** The line ranges two texts differ in: their common start and end are dropped, the middle is the change. */
-function middleOf(a: string[], b: string[]): { start: number; before: string[]; after: string[] } {
-  let start = 0;
-  while (start < a.length && start < b.length && a[start] === b[start]) start++;
-  let endA = a.length, endB = b.length;
-  while (endA > start && endB > start && a[endA - 1] === b[endB - 1]) { endA--; endB--; }
-  return { start, before: a.slice(start, endA), after: b.slice(start, endB) };
+export interface Hunk {
+  /** Zero-based line of the first text where the change starts. */
+  start: number;
+  before: string[];
+  after: string[];
 }
 
-/** Compare two page sets. A page on one side only, or any changed word, order or link target, is a difference. */
+/** The most lines of change one page may have before the whole stretch between its first and last change is one hunk. */
+const MAX_EDITS = 1500;
+
+/**
+ * The changes between two texts, a hunk for each run of changed lines (Myers' shortest edit script, with the common start and
+ * end dropped first). Where a page changed so much that the script would be larger than MAX_EDITS, the stretch between the
+ * first and the last change is one hunk: the comparison still names the page, with less detail.
+ */
+export function diffHunks(a: string[], b: string[]): Hunk[] {
+  let from = 0;
+  while (from < a.length && from < b.length && a[from] === b[from]) from++;
+  let endA = a.length, endB = b.length;
+  while (endA > from && endB > from && a[endA - 1] === b[endB - 1]) { endA--; endB--; }
+  const A = a.slice(from, endA), B = b.slice(from, endB);
+  const n = A.length, m = B.length;
+  if (n === 0 && m === 0) return [];
+  if (n === 0 || m === 0) return [{ start: from, before: A, after: B }];
+  const max = Math.min(n + m, MAX_EDITS);
+  const off = max + 1;
+  const v = new Int32Array(2 * max + 3);
+  const trace: Int32Array[] = [];
+  let found = -1;
+  for (let d = 0; d <= max && found < 0; d++) {
+    trace.push(v.slice());
+    for (let k = -d; k <= d; k += 2) {
+      let x = k === -d || (k !== d && (v[off + k - 1] ?? 0) < (v[off + k + 1] ?? 0)) ? (v[off + k + 1] ?? 0) : (v[off + k - 1] ?? 0) + 1;
+      let y = x - k;
+      while (x < n && y < m && A[x] === B[y]) { x++; y++; }
+      v[off + k] = x;
+      if (x >= n && y >= m) { found = d; break; }
+    }
+  }
+  if (found < 0) return [{ start: from, before: A, after: B }];
+  // Walk back from the end, collecting for each position whether it was kept, deleted from A or inserted from B.
+  const ops: ('=' | '-' | '+')[] = [];
+  let x = n, y = m;
+  for (let d = found; d > 0; d--) {
+    const p = trace[d]!;
+    const k = x - y;
+    const prevK = k === -d || (k !== d && (p[off + k - 1] ?? 0) < (p[off + k + 1] ?? 0)) ? k + 1 : k - 1;
+    const prevX = p[off + prevK] ?? 0;
+    const prevY = prevX - prevK;
+    while (x > prevX && y > prevY) { ops.push('='); x--; y--; }
+    ops.push(x === prevX ? '+' : '-');
+    x = prevX; y = prevY;
+  }
+  while (x > 0 && y > 0) { ops.push('='); x--; y--; }
+  ops.reverse();
+  const hunks: Hunk[] = [];
+  let i = 0, j = 0, open: Hunk | null = null;
+  for (const op of ops) {
+    if (op === '=') { open = null; i++; j++; continue; }
+    if (open === null) { open = { start: from + i, before: [], after: [] }; hunks.push(open); }
+    if (op === '-') { open.before.push(A[i]!); i++; } else { open.after.push(B[j]!); j++; }
+  }
+  return hunks;
+}
+
+/** Compare two page sets. A page on one side only, or any changed word, order or link target, is a difference: one for each run of changed lines. */
 export function comparePages(before: PageSet, after: PageSet): SurfaceReport {
   const b = new SurfaceBuilder({ surface: 'pages', before: before.label, after: after.label, unit: 'page' });
   const files = [...new Set([...before.pages.keys(), ...after.pages.keys()])].sort(compareStrings);
@@ -149,15 +208,17 @@ export function comparePages(before: PageSet, after: PageSet): SurfaceReport {
     const y = after.pages.get(file);
     b.units++;
     if (x === undefined || y === undefined) {
-      b.add({ case: 'pages', record: file, tier: 'wording', field: '(page)', before: x === undefined ? '<absent>' : '<present>', after: y === undefined ? '<absent>' : '<present>' });
+      b.add({ case: PAGES_CASE, record: file, tier: 'wording', field: '(page)', before: x === undefined ? '<absent>' : '<present>', after: y === undefined ? '<absent>' : '<present>' });
       continue;
     }
     if (x === y) continue;
-    const changed = middleOf(x.split('\n'), y.split('\n'));
-    b.add({
-      case: 'pages', record: file, tier: 'wording', field: `lines ${changed.start + 1}-${changed.start + Math.max(changed.before.length, changed.after.length)}`,
-      before: clipWithDigest(changed.before.join(' ⏎ ')), after: clipWithDigest(changed.after.join(' ⏎ ')),
-    });
+    for (const h of diffHunks(x.split('\n'), y.split('\n'))) {
+      b.add({
+        case: PAGES_CASE, record: file, tier: 'wording',
+        field: h.before.length ? `lines ${h.start + 1}-${h.start + h.before.length}` : `after line ${h.start}`,
+        before: clipWithDigest(h.before.join(' ⏎ ')), after: clipWithDigest(h.after.join(' ⏎ ')),
+      });
+    }
   }
   const visibleLines = [...before.pages.values()].reduce((n, t) => n + t.split('\n').length, 0);
   b.notes.push(`${before.pages.size} pages on the first side, ${after.pages.size} on the second; ${visibleLines} lines of visible text on the first (names normalised: {release} {build} {selector})`);

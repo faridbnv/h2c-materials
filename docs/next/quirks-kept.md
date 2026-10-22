@@ -50,8 +50,9 @@ further quirk: every other difference the run showed was the reprint transition
 
 ## Not quirks, but worth knowing
 
-- **Pages are not compared yet.** The page-text check stays "not computable" until the page renderers are ported
-  (WP-24). It is reported as such, never as zero.
+- **Pages are compared as text, not as bytes.** P-pages reads the visible words, link targets, screen-reader labels and data
+  islands of every page (Q2-20: byte-identical HTML does not decide). It does not read `data-*` attributes other than the data
+  islands, so a tooltip carried in one (the note on a mark in a strip) is outside it.
 - **A release ID does not cover the new build's rules** (WP20-D1, [defects.md](defects.md)). It matters here because the
   reprint transition changes the compiled database while the release ID, which hashes the old build files, stays
   `7c6da496722d`. Listed as an open item in the pull request.

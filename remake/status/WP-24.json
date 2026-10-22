@@ -1,13 +1,41 @@
 {
   "id": "WP-24",
-  "status": "todo",
+  "status": "in-review",
   "slice": null,
-  "branch": null,
+  "branch": "wp-24-pages",
   "pr": null,
   "exitCheck": "not-run",
-  "lastRun": null,
+  "lastRun": "2026-10-22T04:24:01.457Z",
   "lastPass": null,
-  "evidence": [],
+  "evidence": [
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run typecheck",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run parity -- --new --surface pages",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
   "waitingSince": null,
-  "approvedAt": null
+  "approvedAt": null,
+  "updated": "2026-10-22T04:26:47.581Z",
+  "note": "Pages in TypeScript (packages/pages). P-pages new side wired: npm run parity -- --new --surface pages reads RESULT: matches-transition (1,025 listed, 0 unexpected, 0 missing). Two transitions, both owner-attest paths: 2026-10-22-pages-display (534 differences: a 333, b 2, c 197, d 2) and 2026-10-22-pages-reprint-medians (491, the approved reprint ruling's numbers as the pages print them). Page script 18,078 bytes (budget 30,000). Not run here: the page script in a browser; custody-copy tests (rsync absent, fails on the base too)."
 }

@@ -122,6 +122,30 @@ export async function buildNew(opts: NewBuildOptions): Promise<BuiltRelease> {
   return { dir, dbPath, materialsDir: null, label: opts.label, seconds: (performance.now() - started) / 1000 };
 }
 
+export interface RenderedPages {
+  /** The folder the pages were written to (its materials/ is what the old build writes to dist/materials). */
+  materialsDir: string;
+  label: string;
+  seconds: number;
+}
+
+/**
+ * The new pages (packages/pages, WP-24): its CLI as a child process, rendering the pages of a compiled database into a temporary
+ * directory. Nothing in the project is written. A render that fails is a BuildFailed, never an empty set of pages.
+ */
+export async function renderNewPages(opts: { dbPath: string; label: string }): Promise<RenderedPages> {
+  const dir = makeTempDir('h2c-parity-newpages-');
+  const started = performance.now();
+  const run = await runBuild(REPO_ROOT, ['--disable-warning=ExperimentalWarning', 'packages/pages/src/cli.ts', '--db', opts.dbPath, '--out', dir], {});
+  if (run.status !== 0) {
+    const tail = run.output.split('\n').filter((l) => /ERROR|failed|Error|error/.test(l)).slice(0, 12).join('\n');
+    throw new BuildFailed(`the page renderer of "${opts.label}" exited ${String(run.status)}${tail ? `:\n${tail}` : ''}`);
+  }
+  const materialsDir = join(dir, 'materials');
+  if (!existsSync(materialsDir)) throw new BuildFailed(`the page renderer of "${opts.label}" wrote no materials folder`);
+  return { materialsDir, label: opts.label, seconds: (performance.now() - started) / 1000 };
+}
+
 /** The old build as a child process, asynchronously, so two builds (or a build and a comparison) can run side by side. */
 function runBuild(cwd: string, args: string[], env: Record<string, string>): Promise<{ status: number | null; output: string }> {
   return new Promise((resolve, reject) => {

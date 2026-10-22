@@ -28,6 +28,8 @@ export const LIVE_URL = 'https://pdynamics.ca/h2c-materials/';
 export const TRANSITION_NOTES = {
   '2026-10-21-reprint-counts-once': "a table one maker reprints from another counts once in a material's median (reprint-counts-once)",
   '2026-10-22-dt1-float-tie': 'a rounding tie in the estimate audit is settled with a tolerance; no answer moves (dt1-float-tie)',
+  '2026-10-22-pages-display': "the material pages link back to the selector at its stable address, say that a table two products share counts once in the median, show a local source as a private reference, and the method page labels the test answers as written by an agent and not yet reviewed by a person (pages-display)",
+  '2026-10-22-pages-reprint-medians': "the material pages show the medians that change under the reprint ruling (pages-reprint-medians)",
 };
 const CHANGES = Object.values(TRANSITION_NOTES);
 export const BANNER_TEXT = `Preview of the Filament Atlas remake — not the live tool.${CHANGES.length ? ` Deliberate change from it: ${CHANGES.join('; ')}.` : ''} Live:`;

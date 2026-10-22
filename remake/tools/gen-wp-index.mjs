@@ -28,7 +28,7 @@ const EXIT = {
   // `npm run change:replay` alone replays the change sets in data/, of which there are none on this branch: it exits 3 (nothing to replay).
   // The exit evidence is the replay of a sandbox fixture export: the test exports a correction from a scratch workspace and replays it.
   'WP-10': { commands: ['node --test tests/remake/write-export.test.mjs'], manual: ['one test per guard and refusal', 'interrupted export leaves the tree unchanged', 'stale command refused'] },
-  // The pack writes `parity -- --new adapter`; the CLI's flag is `--new` (the wrapped engine is the new side, WP-11), on the surfaces it can answer: the engine and the first-wins ties (links, build and pages wait for WP-17, WP-20, WP-24). The fixture
+  // The pack writes `parity -- --new adapter`; the CLI's flag is `--new` (the wrapped engine is the new side, WP-11), on the surfaces it can answer: the engine and the first-wins ties (links, build and pages wait for WP-17, WP-20, WP-24; the last two have since landed). The fixture
   // correction and the recorded impact time are checked by tests/parity/impact.test.mjs.
   'WP-11': { commands: ['npm run parity -- --new --surface engine,ties', 'node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs'], manual: [] },
   'WP-13': { commands: ['npm run test:e2e'], manual: ['token, Host, Origin and bind-address tests pass', 'ready <= 3 s'] },
@@ -50,7 +50,12 @@ const EXIT = {
   'WP-21': { commands: [], manual: ['explore with estimates parity = 0', 'stale-key test forces recompute', 'estimates.json byte-identical after the TypeScript step'] },
   'WP-22': { commands: ['npm run test:e2e'], manual: ['old-adapter run equals the old CDP harness on one build', '3 green runs with retries 0', 'axe report per lens'] },
   'WP-23': { commands: ['npm run parity -- --milestone'], attest: ['reprint-transition-approved'], manual: ['transition digest = measured diff'] },
-  'WP-24': { commands: [], manual: ['P-pages byte-identical apart from registered display transitions', 'page script <= 30 KB'] },
+  // Q2-20: P-pages compares the words and links of every page, not bytes. The test files hold the four display rules, the 30 KB
+  // script budget, the old drawer tests (drawer-comparisons among them) run unedited on the new facts layer, and the hunk diff.
+  'WP-24': {
+    commands: ['npm run parity:erase', 'npm run typecheck', 'node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs', 'npm run parity -- --new --surface pages'],
+    manual: ['the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)'],
+  },
   'WP-25': { commands: [], manual: ['core sufficiency = 0', 'stale-shell, mismatch and 404 tests pass', 'size report in budget'] },
   'WP-26': { commands: [], manual: ['P-ui passes on the new adapter', 'keyboard script passes', 'historic links open'] },
   'WP-27': { commands: [], manual: ['chart traces identical', 'Plotly absent from first load', 'first chart <= 1.2 s', 'brief and export equal on 12 scenarios'] },
