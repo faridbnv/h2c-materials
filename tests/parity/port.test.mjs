@@ -64,7 +64,7 @@ test('a staged engine: a ported module is the port\'s own text, an old one is th
   assert.equal(at('pareto.js'), "export * from './pareto.ts';\n");
   assert.equal(at('constraints.js'), readFileSync(join(root, 'app/js/engine/constraints.js'), 'utf8'));
   assert.equal(at('constraints.ts'), "export * from './constraints.js';\n");
-  assert.equal(readdirSync(dir).length, 24, 'ten modules under two extensions, the support files a port imports, and the package file that makes them modules');
+  assert.equal(readdirSync(dir).length, 26, 'ten modules under two extensions, the support files a port imports, and the package file that makes them modules');
   assert.equal(at('gate-reasons.ts'), readFileSync(join(PORT_DIR, 'gate-reasons.ts'), 'utf8'));
 });
 

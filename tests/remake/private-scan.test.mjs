@@ -305,8 +305,16 @@ test('command line: 0 clean, 1 findings (listed, no matched text), 2 when the sc
 });
 
 // ---- the preview deploy fails closed ---------------------------------------------------------------------------------
+const NEW_RELEASE = 'fedcba987654';
 function previewSite(release = 'abcdef012345') {
+  // The root is the new site; today's is at legacy/ with its manifest and its own material pages (WP-30).
   const site = cleanSite(release);
+  put(site, 'legacy/index.html', PAGE);
+  put(site, 'legacy/manifest.json', JSON.stringify({ release, snapshot: '2026-01-01' }));
+  put(site, 'legacy/materials/M001.html', PAGE);
+  // The new site's release and the parts it names (a view is whole only with all of them).
+  put(site, 'release.json', JSON.stringify({ release: NEW_RELEASE }));
+  for (const part of ['result.json', 'core.json', 'estimates.json', 'reference.json']) put(site, `data/${NEW_RELEASE}/${part}`, '{}');
   return site;
 }
 
