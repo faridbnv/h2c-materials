@@ -227,9 +227,12 @@ export function mainState(root, { observe, changedPaths }) {
 }
 
 // ---- rollback ----------------------------------------------------------------------------------------------------------------
+// A rehearsal log is the file rehearse.mjs writes, named by its date (YYYY-MM-DD.json). Other reports in the folder (the live practice run's
+// live-dryrun-<date>.json) are not rehearsal logs, and would otherwise sort after every date.
+const REHEARSAL_LOG = /^\d{4}-\d{2}-\d{2}\.json$/;
 export function rehearsalOf(root) {
   const dir = join(root, REHEARSAL_DIR);
-  const logs = existsSync(dir) ? readdirSync(dir).filter((n) => n.endsWith('.json')).sort() : [];
+  const logs = existsSync(dir) ? readdirSync(dir).filter((n) => REHEARSAL_LOG.test(n)).sort() : [];
   if (logs.length === 0) return null;
   const file = `${REHEARSAL_DIR}/${logs[logs.length - 1]}`;
   return { file, ...readJson(root, file) };
