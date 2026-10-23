@@ -1,2 +1,13 @@
 date,key,detail,source
 2026-10-21,owner-correction,,wp:attest
+2026-10-22,retire-approved,T-release-one-page,wp:attest
+2026-10-22,retire-approved,T-frozen,wp:attest
+2026-10-22,retire-approved,T-round-close,wp:attest
+2026-10-22,retire-approved,T-pages-check-p14,wp:attest
+2026-10-22,retire-approved,S-data-audit-html,wp:attest
+2026-10-22,retire-approved,A-round-close,wp:attest
+2026-10-22,retire-approved,J-pages-single-html,wp:attest
+2026-10-22,retire-approved,J-pages-keep-release,wp:attest
+2026-10-23,bus-factor-rollback,,wp:attest
+2026-10-23,safari-check,a85bfb57,wp:attest
+2026-10-23,safari-check,98cb44d3,wp:attest

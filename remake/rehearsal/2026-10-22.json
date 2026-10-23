@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "candidate": "23c744a5544907c19c266f746205d3258d7274c0",
+  "previewBaseUrl": "https://pdynamics.ca/h2c-material-temp-page/",
+  "startedAt": "2026-10-22T20:28:21.647Z",
+  "phases": [
+    {
+      "name": "candidate",
+      "who": "agent",
+      "action": "Deploy the candidate 23c744a5: it is the tip of remake/v3, so next-preview.yml has deployed it (merge nothing else until the rehearsal is done).",
+      "startedAt": "2026-10-22T20:28:21.648Z",
+      "endedAt": "2026-10-22T20:28:22.979Z",
+      "seconds": 1,
+      "result": "pass",
+      "observed": {
+        "previewCommit": "23c744a5544907c19c266f746205d3258d7274c0",
+        "release": "7c6da496722d",
+        "builtAt": "2026-10-22T20:17:10.717Z",
+        "runId": 39847105095
+      }
+    },
+    {
+      "name": "hold",
+      "who": "owner",
+      "action": "gh variable set DEPLOY_HOLD --body legacy-final --repo faridbnv/h2c-materials",
+      "startedAt": "2026-10-22T20:28:22.980Z",
+      "endedAt": "2026-10-22T20:28:23.377Z",
+      "seconds": 0,
+      "result": "pass",
+      "observed": {
+        "hold": "legacy-final",
+        "waitedSeconds": 0
+      }
+    },
+    {
+      "name": "hold-test",
+      "who": "agent",
+      "action": "Open a pull request that adds one number to \"pings\" in remake/control/rehearsal-ping.json and merge it into remake/v3 (agents merge into remake/v3 once checks are green). next-main.yml must verify and build and must NOT deploy.",
+      "startedAt": "2026-10-22T20:28:23.377Z",
+      "endedAt": "2026-10-22T21:28:24.127Z",
+      "seconds": null,
+      "result": "fail",
+      "observed": {
+        "error": "timed out after 3600 s waiting for: the hold-test run of next-main.yml to complete (last: no completed next-main.yml run after the hold was set)"
+      }
+    }
+  ],
+  "result": "fail",
+  "holdTested": false,
+  "restoreSeconds": null,
+  "note": "timed out after 3600 s waiting for: the hold-test run of next-main.yml to complete (last: no completed next-main.yml run after the hold was set)",
+  "endedAt": "2026-10-22T21:28:24.129Z",
+  "totalSeconds": 3602
+}
