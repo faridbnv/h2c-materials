@@ -11,3 +11,6 @@ date,key,detail,source
 2026-10-23,bus-factor-rollback,,wp:attest
 2026-10-23,safari-check,a85bfb57,wp:attest
 2026-10-23,safari-check,98cb44d3,wp:attest
+2026-10-23,retire-approved,S-context-audit,wp:attest
+2026-10-23,retire-approved,A-source-audits,wp:attest
+2026-10-23,retire-approved,A-doctor,wp:attest
