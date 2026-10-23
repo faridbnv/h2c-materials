@@ -9,6 +9,7 @@ import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CONTROL_PATH, DRY_RUN_BRANCH, LIVE_BRANCH, cutoverRows, planRun, readControl, validateControl } from '../../remake/tools/cutover.mjs';
+import { RECORD_PATHS } from '../../remake/tools/candidate.mjs';
 import { DIGEST_IGNORES, carryPrevious, folderDigest, releaseNotes } from '../../remake/tools/artifact.mjs';
 import { buildManifest, packZip, sha256 } from '../../remake/tools/legacy-site.mjs';
 import { BANNER_ATTR, markPage, unmarkPage } from '../../remake/tools/restore-marks.mjs';
@@ -299,7 +300,10 @@ test('next-main.yml reuses the checks of next-verify.yml, which does not clash w
 });
 
 test('a push that changes only remake/control/ is next-main\'s, not next-preview\'s (the hold test must reach a workflow that reads the hold)', () => {
-  assert.match(readFileSync(join(root, '.github/workflows/next-preview.yml'), 'utf8'), /paths-ignore: \['remake\/control\/\*\*'\]/);
+  const preview = readFileSync(join(root, '.github/workflows/next-preview.yml'), 'utf8');
+  assert.match(preview, /paths-ignore:\n(?:\s+- '[^']+'\n)*\s+- 'remake\/control\/\*\*'/);
+  // a push that touches only the records about a candidate changes no site either: every RECORD_PATHS entry is ignored
+  for (const r of RECORD_PATHS) assert.ok(preview.includes(r.endsWith('/') ? `'${r}**'` : `'${r}'`), `${r} is in paths-ignore`);
 });
 
 test('the dry run records the main commit the preview names, and it is the baseline\'s', () => {

@@ -2,7 +2,7 @@
 // The rollback rehearsal driver (WP-35; pack 07 section 13.3). Against the PREVIEW only, never the live site. It watches the rehearsal happen,
 // asks the right person for each step it may not take itself, and logs every command's result and time:
 //
-//   1. candidate     the preview serves the candidate commit (preview.json) and its smoke job was green
+//   1. candidate     the next-preview.yml run of the candidate commit has completed with success (its smoke job was green), and the preview serves it (preview.json)
 //   2. hold          the owner has set DEPLOY_HOLD (this tool reads the variable and never sets it)
 //   3. hold test     a harmless push (remake/control/rehearsal-ping.json) starts next-main.yml in its dry run: its build runs and its
 //                    deploy job is SKIPPED, and the preview does not move
@@ -105,13 +105,22 @@ export async function rehearse({ candidate, manifest, baseUrl = PREVIEW_URL, tim
   };
   const wait = (probe, what) => until(probe, { deps, timeoutS, pollS, what });
   const previewJson = async () => deps.fetchJson(`${baseUrl}preview.json`);
-  const smokeRun = async (id, ok) => (await deps.runs('next-preview.yml', 'remake/v3')).find((r) => r.headSha === id && ok(r));
 
   try {
     await phase('candidate', async () => {
+      // The candidate counts as served only once next-preview.yml has COMPLETED for it with success (its smoke job is the last job): the
+      // preview names the commit as soon as the deploy job pushes, while the smoke is still running, and a run in progress proves nothing.
+      const { value: run } = await wait(async () => {
+        const mine = (await deps.runs('next-preview.yml', 'remake/v3')).filter((r) => r.headSha === candidate);
+        if (mine.length === 0) return { error: `no next-preview.yml run for ${candidate.slice(0, 8)} yet` };
+        const good = mine.find((r) => r.status === 'completed' && r.conclusion === 'success');
+        if (good) return good;
+        const open = mine.find((r) => r.status !== 'completed');
+        if (open) return { error: `the next-preview.yml run ${open.databaseId} for ${candidate.slice(0, 8)} is ${open.status}` };
+        return { failed: mine[0] };
+      }, `the next-preview.yml run of ${candidate.slice(0, 8)} to complete`);
+      if (run.failed) throw new Error(`the next-preview.yml run ${run.failed.databaseId} for ${candidate.slice(0, 8)} completed as ${run.failed.conclusion}: its smoke job was not green`);
       const { value } = await wait(async () => { const j = await previewJson(); return j.remakeCommit === candidate ? j : { error: `the preview serves ${String(j.remakeCommit).slice(0, 8)}` }; }, `the preview to serve ${candidate.slice(0, 8)}`);
-      const run = await smokeRun(candidate, (r) => r.conclusion === 'success');
-      if (!run) throw new Error(`no successful next-preview.yml run for ${candidate.slice(0, 8)}: its smoke job was not green`);
       return { previewCommit: value.remakeCommit, release: value.release, builtAt: value.builtAt, runId: run.databaseId };
     });
 

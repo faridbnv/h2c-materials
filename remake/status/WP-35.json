@@ -1,9 +1,9 @@
 {
   "id": "WP-35",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-m4-cutover-kit",
-  "pr": null,
+  "pr": 47,
   "exitCheck": "not-run",
   "lastRun": "2026-10-22T19:21:15.690Z",
   "lastPass": null,
@@ -22,10 +22,16 @@
       "cmd": "manual: legacy zip digest in the receipt",
       "result": "not-run",
       "note": "no command checks this yet"
+    },
+    {
+      "cmd": "merged: PR #47",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
     }
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T19:21:15.690Z",
-  "note": "Built in the M4 branch wp-m4-cutover-kit: save-legacy.sh (the owner runs it), rehearse.mjs, docs/next/OPERATING.md. Nothing has been saved or rehearsed: both need the owner (the release, the hold, the bus-factor row)."
+  "updated": "2026-10-23T07:35:19.826Z",
+  "note": "Merged as PR #47 (save-legacy, rehearse, OPERATING.md). The rehearsal ran on the preview and its record (remake/rehearsal/2026-10-23.json, pass) arrived in #49; the legacy zip record in remake/legacy/."
 }
