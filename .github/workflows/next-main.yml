@@ -173,6 +173,8 @@ jobs:
         with:
           name: site-${{ github.run_id }}
           path: _site
+          # the digest counts .nojekyll, and upload-artifact leaves out dotfiles unless told otherwise
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
 

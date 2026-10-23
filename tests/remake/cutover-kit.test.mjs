@@ -251,6 +251,8 @@ test('the deployed bytes are the tested artifact: fetched by run ID and checked 
     assert.ok(firstPublish > verify, `${id}: nothing is published before the digest is checked`);
   }
   assert.match(jobBlock(main, 'build'), /digest: \$\{\{ steps\.digest\.outputs\.digest \}\}/);
+  // the digest counts every file, .nojekyll among them, so the upload must keep dotfiles or every deploy refuses its artifact
+  assert.match(jobBlock(main, 'build'), /name: site-\$\{\{ github\.run_id \}\}\n\s+path: _site\n[\s\S]*?include-hidden-files: true/);
   assert.match(jobBlock(main, 'build'), /size-report\.mjs --site _site/, 'the byte budgets gate the artifact');
 });
 
