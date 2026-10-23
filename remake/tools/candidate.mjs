@@ -54,7 +54,8 @@ export const CHECKS = [
   { id: 'types-ratchet', cmd: 'npm run types:ratchet' },
   { id: 'lint', cmd: 'npm run lint' },
   { id: 'tests-new', cmd: 'node --test tests/claude/*.test.mjs tests/remake/*.test.mjs' },
-  { id: 'tests-parity', cmd: 'node --test tests/parity/*.test.mjs' },
+  // PARITY_FULL: the full noop and mutate tests skip without it, and a skipped test is never a pass (the receipt reads a skip as not-run).
+  { id: 'tests-parity', cmd: 'PARITY_FULL=1 node --test tests/parity/*.test.mjs' },
   { id: 'tests-domain', cmd: "node --test 'tests/domain/*.test.mjs'" },
   { id: 'parity-noop', cmd: 'npm run parity -- --noop' },
   { id: 'parity-mutate', cmd: 'npm run parity:mutate' },

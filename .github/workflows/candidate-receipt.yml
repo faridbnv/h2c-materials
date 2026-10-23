@@ -92,8 +92,13 @@ jobs:
           npm ci --prefix build
 
       # The old tool's build: parity and the receipt's checks read dist/db.json.
+      # The old build rewrites a tracked report (build/reports/validation-report.md); the receipt describes the commit, so every tracked file
+      # goes back to the commit's copy. dist/, which the checks read, is untracked and stays.
       - name: Build the old tool
-        run: npm run build
+        run: |
+          npm run build
+          git checkout -- .
+          git status --porcelain --untracked-files=no | (! grep .)
 
       - name: Install Chromium for the browser suite
         run: npx playwright install chromium --with-deps

@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { cpSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
+import { cpSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -418,4 +418,15 @@ test('with no descendant, or a ref that is not known here, the records are the c
   assert.deepEqual(overlayRecords(h.dir, h.candidate, { ref: 'origin/not-a-branch' }), { commit: h.candidate, from: h.candidate, files: 0 });
   const m = made();
   assert.equal(m.receipt.records.from, SHA, 'the fixture world has no later commit');
+});
+
+test('every parity test that skips without an environment switch runs in the receipt: the receipt reads a skip as not-run', () => {
+  const dir = join(dirname(fileURLToPath(import.meta.url)), '..', 'parity');
+  const cmd = CHECKS.find((c) => c.id === 'tests-parity').cmd;
+  const gates = new Set();
+  for (const f of readdirSync(dir).filter((n) => n.endsWith('.test.mjs'))) {
+    for (const m of readFileSync(join(dir, f), 'utf8').matchAll(/skip:\s*!process\.env\.(\w+)/g)) gates.add(m[1]);
+  }
+  assert.ok(gates.has('PARITY_FULL'), 'the full noop and mutate tests are gated by PARITY_FULL');
+  for (const g of gates) assert.match(cmd, new RegExp(`(^|\\s)${g}=1\\s`), `${g} is set by the receipt's tests-parity command`);
 });
