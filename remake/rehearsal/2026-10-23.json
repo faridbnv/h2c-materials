@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "candidate": "a85bfb576a6c18ceda344cc77920d54e6bc19534",
+  "previewBaseUrl": "https://pdynamics.ca/h2c-material-temp-page/",
+  "startedAt": "2026-10-23T00:26:18.878Z",
+  "phases": [
+    {
+      "name": "candidate",
+      "who": "agent",
+      "action": "Deploy the candidate a85bfb57: it is the tip of remake/v3, so next-preview.yml has deployed it (merge nothing else until the rehearsal is done).",
+      "startedAt": "2026-10-23T00:26:18.878Z",
+      "endedAt": "2026-10-23T00:26:20.059Z",
+      "seconds": 1,
+      "result": "pass",
+      "observed": {
+        "previewCommit": "a85bfb576a6c18ceda344cc77920d54e6bc19534",
+        "release": "7c6da496722d",
+        "builtAt": "2026-10-23T00:24:29.002Z",
+        "runId": 39877286563
+      }
+    },
+    {
+      "name": "hold",
+      "who": "owner",
+      "action": "gh variable set DEPLOY_HOLD --body legacy-final --repo faridbnv/h2c-materials",
+      "startedAt": "2026-10-23T00:26:20.060Z",
+      "endedAt": "2026-10-23T00:26:20.444Z",
+      "seconds": 0,
+      "result": "pass",
+      "observed": {
+        "hold": "legacy-final",
+        "waitedSeconds": 0
+      }
+    },
+    {
+      "name": "hold-test",
+      "who": "agent",
+      "action": "Open a pull request that adds one number to \"pings\" in remake/control/rehearsal-ping.json and merge it into remake/v3 (agents merge into remake/v3 once checks are green). next-main.yml must verify and build and must NOT deploy.",
+      "startedAt": "2026-10-23T00:26:20.445Z",
+      "endedAt": "2026-10-23T00:56:48.514Z",
+      "seconds": 1828,
+      "result": "pass",
+      "observed": {
+        "runId": 39878148264,
+        "headSha": "128c4101dbeb55c57a41004f6e2d9003315c22d0",
+        "deployJob": "skipped",
+        "buildJob": "success",
+        "previewUnchanged": true
+      }
+    },
+    {
+      "name": "restore",
+      "who": "agent",
+      "action": "Open a pull request that puts the restore request into remake/control/restore.json (the JSON save-legacy.sh printed; its digest is in remake/legacy/legacy-final.json) and merge it into remake/v3. The merge is the moment \"restore requested\".",
+      "startedAt": "2026-10-23T00:56:48.516Z",
+      "endedAt": "2026-10-23T00:59:08.286Z",
+      "seconds": 140,
+      "result": "pass",
+      "observed": {
+        "runId": 39881224111,
+        "requestedAt": "2026-10-23T00:57:50Z",
+        "servedAt": "2026-10-23T00:59:08.286Z",
+        "restoredFrom": "sha256:11fed3c2aff06a1257a0bb1cac0ac82d69dda3bc2575b11473fd9cd814585717",
+        "oldReleaseId": "7c6da496722d"
+      }
+    },
+    {
+      "name": "check",
+      "who": "tool",
+      "action": "The legacy smoke profile runs here against the preview with the saved manifest.",
+      "startedAt": "2026-10-23T00:59:08.286Z",
+      "endedAt": "2026-10-23T00:59:30.796Z",
+      "seconds": 23,
+      "result": "pass",
+      "observed": {
+        "filesChecked": 256,
+        "checks": 8
+      }
+    },
+    {
+      "name": "candidate-again",
+      "who": "owner and agent",
+      "action": "The owner clears the hold: gh variable delete DEPLOY_HOLD --repo faridbnv/h2c-materials. An agent merges a pull request that sets \"request\" back to null in remake/control/restore.json, which starts a dry run that deploys the candidate again.",
+      "startedAt": "2026-10-23T00:59:30.798Z",
+      "endedAt": "2026-10-23T01:00:47.745Z",
+      "seconds": 77,
+      "result": "pass",
+      "observed": {
+        "previewCommit": "7110598a8538dec4858e65135ed7e1e9575f6fec",
+        "release": "7c6da496722d",
+        "nextMainRunId": 39881224111,
+        "holdNow": ""
+      }
+    }
+  ],
+  "result": "pass",
+  "holdTested": true,
+  "restoreSeconds": 78,
+  "note": "",
+  "endedAt": "2026-10-23T01:00:47.746Z",
+  "totalSeconds": 2069
+}
