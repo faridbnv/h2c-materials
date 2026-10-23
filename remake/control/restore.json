@@ -1,11 +1,4 @@
 {
   "schema": 1,
-  "request": {
-    "id": "rehearsal-1",
-    "hold": "legacy-final",
-    "tag": "h2c-legacy-final",
-    "asset": "legacy-site-7c6da496722d.zip",
-    "digest": "sha256:11fed3c2aff06a1257a0bb1cac0ac82d69dda3bc2575b11473fd9cd814585717",
-    "reason": "rollback rehearsal on the preview"
-  }
+  "request": null
 }
