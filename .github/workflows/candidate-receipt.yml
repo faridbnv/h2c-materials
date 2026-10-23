@@ -1,0 +1,148 @@
+# The candidate receipt, made on CI (M4 close; pack 07 section 11, WP-34). A receipt made on the owner's Mac fails parity and tests-parity only by the
+# known Mac/linux host difference (L-07), so a receipt is made here: ubuntu-24.04, linux-x64, the Node that .nvmrc names.
+#
+# How it is started. GitHub dispatches a workflow only when it is on the default branch (main, frozen), so this branch workflow is started by a
+# push, as a restore is: a commit to remake/v3 that changes remake/control/receipt.json ({"schema": 1, "sha": "<40 hex>"}; {"sha": null} asks
+# for nothing). remake/tools/receipt-request.mjs decides (the commit must be an ancestor of the pushed commit, so it is on remake/v3).
+#
+# What it makes. The receipt of that commit, from commands run on that commit (npm run candidate:receipt), with the owner's records read from the
+# pushed commit by the records overlay (a commit cannot name its own sha, so the safari-check, the retire rows and the rehearsal can only be
+# later). The file remake/candidates/<sha>.json is kept as an artifact and pushed to the branch records/receipt-<first 8 of the sha>; an agent opens
+# the pull request into remake/v3 from that branch (the file is a record path, so the PR changes no code). The code that runs is the
+# candidate's own (candidate.mjs, its checks), so the candidate must contain the records overlay.
+#
+# Credentials. No secret is referenced. Only the last job has contents: write (it pushes one branch with the repository token and runs only git
+# and cp). The job that runs the candidate's install scripts and code has contents: read. The requested sha reaches a shell only through env, after
+# the plan job has checked that it is 40 hex characters.
+
+name: Candidate receipt
+
+on:
+  push:
+    branches: [remake/v3]
+    paths: ['remake/control/receipt.json']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: candidate-receipt
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    name: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      run: ${{ steps.plan.outputs.run }}
+      sha: ${{ steps.plan.outputs.sha }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - name: Read the request
+        id: plan
+        env:
+          PUSH_SHA: ${{ github.sha }}
+        run: node remake/tools/receipt-request.mjs plan
+
+  receipt:
+    name: receipt
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check out the candidate
+        env:
+          CANDIDATE: ${{ needs.plan.outputs.sha }}
+        run: |
+          set -euo pipefail
+          git checkout --detach "$CANDIDATE"
+          git log -1 --format='candidate %H%n%s'
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            build/package-lock.json
+
+      - name: Node version in use
+        run: |
+          echo "node $(node --version); .nvmrc says $(cat .nvmrc)"
+          test "v$(cat .nvmrc)" = "$(node --version)"
+
+      - name: Install dependencies (root and the old build)
+        run: |
+          npm ci
+          npm ci --prefix build
+
+      # The old tool's build: parity and the receipt's checks read dist/db.json.
+      - name: Build the old tool
+        run: npm run build
+
+      - name: Install Chromium for the browser suite
+        run: npx playwright install chromium --with-deps
+
+      - name: Make the receipt
+        env:
+          CANDIDATE: ${{ needs.plan.outputs.sha }}
+          RECORDS_FROM: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          npm run candidate:receipt -- "$CANDIDATE" --records-ref "$RECORDS_FROM" --purpose "release candidate, made on CI (candidate-receipt.yml)"
+          test -s "remake/candidates/${CANDIDATE}.json"
+
+      - name: Keep the receipt
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: candidate-receipt
+          path: remake/candidates/${{ needs.plan.outputs.sha }}.json
+          if-no-files-found: error
+          retention-days: 30
+
+  publish:
+    name: publish the receipt to a branch
+    needs: [plan, receipt]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: candidate-receipt
+          path: receipt-in
+
+      - name: Push the receipt to records/receipt-<sha8>
+        env:
+          CANDIDATE: ${{ needs.plan.outputs.sha }}
+        run: |
+          set -euo pipefail
+          short="${CANDIDATE:0:8}"
+          branch="records/receipt-${short}"
+          mkdir -p remake/candidates
+          cp "receipt-in/${CANDIDATE}.json" "remake/candidates/${CANDIDATE}.json"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$branch"
+          git add "remake/candidates/${CANDIDATE}.json"
+          git commit -q -m "Candidate receipt of ${short}, made on CI"
+          git push origin "HEAD:refs/heads/${branch}"
+          echo "Receipt of ${CANDIDATE} pushed to branch ${branch}. An agent opens the pull request into remake/v3 from it." | tee -a "$GITHUB_STEP_SUMMARY"

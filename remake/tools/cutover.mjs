@@ -27,6 +27,9 @@ import { parseCsv } from './rulings-check.mjs';
 
 export const CONTROL_PATH = 'remake/control/restore.json';
 export const CONTROL_DIR = 'remake/control/';
+/** Files under remake/control/ that are not requests to next-main.yml (the receipt request belongs to candidate-receipt.yml). */
+export const NOT_A_RESTORE_CONTROL = ['remake/control/receipt.json'];
+export const isControlChange = (f) => f.startsWith(CONTROL_DIR) && !NOT_A_RESTORE_CONTROL.includes(f);
 export const LIVE_BRANCH = 'refs/heads/main';
 export const DRY_RUN_BRANCH = 'refs/heads/remake/v3';
 const SHA = /^[0-9a-f]{40}$/;
@@ -102,7 +105,7 @@ export function planRun(run) {
     const c = cutoverRecorded(run.root, run.sha, run.isAncestor);
     if (!c.recorded) return refuse(`the live deploy is refused: remake/attest.csv has no "cutover-approved ${run.sha.slice(0, 8)}" row for this commit or an ancestor of it (${c.rows} cutover row(s) found)`, 'live');
   }
-  const controlChanged = run.changedFiles === null ? false : run.changedFiles.some((f) => f.startsWith(CONTROL_DIR));
+  const controlChanged = run.changedFiles === null ? false : run.changedFiles.some(isControlChange);
   if (event === 'push' && ref === DRY_RUN_BRANCH && !controlChanged) {
     return out({ mode, reason: 'a push to remake/v3 that does not touch remake/control/; next-preview.yml deploys ordinary pushes' });
   }

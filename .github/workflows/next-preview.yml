@@ -6,6 +6,9 @@
 # It never touches the live repository's Pages, pages.yml, releases or tags. The jobs are split so that the one that runs
 # third-party install scripts (build) never sees the key, and the one that holds the key (deploy) runs only repo code and git.
 #
+# DEPLOY_HOLD (repository variable, set by the owner only). While it is non-empty the site is built but NOT deployed: the deploy job is skipped
+# and the run says so in its summary (the hold is how a rollback stays in place; pack 07 section 13.2).
+#
 # Credentials: secret PREVIEW_DEPLOY_KEY (an SSH deploy key with write access to the preview repo only) belongs to the
 # environment `preview`, limited to remake/v3. next-verify.yml, which runs on pull requests, does not reference it.
 # Setup: remake/tools/setup-preview.sh (the owner runs it). Until it has run, repository variable PREVIEW_ENABLED is not
@@ -18,9 +21,17 @@ name: Next preview
 on:
   push:
     branches: [remake/v3]
-    # A push that touches only the control files (a rehearsal's hold test or restore request) is next-main.yml's: it honours DEPLOY_HOLD,
-    # which this workflow does not read.
-    paths-ignore: ['remake/control/**']
+    # A push that touches only the control files (a rehearsal's hold test or restore request) is next-main.yml's. A push that touches only
+    # records about a candidate (the owner's attest rows, the legacy zip and rehearsal records, status files, receipts, measurements) changes
+    # no site: it must not redeploy over a restored or rehearsed preview (RECORD_PATHS of remake/tools/candidate.mjs).
+    paths-ignore:
+      - 'remake/control/**'
+      - 'remake/legacy/**'
+      - 'remake/rehearsal/**'
+      - 'remake/candidates/**'
+      - 'remake/status/**'
+      - 'remake/attest.csv'
+      - 'remake/measure/**'
 
 permissions:
   contents: read
@@ -107,9 +118,23 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+  # Says so when the hold stops the deploy, so a skipped deploy never reads as a lost one.
+  held:
+    name: preview held (DEPLOY_HOLD)
+    needs: build
+    if: vars.PREVIEW_ENABLED == 'true' && vars.DEPLOY_HOLD != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      HOLD: ${{ vars.DEPLOY_HOLD }}
+    steps:
+      - run: |
+          echo "Preview deploy: NOT DEPLOYED. DEPLOY_HOLD is \"$HOLD\": the site was built and not deployed." | tee -a "$GITHUB_STEP_SUMMARY"
+
   deploy:
     name: deploy to the preview repository
     needs: build
+    if: vars.DEPLOY_HOLD == ''
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     environment:
@@ -221,12 +246,13 @@ jobs:
   # The one job to look at. A skipped preview (not configured) or a skipped smoke must not read as a green deploy.
   preview-result:
     name: preview result
-    needs: [not-configured, build, deploy, smoke]
+    needs: [not-configured, build, held, deploy, smoke]
     if: always()
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     env:
       ENABLED: ${{ vars.PREVIEW_ENABLED }}
+      HOLD: ${{ vars.DEPLOY_HOLD }}
       NOT_CONFIGURED: ${{ needs.not-configured.result }}
       BUILD: ${{ needs.build.result }}
       DEPLOY: ${{ needs.deploy.result }}
@@ -237,6 +263,14 @@ jobs:
           if [ "$ENABLED" != "true" ]; then
             echo "Preview: NOT RUN (PREVIEW_ENABLED is not true). Run remake/tools/setup-preview.sh." | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
+          fi
+          if [ -n "$HOLD" ]; then
+            if [ "$BUILD" = "success" ] && [ "$DEPLOY" = "skipped" ]; then
+              echo "Preview: built, NOT deployed: DEPLOY_HOLD is \"$HOLD\"." | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "::error::Preview FAILED under DEPLOY_HOLD: build=$BUILD deploy=$DEPLOY (the deploy must be skipped)" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
           if [ "$BUILD" = "success" ] && [ "$DEPLOY" = "success" ] && [ "$SMOKE" = "success" ]; then
             echo "Preview: deployed and smoke passed." | tee -a "$GITHUB_STEP_SUMMARY"

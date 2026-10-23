@@ -1,9 +1,9 @@
 {
   "id": "WP-34",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "wp-m4-cutover-kit",
-  "pr": null,
+  "pr": 47,
   "exitCheck": "not-run",
   "lastRun": "2026-10-22T19:21:15.284Z",
   "lastPass": null,
@@ -19,10 +19,16 @@
       "cmd": "attest safari-check",
       "result": "not-run",
       "note": "no row in remake/attest.csv"
+    },
+    {
+      "cmd": "merged: PR #47",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
     }
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T19:21:15.511Z",
-  "note": "Built in the M4 branch wp-m4-cutover-kit: candidate:receipt and candidate:check, the main-unchanged check, the defects-disposition gate (all 16 defects dispositioned). No candidate has been named, so no receipt exists; the owner's safari-check row is the person-step."
+  "updated": "2026-10-23T07:35:19.825Z",
+  "note": "Merged as PR #47 (candidate:receipt, candidate:check, the defects gate). The records-overlay fix and the receipt-on-CI workflow arrived in the M4 close PR."
 }

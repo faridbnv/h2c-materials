@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "$comment": "A request for the candidate receipt, made on CI (candidate-receipt.yml). Put the 40-character commit in sha and push; the workflow makes remake/candidates/<sha>.json and pushes it to the branch records/receipt-<first 8>. Back to null when done. This is not a restore request: next-main.yml ignores it.",
+  "sha": null
+}

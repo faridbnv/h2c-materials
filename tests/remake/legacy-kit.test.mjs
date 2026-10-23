@@ -194,7 +194,10 @@ function world(over = {}) {
     },
     holdValue: () => (t >= plan.holdAt ? HOLD_VALUE : ''),
     runs: async (workflow) => {
-      if (workflow === 'next-preview.yml') return [{ databaseId: 1, headSha: SHA, status: 'completed', conclusion: 'success', createdAt: iso(-100) }];
+      if (workflow === 'next-preview.yml') {
+        if (plan.previewRun) return plan.previewRun(t, iso(-100));
+        return [{ databaseId: 1, headSha: SHA, status: 'completed', conclusion: 'success', createdAt: iso(-100) }];
+      }
       const runs = [];
       if (t >= plan.heldRunAt) runs.push({ databaseId: 11, headSha: HOLDTEST_SHA, status: 'completed', conclusion: 'success', createdAt: iso(plan.heldRunAt - 5) });
       if (t >= plan.restoreRunAt) runs.push({ databaseId: 12, headSha: RESTORE_SHA, status: 'completed', conclusion: 'success', createdAt: iso(plan.restoreRunAt) });
@@ -233,6 +236,28 @@ test('the rehearsal logs candidate, hold, hold test, restore, check and candidat
   assert.equal(out.phases.find((p) => p.name === 'candidate-again').observed.holdNow, HOLD_VALUE, 'the hold is cleared by the owner, outside this tool: it is only read');
   assert.ok(w.saves.length >= PHASES.length, 'the log is written after every step');
   assert.ok(out.totalSeconds > 0);
+});
+
+test('the candidate counts as served only when its next-preview.yml run has completed with success, not on an early or in-progress run', async () => {
+  // The preview already names the candidate (the deploy job pushed) while the smoke job is still running; the run completes at t=40.
+  const inProgress = (t, created) => [{ databaseId: 1, headSha: SHA, status: t < 40 ? 'in_progress' : 'completed', conclusion: t < 40 ? '' : 'success', createdAt: created }];
+  const { out } = await go({ previewRun: inProgress });
+  assert.equal(out.result, 'pass', out.note);
+  const candidate = out.phases.find((p) => p.name === 'candidate');
+  assert.ok(candidate.seconds >= 40, `the phase waited for the run to complete (${candidate.seconds} s)`);
+  assert.equal(candidate.observed.runId, 1);
+  // a run that completed red is a failure at once, not a wait for a better one
+  const red = await go({ previewRun: (t, created) => [{ databaseId: 2, headSha: SHA, status: 'completed', conclusion: 'failure', createdAt: created }] });
+  assert.equal(red.out.result, 'fail');
+  assert.match(red.out.note, /completed as failure: its smoke job was not green/);
+  // a run that never completes, and a run of another commit, never count
+  const stuck = await go({ previewRun: (t, created) => [{ databaseId: 3, headSha: SHA, status: 'in_progress', conclusion: '', createdAt: created }] }, { timeoutS: 120 });
+  assert.match(stuck.out.note, /timed out after 120 s waiting for: the next-preview\.yml run of aaaaaaaa to complete \(last: the next-preview\.yml run 3 .* is in_progress\)/);
+  const other = await go({ previewRun: (t, created) => [{ databaseId: 4, headSha: 'b'.repeat(40), status: 'completed', conclusion: 'success', createdAt: created }] }, { timeoutS: 60 });
+  assert.match(other.out.note, /no next-preview\.yml run for aaaaaaaa yet/);
+  // a rerun that succeeded after a red attempt counts
+  const rerun = await go({ previewRun: (t, created) => [{ databaseId: 5, headSha: SHA, status: 'completed', conclusion: 'failure', createdAt: created }, { databaseId: 6, headSha: SHA, status: 'completed', conclusion: 'success', createdAt: created }] });
+  assert.equal(rerun.out.phases.find((p) => p.name === 'candidate').observed.runId, 6);
 });
 
 test('a held run whose deploy job was not skipped fails the rehearsal: the hold did not hold', async () => {
