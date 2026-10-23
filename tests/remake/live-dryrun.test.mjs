@@ -275,6 +275,44 @@ test('phase 2 needs phase 1 first and sets nothing on the mirror without it', as
   assert.equal(ghCalls(w).filter((c) => /^variable set/.test(c)).length, 0);
 });
 
+test('the waits: success returns, a red run stops the script with the mirror\'s address, and a run that never finishes times out', () => {
+  const w = fakeWorld();
+  mkdirSync(w.env.FAKE, { recursive: true });
+  const wait = (state, extra = {}) => {
+    writeFileSync(join(w.env.FAKE, 'run_state'), `${state}\n`);
+    return bash('source "$0"; REPO=tester/h2c-dryrun; NOWAIT=0; wait_run pages.yml abc "Publish to Pages"', { ...w.env, H2C_DRYRUN_POLL_S: '0', ...extra });
+  };
+  const ok = wait('completed success');
+  assert.equal(ok.status, 0, ok.stderr);
+  assert.match(ok.stdout, /Publish to Pages: success/);
+  const red = wait('completed failure');
+  assert.notEqual(red.status, 0);
+  assert.match(red.stderr, /ended 'failure'.*github\.com\/tester\/h2c-dryrun\/actions/);
+  const stuck = wait('in_progress ', { H2C_DRYRUN_WAIT_MINUTES: '0' });
+  assert.notEqual(stuck.status, 0);
+  assert.match(stuck.stderr, /did not finish in 0 minutes \(last state: 'in_progress '\)/);
+  const none = wait('', { H2C_DRYRUN_WAIT_MINUTES: '0' });
+  assert.match(none.stderr, /last state: 'no run yet'/);
+});
+
+test('phase 1 resumed after the approval was committed keeps that commit and does not ask for wp:attest again', async () => {
+  const w = fakeWorld();
+  const s = makeSource(w);
+  const first = await runPhase(w, s, ['tester/h2c-dryrun', s.candidate, '--no-wait'], { attest: s.candidate });
+  assert.equal(first.status, 0, first.err);
+  // as if the push of the merge had been refused: the merge is not recorded, the approval is
+  const state = join(w.env.H2C_DRYRUN_WORK, 'tester_h2c-dryrun/state.env');
+  writeFileSync(state, readFileSync(state, 'utf8').split('\n').filter((l) => !l.startsWith('MERGE_SHA=')).join('\n'));
+  const mirror = join(w.env.MIRRORS, 'tester/h2c-dryrun.git');
+  git(mirror, 'update-ref', '-d', 'refs/heads/main');
+  git(mirror, 'update-ref', 'refs/heads/main', s.frozen);
+  const again = await runPhase(w, s, ['tester/h2c-dryrun', s.candidate, '--no-wait', '--resume']);
+  assert.equal(again.status, 0, `${again.err}\n${again.out}`);
+  assert.equal(again.answered, false);
+  assert.match(again.out, /the approval is recorded and committed already/);
+  assert.equal(git(mirror, 'rev-list', '--parents', '-n', '1', 'refs/heads/main').split(' ').length, 3, 'the merge was made and pushed this time');
+});
+
 // ---- the check: what it reads and how it judges ----------------------------------------------------------------------------------------
 const FROZEN = '1'.repeat(40);
 const MERGE = '2'.repeat(40);
@@ -366,7 +404,7 @@ test('a failed live deploy names what failed: a job, a digest that differs, a sm
   const zip = mutate((ev) => { ev.release.assets = ['release.json', 'artifact.json', 'decision-diff.md']; });
   assert.match(by(zip, 'live-deploy').problems.join(' | '), /lacks site-abcdef123456\.zip/);
   const noRelease = mutate((ev) => { ev.release = null; });
-  assert.match(by(noRelease, 'live-deploy').problems.join(' | '), /no release h2c-<id> targets the cutover merge/);
+  assert.match(by(noRelease, 'live-deploy').problems.join(' | '), /no release h2c-<id> was kept for the cutover merge/);
   const refused = mutate((ev) => { ev.logs[101] = 'next-main plan: REFUSED; mode live, action none, deploy false. no cutover-approved row'; });
   assert.match(by(refused, 'live-deploy').problems.join(' | '), /did not take the live deploy path/);
   const noVerify = mutate((ev) => { ev.runs[2].jobs = ev.runs[2].jobs.filter((j) => !j.name.endsWith('next-verify')); });
@@ -403,7 +441,26 @@ test('a failed restore, an unfinished old-site publish and a revert that Next ma
   const wrongSite = mutate((ev) => { ev.servedRelease = 'abcdef123456'; });
   assert.match(by(wrongSite, 'revert').problems.join(' | '), /serves release abcdef123456, not the old release aaaaaaaaaaaa/);
   const unknownServed = mutate((ev) => { ev.servedRelease = null; });
-  assert.equal(by(unknownServed, 'revert').result, 'pass', 'an address that could not be fetched is recorded, not judged');
+  assert.match(by(unknownServed, 'revert').problems.join(' | '), /gave no manifest\.json, so it is not shown to serve the old site/, 'an address that could not be fetched does not pass the revert');
+  const unknownLegacy = mutate((ev) => { ev.legacy = null; });
+  assert.match(by(unknownLegacy, 'revert').problems.join(' | '), /release id is unknown/);
+});
+
+test('a run that has not finished is missing, not failed: the owner can run the check while GitHub is still working', () => {
+  const running = (id) => (ev) => { const r = ev.runs.find((x) => x.id === id); r.status = 'in_progress'; r.conclusion = null; };
+  for (const [id, name] of [[10, 'live-deploy'], [20, 'restore'], [31, 'revert'], [2, 'old-site']]) {
+    const r = mutate(running(id));
+    assert.equal(by(r, name).result, 'missing', name);
+    assert.equal(r.result, 'incomplete', name);
+  }
+});
+
+test('a release kept already for the same content is found by its tag and noted; an unreadable hold is noted, not read as clear', () => {
+  const rerun = mutate((ev) => { ev.release.target = '9'.repeat(40); });
+  assert.equal(by(rerun, 'live-deploy').result, 'pass');
+  assert.match(by(rerun, 'live-deploy').observed.warnings.join(' '), /kept already for the same content/);
+  const noHold = mutate((ev) => { ev.holdNow = null; });
+  assert.match(by(noHold, 'restore').observed.warnings.join(' '), /could not be read/);
 });
 
 /** The API as the mirror would answer it, for collect(). */

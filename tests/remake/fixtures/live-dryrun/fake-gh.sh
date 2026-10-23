@@ -42,6 +42,8 @@ case "$1" in
         if [ -n "$method" ]; then : > "$FAKE/pages"; exit 0; fi
         if [ -f "$FAKE/pages" ]; then echo "https://example.test/tester/h2c-dryrun/"; exit 0; fi; exit 1;;
       repos/tester/h2c-dryrun) [ -f "$FAKE/exists_tester_h2c-dryrun" ] && { echo "tester/h2c-dryrun"; exit 0; }; exit 1;;
+      repos/tester/h2c-dryrun/actions/workflows/*head_sha=*) cat "$FAKE/run_state" 2>/dev/null; exit 0;;
+      repos/tester/h2c-dryrun/actions/workflows/*per_page=5*) cat "$FAKE/dispatch_state" 2>/dev/null; exit 0;;
       repos/tester/h2c-dryrun/actions/workflows/*) echo 0; exit 0;;
     esac
     exit 1;;

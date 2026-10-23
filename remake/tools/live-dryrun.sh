@@ -83,9 +83,10 @@ gh_read() { gh "$@"; }
 
 # ---- small helpers ------------------------------------------------------------------------------------------------------------------------
 sha256_of() { if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | cut -d' ' -f1; else shasum -a 256 "$1" | cut -d' ' -f1; fi; }
-json_get() { node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));const k=process.argv[2].split('.');let x=v;for(const p of k)x=x?.[p];if(x===undefined||x===null)process.exit(3);console.log(x)" "$1" "$2"; }
+json_get() { node -e "const v=JSON.parse(require('fs').readFileSync(process.argv[1],'utf8'));const k=process.argv[2].split('.');let x=v;for(const p of k)x=x?.[p];if(x===undefined||x===null)process.exit(3);console.log(x)" "$1" "$2" || die "$1 has no '$2'"; }
 state_get() { local v; [ -f "$STATE" ] || return 1; v="$(grep "^$1=" "$STATE" | tail -n 1 | cut -d= -f2-)" || true; [ -n "$v" ] || return 1; printf '%s' "$v"; }
 state_set() { touch "$STATE"; grep -v "^$1=" "$STATE" > "$STATE.tmp" || true; printf '%s=%s\n' "$1" "$2" >> "$STATE.tmp"; mv "$STATE.tmp" "$STATE"; }
+state_need() { state_get "$1" || die "no '$1' in $STATE: phase 1 did not finish; run it again with --resume"; }
 repo_exists() { gh api "repos/$REPO" --jq .full_name >/dev/null 2>&1; }
 pages_url() { local u; u="$(gh api "repos/$REPO/pages" --jq .html_url 2>/dev/null)" || return 1; [ -n "$u" ] || return 1; case "$u" in */) printf '%s' "$u";; *) printf '%s/' "$u";; esac; }
 hold_now() { gh variable get DEPLOY_HOLD --repo "$REPO" 2>/dev/null || true; }
@@ -234,25 +235,30 @@ phase_setup() {
   fi
 
   say "7/10 YOUR STEP: record the cutover approval for the candidate"
-  git -C "$CLONE" checkout --quiet -B dryrun-cutover "$CANDIDATE"
-  if ! grep -q "^[^,]*,cutover-approved,$CANDIDATE," "$CLONE/remake/attest.csv"; then
-    cat <<MSG
+  if ATTESTED="$(state_get ATTESTED)" && git -C "$CLONE" cat-file -e "$ATTESTED^{commit}" 2>/dev/null; then
+    git -C "$CLONE" checkout --quiet -B dryrun-cutover "$ATTESTED"
+    note "the approval is recorded and committed already: $ATTESTED"
+  else
+    git -C "$CLONE" checkout --quiet -B dryrun-cutover "$CANDIDATE"
+    if ! grep -q "^[^,]*,cutover-approved,$CANDIDATE," "$CLONE/remake/attest.csv"; then
+      cat <<MSG
    wp:attest runs only in your own terminal and asks you to type "yes". In ANOTHER terminal window run:
 
        cd "$CLONE" && npm run wp:attest -- cutover-approved $CANDIDATE
 
    (It writes one row to remake/attest.csv in this throwaway clone, not in your own checkout.)
 MSG
-    while ! grep -q "^[^,]*,cutover-approved,$CANDIDATE," "$CLONE/remake/attest.csv"; do
-      printf 'ATTEST-WAIT: press Enter here once you have run it (Ctrl-C to stop; run this command again with --resume): '
-      read -r _ || die "no input to wait for"
-    done
+      while ! grep -q "^[^,]*,cutover-approved,$CANDIDATE," "$CLONE/remake/attest.csv"; do
+        printf 'ATTEST-WAIT: press Enter here once you have run it (Ctrl-C to stop; run this command again with --resume): '
+        read -r _ || die "no input to wait for"
+      done
+    fi
+    [ "$(git -C "$CLONE" diff --name-only | tr '\n' ' ')" = "remake/attest.csv " ] || die "the clone has changes other than remake/attest.csv: $(git -C "$CLONE" status --short | tr '\n' ' ')"
+    git -C "$CLONE" add remake/attest.csv
+    git -C "$CLONE" commit --quiet -m "Record the cutover approval for $CANDIDATE (live dry run)"
+    ATTESTED="$(git -C "$CLONE" rev-parse HEAD)"; state_set ATTESTED "$ATTESTED"
+    note "committed the row on top of the candidate: $ATTESTED"
   fi
-  [ "$(git -C "$CLONE" diff --name-only | tr '\n' ' ')" = "remake/attest.csv " ] || die "the clone has changes other than remake/attest.csv: $(git -C "$CLONE" status --short | tr '\n' ' ')"
-  git -C "$CLONE" add remake/attest.csv
-  git -C "$CLONE" commit --quiet -m "Record the cutover approval for $CANDIDATE (live dry run)"
-  ATTESTED="$(git -C "$CLONE" rev-parse HEAD)"; state_set ATTESTED "$ATTESTED"
-  note "committed the row on top of the candidate: $ATTESTED"
 
   say "8/10 Push the attested candidate as the mirror's remake/v3 (Next verify wants origin/remake/v3 to exist)"
   git_push --force "$ATTESTED:refs/heads/remake/v3"
@@ -277,9 +283,10 @@ MSG
       die "the cutover merge conflicts in: ${conflicted:-(unknown)}. Stopping: this is a finding for the real cutover too. Nothing was pushed."
     fi
   fi
-  MERGE_SHA="$(git -C "$CLONE" rev-parse HEAD)"; state_set MERGE_SHA "$MERGE_SHA"
+  MERGE_SHA="$(git -C "$CLONE" rev-parse HEAD)"
   [ "$(git -C "$CLONE" rev-list --parents -n 1 HEAD | wc -w | tr -d ' ')" = 3 ] || die "the merge commit does not have two parents"
   git_push "$MERGE_SHA:refs/heads/main"
+  state_set MERGE_SHA "$MERGE_SHA"
   cat <<MSG
 
 Phase 1 is pushed. The merge commit is $MERGE_SHA.
@@ -299,8 +306,8 @@ MSG
 phase_restore() {
   say "Phase 2: hold, restore the saved old site, clear the hold (on $REPO only)"
   [ -f "$STATE" ] || die "no state for $REPO in $WORK: run phase 1 first"
-  MERGE_SHA="$(state_get MERGE_SHA)" || die "phase 1 did not finish (no merge commit recorded)"
-  ASSET="$(state_get ASSET)"; ZIP_DIGEST="$(state_get DIGEST)"; URL="$(state_get URL)"; OLD_ID="$(state_get OLD_ID)"
+  MERGE_SHA="$(state_need MERGE_SHA)"
+  ASSET="$(state_need ASSET)"; ZIP_DIGEST="$(state_need DIGEST)"; URL="$(state_need URL)"; OLD_ID="$(state_need OLD_ID)"
   [ -d "$CLONE/.git" ] || die "the clone $CLONE is gone; run phase 1 with --resume"
   [ -z "$(hold_now)" ] || die "DEPLOY_HOLD is already set on the mirror ('$(hold_now)'). Clear it first: gh variable delete DEPLOY_HOLD --repo $REPO"
   st="$(run_state next-main.yml "$MERGE_SHA")"
@@ -336,13 +343,13 @@ phase_restore() {
     wait_served_release "$URL" "$OLD_ID"
   fi
 
-  say "4/5 Clear the hold on the mirror"
-  gh_write variable delete DEPLOY_HOLD --repo "$REPO"
-
-  say "5/5 Put the request back to empty (no run: [skip ci]), so that the revert in phase 3 is clean"
+  say "4/5 Put the request back to empty (no run: [skip ci]), so that the revert in phase 3 is clean"
   git -C "$CLONE" checkout --quiet "$MERGE_SHA" -- remake/control/restore.json
-  git -C "$CLONE" commit --quiet -m "Clear the restore request after the live dry run [skip ci]" || true
+  git -C "$CLONE" diff --cached --quiet || git -C "$CLONE" commit --quiet -m "Clear the restore request after the live dry run [skip ci]"
   git_push "HEAD:refs/heads/main"
+
+  say "5/5 Clear the hold on the mirror"
+  gh_write variable delete DEPLOY_HOLD --repo "$REPO"
   cat <<MSG
 
 Phase 2 done. The mirror should serve the OLD site byte for byte (legacy smoke green). Next:
@@ -354,8 +361,8 @@ MSG
 phase_revert() {
   say "Phase 3: revert the cutover merge on the mirror's main"
   [ -f "$STATE" ] || die "no state for $REPO in $WORK: run phase 1 first"
-  MERGE_SHA="$(state_get MERGE_SHA)" || die "phase 1 did not finish (no merge commit recorded)"
-  URL="$(state_get URL)"; OLD_ID="$(state_get OLD_ID)"
+  MERGE_SHA="$(state_need MERGE_SHA)"
+  URL="$(state_need URL)"; OLD_ID="$(state_need OLD_ID)"
   [ -d "$CLONE/.git" ] || die "the clone $CLONE is gone; run phase 1 with --resume"
   git -C "$CLONE" fetch --quiet mirror main
   git -C "$CLONE" checkout --quiet -B dryrun-revert refs/remotes/mirror/main

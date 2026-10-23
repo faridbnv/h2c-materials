@@ -101,14 +101,18 @@ export async function collect(repo, deps) {
   // The kept release of the cutover merge, and its artifact.json.
   if (evidence.commits.mergeSha) {
     const releases = JSON.parse(api(`repos/${repo}/releases?per_page=30`));
-    const kept = releases.find((r) => r.tag_name !== 'h2c-legacy-final' && /^h2c-[0-9a-f]{12}$/.test(r.tag_name) && r.target_commitish === evidence.commits.mergeSha) ?? null;
+    // The release of this deploy targets the merge; one kept already for the same content (a rerun) targets an older commit, and is the newest
+    // release that is neither the saved old site nor the old release the old pipeline made.
+    const oldTag = deps.legacy?.oldReleaseId ? `h2c-${deps.legacy.oldReleaseId}` : null;
+    const siteReleases = releases.filter((r) => /^h2c-[0-9a-f]{12}$/.test(r.tag_name) && r.tag_name !== oldTag);
+    const kept = siteReleases.find((r) => r.target_commitish === evidence.commits.mergeSha) ?? siteReleases[0] ?? null;
     if (kept) {
       evidence.release = { tag: kept.tag_name, target: kept.target_commitish, assets: kept.assets.map((a) => a.name), artifact: null };
       const a = kept.assets.find((x) => x.name === 'artifact.json');
       if (a) { try { evidence.release.artifact = JSON.parse(api(`repos/${repo}/releases/assets/${a.id}`, '-H', 'Accept: application/octet-stream')); } catch { /* judged as missing */ } }
     }
   }
-  try { evidence.holdNow = api(`repos/${repo}/actions/variables/DEPLOY_HOLD`, '--jq', '.value').trim(); } catch { evidence.holdNow = ''; }
+  try { evidence.holdNow = api(`repos/${repo}/actions/variables/DEPLOY_HOLD`, '--jq', '.value').trim(); } catch (e) { evidence.holdNow = /404|Not Found/i.test(e.message) ? '' : null; }
   if (evidence.pagesUrl && deps.fetchText) {
     const text = await deps.fetchText(`${evidence.pagesUrl.replace(/\/?$/, '/')}manifest.json`);
     try { evidence.servedRelease = text === null ? null : JSON.parse(text).release ?? null; } catch { evidence.servedRelease = null; }
@@ -142,16 +146,23 @@ const wantJobs = (run, names, problems) => {
 
 const logOf = (evidence, run, name) => evidence.logs[jobOf(run, name)?.id] ?? null;
 
+/** The old pipeline on one commit: Verify, then Publish to Pages with its deploy job. Returns the runs and the problems with them. */
+function oldPipeline(ev, sha, what, hint = '') {
+  const verify = newest(ev.runs.filter((r) => file(r.path) === 'verify.yml' && r.sha === sha));
+  const pages = newest(ev.runs.filter((r) => file(r.path) === 'pages.yml' && r.sha === sha));
+  const problems = [];
+  if (!verify || verify.conclusion !== 'success') problems.push(`Verify on ${what} ended ${verify?.conclusion ?? 'with no run'}`);
+  if (!pages || pages.conclusion !== 'success') problems.push(`Publish to Pages on ${what} ended ${pages?.conclusion ?? 'with no run'}${hint}`);
+  else if (jobOf(pages, 'deploy')?.conclusion !== 'success') problems.push('the deploy job of Publish to Pages did not succeed');
+  const pending = [verify, pages].some((r) => r && r.status !== 'completed');
+  return { verify, pages, problems, none: (!verify && !pages) || pending };
+}
+
 function judgeOldSite(ev) {
   const sha = ev.commits.frozenMain;
   if (!sha) return phase('old-site', null, {}, [], { missing: 'no cutover merge in the history of main, so the frozen main is not known' });
-  const verify = newest(ev.runs.filter((r) => file(r.path) === 'verify.yml' && r.sha === sha));
-  const pages = newest(ev.runs.filter((r) => file(r.path) === 'pages.yml' && r.sha === sha));
-  if (!verify && !pages) return phase('old-site', null, { frozenMain: sha }, [], { missing: `Verify and Publish to Pages have no run on the frozen main ${sha.slice(0, 8)}` });
-  const problems = [];
-  if (!verify || verify.conclusion !== 'success') problems.push(`Verify on the frozen main ended ${verify?.conclusion ?? 'with no run'}`);
-  if (!pages || pages.conclusion !== 'success') problems.push(`Publish to Pages on the frozen main ended ${pages?.conclusion ?? 'with no run'}`);
-  else if (jobOf(pages, 'deploy')?.conclusion !== 'success') problems.push('the deploy job of Publish to Pages did not succeed');
+  const { verify, pages, problems, none } = oldPipeline(ev, sha, 'the frozen main');
+  if (none) return phase('old-site', null, { frozenMain: sha }, [], { missing: `Verify and Publish to Pages have not both finished on the frozen main ${sha.slice(0, 8)} (no run, or still running)` });
   return phase('old-site', pages ?? verify, { frozenMain: sha, verifyRunId: verify?.id ?? null, pagesRunId: pages?.id ?? null, oldSiteDeployedAt: jobOf(pages, 'deploy')?.completedAt ?? null }, problems);
 }
 
@@ -162,6 +173,7 @@ function judgeLiveDeploy(ev) {
   if (!sha) return phase('live-deploy', null, {}, [], { missing: 'no cutover merge (a commit with two parents) in the history of main' });
   const run = newest(ev.runs.filter((r) => file(r.path) === 'next-main.yml' && r.sha === sha && r.event === 'push'));
   if (!run) return phase('live-deploy', null, { mergeSha: sha }, [], { missing: `Next main has no push run on the cutover merge ${sha.slice(0, 8)}` });
+  if (run.status !== 'completed') return phase('live-deploy', run, { mergeSha: sha }, [], { missing: `the Next main run ${run.id} is still ${run.status}` });
   const problems = [];
   if (run.conclusion !== 'success') problems.push(`the Next main run ended ${run.conclusion ?? run.status}`);
   wantJobs(run, [JOB.plan, JOB.build, JOB.deploy, JOB.smoke, JOB.release, JOB.result], problems);
@@ -185,15 +197,18 @@ function judgeLiveDeploy(ev) {
   if (smokeResult !== 'pass') problems.push(`the live smoke did not report "smoke: pass" (${smokeResult ?? 'no log'})`);
 
   const need = ev.release ? [`site-${ev.release.tag.slice(4)}.zip`, 'release.json', 'artifact.json', 'decision-diff.md'] : [];
-  if (!ev.release) problems.push(`no release h2c-<id> targets the cutover merge ${sha.slice(0, 8)}`);
-  else for (const a of need) if (!ev.release.assets.includes(a)) problems.push(`the release ${ev.release.tag} lacks ${a}`);
+  const warnings = [];
+  if (!ev.release) problems.push(`no release h2c-<id> was kept for the cutover merge ${sha.slice(0, 8)}`);
+  else {
+    for (const a of need) if (!ev.release.assets.includes(a)) problems.push(`the release ${ev.release.tag} lacks ${a}`);
+    if (ev.release.target !== sha) warnings.push(`the release ${ev.release.tag} targets ${ev.release.target}, not the merge: it was kept already for the same content`);
+  }
 
   // The old workflows are still on main after the merge: did they publish too, and which published last?
   const oldRuns = ev.runs.filter((r) => ['verify.yml', 'pages.yml'].includes(file(r.path)) && r.sha === sha);
   const oldPages = newest(oldRuns.filter((r) => file(r.path) === 'pages.yml'));
   const oldDeployAt = jobOf(oldPages, 'deploy')?.completedAt ?? null;
   const newDeployAt = jobOf(run, JOB.deploy)?.completedAt ?? null;
-  const warnings = [];
   const oldPublished = Boolean(oldDeployAt) && jobOf(oldPages, 'deploy')?.conclusion === 'success';
   if (oldPublished) {
     if (Date.parse(oldDeployAt) > Date.parse(newDeployAt)) problems.push(`the OLD Publish to Pages deployed AFTER Next main (${oldDeployAt} against ${newDeployAt}): the live address serves the old site`);
@@ -211,6 +226,7 @@ function judgeLiveDeploy(ev) {
 function judgeRestore(ev) {
   const run = newest(ev.runs.filter((r) => file(r.path) === 'next-main.yml' && r.event === 'workflow_dispatch'));
   if (!run) return phase('restore', null, {}, [], { missing: 'Next main has no run started by hand (gh workflow run next-main.yml --ref main -f mode=live -f restore=true)' });
+  if (run.status !== 'completed') return phase('restore', run, {}, [], { missing: `the restore run ${run.id} is still ${run.status}` });
   const problems = [];
   if (run.conclusion !== 'success') problems.push(`the Next main run ended ${run.conclusion ?? run.status}`);
   wantJobs(run, [JOB.plan, JOB.restore, JOB.restoreSmoke, JOB.result], problems);
@@ -223,6 +239,7 @@ function judgeRestore(ev) {
   if (ev.legacy?.fileCount && filesChecked && filesChecked !== ev.legacy.fileCount) problems.push(`the smoke matched ${filesChecked} files, the saved site has ${ev.legacy.fileCount}`);
   const warnings = [];
   if (ev.holdNow) warnings.push(`DEPLOY_HOLD is still set to "${ev.holdNow}" on the mirror`);
+  if (ev.holdNow === null) warnings.push('DEPLOY_HOLD could not be read from the mirror');
   return phase('restore', run, {
     plan: planLine, legacySmoke: smokeResult, filesChecked, oldReleaseId: ev.legacy?.oldReleaseId ?? null, restoreSeconds: secondsBetween(run.startedAt ?? run.createdAt, run.updatedAt),
     holdNow: ev.holdNow, warnings,
@@ -232,17 +249,14 @@ function judgeRestore(ev) {
 function judgeRevert(ev) {
   const sha = ev.commits.revertSha;
   if (!sha) return phase('revert', null, {}, [], { missing: 'no revert of the cutover merge on main (git revert -m 1)' });
-  const verify = newest(ev.runs.filter((r) => file(r.path) === 'verify.yml' && r.sha === sha));
-  const pages = newest(ev.runs.filter((r) => file(r.path) === 'pages.yml' && r.sha === sha));
+  const { verify, pages, problems, none } = oldPipeline(ev, sha, 'the revert', ': the old workflow did not republish');
+  if (none) return phase('revert', null, { revertSha: sha }, [], { missing: `Verify and Publish to Pages have not both finished on the revert ${sha.slice(0, 8)} (no run, or still running)` });
   const nextMain = ev.runs.filter((r) => file(r.path) === 'next-main.yml' && r.sha === sha);
-  if (!verify && !pages) return phase('revert', null, { revertSha: sha }, [], { missing: `Verify and Publish to Pages have no run on the revert ${sha.slice(0, 8)} (yet)` });
-  const problems = [];
-  if (!verify || verify.conclusion !== 'success') problems.push(`Verify on the revert ended ${verify?.conclusion ?? 'with no run'}`);
-  if (!pages || pages.conclusion !== 'success') problems.push(`Publish to Pages on the revert ended ${pages?.conclusion ?? 'with no run'}: the old workflow did not republish`);
-  else if (jobOf(pages, 'deploy')?.conclusion !== 'success') problems.push('the deploy job of Publish to Pages did not succeed');
   if (nextMain.length) problems.push('Next main ran on the revert, which should no longer contain it');
   const oldId = ev.legacy?.oldReleaseId ?? null;
-  if (ev.servedRelease !== null && oldId && ev.servedRelease !== oldId) problems.push(`the address serves release ${ev.servedRelease}, not the old release ${oldId}`);
+  if (!oldId) problems.push('the saved old site\'s release id is unknown (remake/legacy/legacy-final.json was not read), so the revert cannot be judged');
+  else if (ev.servedRelease === null) problems.push(`the address ${ev.pagesUrl ?? '(unknown)'} gave no manifest.json, so it is not shown to serve the old site`);
+  else if (ev.servedRelease !== oldId) problems.push(`the address serves release ${ev.servedRelease}, not the old release ${oldId}`);
   return phase('revert', pages ?? verify, { revertSha: sha, verifyRunId: verify?.id ?? null, pagesRunId: pages?.id ?? null, nextMainRuns: nextMain.length, servedRelease: ev.servedRelease, oldReleaseId: oldId, republishedAt: jobOf(pages, 'deploy')?.completedAt ?? null }, problems);
 }
 
