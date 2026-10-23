@@ -2,7 +2,8 @@
 // The candidate receipt (WP-34; pack 07 section 11, pack 08 WP-34). A candidate is one named commit of remake/v3. Its receipt,
 // remake/candidates/<sha>.json, is filled from commands run on that commit and from the repository's own records, never from memory.
 //
-//   npm run candidate:receipt -- <sha> [--purpose TEXT] [--skip-browser]   generate the receipt (HEAD must be <sha>, tracked files clean)
+//   npm run candidate:receipt -- <sha> [--purpose TEXT] [--skip-browser] [--records-ref REF]   generate the receipt (HEAD must be <sha>, tracked files clean;
+//                                                                          the owner's records are read from the newest records-only commit after <sha> on REF, origin/remake/v3 by default)
 //   npm run candidate:check -- <sha>                                       judge it; exit 0 only when it is whole, current and met
 //
 // candidate:check fails on:
@@ -39,7 +40,9 @@ export const REHEARSAL_BUDGET_SECONDS = 900;
 export const SECTIONS = ['baseline', 'runtime', 'data', 'checks', 'parity', 'compatibility', 'safari', 'limitations', 'artifact', 'axe', 'budgets', 'portItems', 'defects', 'rollback', 'people'];
 /** Paths a branch may change after the candidate without voiding it: records about it, not code. */
 export const RECORD_PATHS = ['remake/candidates/', 'remake/attest.csv', 'remake/status/', 'remake/measure/', 'remake/rehearsal/', 'remake/legacy/', 'remake/control/'];
+export const RECORDS_REF = 'origin/remake/v3';
 const SHA = /^[0-9a-f]{40}$/;
+const isRecordPath = (p) => RECORD_PATHS.some((r) => p === r || p.startsWith(r));
 
 /** The checks a receipt records, in the order they run. `shell` ones need a shell for their globs. */
 export const CHECKS = [
@@ -245,6 +248,39 @@ export function rollbackOf(root, sha) {
   };
 }
 
+// ---- where the owner's records are read from ----------------------------------------------------------------------------------
+/**
+ * The commit the records (attest rows, safari-check, the rehearsal, the legacy zip, the status files) are read from. A commit cannot name its own
+ * sha, so the owner's records about a candidate can only live on a LATER commit. This is the newest commit on `ref` (first-parent, newest first)
+ * that has the candidate as an ancestor and differs from it by RECORD_PATHS only; a descendant that changes anything else is never used. With no
+ * such descendant, or when `ref` is unknown here, the candidate itself.
+ */
+export function recordsCommitOf(root, sha, { ref = RECORDS_REF, git = (args) => spawnSync('git', args, { cwd: root, encoding: 'utf8' }) } = {}) {
+  const list = git(['rev-list', '--first-parent', '--ancestry-path', `${sha}..${ref}`]);
+  if (list.status !== 0) return sha;
+  for (const x of list.stdout.split('\n').filter((l) => SHA.test(l))) {
+    if (git(['merge-base', '--is-ancestor', sha, x]).status !== 0) continue;
+    const diff = git(['diff', '--name-only', sha, x]);
+    if (diff.status === 0 && diff.stdout.split('\n').filter(Boolean).every(isRecordPath)) return x;
+  }
+  return sha;
+}
+
+/** Puts the record paths of `recordsCommitOf` into the checkout (the code stays the candidate's). Returns { commit, from, files }. */
+export function overlayRecords(root, sha, opts = {}) {
+  const git = opts.git ?? ((args) => spawnSync('git', args, { cwd: root, encoding: 'utf8' }));
+  const from = recordsCommitOf(root, sha, { ...opts, git });
+  if (from === sha) return { commit: sha, from: sha, files: 0 };
+  const listed = git(['ls-tree', '-r', '--name-only', from, '--', ...RECORD_PATHS]);
+  if (listed.status !== 0) throw new Error(`the records of ${from.slice(0, 8)} cannot be listed: ${(listed.stderr || '').trim()}`);
+  const files = listed.stdout.split('\n').filter(Boolean);
+  if (files.length) {
+    const r = git(['checkout', from, '--', ...files]);
+    if (r.status !== 0) throw new Error(`the records of ${from.slice(0, 8)} cannot be checked out: ${(r.stderr || '').trim()}`);
+  }
+  return { commit: sha, from, files: files.length };
+}
+
 // ---- the judgement -----------------------------------------------------------------------------------------------------------
 /**
  * Every problem with a receipt. `live` is what the repository and GitHub say now (see `observeNow`): the receipt's own claims are checked
@@ -330,7 +366,7 @@ export function observeNow(root, sha, deps = {}) {
     if (head.stdout.trim() === sha) return [];
     const diff = git(['diff', '--name-only', sha, 'HEAD']);
     if (diff.status !== 0) return [`the candidate ${sha.slice(0, 8)} is not an ancestor of HEAD or cannot be compared`];
-    return diff.stdout.split('\n').filter(Boolean).filter((p) => !RECORD_PATHS.some((r) => p === r || p.startsWith(r)));
+    return diff.stdout.split('\n').filter(Boolean).filter((p) => !isRecordPath(p));
   })();
   const observe = deps.observeMain ?? (() => {
     const ls = git(['ls-remote', 'origin', 'refs/heads/main']);
@@ -419,8 +455,9 @@ export function generate(root, given, { purpose = 'release candidate', skipBrows
   const sha = resolveSha(root, given, git);
   const head = git(['rev-parse', 'HEAD']).stdout.trim();
   if (head !== sha) throw new Error(`HEAD is ${head.slice(0, 8)}, not ${sha.slice(0, 8)}: a receipt is made on the commit it describes (check it out in a worktree)`);
-  const dirty = git(['status', '--porcelain', '--untracked-files=no']).stdout.split('\n').filter(Boolean).filter((l) => !RECORD_PATHS.some((p) => l.slice(3).startsWith(p)));
+  const dirty = git(['status', '--porcelain', '--untracked-files=no']).stdout.split('\n').filter(Boolean).filter((l) => !isRecordPath(l.slice(3)));
   if (dirty.length) throw new Error(`tracked files differ from the commit (${dirty[0].trim()}): a receipt describes a commit, not a working tree`);
+  const records = overlayRecords(root, sha, { git, ref: deps.recordsRef });
   const startedMs = Date.now();
   const run = (cmd) => runCommand(cmd, root, sha, { run: deps.run });
   const live = observeNow(root, sha, deps);
@@ -456,6 +493,7 @@ export function generate(root, given, { purpose = 'release candidate', skipBrows
     summary: null,
     candidate: { sha, branch, purpose, generatedAt: new Date().toISOString() },
     baseline: { commit: sha, ...live.main, mainChecked: 'at the time of the receipt; candidate:check observes main again' },
+    records: { ...records, note: records.from === sha ? 'no later records-only commit: the records are the candidate\'s own' : 'the owner\'s records (attest rows, rehearsal, legacy zip, status) are read from this later commit, which differs from the candidate by record paths only' },
     runtime: runtimeOf(root, sha),
     data,
     checks: { commit: sha, results },
@@ -508,7 +546,8 @@ function cli(argv) {
   if (cmd === 'receipt') {
     if (!given) throw new Error('usage: candidate:receipt -- <sha> [--purpose TEXT] [--skip-browser]');
     const at = rest.indexOf('--purpose');
-    const receipt = generate(root, given, { purpose: at >= 0 ? rest[at + 1] : 'release candidate', skipBrowser: rest.includes('--skip-browser') });
+    const refAt = rest.indexOf('--records-ref');
+    const receipt = generate(root, given, { purpose: at >= 0 ? rest[at + 1] : 'release candidate', skipBrowser: rest.includes('--skip-browser') }, refAt >= 0 ? { recordsRef: rest[refAt + 1] } : {});
     mkdirSync(join(root, CANDIDATE_DIR), { recursive: true });
     const file = receiptPath(receipt.candidate.sha);
     writeFileSync(join(root, file), `${JSON.stringify(receipt, null, 2)}\n`);
@@ -516,7 +555,7 @@ function cli(argv) {
     for (const p of receipt.summary.problems) console.log(`  not met: ${p}`);
     return 0;
   }
-  throw new Error('usage: candidate.mjs check [<sha>] | receipt <sha> [--purpose TEXT] [--skip-browser]');
+  throw new Error('usage: candidate.mjs check [<sha>] | receipt <sha> [--purpose TEXT] [--skip-browser] [--records-ref REF]');
 }
 
 if (isMain(import.meta.url)) {

@@ -7,7 +7,7 @@ import { cpSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync, rmSync } f
 import { tmpdir } from 'node:os';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { BROWSER_CMD, CHECKS, PARITY_CMD, SECTIONS, checkCandidate, compatibilityOf, defectsOf, defectsProblems, generate, judge, limitationsOf, mainState, parseDefects, receiptPath, resolveSha, safariOf, runCommand } from '../../remake/tools/candidate.mjs';
+import { BROWSER_CMD, CHECKS, PARITY_CMD, SECTIONS, checkCandidate, overlayRecords, recordsCommitOf, compatibilityOf, defectsOf, defectsProblems, generate, judge, limitationsOf, mainState, parseDefects, receiptPath, resolveSha, safariOf, runCommand } from '../../remake/tools/candidate.mjs';
 
 const repo = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const SHA = 'a1'.repeat(20);
@@ -343,4 +343,72 @@ test('CLI: with no receipt and no commit it says "not run", never "met"; a named
   assert.equal(bad.status, 2);
   assert.match(bad.stderr, /not a commit id/);
   assert.equal(run('receipt').status, 2);
+});
+
+// ---- where the owner's records come from (M4 close): a commit cannot name its own sha ----------------------------------------------
+/** A real scratch repository: the fixture without the owner's records at commit A (the candidate); `records` and `code` add commits after it. */
+function history() {
+  const dir = fixture();
+  const sh = (...args) => { const r = spawnSync('git', ['-c', 'user.name=t', '-c', 'user.email=t@example.com', ...args], { cwd: dir, encoding: 'utf8' }); assert.equal(r.status, 0, `${args.join(' ')}: ${r.stderr}`); return r.stdout.trim(); };
+  const saved = {};
+  for (const f of ['remake/attest.csv', 'remake/rehearsal/2026-11-04.json', 'remake/legacy/legacy-final.json']) { saved[f] = read(dir, f); rmSync(join(dir, f)); }
+  sh('init', '-q', '-b', 'trunk');
+  write(dir, 'remake/attest.csv', 'date,key,detail,source\n');
+  write(dir, 'packages/code.txt', 'one\n');
+  sh('add', '-A'); sh('commit', '-q', '-m', 'candidate');
+  const candidate = sh('rev-parse', 'HEAD');
+  const commit = (m) => { sh('add', '-A'); sh('commit', '-q', '-m', m); return sh('rev-parse', 'HEAD'); };
+  const records = (extra = {}) => {
+    write(dir, 'remake/attest.csv', `date,key,detail,source\n2026-11-02,safari-check,${candidate.slice(0, 8)},wp:attest\n2026-11-03,bus-factor-rollback,,wp:attest\n2026-11-03,retire-approved,A-doctor,wp:attest\n`);
+    write(dir, 'remake/rehearsal/2026-11-04.json', saved['remake/rehearsal/2026-11-04.json']);
+    write(dir, 'remake/legacy/legacy-final.json', saved['remake/legacy/legacy-final.json']);
+    write(dir, 'remake/status/WP-99.json', { id: 'WP-99', status: 'done' });
+    for (const [f, c] of Object.entries(extra)) write(dir, f, c);
+    return commit('records');
+  };
+  return { dir, sh, candidate, commit, records, ref: 'trunk' };
+}
+
+test('the deadlock: records committed after the candidate (safari-check naming its sha8) are overlaid, and the receipt is met', () => {
+  const h = history();
+  const x = h.records();
+  h.sh('checkout', '-q', '--detach', h.candidate);
+  assert.equal(recordsCommitOf(h.dir, h.candidate, { ref: h.ref }), x);
+  const w = world(h.dir);
+  const seen = {};
+  const run = (cmd) => { if (cmd === 'npm run checks:register -- --cutover-ready') seen.attest = read(h.dir, 'remake/attest.csv'); return w.run(cmd); };
+  const receipt = generate(h.dir, h.candidate, {}, { ...w, run, git: (args) => spawnSync('git', args, { cwd: h.dir, encoding: 'utf8' }), recordsRef: h.ref });
+  assert.equal(receipt.records.from, x);
+  assert.equal(receipt.records.commit, h.candidate);
+  assert.match(seen.attest, /retire-approved,A-doctor/, 'the cutover-ready run sees the owner\'s retire rows');
+  assert.equal(receipt.safari.attested, true);
+  assert.equal(receipt.rollback.busFactorRollback, true);
+  assert.equal(receipt.rollback.rehearsal.result, 'pass');
+  assert.equal(receipt.summary.verdict, 'met', receipt.summary.problems.join('; '));
+  assert.equal(read(h.dir, 'packages/code.txt'), 'one\n', 'the code stays the candidate\'s');
+});
+
+test('a descendant that changes code is not the records source; the newest records-only descendant before it is', () => {
+  const h = history();
+  const x = h.records();
+  write(h.dir, 'packages/code.txt', 'two\n');
+  write(h.dir, 'remake/status/WP-98.json', { id: 'WP-98', status: 'done' });
+  const y = h.commit('code and a record');
+  h.records({ 'remake/status/WP-97.json': { id: 'WP-97', status: 'done' } });
+  assert.equal(recordsCommitOf(h.dir, h.candidate, { ref: h.ref }), x, 'later records-only commits sit on a code change: none is used');
+  h.sh('checkout', '-q', '--detach', h.candidate);
+  assert.equal(overlayRecords(h.dir, h.candidate, { ref: h.ref }).from, x);
+  assert.equal(read(h.dir, 'packages/code.txt'), 'one\n');
+  assert.notEqual(y, x);
+});
+
+test('with no descendant, or a ref that is not known here, the records are the candidate\'s own', () => {
+  const h = history();
+  assert.equal(recordsCommitOf(h.dir, h.candidate, { ref: h.ref }), h.candidate);
+  h.records();
+  assert.equal(recordsCommitOf(h.dir, h.candidate, { ref: 'origin/not-a-branch' }), h.candidate);
+  h.sh('checkout', '-q', '--detach', h.candidate);
+  assert.deepEqual(overlayRecords(h.dir, h.candidate, { ref: 'origin/not-a-branch' }), { commit: h.candidate, from: h.candidate, files: 0 });
+  const m = made();
+  assert.equal(m.receipt.records.from, SHA, 'the fixture world has no later commit');
 });
