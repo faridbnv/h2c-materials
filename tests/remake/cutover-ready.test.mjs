@@ -111,6 +111,7 @@ test('a check that lives in verify.yml or pages.yml needs a successor job in nex
 
 test('a re-point or successor row waits for the work packages that own its successor', () => {
   withScratch((dir) => {
+    withoutApprovals(dir);
     allDone(dir);
     approve(dir, 'all');
     const row = (id) => {
