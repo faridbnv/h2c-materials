@@ -1,6 +1,6 @@
 {
   "id": "WP-27",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "claude/wonderful-franklin-ynbnzn",
   "pr": 44,
@@ -32,10 +32,16 @@
       "cmd": "manual: Plotly absent from first load; strict boot within 2 KB of WP-26 (size report)",
       "result": "not-run",
       "note": "no command checks this yet"
+    },
+    {
+      "cmd": "merged: PR #44",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
     }
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T14:05:33.926Z",
-  "note": "Compare, charts, Ashby, parallel, coverage, brief and export; PR #44 in review (stacked fixes in the M3-close follow-up PR). Full browser suite passes under both base paths locally (456 views, 1,200 scenarios)."
+  "updated": "2026-10-23T07:35:19.821Z",
+  "note": "Merged as PR #44 with the M3 close fixes (#46). Compare, charts, Ashby, parallel, coverage, brief and export; the full browser suite passed under both base paths."
 }

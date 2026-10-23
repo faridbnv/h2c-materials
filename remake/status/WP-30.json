@@ -1,6 +1,6 @@
 {
   "id": "WP-30",
-  "status": "in-review",
+  "status": "done",
   "slice": null,
   "branch": "claude/wonderful-franklin-ynbnzn",
   "pr": 44,
@@ -32,10 +32,16 @@
       "cmd": "manual: timings measured, not gated (remake/measure/perf-new.json)",
       "result": "not-run",
       "note": "no command checks this yet"
+    },
+    {
+      "cmd": "merged: PR #44",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
     }
   ],
   "waitingSince": null,
   "approvedAt": null,
-  "updated": "2026-10-22T14:06:09.997Z",
-  "note": "The new site at the preview root, today's site at legacy/, the byte budgets as CI gates, the task suite; PR #44 in review. M3-close fix: the root's materials/ are the new pages (packages/pages), not a copy of the old build's. The preview smoke on the real deploy runs at the first deploy after merge."
+  "updated": "2026-10-23T07:35:19.823Z",
+  "note": "Merged as PR #44 with the M3 close fixes (#46). The new site at the preview root, today's site at legacy/, the byte budgets as CI gates, the task suite."
 }
