@@ -304,6 +304,13 @@ test('rollback: the legacy zip digest, a passing rehearsal under 15 minutes that
   rmSync(join(noLog.dir, 'remake/rehearsal'), { recursive: true });
   write(noLog.dir, receiptPath(SHA), generate(noLog.dir, SHA, {}, noLog.w));
   assert.ok(has(checkCandidate(noLog.dir, SHA, noLog.w).problems, /rollback: no rehearsal log/));
+  // the live practice run's report sits in the same folder and sorts after every date: it is not the rehearsal log
+  const dryrun = made();
+  write(dryrun.dir, 'remake/rehearsal/live-dryrun-2026-11-05.json', { schema: 1, result: 'pass', phases: [] });
+  write(dryrun.dir, receiptPath(SHA), generate(dryrun.dir, SHA, {}, dryrun.w));
+  const picked = checkCandidate(dryrun.dir, SHA, dryrun.w);
+  assert.equal(picked.receipt.rollback.rehearsal.file, 'remake/rehearsal/2026-11-04.json');
+  assert.ok(!has(picked.problems, /^rollback:/));
 });
 
 test('the branch moving past the candidate voids the receipt unless only records changed', () => {
