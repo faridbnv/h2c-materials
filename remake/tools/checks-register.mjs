@@ -444,7 +444,8 @@ export function retireApprovals(root) {
  * Rules, per row that is not a new check:
  *   obsolete-at-cutover  needs a retire-approved row naming it (or "all");
  *   a check inside verify.yml or pages.yml (gone at the cutover) needs a successor ref in next-main.yml or next-verify.yml, which must exist;
- *   re-point and successor  need their owner packages done (those of the clean-up after the cutover, M5, are not required to be).
+ *   re-point and successor  need their owner packages done (those of the clean-up after the cutover, M5, are not required to be), or a
+ *                           retire-approved row naming the row itself ("all" does not count here): the owner retires it for the cutover.
  */
 export function cutoverReady(root = repoRoot(), options = {}) {
   const base = verifyRegister(root, options);
@@ -463,6 +464,7 @@ export function cutoverReady(root = repoRoot(), options = {}) {
     const vanishing = row.oldRefs.some((t) => t.startsWith('ci:') && VANISHING_WORKFLOWS.some((w) => t.startsWith(`ci:${w}/`)));
     if (vanishing && !row.successorRefs.some((t) => SUCCESSOR_WORKFLOW.test(t))) need('it lives in verify.yml or pages.yml, which the cutover replaces, and names no successor job in next-main.yml or next-verify.yml');
     if (row.status === 're-point' || row.status === 'successor') {
+      if (approvals.has(row.id)) continue;
       for (const wp of splitList(row.owner, /[;,]/)) {
         if (index.get(wp)?.milestone === LASTING_MILESTONE) continue;
         const st = statuses[wp]?.status ?? 'unknown';

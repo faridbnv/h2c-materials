@@ -111,6 +111,7 @@ test('a check that lives in verify.yml or pages.yml needs a successor job in nex
 
 test('a re-point or successor row waits for the work packages that own its successor', () => {
   withScratch((dir) => {
+    withoutApprovals(dir);
     allDone(dir);
     approve(dir, 'all');
     const row = (id) => {
@@ -122,6 +123,9 @@ test('a re-point or successor row waits for the work packages that own its succe
     writeFileSync(statusFile, JSON.stringify({ ...JSON.parse(readFileSync(statusFile, 'utf8')), status: 'todo' }));
     const missing = cutoverReady(dir).missing;
     assert.ok(missing.some((m) => m.id === 'S-context-audit' && new RegExp(`owned by ${owner}, which is todo`).test(m.what)));
+    // "all" never retires a row with a successor; a retire-approved row naming it does (the owner retires it for the cutover)
+    approve(dir, 'S-context-audit');
+    assert.ok(!cutoverReady(dir).missing.some((m) => m.id === 'S-context-audit'));
     // the clean-up after the cutover (M5) is not required to be done
     const m5 = JSON.parse(readFileSync(join(repo, 'remake/plan/wp-index.json'), 'utf8')).packages.filter((p) => p.milestone === 'M5').map((p) => p.id);
     assert.ok(m5.includes('WP-38'));
