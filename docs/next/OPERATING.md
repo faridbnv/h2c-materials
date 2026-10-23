@@ -43,6 +43,8 @@ verify and build, so you can see whether a fix is good. The workflow only ever *
 
 A held run says so in its summary line: "DEPLOY_HOLD is "legacy-final": verified and built, not deployed".
 
+The preview honours the hold too. While `DEPLOY_HOLD` has a value, `next-preview.yml` (the workflow that deploys every push to `remake/v3` to the preview) builds the site, skips its deploy job and says so in its summary ("NOT DEPLOYED. DEPLOY_HOLD is ..."), so a rehearsal's restored preview is not overwritten by an ordinary push. A push that changes only records (`remake/attest.csv`, `remake/status/`, `remake/legacy/`, `remake/rehearsal/`, `remake/candidates/`, `remake/measure/`, `remake/control/`) does not start the preview at all. A restore pull request touches only `remake/control/`, so it is next-main's alone.
+
 ## Rollback: the live site is wrong now
 
 Use this when the live site is broken or wrong and you do not yet know why. It puts the **old site, exactly as it was served**, back.
@@ -97,7 +99,7 @@ your test: `npm run wp:attest -- bus-factor-rollback`.
 |---|---|---|
 | 1 | `remake/tools/save-legacy.sh` | Builds the old site from `main`, compares it with the live site, packs `legacy-site-<id>.zip`, and **prints** the command that creates the Release `h2c-legacy-final`. It creates nothing itself. |
 | 2 | the `gh release create h2c-legacy-final ...` line it printed | Keeps the old site on GitHub. Keep a second copy in your private store. |
-| 3 | `npm run candidate:receipt -- <sha>` (an agent can run it) | Makes `remake/candidates/<sha>.json`: every check run on that commit, parity against the old engine, the compatibility report, the artifact fingerprint, budgets, accessibility counts, the saved-site digest, the rehearsal. |
+| 3 | The receipt is made on CI, not on a Mac (the Mac and linux differ in six estimate leaves, L-07): an agent merges a pull request that sets `remake/control/receipt.json` to `{"schema": 1, "sha": "<40 hex>"}`, `candidate-receipt.yml` makes the receipt and pushes it to the branch `records/receipt-<sha8>`, and an agent merges it. It reads your rows from the records commits after the candidate. (`npm run candidate:receipt -- <sha>` is the same command.) | Makes `remake/candidates/<sha>.json`: every check run on that commit, parity against the old engine, the compatibility report, the artifact fingerprint, budgets, accessibility counts, the saved-site digest, the rehearsal. |
 | 4 | `npm run wp:attest -- safari-check <sha8>` | Your 15-minute check in Safari. |
 | 5 | `npm run checks:register -- --cutover-ready` | Lists every old check that has no proved successor and no approval from you. For each, `npm run wp:attest -- retire-approved <row id>` records that you agree to retire it. |
 | 6 | `npm run candidate:check -- <sha>` | Passes only when the receipt is whole, every field was produced on that commit, `main` is unchanged, every known defect has a disposition, and your rows exist. |
