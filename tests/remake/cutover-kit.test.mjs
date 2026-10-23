@@ -150,8 +150,9 @@ test('the control file is validated and a malformed one is a refusal, never "no 
   assert.equal(broken.refused, true);
   assert.match(broken.reason, /not JSON/);
   assert.throws(() => readControl(tmp('empty')), /is missing/);
-  // the committed file is valid and holds no request
-  assert.equal(readControl(root), null);
+  // the committed file is valid (readControl throws otherwise); it holds a request only while a rehearsal or a rollback asks
+  const committed = readControl(root);
+  assert.ok(committed === null || committed.tag === 'h2c-legacy-final');
 });
 
 test('CLI: plan writes the outputs, exits 1 on a refusal, and REQUIRE_ACTION stops a job whose action is not allowed to deploy', () => {
@@ -251,6 +252,8 @@ test('the deployed bytes are the tested artifact: fetched by run ID and checked 
     assert.ok(firstPublish > verify, `${id}: nothing is published before the digest is checked`);
   }
   assert.match(jobBlock(main, 'build'), /digest: \$\{\{ steps\.digest\.outputs\.digest \}\}/);
+  // the digest counts every file, .nojekyll among them, so the upload must keep dotfiles or every deploy refuses its artifact
+  assert.match(jobBlock(main, 'build'), /name: site-\$\{\{ github\.run_id \}\}\n\s+path: _site\n[\s\S]*?include-hidden-files: true/);
   assert.match(jobBlock(main, 'build'), /size-report\.mjs --site _site/, 'the byte budgets gate the artifact');
 });
 
@@ -305,7 +308,9 @@ test('the dry run records the main commit the preview names, and it is the basel
 });
 
 test('the control files are valid JSON in the form the plan reads, and the restore request is empty until a rehearsal or a rollback asks', () => {
-  assert.equal(readControl(root), null);
+  // a restore is requested by committing the file through a pull request, so its checks must pass with a request in it
+  const committed = readControl(root);
+  assert.ok(committed === null || committed.tag === 'h2c-legacy-final');
   assert.equal(JSON.parse(readFileSync(join(root, 'remake/control/rehearsal-ping.json'), 'utf8')).schema, 1);
 });
 
