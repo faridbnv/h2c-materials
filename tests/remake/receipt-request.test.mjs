@@ -75,8 +75,11 @@ test('the receipt request is not a restore request: next-main.yml does not read 
   assert.equal(both.run, true);
 });
 
-test('the committed request is empty (null) until someone asks', () => {
-  assert.equal(validateReceiptRequest(JSON.parse(readFileSync(join(root, RECEIPT_REQUEST_PATH), 'utf8'))), null);
+// The committed request is null until someone asks, and a well-formed request while one is asked for: the request is committed by a pull
+// request, whose checks (and the receipt's own run of these tests) see it set. Whether it names a commit on remake/v3 is the plan's to judge.
+test('the committed request is empty (null) or a well-formed request', () => {
+  const sha = validateReceiptRequest(JSON.parse(readFileSync(join(root, RECEIPT_REQUEST_PATH), 'utf8')));
+  assert.ok(sha === null || /^[0-9a-f]{40}$/.test(sha), String(sha));
 });
 
 // ---- the workflow, as text -------------------------------------------------------------------------------------------------------------
