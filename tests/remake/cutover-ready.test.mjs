@@ -37,6 +37,12 @@ function scratch(copy) {
 }
 const COPY = ['checks', 'remake/attest.csv', 'remake/status'];
 const withScratch = (fn) => { const dir = scratch(COPY); try { return fn(dir); } finally { rmSync(dir, { recursive: true, force: true }); } };
+// The owner's retire-approved rows taken out of the scratch copy, so a case judges the register as it stands before any approval,
+// whatever the real remake/attest.csv holds by now.
+const withoutApprovals = (dir) => {
+  const p = join(dir, 'remake/attest.csv');
+  writeFileSync(p, readFileSync(p, 'utf8').split('\n').filter((l) => l.split(',')[1] !== 'retire-approved').join('\n'));
+};
 const approve = (dir, id) => appendFileSync(join(dir, 'remake/attest.csv'), `2026-11-05,retire-approved,${id},wp:attest\n`);
 const allDone = (dir) => {
   for (const f of readdirSync(join(dir, 'remake/status'))) {
@@ -52,20 +58,28 @@ const editRegister = (dir, fn) => {
 };
 const ids = (report) => report.missing.map((m) => m.id);
 
-test('today the register is not cutover-ready, and the report says what stands in the way and what only the owner can record', () => {
-  const r = cutoverReady(repo);
-  assert.deepEqual(r.problems, [], 'the register itself is sound');
-  assert.ok(r.missing.length > 0);
-  const obsolete = r.missing.filter((m) => m.status === 'obsolete-at-cutover');
-  assert.ok(obsolete.length >= 8, 'the checks the plan retires at the cutover wait for the owner');
-  for (const m of obsolete) assert.equal(m.fix, `npm run wp:attest -- retire-approved ${m.id}`, 'the owner\'s command for each; this tool never records one');
-  assert.ok(r.missing.every((m) => m.id && m.what));
-  assert.equal(retireApprovals(repo).size, 0, 'no approval exists in the repository: none was invented');
+test('before any approval the register is not cutover-ready, and the report says what stands in the way and what only the owner can record', () => {
+  assert.deepEqual(cutoverReady(repo).problems, [], 'the register itself is sound');
+  withScratch((dir) => {
+    withoutApprovals(dir);
+    const r = cutoverReady(dir);
+    assert.deepEqual(r.problems, []);
+    assert.ok(r.missing.length > 0);
+    const obsolete = r.missing.filter((m) => m.status === 'obsolete-at-cutover');
+    assert.ok(obsolete.length >= 8, 'the checks the plan retires at the cutover wait for the owner');
+    for (const m of obsolete) assert.equal(m.fix, `npm run wp:attest -- retire-approved ${m.id}`, 'the owner\'s command for each; this tool never records one');
+    assert.ok(r.missing.every((m) => m.id && m.what));
+    assert.equal(retireApprovals(dir).size, 0, 'with the owner\'s rows taken out no approval is left: none was invented');
+  });
+  // every approval the repository does hold was recorded by wp:attest
+  const [header, ...rows] = parseCsv(readFileSync(join(repo, 'remake/attest.csv'), 'utf8'));
+  for (const row of rows.filter((r) => r[header.indexOf('key')] === 'retire-approved')) assert.equal(row[header.indexOf('source')], 'wp:attest');
 });
 
 test('an obsolete check is ready only when the owner\'s retire-approved row names it, or says all', () => {
   withScratch((dir) => {
     allDone(dir);
+    withoutApprovals(dir);
     const before = ids(cutoverReady(dir));
     assert.ok(before.includes('T-frozen') && before.includes('J-pages-single-html'));
     approve(dir, 'T-frozen');
@@ -116,11 +130,14 @@ test('a re-point or successor row waits for the work packages that own its succe
   });
 });
 
-test('CLI: exit 1 and the owner\'s command per missing approval today; exit 0 when the scratch register is ready', () => {
-  const bad = spawnSync(process.execPath, [tool, '--cutover-ready'], { cwd: repo, encoding: 'utf8' });
-  assert.equal(bad.status, 1);
-  assert.match(bad.stderr, /NOT cutover-ready: 0 register problem\(s\), \d+ row\(s\) without a proved successor or an approval to retire, of \d+/);
-  assert.match(bad.stderr, /the owner runs: npm run wp:attest -- retire-approved T-frozen/);
+test('CLI: exit 1 and the owner\'s command per missing approval before any approval; exit 0 when the scratch register is ready', () => {
+  withScratch((dir) => {
+    withoutApprovals(dir);
+    const bad = spawnSync(process.execPath, [tool, '--cutover-ready', '--root', dir], { cwd: repo, encoding: 'utf8' });
+    assert.equal(bad.status, 1);
+    assert.match(bad.stderr, /NOT cutover-ready: 0 register problem\(s\), \d+ row\(s\) without a proved successor or an approval to retire, of \d+/);
+    assert.match(bad.stderr, /the owner runs: npm run wp:attest -- retire-approved T-frozen/);
+  });
   withScratch((dir) => {
     allDone(dir);
     approve(dir, 'all');
