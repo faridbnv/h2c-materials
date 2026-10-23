@@ -270,19 +270,22 @@ MSG
 
   say "10/10 The cutover merge, as the cutover pull request makes it: remake/v3 into main with a merge commit"
   git -C "$CLONE" checkout --quiet -B dryrun-main "$FROZEN_MAIN"
-  if ! git -C "$CLONE" merge --no-ff --quiet -m "Merge remake/v3 into main (live dry run of the cutover)" dryrun-cutover >/dev/null 2>&1; then
+  if ! git -C "$CLONE" merge --no-ff --no-commit dryrun-cutover >/dev/null 2>&1; then
     conflicted="$(git -C "$CLONE" diff --name-only --diff-filter=U | tr '\n' ' ')"
     if [ "$conflicted" = ".github/workflows/next-gate.yml " ]; then
       note "CONFLICT in .github/workflows/next-gate.yml (add/add): main and remake/v3 each added it, with different text. The real cutover pull request will show the same conflict."
       note "Resolved here by taking the remake/v3 copy, which is what the cutover needs. Tell the owner's agents: sync main into remake/v3 BEFORE the candidate is named."
       git -C "$CLONE" checkout --theirs .github/workflows/next-gate.yml
       git -C "$CLONE" add .github/workflows/next-gate.yml
-      git -C "$CLONE" commit --quiet --no-edit
     else
       git -C "$CLONE" merge --abort || true
       die "the cutover merge conflicts in: ${conflicted:-(unknown)}. Stopping: this is a finding for the real cutover too. Nothing was pushed."
     fi
   fi
+  # next-main.yml REPLACES the old Verify and Publish to Pages, so the merge commit itself deletes them: otherwise they would run on the
+  # cutover push and could publish the old site over the new one.
+  git -C "$CLONE" rm -q .github/workflows/pages.yml .github/workflows/verify.yml || { git -C "$CLONE" merge --abort || true; die "the merge has no .github/workflows/pages.yml and verify.yml to delete"; }
+  git -C "$CLONE" commit --quiet -m "Merge remake/v3 into main (live dry run of the cutover)" -m "Deletes .github/workflows/pages.yml and verify.yml: .github/workflows/next-main.yml replaces them."
   MERGE_SHA="$(git -C "$CLONE" rev-parse HEAD)"
   [ "$(git -C "$CLONE" rev-list --parents -n 1 HEAD | wc -w | tr -d ' ')" = 3 ] || die "the merge commit does not have two parents"
   git_push "$MERGE_SHA:refs/heads/main"
@@ -291,8 +294,7 @@ MSG
 
 Phase 1 is pushed. The merge commit is $MERGE_SHA.
 Next main now runs on the mirror's main in LIVE mode: plan, verify, build, deploy to GitHub Pages (digest checked), live smoke, keep release h2c-<id>.
-About 35 to 60 minutes. The old Verify and Publish to Pages workflows also run on that push (they are still on main after the merge);
-watching what they do is part of the point.
+About 35 to 60 minutes. The old Verify and Publish to Pages workflows also run on that push (the merge commit deletes them, so none must start).
 
   gh run watch --repo $REPO              (pick the "Next main" run)
   gh run list --repo $REPO --limit 10

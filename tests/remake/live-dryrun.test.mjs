@@ -158,6 +158,7 @@ function makeSource(w) {
   git(src, 'checkout', '-q', 'main');
   put(src, '.github/workflows/next-gate.yml', 'gate on main\n');
   put(src, '.github/workflows/pages.yml', 'old pages\n');
+  put(src, '.github/workflows/verify.yml', 'old verify\n');
   git(src, 'add', '-A'); git(src, 'commit', '-q', '-m', 'B: the old tool, with the gate');
   const frozen = git(src, 'rev-parse', 'HEAD');
   git(src, 'checkout', '-q', 'remake/v3');
@@ -219,7 +220,9 @@ test('phases 1 to 3 against local repositories: the mirror gets the frozen main,
   assert.equal(git(mirror, 'rev-parse', `${attested}^`), s.candidate);
   assert.match(git(mirror, 'show', `${attested}:remake/attest.csv`), new RegExp(`cutover-approved,${s.candidate},`));
   assert.equal(git(mirror, 'show', `${merge}:.github/workflows/next-gate.yml`), 'gate on the remake');
-  assert.equal(git(mirror, 'show', `${merge}:.github/workflows/pages.yml`), 'old pages', 'the old workflow is still there after the merge');
+  for (const old of ['pages.yml', 'verify.yml']) assert.equal(spawnSync('git', ['-C', mirror, 'cat-file', '-e', `${merge}:.github/workflows/${old}`]).status !== 0, true, `the merge commit itself deletes ${old}`);
+  assert.equal(git(mirror, 'show', `${merge}:.github/workflows/next-main.yml`), 'the new workflow');
+  assert.match(git(mirror, 'log', '-1', '--format=%B', merge), /Deletes \.github\/workflows\/pages\.yml and verify\.yml/);
 
   // what was asked of GitHub: only the mirror was written to
   const calls = ghCalls(w);
@@ -261,7 +264,7 @@ test('phases 1 to 3 against local repositories: the mirror gets the frozen main,
   const three = await runPhase(w, s, ['tester/h2c-dryrun', '--revert', '--no-wait']);
   assert.equal(three.status, 0, `${three.err}\n${three.out}`);
   assert.match(three.out, /There must be NO "Next main" run/);
-  assert.equal(git(mirror, 'rev-parse', 'refs/heads/main^{tree}'), git(mirror, 'rev-parse', `${s.frozen}^{tree}`), 'the tree is the frozen main\'s again');
+  assert.equal(git(mirror, 'rev-parse', 'refs/heads/main^{tree}'), git(mirror, 'rev-parse', `${s.frozen}^{tree}`), 'the tree is the frozen main\'s again, with the old pages.yml and verify.yml back');
   assert.match(git(mirror, 'log', '-1', '--format=%B', 'refs/heads/main'), new RegExp(`This reverts commit ${merge}`));
   for (const c of ghCalls(w).filter((x) => /^(repo create|variable|release create|workflow run|api -X)/.test(x))) assert.doesNotMatch(c, /faridbnv/, c);
 });
@@ -383,7 +386,7 @@ test('a phase with no run is missing, not passed: the dry run is incomplete unti
   const justStarted = mutate((ev) => { ev.runs = ev.runs.filter((r) => r.sha === FROZEN); ev.commits = { frozenMain: null, mergeSha: null, revertSha: null, candidate: null }; ev.release = null; });
   assert.equal(justStarted.result, 'incomplete');
   assert.deepEqual(justStarted.phases.map((p) => p.result), ['missing', 'missing', 'missing', 'missing']);
-  const noRevert = mutate((ev) => { ev.commits.revertSha = null; });
+  const noRevert = mutate((ev) => { ev.commits.revertSha = null; ev.runs = ev.runs.filter((r) => r.sha !== REVERT); });
   assert.equal(by(noRevert, 'revert').result, 'missing');
   assert.equal(noRevert.result, 'incomplete');
 });
@@ -411,15 +414,14 @@ test('a failed live deploy names what failed: a job, a digest that differs, a sm
   assert.match(by(noVerify, 'live-deploy').problems.join(' | '), /next-verify did not succeed/);
 });
 
-test('the old workflows are still on main after the merge: one that publishes after Next main is a failure, one that published before it a warning', () => {
-  const oldPages = (deployMinute) => mkrun(40, 'pages.yml', MERGE, 'workflow_run', [job(41, 'build'), job(42, 'deploy', 'success', deployMinute)], 'success', 21);
-  const after = mutate((ev) => { ev.runs.push(oldPages(50)); });
-  assert.equal(after.result, 'fail');
-  assert.match(by(after, 'live-deploy').problems.join(' | '), /OLD Publish to Pages deployed AFTER Next main/);
-  const before = mutate((ev) => { ev.runs.push(oldPages(25)); });
-  assert.equal(before.result, 'pass');
-  assert.match(by(before, 'live-deploy').observed.warnings.join(' '), /also deployed on the merge commit/);
-  assert.deepEqual(by(before, 'live-deploy').observed.oldWorkflowsOnMerge.map((r) => r.workflow), ['pages.yml']);
+test('an old Verify or Publish to Pages that starts on the merge commit or after it fails the live deploy; the old pipeline on the frozen main and the revert is expected', () => {
+  const old = (id, path, sha) => mkrun(id, path, sha, path === 'pages.yml' ? 'workflow_run' : 'push', [job(id + 1, 'deploy')], 'success', 21);
+  for (const [path, sha] of [['pages.yml', MERGE], ['verify.yml', MERGE], ['pages.yml', 'e'.repeat(40)]]) {
+    const r = mutate((ev) => { ev.runs.push(old(40, path, sha)); });
+    assert.equal(r.result, 'fail', `${path} on ${sha.slice(0, 8)}`);
+    assert.match(by(r, 'live-deploy').problems.join(' | '), /an old workflow ran after the cutover merge .*must delete \.github\/workflows\/pages\.yml and verify\.yml/);
+  }
+  assert.equal(judgeDryrun(passing()).result, 'pass', 'the runs on the frozen main and the revert are the old-site and revert phases');
 });
 
 test('a failed restore, an unfinished old-site publish and a revert that Next main answered are each judged', () => {

@@ -35,10 +35,10 @@ Every step of the script says what to watch. `--no-wait` makes it stop waiting f
 
 Four phases, from the mirror's own runs. `pass` needs all four.
 
-1. **old-site**: Verify and Publish to Pages (the old workflows) ran on the frozen main and published the old site. This is the proof of the fallback.
+1. **old-site**: Verify and Publish to Pages (the old workflows) ran on the frozen main and published the old site.
 2. **live-deploy**: the Next main run on the merge commit took the live path and every job succeeded, including the called `verify`. **One fingerprint**: the digest the build computed, the one the deploy job checked, the one the release job checked and the one in the kept release's `artifact.json` are the same. The live smoke said `smoke: pass`. The release `h2c-<id>` holds `site-<id>.zip`, `release.json`, `artifact.json` and `decision-diff.md`.
 3. **restore**: the by-hand live restore ran under the hold, its plan line says `action restore`, the legacy smoke passed on every file of the saved site.
-4. **revert**: after `git revert -m 1`, the old Publish to Pages republished and Next main did not run.
+4. **revert**: after `git revert -m 1` brought the old `pages.yml` back, it republished the old site, the address serves the old release, and Next main did not run. No old workflow may have run on the merge commit or later until then.
 
 ## How it closes L-02 and L-03
 
@@ -49,13 +49,20 @@ they run on GitHub Pages in a repository set up like the real one**, and the rev
 agent to reword them to "exercised in a throwaway mirror on <date> (report `remake/rehearsal/live-dryrun-<date>.json`); the first run on the real repository is still the cutover".
 The report belongs with the candidate's receipt.
 
-## What the preparation found (read before the real cutover)
+## For the real cutover PR
 
-These are facts about the real cutover, found while building the kit. The kit handles each in the mirror so that the rehearsal can run, and the check reports it.
+**Required step: the cutover merge deletes `.github/workflows/pages.yml` and `.github/workflows/verify.yml` from `main`, in the merge commit itself.**
+`next-main.yml` replaces them (its header says so), but nothing else removes them. If they stay, the cutover push starts the old Verify and then the old
+Publish to Pages, which builds the **old** site from the merged tree and deploys it in a different concurrency group, so it can overwrite the new site. The
+dry-run script makes its merge this way (`git merge --no-ff --no-commit`, then `git rm` of the two files, then one commit), and the check **fails** if any old
+Verify or Publish to Pages run starts on the merge commit or on any later commit other than the revert. Because the files are gone, the `--revert` phase
+proves the fallback: reverting the merge brings the old `pages.yml` back and it republishes the old site.
 
-1. **The cutover merge conflicts.** `remake/v3` into `main` conflicts in `.github/workflows/next-gate.yml`: both branches added it, with different text (main has the first version, remake/v3 the corrected one). The script resolves it by taking the remake/v3 copy and says so. The real pull request will show the same conflict, so main should be synced into `remake/v3` (keeping the remake/v3 copy of that file) **before** the candidate is named; otherwise the approved commit is not the one that merges.
-2. **The old workflows stay on `main` after the merge.** Nothing in the branch removes `verify.yml` and `pages.yml`, so on the cutover push the old Verify runs and then the old Publish to Pages builds the **old** site from the merged tree and deploys it, in a different concurrency group from Next main. They race. The check records when each deployed and **fails** if the old one finished last (the live address would then serve the old site). A pass with the warning "also deployed on the merge commit" means Next main won this time and nothing orders them. This is for the owner to decide before the cutover (for example delete both files in the cutover pull request); this kit does not change them.
-3. **The restore needs a standing request.** `remake/control/restore.json` says `"request": null` at the merge (a request in the merge would restore immediately). The by-hand restore of OPERATING.md therefore does nothing until a request is committed. The kit commits one on the mirror with `[skip ci]`; in the real rollback it is a pull request (OPERATING.md, "If the request file is empty").
+Findings 1 to 5, found while building the kit. The kit handles each in the mirror; the real pull request must too.
+
+1. **The cutover merge conflicts.** `remake/v3` into `main` conflicts in `.github/workflows/next-gate.yml`: both branches added it, with different text (main has the first version, remake/v3 the corrected one). The script takes the remake/v3 copy and says so. Sync main into `remake/v3` (keeping the remake/v3 copy of that file) **before** the candidate is named; otherwise the approved commit is not the one that merges.
+2. **The old workflows must be deleted by the merge** (the required step above). Kept, they race Next main.
+3. **The restore needs a standing request.** `remake/control/restore.json` says `"request": null` at the merge (a request in the merge would restore immediately). The by-hand restore of OPERATING.md does nothing until a request is committed. The kit commits one on the mirror with `[skip ci]`; in the real rollback it is a pull request (OPERATING.md, "If the request file is empty").
 4. **`remake/v3` must still exist after the cutover.** The checks need `origin/remake/v3` (the check register reads the frozen inventory from it), so the kit pushes the attested candidate there. If the branch is deleted after the merge, Next main's verify turns red.
 5. **The attest row.** `wp:attest` has no check on where it runs except that it is your terminal. In the mirror's clone it writes the row for the practice; **that is not the real approval**. The real `cutover-approved` row is still yours to record on the real branch.
 
@@ -71,6 +78,6 @@ These are facts about the real cutover, found while building the kit. The kit ha
 | **smoke on the live address** red | The address in `LIVE_BASE_URL` is wrong or not yet served | Open the address; `gh variable list --repo REPO` shows what the script set |
 | **keep the release** red | Release permission, or a release with that name exists | Read the step |
 | Restore plan red | The hold or the request is missing | `gh variable list --repo REPO`; the plan line names the command |
-| Check says `fail` for old Publish to Pages after Next main | The race in finding 2 | Report it to the owner's agents; do not delete the mirror until they have read the JSON |
+| Check says an old workflow ran after the cutover merge | The merge did not delete `pages.yml` and `verify.yml` | Report it to the owner's agents; do not delete the mirror until they have read the JSON |
 
 Nothing the script does can be undone by anything but deleting the mirror, and nothing it does touches the real repositories.

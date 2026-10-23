@@ -204,21 +204,15 @@ function judgeLiveDeploy(ev) {
     if (ev.release.target !== sha) warnings.push(`the release ${ev.release.tag} targets ${ev.release.target}, not the merge: it was kept already for the same content`);
   }
 
-  // The old workflows are still on main after the merge: did they publish too, and which published last?
-  const oldRuns = ev.runs.filter((r) => ['verify.yml', 'pages.yml'].includes(file(r.path)) && r.sha === sha);
-  const oldPages = newest(oldRuns.filter((r) => file(r.path) === 'pages.yml'));
-  const oldDeployAt = jobOf(oldPages, 'deploy')?.completedAt ?? null;
+  // The merge deletes the old Verify and Publish to Pages: none may start on the merge commit or on any commit after it except the revert's.
+  const oldRuns = ev.runs.filter((r) => ['verify.yml', 'pages.yml'].includes(file(r.path)) && r.sha !== ev.commits.frozenMain && r.sha !== ev.commits.revertSha);
+  if (oldRuns.length) problems.push(`an old workflow ran after the cutover merge (${oldRuns.map((r) => `${file(r.path)} on ${r.sha.slice(0, 8)}, ${r.conclusion ?? r.status}`).join(', ')}): the merge must delete .github/workflows/pages.yml and verify.yml`);
   const newDeployAt = jobOf(run, JOB.deploy)?.completedAt ?? null;
-  const oldPublished = Boolean(oldDeployAt) && jobOf(oldPages, 'deploy')?.conclusion === 'success';
-  if (oldPublished) {
-    if (Date.parse(oldDeployAt) > Date.parse(newDeployAt)) problems.push(`the OLD Publish to Pages deployed AFTER Next main (${oldDeployAt} against ${newDeployAt}): the live address serves the old site`);
-    else warnings.push(`the old Publish to Pages also deployed on the merge commit (at ${oldDeployAt}), before Next main (${newDeployAt}); Next main won this time, but nothing orders them`);
-  } else if (oldRuns.length) warnings.push(`the old workflows ran on the merge commit (${oldRuns.map((r) => `${file(r.path)} ${r.conclusion ?? r.status}`).join(', ')}) and did not publish`);
 
   return phase('live-deploy', run, {
     mergeSha: sha, candidate: ev.commits.candidate, ...digests, liveSmoke: smokeResult, release: ev.release?.tag ?? null,
     releaseAssets: ev.release?.assets ?? [], oldWorkflowsOnMerge: oldRuns.map((r) => ({ workflow: file(r.path), runId: r.id, conclusion: r.conclusion })),
-    oldPagesDeployedAt: oldDeployAt, nextMainDeployedAt: newDeployAt, warnings,
+    nextMainDeployedAt: newDeployAt, warnings,
     seconds: secondsBetween(run.startedAt ?? run.createdAt, run.updatedAt),
   }, problems);
 }
