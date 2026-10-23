@@ -109,7 +109,7 @@ test('it checks out the candidate, installs and builds, installs Chromium, and m
   assert.match(receipt, /fetch-depth: 0/);
   assert.match(receipt, /git checkout --detach "\$CANDIDATE"/);
   assert.match(receipt, /npm ci\n\s+npm ci --prefix build/);
-  assert.match(receipt, /run: npm run build/);
+  assert.match(receipt, /npm run build\n\s+git checkout -- \.\n\s+git status --porcelain --untracked-files=no/, 'the old build\'s rewritten report goes back before the receipt');
   assert.match(receipt, /npx playwright install chromium --with-deps/);
   assert.match(receipt, /npm run candidate:receipt -- "\$CANDIDATE" --records-ref "\$RECORDS_FROM"/);
   assert.match(receipt, /RECORDS_FROM: \$\{\{ github\.sha \}\}/);
