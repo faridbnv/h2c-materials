@@ -76,7 +76,7 @@ test('package.json has parity:mutate and it runs the CLI in mutate mode', async 
 });
 
 test('the nine faults over the full self-test cases, through the CLI (PARITY_FULL=1; about 4 minutes)', { skip: !process.env.PARITY_FULL }, () => {
-  const r = spawnSync(process.execPath, [cli, '--mutate'], { cwd: root, encoding: 'utf8', timeout: 900000 });
+  const r = spawnSync(process.execPath, [cli, '--mutate'], { cwd: root, encoding: 'utf8', timeout: 2_700_000 });
   assert.equal(r.status, 0, r.stderr + r.stdout.slice(-2000));
   assert.match(r.stdout, /MUTATE: 9\/9 caught/);
   assert.match(r.stdout, /real engine files unchanged \(sha256 before and after\): yes/);

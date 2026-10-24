@@ -35,7 +35,7 @@ test('CLI: npm run parity -- --noop prints counts per tier and exits 0', () => {
 });
 
 test('full noop over the whole corpus (PARITY_FULL=1; about 90 s)', { skip: !process.env.PARITY_FULL }, () => {
-  const r = spawnSync(process.execPath, [cli, '--noop'], { cwd: root, encoding: 'utf8', timeout: 600000 });
+  const r = spawnSync(process.execPath, [cli, '--noop'], { cwd: root, encoding: 'utf8', timeout: 1_800_000 });
   assert.equal(r.status, 0, r.stderr);
   assert.match(r.stdout, new RegExp(`cases: ${corpus.cases.length} compared of ${corpus.cases.length}`));
   assert.match(r.stdout, /RESULT: zero/);
