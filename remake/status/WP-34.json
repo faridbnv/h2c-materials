@@ -1,0 +1,34 @@
+{
+  "id": "WP-34",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-m4-cutover-kit",
+  "pr": 47,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-22T19:21:15.284Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run candidate:check",
+      "result": "not-run",
+      "code": 0,
+      "note": "exit 0 but the output says it skipped, ran no test or left a test todo; that is not a pass",
+      "tail": "candidate:check: not run: no candidate is named and remake/candidates/ holds no receipt"
+    },
+    {
+      "cmd": "attest safari-check",
+      "result": "not-run",
+      "note": "no row in remake/attest.csv"
+    },
+    {
+      "cmd": "merged: PR #47",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-23T07:35:19.825Z",
+  "note": "Merged as PR #47 (candidate:receipt, candidate:check, the defects gate). The records-overlay fix and the receipt-on-CI workflow arrived in the M4 close PR."
+}

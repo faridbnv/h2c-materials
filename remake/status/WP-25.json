@@ -1,0 +1,47 @@
+{
+  "id": "WP-25",
+  "status": "done",
+  "slice": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 40,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-22T04:46:36.282Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "node --test tests/remake/shards.test.mjs tests/remake/delivery.test.mjs tests/remake/site-pages.test.mjs tests/remake/size-report.test.mjs tests/remake/core-reads.test.mjs tests/parity/core.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run parity -- --surface core",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json",
+      "result": "fail",
+      "code": 1,
+      "tail": "  ok   strictBootGzip: 772.1 KB against 900.0 KB\n  ok   detailMedianGzip: 13.6 KB against 15.0 KB\n  OVER detailMaxGzip: 324.8 KB against 300.0 KB\n  OVER siteBytes: 148570.8 KB against 100000.0 KB\n  default boot (estimates on) 972.2 KB; code 34.0 KB, core 738.1 KB\n  written to remake/measure/sizes.json"
+    },
+    {
+      "cmd": "manual: core sufficiency = 0 at the milestone size (npm run parity -- --surface core --milestone)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: stale-shell, mismatch and 404 browser tests pass (npm run test:browser, tests/browser/delivery.spec.mjs)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: size report in budget (the owner is asked before a budget is relaxed)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-22T04:52:34.845Z",
+  "note": "Data parts, completeness, stale-shell guard, 404 and stubs, merged in PR #40; the detail parts were stored compactly and the size report reworded in #44 (owner rulings R-M3-DETAIL-CAP, R-M3-SITE-SCOPE, R-M3-DETAIL-COMPACT). Core sufficiency 0 at the milestone size (5,306 questions). M3-close fix: the release ID now hashes the new build, the data code and the view field lists (WP20-D1)."
+}

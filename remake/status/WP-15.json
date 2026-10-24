@@ -1,0 +1,40 @@
+{
+  "id": "WP-15",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-15-register",
+  "pr": 15,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-21T09:45:34.634Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run checks:register -- --verify",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "attest untested-list-received",
+      "result": "not-run",
+      "note": "no row in remake/attest.csv"
+    },
+    {
+      "cmd": "manual: a scratch PR deleting a test fails",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: map covers every row of 00-CURRENT-STATE section 11",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-21T09:45:34.918Z",
+  "prs": [
+    15
+  ],
+  "doneAt": "2026-10-21",
+  "note": "delivered by merged PR #15 (2026-10-21); open at merge: the owner's attest untested-list-received has no row in remake/attest.csv yet"
+}

@@ -1,0 +1,47 @@
+{
+  "id": "WP-27",
+  "status": "done",
+  "slice": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 44,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-22T14:05:17.586Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run typecheck",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/remake/delivery.test.mjs tests/remake/browser-harness.test.mjs tests/remake/shards.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: P-ui passes with I4 and I10 run (npm run test:browser)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: chart traces identical, brief and export equal on 12 scenarios (tests/browser/lenses.spec.mjs)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: Plotly absent from first load; strict boot within 2 KB of WP-26 (size report)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "merged: PR #44",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-23T07:35:19.821Z",
+  "note": "Merged as PR #44 with the M3 close fixes (#46). Compare, charts, Ashby, parallel, coverage, brief and export; the full browser suite passed under both base paths."
+}

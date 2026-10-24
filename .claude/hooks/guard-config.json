@@ -1,0 +1,6 @@
+{
+  "integrationBranch": "remake/v3",
+  "protectedBranches": ["main"],
+  "previewRepo": "faridbnv/h2c-material-temp-page",
+  "agentPushPrefixes": ["wp-", "sync/"]
+}

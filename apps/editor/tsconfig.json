@@ -1,0 +1,13 @@
+{
+  "$comment": "The interface (Vue 3, Q2-06 C): checked by vue-tsc with the browser's types. The service in server/ is checked by the root tsconfig.strong.json with Node's.",
+  "extends": "../../tsconfig.interface.json",
+  "compilerOptions": {
+    "lib": ["es2023", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "rewriteRelativeImportExtensions": false
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "shared/**/*.ts", "vite.config.ts"]
+}

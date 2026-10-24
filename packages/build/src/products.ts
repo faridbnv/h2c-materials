@@ -1,0 +1,1037 @@
+// Products: each product's own values and print recipe, derived by rule, and each material summarised from its
+// products (docs/GOALS.md: D83 and D84, decided 2026-09-25; re-center phases 1 and 4).
+//
+//   grades[].headline[key]     the product's own value for each measurement headline, chosen by rule, and its price;
+//                              where it publishes none, its twin's (the same sheet, D89), marked `from`
+//   grades[].print             the product's own print recipe from its own profiles, never a union across a material;
+//                              where they are silent, its twin's (D89), then for the print gate its material's printer
+//                              maker's guide (D88), each part so read marked in `print.from` and in its reason
+//   materials[].summary[key]   the spread across the material's products: how many, quartiles, the typical product
+//   materials[].headline[key]  where its products publish comparably: their median, spread and typical product
+//
+// The engine judges each product on its own values (app/js/engine/products.js), and a material by how many of its
+// products pass. A material's headline is what the table, the chart and the export show for it; it decides nothing,
+// and no one chooses it: until phase 4 it was one hand-picked measurement of a "representative grade".
+//
+// Two evidence levels (D84, D172). A value is "comparable" when it is what the headline says it is: a printed bar, said
+// or implied by its document and read flat where it states no orientation (an unstated specimen for a property that is
+// not a bar's, and for heat deflection an undescribed bar of a plastic that cannot crystallise, D177), the headline's
+// direction, dry or unstated, at the headline's load. It is "as published", set apart for good, when no document
+// describes its bar as printed, or a heat deflection states no load: Spectrum's and Fiberlogy's "ISO 527" rows describe
+// no bar, and read like moulded bars (30 of 46 such PLA values reached 3 GPa; of 27 PLA products stating XY, none did). It
+// is shown with its own count and never decides (the engine's audit lens alone admits it). What the headline is not (a Z, film or moulded
+// value, a conditioned or implausible one, one annealed where the product publishes it as printed) is no product
+// value at all, and stays evidence in the drawer.
+//
+// A headline may set more of what it is (D92), each a column of headline_definitions.csv: a notch (the notched impact
+// strength takes only a bar stated to be notched), a test temperature (and no bar struck away from 23 ± 2 °C), and
+// whether a value with no stated direction is read flat where its bar is printed (D172) or none of its values (the layer strength, along Z, takes
+// only a bar the source says it pulled along Z). And a test standard (D94): the notched Izod strength takes no value that
+// names ASTM D256 and not ISO 180.
+//
+// A material's range is the spread of its products, never uncertainty about one of them: PEBA's three products are
+// three products (D8's example, which D83 answers by counting them, not by pooling them).
+
+import { isPartSpecimen, annealedBesideAsPrinted, offRecipeWhy, pointsToMoulding, countsUndescribed } from './normalize/specimen.ts';
+import { median, cents } from './normalize/values.ts';
+import { priceSample, convertedFrom } from './prices.ts';
+import { measurementHeadlines, applies } from './registry.ts';
+import { aggregateGate } from './gates.ts';
+import { CLAIM } from './product-claims.ts';
+import { attachLedger } from './evidence-ledger.ts';
+import { isReprintEntry } from '@atlas/domain';
+import { printsAsItsType } from './variants.ts';
+import type { Dyn } from './types.ts';
+
+export const LEVEL = { COMPARABLE: 'comparable', AS_PUBLISHED: 'as-published' };
+
+// A direction the source leaves open is not a direction the source states otherwise: it may be the headline's.
+const UNSTATED_DIRECTIONS = new Set<Dyn>(['unknown', 'not-applicable']);
+// A build orientation a row states, in the words a print is described by (XY, an edge or upright bar, a raster, Prusa's
+// Horizontal and Vertical xz): an indication that its bar was printed (D172), whether or not it is the headline's. A
+// moulded bar's "along the flow" is not one.
+const PRINT_DIRECTIONS = new Set<Dyn>(['XY', 'Z', 'XZ', 'ZX', 'YX', 'raster-45', 'horizontal-source-label', 'vertical-xz-source-label']);
+
+/**
+ * Whether a value's bar is one its document does not describe at all (D172): a specimen the row and its page leave
+ * unstated (Specimen type "Not published", form not-stated) and no build orientation on the row. A bar its document says
+ * or implies was printed has a printed form (Specimen type "Printed specimen", or "Printed (implied by the document)"
+ * where a page_context row or the row quotes what implies it), and a stated orientation is a print's word.
+ */
+export const undescribedBar = (m: Dyn) => !!m.setApartBy || (m.specimenForm === 'not-stated' && !PRINT_DIRECTIONS.has(m.direction));
+/** Whether a headline is a bar's property, which depends on how the bar was made: one that names a direction or a load. */
+export const barProperty = (def: Dyn) => !!def.direction || def.loadMPa != null;
+
+/**
+ * Mark each value from a bar no document describes as printed that a headline counts all the same (D177, amending D172):
+ * m.countsUndescribed lists the headlines whose Undescribed bar counts for (headline_definitions.csv) names its product's
+ * kind of plastic, which for heat deflection is a polymer that cannot crystallise (polymers.csv Can crystallise no): a
+ * glassy bar deflects near its glass transition whether it was moulded or printed. A product that is a declared variant
+ * counts only where its vocabulary row says it prints as its type (D129, D175), and a value whose Specimen type says its
+ * document points to moulded or resin bars never counts (D172's counter-indications win). Run once the measurements have
+ * their page's statements; read by assess, the lower bounds and the evidence ledger (normalize/specimen.js
+ * countsUndescribed), so one rule says where such a bar counts. Returns how many values it marked.
+ */
+export function markUndescribedCounts(measurements: Dyn, defs: Dyn, { rowById, gradeById }: Dyn) {
+  const reading = defs.filter((d: Dyn) => d.undescribedCountsFor && barProperty(d));
+  let n = 0;
+  for (const m of measurements) {
+    delete m.countsUndescribed;
+    if (!reading.length || m.specimenForm !== 'not-stated' || PRINT_DIRECTIONS.has(m.direction) || pointsToMoulding(m.specimenType)) continue;
+    const row = rowById.get(m.materialId);
+    const grade = gradeById.get(m.gradeId);
+    if (!row || !grade || !printsAsItsType(grade)) continue;
+    const keys = reading.filter((d: Dyn) => (d.valueProperties.includes(m.property) || (d.lowerBounds?.properties ?? []).includes(m.property)) && applies(d.undescribedCountsFor, row)).map((d: Dyn) => d.key);
+    if (keys.length) { m.countsUndescribed = keys; n++; }
+  }
+  return n;
+}
+
+// ------------------------------------------------------------------------------- which document speaks (D171)
+
+// The owner's ruling of 2026-10-20 (D171): of two documents of one product, a data sheet speaks before a product page or
+// guide, and a newer edition of a sheet before an older one (sources.csv Superseded by, which names the newer edition a
+// reader established from what each prints). Anything else (a safety data sheet, a register) after both.
+const CLASS_RANK: Dyn = { 'Manufacturer TDS': 0, 'Manufacturer product page or guide': 1 };
+export const OUTRANKED_WHY = { edition: 'older-edition', class: 'lower-class' };
+
+/** The rank of documents: `outranks(a, b)` where document a speaks for a product before document b (D171). */
+export function documentRanks(sources: Dyn) {
+  const byId = new Map<Dyn, Dyn>(sources.map((s: Dyn) => [s.id, s]));
+  const rank = (id: Dyn) => CLASS_RANK[byId.get(id)?.sourceClass] ?? 2;
+  // a supersedes b where b's chain of newer editions reaches a.
+  const supersedes = (a: Dyn, b: Dyn) => {
+    const seen = new Set<Dyn>([b]);
+    for (let x = byId.get(b)?.supersededBy; x && !seen.has(x); x = byId.get(x)?.supersededBy) {
+      if (x === a) return true;
+      seen.add(x);
+    }
+    return false;
+  };
+  return {
+    rank,
+    outranks: (a: Dyn, b: Dyn) => a !== b && (rank(a) < rank(b) || (rank(a) === rank(b) && supersedes(a, b))),
+    why: (a: Dyn, b: Dyn) => (rank(a) < rank(b) ? OUTRANKED_WHY.class : OUTRANKED_WHY.edition),
+  };
+}
+
+// A figure one document prints in one state: an annealed or a conditioned value is another state's (D99), and a film or a
+// strand is not a part, so neither is replaced by a value of another kind. The slot is the headline the figure can be the
+// value of (the properties one headline reads together, a tensile strength at yield, at break or unspecified, count as
+// one; a direction, a load, a notch or a hardness scale is another headline's): a sheet that prints a Z bar's strength,
+// or only an edge bar's, does not replace another document's Z value it cannot stand in for. A figure no headline reads
+// (a moulded bar, a property with no headline) has its property for a slot.
+const stateOf = (m: Dyn) => [m.postProcessingState === 'annealed' ? 'annealed' : '', m.moistureState === 'conditioned' ? 'conditioned' : '',
+  isPartSpecimen(m.specimenType) ? 'part' : m.specimenForm];
+const slotsOf = (m: Dyn, defsByProp: Dyn, groupOf: Dyn) => {
+  // What assess reads before any state or document: property, unit, specimen, notch, test temperature, standard,
+  // direction and load. The state is the slot's own part, so it is left out of the question.
+  const bare = { ...m, moistureState: 'not-stated', postProcessingState: 'not-stated' };
+  const keys = (defsByProp.get(m.property) ?? []).filter((d: Dyn) => !assess(bare, d, [], null, { keepOutranked: true, undescribedAsPart: true }).excluded).map((d: Dyn) => d.key);
+  return (keys.length ? keys : [`property:${groupOf.get(m.property) ?? m.property}`]).map((k: Dyn) => [k, ...stateOf(m)].join('\u0000'));
+};
+
+/**
+ * Mark each measurement a better document of its own product replaces (D171): where another of the product's documents
+ * that outranks this one prints a figure the same headline reads, in the same state, this one's figure is not the
+ * product's (a newer edition is the maker's current word for the property; a data sheet the maker's considered one). A
+ * figure only the lower-ranked document prints for its headline still stands (CarbonFil's modulus, D149); one that
+ * several headlines read is replaced only where each of them has a better document's figure.
+ *
+ * Two kinds of figure replace nothing. A set-apart figure (a bar's property from a bar its document does not describe,
+ * D172) never hides one that decides. And a document that prints one property at several settings in one slot (a foaming
+ * filament's density or hardness at 240 and at 270 °C, at 70 and 90 % flow) prints a figure per setting, so another
+ * document's figure is another setting's, not a disagreement (the review of T1, F8).
+ *
+ * A set-apart figure still speaks for the same figure elsewhere: where a better document prints a bar's property the same
+ * headline reads, at the same value, and does not describe its bar, a lower-ranked document's copy of it is set apart too
+ * (m.setApartBy; its form read as the better document's, not-stated): a product page that repeats a data sheet's typical
+ * figure is no evidence of a printed bar (Prusament PLA High Speed's 57 °C, the review of T1, F3).
+ * Sets m.outranked = { by: SourceID, why: 'older-edition' | 'lower-class' }; assess refuses such a value ('outranked').
+ */
+export function markOutranked(measurements: Dyn, sources: Dyn, defs: Dyn = []) {
+  const ranks = documentRanks(sources);
+  const groupOf = new Map<Dyn, Dyn>();
+  const defsByProp = new Map<Dyn, Dyn>();
+  for (const d of defs) {
+    for (const p of d.valueProperties) {
+      if (!groupOf.has(p)) groupOf.set(p, d.valueProperties[0]);
+      if (!defsByProp.has(p)) defsByProp.set(p, []);
+      defsByProp.get(p).push(d);
+    }
+  }
+  const barProps = new Set<Dyn>(defs.filter(barProperty).flatMap((d: Dyn) => d.valueProperties));
+  const candidate = (m: Dyn) => m.gradeId && m.numeric && !m.quarantined && !m.implausible;
+  // Set apart in a slot (D172): a bar's property from a bar no document describes, which the slot's headline does not count
+  // (D177; a copy of a set-apart figure never counts).
+  const apartIn = (m: Dyn, slot: Dyn) => barProps.has(m.property) && undescribedBar(m) && (!!m.setApartBy || !m.countsUndescribed?.includes(slot.split('\u0000')[0]));
+  // The same figure as printed, to within 1 % (a product page that writes 99 where its data sheet prints 100, or 5.0 for 4.95).
+  const sameFigure = (a: Dyn, b: Dyn) => Math.abs(a - b) <= 0.01 * Math.max(Math.abs(a), Math.abs(b));
+  // A run of the build reads the record as it is: a copy marked by an earlier call takes its own form back.
+  for (const m of measurements) {
+    delete m.outranked;
+    if (m.setApartBy) { m.specimenForm = m.setApartBy.form; delete m.setApartBy; }
+  }
+  const slotsById = new Map<Dyn, Dyn>();
+  const slotsOfM = (m: Dyn) => { if (!slotsById.has(m.id)) slotsById.set(m.id, slotsOf(m, defsByProp, groupOf)); return slotsById.get(m.id); };
+  const key = (m: Dyn, k: Dyn) => `${m.gradeId}\u0000${k}`;
+  // The set-apart figures of each product and slot, and the copies a lower-ranked document prints of them.
+  const apart = new Map<Dyn, Dyn>();
+  for (const m of measurements) {
+    if (!candidate(m) || !barProps.has(m.property) || !undescribedBar(m)) continue;
+    for (const k of slotsOfM(m).filter((x: Dyn) => apartIn(m, x))) { if (!apart.has(key(m, k))) apart.set(key(m, k), []); apart.get(key(m, k)).push(m); }
+  }
+  for (const m of measurements) {
+    if (!candidate(m) || !barProps.has(m.property)) continue;
+    // A figure that decides (a printed bar's, or an undescribed one its headline counts, D177) may be a copy.
+    const deciding = slotsOfM(m).filter((k: Dyn) => !apartIn(m, k));
+    if (!deciding.length) continue;
+    const source = deciding.flatMap((k: Dyn) => apart.get(key(m, k)) ?? [])
+      // A point figure, not a bound: a description's "over 6 GPa" is no copy of a table's 6030 MPa.
+      .filter((x: Dyn) => x.property === m.property && x.operator === '=' && m.operator === '=' && ranks.outranks(x.sourceId, m.sourceId) && sameFigure(x.value, m.value))
+      .sort((a: Dyn, b: Dyn) => ranks.rank(a.sourceId) - ranks.rank(b.sourceId) || (a.id < b.id ? -1 : 1))[0];
+    if (source) { m.setApartBy = { by: source.sourceId, measurementId: source.id, form: m.specimenForm }; m.specimenForm = 'not-stated'; }
+  }
+  // The documents that print a figure each slot reads, and the values each prints of each property there.
+  const slots = new Map<Dyn, Dyn>();
+  for (const m of measurements) {
+    if (!candidate(m)) continue;
+    for (const k of slotsOfM(m).filter((x: Dyn) => !apartIn(m, x))) {
+      if (!slots.has(key(m, k))) slots.set(key(m, k), new Map<Dyn, Dyn>());
+      const docs = slots.get(key(m, k));
+      if (!docs.has(m.sourceId)) docs.set(m.sourceId, new Map<Dyn, Dyn>());
+      const props = docs.get(m.sourceId);
+      if (!props.has(m.property)) props.set(m.property, new Set<Dyn>());
+      props.get(m.property).add(m.value);
+    }
+  }
+  // A document that prints one property of a slot at several values prints it at several settings: it replaces nothing there.
+  const speakers = (slot: Dyn) => [...(slots.get(slot) ?? [])].filter(([, props]) => [...props.values()].every((vals) => vals.size === 1)).map(([d]) => d);
+  let n = 0;
+  const best = (docs: Dyn, m: Dyn) => [...(docs ?? [])].filter((d) => ranks.outranks(d, m.sourceId)).sort((a, b) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
+  for (const m of measurements) {
+    if (!candidate(m)) continue;
+    const bys = slotsOfM(m).map((k: Dyn) => best(speakers(key(m, k)), m));
+    if (!bys.length || bys.some((b: Dyn) => !b)) continue;
+    const by = bys.sort((a: Dyn, b: Dyn) => ranks.rank(a) - ranks.rank(b) || (a < b ? -1 : 1))[0];
+    m.outranked = { by, why: ranks.why(by, m.sourceId) };
+    n++;
+  }
+  return n;
+}
+// ASTM D648's low load is 66 psi, 0.455 MPa, and ISO 75 method B's 0.45 MPa: one test (estimate/observations.js reads
+// 0.44 to 0.46 MPa as it too).
+const LOAD_TOLERANCE_MPA = 0.01;
+// The standard laboratory atmosphere of ISO 291 and ASTM D618 is 23 ± 2 °C: a bar struck at 25 °C was struck in it, one
+// at -30 °C was not (D92).
+export const TEST_TEMPERATURE_TOLERANCE_C = 2;
+
+/** Two annealing schedules are one where both parts agree, an unstated part with an unstated part (D99). */
+const sameSchedule = (a: Dyn, t: Dyn) => (a?.tempC ?? null) === (t?.tempC ?? null) && (a?.hours ?? null) === (t?.hours ?? null);
+/** A schedule as a reader says it: "at 120 °C for 16 h", with what the sheet does not state said so. */
+export const scheduleText = (t: Dyn) => `at ${t?.tempC != null ? `${t.tempC} °C` : 'a temperature not stated'} for ${t?.hours != null ? `${t.hours} h` : 'a time not stated'}`;
+
+// Why a measurement is not a headline's value, as a code beside assess's words (`why`), in the order assess asks. The
+// drawer and the material pages count the records under a comparison by it, and a record two of a comparison's
+// headlines refuse is counted by the one it got further with (D139). Their copy is NOT_DRAWN_ORDER in
+// app/js/ui/material-facts.js (refusedBy, notDrawnWhy), which the page cannot import from here; it differs on purpose:
+// it adds 'resin' (a moulded value under a headline with no bar to orient or load), and lacks 'notConditioned' and
+// 'notAnnealed', which assess returns only when asked about a state, which a comparison never is.
+// test/drawer-comparisons.test.js holds the two against each other on every record of every comparison.
+export const ASSESS_ORDER = ['noNumber', 'property', 'unit', 'implausible', 'nominal', 'moulded', 'film', 'filament', 'offRecipe', 'partialInfill', 'notPrinted',
+  'notConditioned', 'conditioned', 'notAnnealed', 'annealed', 'unnotched', 'notched', 'notch', 'cold', 'hot', 'standard', 'direction', 'unstatedDirection', 'load', 'unstatedLoad', 'outranked'];
+const SPECIMEN_WHY: Dyn = { moulded: 'moulded', film: 'film', filament: 'filament' };
+// What a headline reads where a printed bar's source states no orientation (headline_definitions.csv Unstated
+// direction): a flat bar, as makers print their test bars unless they say otherwise (D91's reading, D172).
+const FLAT_IF_PRINTED = 'flat if printed';
+const STATED_UNUSABLE = 'Stated, not a usable direction';
+
+/**
+ * Whether a measurement can be a product's value for a headline, and at which level. Returns { excluded, why } with the
+ * reason and its code (ASSESS_ORDER) when it cannot, else { level, caveat }.
+ *
+ * With a `state` (D99: { treatment: null | { tempC, hours }, moisture: 'dry' | 'conditioned' }) it asks whether the value
+ * is the product's in that state: for a headline annealing changes, a value as printed or unstated is the as-printed
+ * state's and one annealed at a schedule is that schedule's only; for one water changes, a conditioned value is the
+ * conditioned state's and a dry or unstated one the dry state's. Without a state it is the product's published value,
+ * as the table and the material's spread show it (an annealed value where the product publishes none as printed).
+ *
+ * A bar's property (a headline with a direction or a load) from a bar its document does not describe at all is set
+ * apart (D172): counted apart, never deciding, caveat `not-described`. `opts.undescribedAsPart` judges such a bar as
+ * the rows that are about moulded or undescribed bars read it (the evidence ledger's demote-to-ceiling rows, D153).
+ */
+export function assess(m: Dyn, def: Dyn, gradeMeasurements: Dyn, state: Dyn = null, opts: Dyn = {}) {
+  if (!m.numeric) return { excluded: `no usable numeric value (${m.dataStatus})`, why: 'noNumber' };
+  if (!def.valueProperties.includes(m.property)) return { excluded: `measures ${m.property}`, why: 'property' };
+  if (m.unit !== def.unit) return { excluded: `in ${m.unit}, not ${def.unit}`, why: 'unit' };
+  if (m.implausible) return { excluded: 'flagged physically implausible', why: 'implausible' };
+  // A rating the product's name gives (TPU 95A, Data status "Nominal from product designation") is not a test (D150).
+  if (m.nominal) return { excluded: 'a rating the product\'s name gives, not a test result', why: 'nominal' };
+  if (!isPartSpecimen(m.specimenType)) {
+    // A bar printed at a setting the product is not meant for (D95), or below 100 % infill (D130), is printed, but not
+    // the product as it is printed.
+    if (m.specimenForm === 'off-recipe') return { excluded: offRecipeWhy(m.specimenType, { brief: true }), why: m.specimenType === 'Printed specimen at partial infill' ? 'partialInfill' : 'offRecipe' };
+    return { excluded: `a ${m.specimenForm} specimen, not a printed part`, why: SPECIMEN_WHY[m.specimenForm] ?? 'notPrinted' };
+  }
+  if (state && def.changesWithMoisture) {
+    if (state.moisture === 'conditioned' && m.moistureState !== 'conditioned') return { excluded: 'not measured after moisture conditioning', why: 'notConditioned' };
+    if (state.moisture !== 'conditioned' && m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning', why: 'conditioned' };
+  } else if (m.moistureState === 'conditioned') return { excluded: 'measured after moisture conditioning', why: 'conditioned' };
+  if (state && def.changesWithAnnealing) {
+    if (state.treatment && (m.postProcessingState !== 'annealed' || !sameSchedule(m.anneal, state.treatment))) return { excluded: `not measured after annealing ${scheduleText(state.treatment)}`, why: 'notAnnealed' };
+    if (!state.treatment && m.postProcessingState === 'annealed') return { excluded: `measured after annealing ${scheduleText(m.anneal)}, not as printed`, why: 'annealed' };
+  } else if (annealedBesideAsPrinted(m, gradeMeasurements)) return { excluded: 'annealed, and the product publishes it as printed', why: 'annealed' };
+  // An impact headline is defined on a notched bar at room temperature (D92). An unnotched bar absorbs several times the
+  // energy, and a notch the source does not state may be either, so neither is ever the headline's value; nor is a
+  // bar struck cold. A temperature the source does not state is the laboratory's, as it is for every other headline.
+  if (def.notch && m.notch !== def.notch) {
+    return m.notch === 'Unnotched' ? { excluded: `an unnotched bar, not ${def.notch.toLowerCase()}`, why: 'unnotched' }
+      : m.notch === 'Notched' ? { excluded: `a notched bar, not ${def.notch.toLowerCase()}`, why: 'notched' }
+        : { excluded: 'the source does not state whether the bar was notched', why: 'notch' };
+  }
+  if (def.testTemperatureC != null && m.testTemperatureC != null && Math.abs(m.testTemperatureC - def.testTemperatureC) > TEST_TEMPERATURE_TOLERANCE_C) {
+    return { excluded: `tested at ${m.testTemperatureC} °C, not ${def.testTemperatureC} °C`, why: m.testTemperatureC < def.testTemperatureC ? 'cold' : 'hot' };
+  }
+  // A headline may name its test standard (D94): a value that names only others is another test's, even in the
+  // headline's unit (an Izod value to ASTM D256 printed in kJ/m² is that test's energy per metre of notch, converted by
+  // its maker). A value that names no standard is not refused for it.
+  if (def.standard && m.standards?.length && !m.standards.includes(def.standard)) {
+    return { excluded: `measured to ${m.standards.join(', ')}, not ${def.standard}`, why: 'standard' };
+  }
+  let caveat = null;
+  let readFlat = false;
+  if (def.direction && m.direction !== def.direction) {
+    if (!UNSTATED_DIRECTIONS.has(m.direction)) return { excluded: `a ${m.direction} measurement, not ${def.direction}`, why: 'direction' };
+    // A value that states no direction is never a Z value, which a maker who pulls a bar across its layers says it is
+    // (D92). For an XY headline a printed bar that states none is read flat, the way makers print their test bars unless
+    // they say otherwise (D91's reading, D172); one its document does not describe is set apart below.
+    if (def.unstatedDirection === 'excluded') return { excluded: `the source states no direction, and a ${def.direction} value is one it says is ${def.direction}`, why: 'unstatedDirection' };
+    // An orientation the source states and the database cannot use (a 0° or 90° raster, a label its own numbers
+    // contradict: Direction "Stated, not a usable direction", D91) is no silence, and is never read flat.
+    if (def.unstatedDirection === FLAT_IF_PRINTED && m.directionText !== STATED_UNUSABLE) readFlat = true;
+    else caveat = 'unstated-direction';
+  }
+  // A headline with no direction (heat deflection, density) is a flat bar's: an edge or upright bar's value is another
+  // bar's (D92, D123), shown and never the product's, also where the product's flat bar is held back or implausible
+  // (Stratasys PA6/66-GF30-FR's XY 35 °C at 264 psi, m436, left its XZ 153 °C as the product's).
+  if (!def.direction && ['Z', 'XZ', 'ZX'].includes(m.direction)) return { excluded: `a ${m.direction} bar, and ${def.key ?? 'this property'} is a flat bar's`, why: 'direction' };
+  if (def.loadMPa != null) {
+    if (m.thermal?.loadStated) {
+      if (Math.abs(m.thermal.loadMPa - def.loadMPa) > LOAD_TOLERANCE_MPA) return { excluded: `measured at ${m.thermal.loadMPa} MPa, not ${def.loadMPa} MPa`, why: 'load' };
+    // A value whose source states no load is the lighter load's, as published (D84), and never the heavier one's: a
+    // sheet that names no load is not evidence of the 1.8 MPa test, and one value is not drawn on both (D139).
+    } else if (def.unstatedLoad === 'excluded') return { excluded: `the source states no test load, and a ${def.loadMPa} MPa value is one it says is ${def.loadMPa} MPa`, why: 'unstatedLoad' };
+    // A ledger row that reads values with no stated load (CV63) admits them as what they are, a floor.
+    else if (def.unstatedLoad !== 'admitted') caveat ??= 'load-not-stated';
+  }
+  // A figure a better document of the same product replaces (D171): a newer edition, or a data sheet over a product page.
+  // Shown, with the figure that replaced it, and never the product's value.
+  if (m.outranked && !opts.keepOutranked) {
+    return { excluded: m.outranked.why === OUTRANKED_WHY.edition ? `an older edition of the sheet; ${m.outranked.by} replaces it` : `a product page or other document; the data sheet ${m.outranked.by} replaces it`, why: 'outranked' };
+  }
+  // A bar's property from a bar its document does not describe, with nothing on the document that says, even implicitly,
+  // that it was printed (D172, the owner's ruling of 2026-10-20): it may be a moulded bar's, which flatters a print, so it
+  // is set apart for good. Shown and counted apart, never deciding; what implies a print is data (a printed Specimen
+  // type on the row or its page, or a stated orientation), never this branch.
+  // A headline may count such a bar all the same for some kinds of plastic (D177): heat deflection, for a polymer that
+  // cannot crystallise, whose bar deflects near its glass transition however it was made. Marked as data
+  // (markUndescribedCounts, headline_definitions.csv Undescribed bar counts for), never decided here.
+  const counted = barProperty(def) && undescribedBar(m) && !opts.undescribedAsPart && countsUndescribed(m, def);
+  if (barProperty(def) && undescribedBar(m) && !opts.undescribedAsPart && !counted) return { level: LEVEL.AS_PUBLISHED, caveat: 'not-described' };
+  if (readFlat && !caveat) return { level: LEVEL.COMPARABLE, caveat: null, admitted: ['direction'] };
+  if (counted) return { level: caveat ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, caveat, admitted: ['bar'] };
+  return { level: caveat ? LEVEL.AS_PUBLISHED : LEVEL.COMPARABLE, caveat };
+}
+
+const POST_PROCESSING_ORDER: Dyn = { 'as-printed': 0, 'not-stated': 1, annealed: 2 };
+// A published point or mean before a published range, and either before a one-sided bound ("> 500 %").
+const intervalOrder = (iv: Dyn) => (!iv ? 3 : iv.kind === 'point' || iv.kind === 'uncertainty' ? 0 : iv.kind === 'range' ? 1 : 2);
+// A published bound is an interval open at one end ("> 500 %": lo set, hi null), which a point, a range and a band are not.
+const oneSided = (iv: Dyn) => !!iv && (iv.lo == null) !== (iv.hi == null);
+
+/**
+ * The order in which a product's candidates for one headline are preferred, most preferred first. Deterministic: the
+ * last key is the measurement ID. Comparable before as published; for a headline with no direction, a flat bar before
+ * an edge or upright one; a printed specimen before an unstated one; as printed before unstated before annealed; dry before unstated; the product's own data sheet before another source;
+ * the headline's first value property (its unspecified endpoint) before the others; a point before a range or bound.
+ */
+export function preference(m: Dyn, a: Dyn, grade: Dyn, def: Dyn) {
+  return [
+    a.level === LEVEL.COMPARABLE ? 0 : 1,
+    // A headline with no direction (heat deflection, density) takes a flat bar's value before an edge or upright one's:
+    // makers test flat unless they say otherwise, and an XZ, ZX or Z value is another bar's (D92; Stratasys prints its
+    // heat deflections XY and XZ side by side). Before the specimen, too: Stratasys PC's sheet prints its 1.8 MPa value
+    // for an XZ bar it calls printed beside an XY one whose specimen its row leaves unstated, and the XY one is the
+    // product's (D139; no value chosen before it moves).
+    !def.direction && ['Z', 'XZ', 'ZX'].includes(m.direction) ? 1 : 0,
+    m.specimenForm === 'printed' ? 0 : 1,
+    POST_PROCESSING_ORDER[m.postProcessingState] ?? 1,
+    m.moistureState === 'dry' ? 0 : 1,
+    m.sourceId === grade.sourceId ? 0 : 1,
+    def.valueProperties.indexOf(m.property),
+    intervalOrder(m.interval),
+  ];
+}
+
+const compareKeys = (a: Dyn, b: Dyn) => {
+  for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return a[i] - b[i];
+  return 0;
+};
+
+function productValue(m: Dyn, a: Dyn, def: Dyn, pinned: Dyn) {
+  // The source, grade and conditions are the measurement's, read through its ID: nothing here copies them.
+  const v: Dyn = { value: m.value, level: a.level, measurementId: m.id };
+  // What the screening policy admitted unstated (D99; GOALS 2026-09-28, decision 5): a "comparable" value is a policy,
+  // not an equivalence, and a verdict says which of the conditions that could change this value its source left open.
+  const admitted = [];
+  // A printed bar that states no orientation, read flat (D172).
+  if (a.admitted?.includes('direction')) admitted.push('direction');
+  // A bar no document describes, counted because its polymer cannot crystallise (D177): said as such, not as a specimen
+  // the screening admitted.
+  if (a.admitted?.includes('bar')) admitted.push('bar');
+  else if ((def.changesWithAnnealing || def.changesWithMoisture) && m.specimenForm === 'not-stated') admitted.push('specimen');
+  if (def.changesWithMoisture && m.moistureState === 'not-stated') admitted.push('moisture');
+  if (def.changesWithAnnealing && m.postProcessingState === 'not-stated') admitted.push('treatment');
+  if (admitted.length) v.admitted = admitted;
+  // The method, which a reason names: an ISO 75 and an ASTM D648 heat deflection are pooled by the screen, not equal.
+  if (m.standards?.length) v.standards = m.standards;
+  if (a.caveat) v.caveat = a.caveat;
+  if (def.direction) v.direction = m.direction;
+  if (m.interval && m.interval.kind !== 'point') v.interval = m.interval;
+  if (m.uncertainty != null) v.uncertainty = m.uncertainty;
+  // A value measured on an annealed part is reached only after annealing: the schedule the sheet states, or nulls.
+  if (m.postProcessingState === 'annealed') v.anneal = m.anneal ?? { tempC: null, hours: null };
+  if (pinned) v.pinned = true;
+  return v;
+}
+
+/**
+ * A product's own value for one headline: a pinned measurement (a row of headlines.csv on this product) if it
+ * qualifies, else the most preferred candidate. Null when the product publishes nothing that qualifies.
+ */
+function chooseValue(grade: Dyn, def: Dyn, gradeMeasurements: Dyn, pinnedIds: Dyn, state: Dyn = null) {
+  const candidates = [];
+  for (const m of gradeMeasurements) {
+    const a = assess(m, def, gradeMeasurements, state);
+    if (!a.excluded) candidates.push({ m, a });
+  }
+  if (!candidates.length) return null;
+  const pinned = candidates.find((c) => pinnedIds.has(c.m.id));
+  if (pinned) return productValue(pinned.m, pinned.a, def, true);
+  candidates.sort((x, y) => compareKeys(preference(x.m, x.a, grade, def), preference(y.m, y.a, grade, def)) || (x.m.id < y.m.id ? -1 : 1));
+  const { chosen, endpoints } = endpointMaximum(candidates[0], candidates, def);
+  const v = productValue(chosen.m, chosen.a, def, false);
+  if (endpoints) v.endpoints = endpoints;
+  return v;
+}
+
+/**
+ * The ultimate strength of a test is its maximum stress, so it is at least the stress at yield and at break that the same
+ * test prints (headline_definitions.csv Lower bound properties; D126). Where the rule chose one of these endpoints, the
+ * value is the greatest of the endpoints of that test: the same source, product, direction, specimen, moisture and
+ * post-processing state, test temperature. Another source's number is another test and is not compared. Returns the
+ * candidate to read and, where more than one endpoint was compared, which ones, so the drawer can say "maximum of yield 43
+ * and break 52". A headline whose bound is another test (heat deflection at a heavier load) has no endpoints and is
+ * untouched, and so is a published upper bound ("< 60"), which proves nothing about the value.
+ */
+function endpointMaximum(first: Dyn, candidates: Dyn, def: Dyn) {
+  const rel = def.lowerBounds;
+  const m = first.m;
+  const upper = (x: Dyn) => !!x.m.interval && x.m.interval.lo == null && x.m.interval.hi != null;
+  if (!rel || rel.loadMPa != null || !rel.properties.includes(m.property) || upper(first)) return { chosen: first, endpoints: null };
+  const sameTest = (x: Dyn) => rel.properties.includes(x.m.property) && !upper(x)
+    && x.m.sourceId === m.sourceId && x.m.gradeId === m.gradeId && x.m.direction === m.direction && x.m.specimenType === m.specimenType
+    && x.m.moistureState === m.moistureState && x.m.postProcessingState === m.postProcessingState && sameSchedule(x.m.anneal, m.anneal)
+    && (x.m.testTemperatureC ?? null) === (m.testTemperatureC ?? null);
+  // One endpoint per property, the one the rule prefers: two rows of one property are repeats of a test, not its endpoints.
+  const test: Dyn[] = [];
+  for (const x of candidates) if (sameTest(x) && !test.some((y) => y.m.property === x.m.property)) test.push(x);
+  if (test.length < 2) return { chosen: first, endpoints: null };
+  // The preferred endpoint wins a tie, so a test whose endpoints agree or that already ends on its maximum is unchanged.
+  const chosen = test.reduce((best, x) => (x.m.value > best.m.value ? x : best), first);
+  return { chosen, endpoints: test.map((x) => ({ measurementId: x.m.id, property: x.m.property, value: x.m.value })) };
+}
+
+/** How far two figures of one property may lie apart before they differ a lot (D171): the headline's test scatter (D152), else 10 %. */
+const apartBy = (def: Dyn, a: Dyn, b: Dyn) => {
+  const s = def.testScatter;
+  const room = !s ? 0.1 * Math.max(Math.abs(a), Math.abs(b)) : s.is === 'relative' ? Math.max(Math.abs(a), Math.abs(b)) * s.value / 100 : s.value;
+  return Math.abs(a - b) > room + 1e-9;
+};
+
+/**
+ * The figures a better document of the product replaced (D171) that differ a lot from the product's value, or that
+ * stand where the better document gives no value of this headline: [{ key, measurementId, value, sourceId, by, why }].
+ * The drawer and the material page print them small, as not used in deciding.
+ */
+function replacedFigures(defs: Dyn, own: Dyn, headline: Dyn) {
+  const out = [];
+  for (const def of defs) {
+    const v = headline[def.key];
+    for (const m of own) {
+      if (!m.outranked || assess(m, def, own, null, { keepOutranked: true }).excluded) continue;
+      if (v && !apartBy(def, m.value, v.value)) continue;
+      out.push({ key: def.key, measurementId: m.id, value: m.value, sourceId: m.sourceId, by: m.outranked.by, why: m.outranked.why });
+    }
+  }
+  return out;
+}
+
+/** The value the rule alone chooses for a product, pins ignored: what `scripts/audit/rule-vs-hand-picks.mjs` compares. */
+export const ruleValue = (grade: Dyn, def: Dyn, gradeMeasurements: Dyn) => chooseValue(grade, def, gradeMeasurements, new Set<Dyn>());
+
+/**
+ * The product's price: the median regular CAD/kg of its own listings in the headline sample, as a material's is. Its
+ * Canadian listings where it has any; its foreign ones, converted at the rate in force, only where it has none (D113),
+ * and then it says so.
+ */
+function productPrice(gradePrices: Dyn) {
+  const sample = priceSample(gradePrices);
+  if (!sample.length) return null;
+  const converted = convertedFrom(sample);
+  return { value: cents(median(sample.map((p: Dyn) => p.regularPerKg))), level: LEVEL.COMPARABLE, observations: sample.length, priceIds: sample.map((p: Dyn) => p.id), ...(converted ? { converted } : {}) };
+}
+
+/** One axis of a product's recipe: the gate across its own profiles, and the window of the profile that decided it. */
+function recipeAxis(profiles: Dyn, axis: Dyn) {
+  const gate = aggregateGate(profiles, axis);
+  const same = profiles.filter((p: Dyn) => p.gates[axis].verdict === gate.verdict);
+  // The profile whose gate was chosen: its overshoot and its reason, which names its window (D151: of two windows the
+  // H2C reaches the bottom of, the one it covers most, which may share its overshoot with the other).
+  const pick = same.find((p: Dyn) => p.gates[axis].over === gate.over && p.gates[axis].reason === gate.reason && p[axis].state === 'range')
+    ?? same.find((p: Dyn) => p.gates[axis].over === gate.over && p[axis].state === 'range')
+    ?? same.find((p: Dyn) => p[axis].state === 'range') ?? same[0];
+  const t = pick?.[axis];
+  return { verdict: gate.verdict, reason: gate.reason, state: t?.state ?? 'unknown', min: t?.min ?? null, max: t?.max ?? null, profileId: pick?.id ?? null };
+}
+
+const TEMPERATURE_AXES = ['nozzle', 'bed', 'chamber'];
+// The parts of a recipe, in the order they are read. The guide answers the print gate's five (D88) and drying (D127); the
+// annealing of a product's parts is its treatment, which only its own sheet or its twin's may give.
+const RECIPE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'];
+export const GUIDE_AXES = ['nozzle', 'bed', 'chamber', 'enclosure', 'hardenedNozzle', 'drying'];
+// The strongest drying statement of a set of profiles decides the axis: a schedule it requires, then one it advises for a
+// condition, then a statement that none is needed (D127).
+const DRYING_ORDER = ['required', 'optional', 'not-needed'];
+
+/** Each part of a recipe read from a set of profiles (a product's own, a twin's own, or a guide row alone). */
+function axisOf(profiles: Dyn, axis: Dyn) {
+  if (TEMPERATURE_AXES.includes(axis)) return recipeAxis(profiles, axis);
+  if (axis === 'enclosure') {
+    // "Recommended" outranks "not needed": the stricter of two statements about one product.
+    const states = profiles.map((p: Dyn) => p.enclosureState);
+    return states.includes('recommended') ? 'recommended' : states.includes('not-needed') ? 'not-needed' : 'unknown';
+  }
+  if (axis === 'hardenedNozzle') {
+    const hardened = profiles.map((p: Dyn) => p.abrasion.requiresHardened);
+    return hardened.includes(true) ? true : hardened.includes(false) ? false : null;
+  }
+  for (const need of DRYING_ORDER) {
+    const said = profiles.filter((p: Dyn) => p.drying.need === need);
+    const dried = said.find((p: Dyn) => p.drying.tempC != null) ?? said[0];
+    if (!dried) continue;
+    // A schedule printed as a range keeps its lower ends beside the upper ones every rule reads (D175): shown, never judged.
+    const { tempMinC, tempC, hoursMin, hours, hoursOpen } = dried.drying;
+    return { need, ...(tempMinC != null ? { tempMinC } : {}), tempC, ...(hoursMin != null ? { hoursMin } : {}), hours, hoursOpen, profileId: dried.id };
+  }
+  return null;
+}
+
+/**
+ * Whether a set of profiles says anything on an axis: a reading, or words the parser could not read. What a product's
+ * own sheet says always stands, even where it settles nothing; only silence is filled (D88, D89). A chamber and an
+ * enclosure are one question, so a sheet that recommends an enclosure has spoken about the chamber too.
+ */
+export function speaksTo(profiles: Dyn, axis: Dyn) {
+  switch (axis) {
+    case 'nozzle': case 'bed': return profiles.some((p: Dyn) => p[axis].state !== 'unknown' || p[axis].unparsed);
+    case 'chamber': return profiles.some((p: Dyn) => p.chamber.state !== 'unknown' || p.chamber.unparsed || p.enclosureState !== 'unknown');
+    case 'enclosure': return profiles.some((p: Dyn) => p.enclosureState !== 'unknown');
+    case 'hardenedNozzle': return profiles.some((p: Dyn) => p.abrasion.requiresHardened != null || p.abrasion.state === 'stated' || p.abrasion.unparsed);
+    default: return profiles.some((p: Dyn) => p.drying.need !== 'unknown');
+  }
+}
+
+/**
+ * The profiles that decide a part of a product's recipe (D171): of its documents that give a reading on it, the
+ * best-ranked (a data sheet before a product page, a newer edition before an older one); a profile that says nothing
+ * usable on the part (a dash, a cell the parser could not read) replaces nothing, and the silent ones stay, as the gate
+ * counts them (aggregateGate).
+ */
+function rankedProfiles(profiles: Dyn, axis: Dyn, ranks: Dyn) {
+  const speaking = profiles.filter((p: Dyn) => readsDefinitely(p, axis));
+  const top = ranks ? speaking.filter((p: Dyn) => !speaking.some((q: Dyn) => ranks.outranks(q.sourceId, p.sourceId))) : speaking;
+  const deciding = top.length < speaking.length ? profiles.filter((p: Dyn) => !speaking.includes(p) || top.includes(p)) : profiles;
+  return { deciding, speaking, top };
+}
+
+/** Whether a profile gives a definite reading on a part of the recipe, which another document's may contradict (D171). */
+function readsDefinitely(p: Dyn, axis: Dyn) {
+  if (TEMPERATURE_AXES.includes(axis)) return p.gates[axis].verdict !== 'unknown';
+  if (axis === 'enclosure') return p.enclosureState !== 'unknown';
+  if (axis === 'hardenedNozzle') return p.abrasion.requiresHardened != null;
+  return p.drying.need !== 'unknown';
+}
+
+/**
+ * Whether a guide row answers an axis for a silent product (D88): what it says on the print gate's parts, except a
+ * nozzle list that settles nothing about a hardened nozzle (its TPU's "Hardened Steel / Stainless Steel").
+ */
+function guideAnswers(guide: Dyn, axis: Dyn) {
+  if (!GUIDE_AXES.includes(axis)) return false;
+  return axis === 'hardenedNozzle' ? guide.abrasion.requiresHardened != null : speaksTo([guide], axis);
+}
+// A source that asks for an enclosure and gives no chamber temperature has said all it will about the chamber. A
+// printer maker's guide row that means its own enclosed printers declares its chamber "enclosed" instead (D90).
+const ENCLOSURE_ONLY = 'Asks for an enclosure but gives no chamber temperature, so 65 °C is not shown to be enough';
+
+/** The annealing a product's sheets state for its values measured on annealed parts, one per schedule. */
+function annealOf(gradeMeasurements: Dyn) {
+  const anneal = [];
+  const seen = new Set<Dyn>();
+  for (const m of gradeMeasurements) {
+    if (m.postProcessingState !== 'annealed' || !m.anneal) continue;
+    const key = `${m.anneal.tempC}|${m.anneal.hours}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    anneal.push({ tempC: m.anneal.tempC, hours: m.anneal.hours, measurementId: m.id });
+  }
+  return anneal;
+}
+
+/** A product as a reader names it: its maker and product, the maker once. */
+export function productName(g: Dyn) {
+  const product = g.product && !/^Not /.test(g.product) ? g.product : '';
+  const maker = g.manufacturer && !/^Not /.test(g.manufacturer) ? g.manufacturer : '';
+  if (!product) return maker || g.id;
+  return maker && !product.toLowerCase().startsWith(maker.toLowerCase()) ? `${maker} ${product}` : product;
+}
+
+/** Where a part of a product's values or recipe was read, when it is not the product's own sheet (D88, D89). */
+export const twinOrigin = (t: Dyn) => ({ origin: 'twin', gradeId: t.id, label: `data sheet shared with ${productName(t)}` });
+// "from" the guide says it is not the product's own sheet, whoever makes the product (D124 amends D88's wording).
+// eslint-disable-next-line no-unused-vars
+function guideOrigin(guide: Dyn, grade: Dyn, publisher: Dyn) {
+  return { origin: 'guide', guideId: guide.id, sourceId: guide.sourceId, guide: guide.name, label: `from the ${guide.name}` };
+}
+const labelled = (axis: Dyn, from: Dyn) => ({ ...axis, reason: `${axis.reason} (${from.label})` });
+
+/**
+ * A product's print recipe: its own profiles' nozzle, bed and chamber against the H2C, whether it wants an enclosure,
+ * a hardened nozzle and drying, and the annealing its sheets state for the values measured on annealed parts. Where its
+ * own profiles say nothing on a part, its twin's do (the same sheet, D89), and for the print gate's parts after that
+ * its material's printer maker's guide (D88; its drying statement too, D127); each part read that way says where it
+ * came from, in `from` and in its reason. Null when nothing at all is known.
+ */
+function productPrint(grade: Dyn, own: Dyn, twins: Dyn, guide: Dyn, publisher: Dyn, ranks: Dyn = null) {
+  const out: Dyn = { profileIds: own.profiles.map((p: Dyn) => p.id) };
+  const from: Dyn = {};
+  const setAside: Dyn = {};
+  for (const axis of RECIPE_AXES) {
+    // Of the product's own documents that speak to this part of the recipe, the best-ranked decide (D171): a data sheet
+    // before a product page, a newer edition before an older one. What a replaced one says that differs is kept apart.
+    const { deciding, speaking, top } = rankedProfiles(own.profiles, axis, ranks);
+    let value: Dyn = axisOf(deciding, axis);
+    const differs = speaking.filter((p: Dyn) => !top.includes(p)).filter((p: Dyn) => {
+      const v: Dyn = axisOf([p], axis);
+      if (TEMPERATURE_AXES.includes(axis)) return v!.verdict !== value?.verdict || Math.abs((v!.min ?? 0) - (value?.min ?? 0)) > 5 || Math.abs((v!.max ?? v!.min ?? 0) - (value?.max ?? value?.min ?? 0)) > 5;
+      return JSON.stringify(axis === 'drying' ? v?.need : v) !== JSON.stringify(axis === 'drying' ? value?.need : value);
+    });
+    if (differs.length) setAside[axis] = differs.map((p: Dyn) => ({ profileId: p.id, sourceId: p.sourceId, by: top[0]?.sourceId ?? null, why: ranks.why(top[0]?.sourceId, p.sourceId) }));
+    if (!speaksTo(own.profiles, axis)) {
+      // A product that holds a profile of its own does not read its twin's hardened-nozzle statement: whether a filament
+      // wears a brass nozzle is the product's to say, and a sibling's sheet is not evidence for it (D127, amending D89).
+      const twin = axis === 'hardenedNozzle' && own.profiles.length ? undefined : twins.find((t: Dyn) => speaksTo(t.profiles, axis));
+      // A twin's recipe is read as the twin's own is: its better document decides (D171).
+      const read = twin ? rankedProfiles(twin.profiles, axis, ranks).deciding : guide && guideAnswers(guide, axis) ? [guide] : null;
+      if (read) {
+        from[axis] = twin ? twinOrigin(twin.grade) : guideOrigin(guide, grade, publisher);
+        value = axisOf(read, axis);
+        if (axis === 'drying' && !twin) value = { ...value, profileId: null };
+        if (TEMPERATURE_AXES.includes(axis)) {
+          if (!twin) value = { ...value, profileId: null };
+          if (axis === 'chamber' && value!.state === 'unknown' && value!.verdict === 'unknown' && axisOf(read, 'enclosure') === 'recommended') value = { ...value, reason: ENCLOSURE_ONLY };
+          value = labelled(value, from[axis]);
+        }
+      }
+    }
+    out[axis] = value;
+  }
+  // Advice that asks for no hardened nozzle but is not "brass will do" either (D168): a nozzle harder than brass, or a
+  // caution about wear. It decides nothing, and a user with only brass is told it in the maker's words (the research
+  // intake's review, R01).
+  if (out.hardenedNozzle == null) {
+    const said = from.hardenedNozzle ? null : own.profiles.find((p: Dyn) => p.abrasion.harderThanBrass || p.abrasion.caution);
+    if (said) out.nozzleAdvice = { kind: said.abrasion.harderThanBrass ? 'harder-than-brass' : 'wear-caution', text: said.abrasion.text, profileId: said.id };
+  }
+  out.anneal = own.anneal;
+  const twinAnneal = twins.find((t: Dyn) => t.anneal.length);
+  if (!own.anneal.length && twinAnneal) { out.anneal = twinAnneal.anneal; from.anneal = twinOrigin(twinAnneal.grade); }
+  if (!own.profiles.length && !out.anneal.length && !Object.keys(from).length) return null;
+  if (Object.keys(from).length) out.from = from;
+  if (Object.keys(setAside).length) out.replaced = setAside;
+  return out;
+}
+
+/**
+ * A product's states with its twin's where its own are silent (D89, D99): a state a twin publishes and it does not is
+ * its state too, and a value its own state lacks is the twin's of the same state, labelled. The first state stays first.
+ */
+function twinStates(own: Dyn, siblings: Dyn) {
+  if (!siblings.length) return own;
+  const out = own.map((s: Dyn) => ({ ...s, values: { ...s.values } }));
+  for (const { grade: t, states } of siblings) {
+    for (const s of states) {
+      let mine = out.find((x: Dyn) => x.id === s.id);
+      if (!mine) { mine = { ...s, values: {} }; out.push(mine); }
+      for (const [key, v] of Object.entries<Dyn>(s.values)) {
+        if (mine.values[key] || v.from) continue;
+        const { pinned, ...value } = v;
+        mine.values[key] = { ...value, from: twinOrigin(t) };
+      }
+    }
+  }
+  return out;
+}
+
+// A quartile by linear interpolation between order statistics (Hyndman and Fan's type 7), to twelve significant digits
+// so a binary remainder never reaches the snapshot.
+const tidy = (x: Dyn) => Number(x.toPrecision(12));
+function quantile(sorted: Dyn, p: Dyn) {
+  const h = (sorted.length - 1) * p;
+  const lo = Math.floor(h);
+  return tidy(sorted[lo] + (h - lo) * ((sorted[lo + 1] ?? sorted[lo]) - sorted[lo]));
+}
+const QUARTILES_FROM = 4;
+
+/**
+ * A material's spread for one headline, over its procurement products that are not declared variants. `n` counts the
+ * comparable values, and the range, quartiles and typical product are theirs; the values set apart (a bar no document
+ * describes as printed, or no stated load, D172) are counted apart, and so are the variants, whose values describe the
+ * product, not the polymer (D57).
+ *
+ * A twin counts as a product (D89), but the table its sheet prints is its sibling's, so a reprinted table counts once in
+ * the middle: the range, quartiles, median and typical product are over `distinct(comparable)`. `n` still counts the twin
+ * (the products the median speaks for) and `twins` says how many of them are reprints, which is what the page's
+ * sentence reads to say a twin shares a data sheet rather than publishes nothing.
+ */
+function summarise(entries: Dyn, products: Dyn) {
+  const comparable = entries.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE);
+  const asPublished = entries.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.AS_PUBLISHED);
+  const variants = entries.filter((e: Dyn) => e.variant);
+  const span = (list: Dyn) => (list.length ? { n: list.length, min: Math.min(...list.map((e: Dyn) => e.v.value)), max: Math.max(...list.map((e: Dyn) => e.v.value)) } : null);
+  const out: Dyn = { products, n: comparable.length };
+  if (comparable.length) {
+    const middle = distinct(comparable);
+    const sorted = middle.map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
+    const mid = tidy(median(sorted));
+    // The typical product is the one whose value is nearest the median; a tie goes to the lower value, then to the
+    // product whose own sheet it is over a twin that reads it (D89), then the lower ID.
+    const typical = [...middle].sort((a, b) => Math.abs(a.v.value - mid) - Math.abs(b.v.value - mid) || a.v.value - b.v.value
+      || (a.v.from ? 1 : 0) - (b.v.from ? 1 : 0) || (a.gradeId < b.gradeId ? -1 : 1))[0];
+    Object.assign(out, { min: sorted[0], max: sorted.at(-1), median: mid, typical: typical.gradeId });
+    // A published bound ("> 650 %") counts here as its number, which is all the median can take; the page says which
+    // values were bounds, and which end of the range (or the median itself) is one, so none reads as a measurement.
+    const bounded = comparable.filter((e: Dyn) => oneSided(e.v.interval));
+    if (bounded.length) {
+      const at = (value: Dyn) => { const b = bounded.find((e: Dyn) => e.v.value === value); return b ? (b.v.interval.lo != null ? 'lower' : 'upper') : null; };
+      out.bounds = { n: bounded.length, min: at(out.min), max: at(out.max) };
+    }
+    if (sorted.length >= QUARTILES_FROM) Object.assign(out, { q1: quantile(sorted, 0.25), q3: quantile(sorted, 0.75) });
+    const twins = comparable.length - middle.length;
+    if (twins) out.twins = twins;
+    // Prices converted from another currency (D113): how many, from what, at which rate date.
+    const converted = comparable.filter((e: Dyn) => e.v.converted);
+    if (converted.length) {
+      out.converted = { products: converted.length, currencies: [...new Set<Dyn>(converted.flatMap((e: Dyn) => e.v.converted.currencies))].sort(),
+        rateDate: converted.map((e: Dyn) => e.v.converted.rateDate).filter(Boolean).sort().at(-1) ?? null };
+    }
+  }
+  if (asPublished.length) out.asPublished = span(asPublished);
+  if (variants.length) out.variants = span(variants);
+  return out;
+}
+
+/**
+ * A reprinted table counts once (owner ruling OQ-09 A): a comparable value a twin reads from its sibling (D89; the same
+ * Shared formulation key, so never a product that reprints another material's table, R166) is the sibling's table again.
+ */
+// The rule itself is shared with the pages (packages/domain/src/core/reprint.ts), which say a value is counted once only where this excludes it.
+const isReprint = (e: Dyn) => isReprintEntry(e);
+const distinct = (comparable: Dyn) => comparable.filter((e: Dyn) => !isReprint(e));
+
+/**
+ * The comparable values of a spread from products their makers sell as toughened (product_claims.csv, D133), and what
+ * the other comparable products give. Both stay in the median; the page names the split so the high end is not read as
+ * the material's. A twin reads its sibling's claim as it reads its sibling's value (D89). Null where none is claimed.
+ */
+function claimedSplit(entries: Dyn, claim: Dyn, isClaimed: Dyn) {
+  const comparable = entries.filter((e: Dyn) => !e.variant && e.v.level === LEVEL.COMPARABLE);
+  const claimed = comparable.filter(isClaimed);
+  if (!claimed.length) return null;
+  const values = (list: Dyn) => distinct(list).map((e: Dyn) => e.v.value).sort((a: Dyn, b: Dyn) => a - b);
+  const c = values(claimed);
+  const others = comparable.filter((e: Dyn) => !isClaimed(e));
+  const o = values(others);
+  return {
+    claim, n: claimed.length, min: c[0], max: c.at(-1), gradeIds: claimed.map((e: Dyn) => e.gradeId).sort(),
+    others: o.length ? { n: others.length, min: o[0], max: o.at(-1), median: tidy(median(o)),
+      ...(o.length >= QUARTILES_FROM ? { q1: quantile(o, 0.25), q3: quantile(o, 0.75) } : {}) } : null,
+  };
+}
+
+/**
+ * A material's headline where its products publish comparably: their median, with the spread and the typical product
+ * (the one nearest the median) it came from. One product's value is that product's, and cites its measurement as a
+ * single value always did. It is what the table, the chart, Compare and the export show; it decides nothing (D83).
+ */
+function productsHeadline(unit: Dyn, s: Dyn, gradeById: Dyn, key: Dyn) {
+  const typical = gradeById.get(s.typical)?.headline?.[key];
+  const h: Dyn = {
+    known: true, value: s.median, unit, origin: 'products', verified: true,
+    interval: { lo: s.median, hi: s.median, kind: 'point' },
+    spread: { n: s.n, products: s.products, min: s.min, max: s.max, q1: s.q1 ?? null, q3: s.q3 ?? null,
+      asPublished: s.asPublished ?? null, variants: s.variants ?? null, ...(s.twins ? { twins: s.twins } : {}), ...(s.claimed ? { claimed: s.claimed } : {}) },
+    typical: { gradeId: s.typical, measurementId: typical?.measurementId ?? null, value: typical?.value ?? null },
+  };
+  if (s.bounds) h.spread.bounds = s.bounds;
+  if (oneSided(typical?.interval)) h.typical.interval = typical.interval;
+  if (s.n === 1) Object.assign(h, { measurementId: typical?.measurementId ?? null, gradeId: s.typical });
+  if (key === 'priceCADkg') {
+    h.observations = s.n;
+    // How many of the prices the median is of were converted from another currency, which the page says (D113).
+    if (s.converted) h.converted = s.converted;
+  }
+  return h;
+}
+
+/**
+ * A row of headlines.csv pins one product's value for one headline to a measurement the rule would not choose.
+ * It must be a measurement of an active product of that material that can be the headline's value at all (assess), and
+ * a product has one pin per headline. Returns the pinned measurement IDs; a pin that fails is a build error, never
+ * silently ignored.
+ */
+function checkPins(selections: Dyn, { defs, measurementById, measurementsByGrade, gradeById, rowById, issues }: Dyn) {
+  const pinned = new Set<Dyn>();
+  const seen = new Map<Dyn, Dyn>();
+  for (const [materialId, list] of selections) {
+    const where = `headlines ${materialId}`;
+    for (const s of list) {
+      const def = defs.find((d: Dyn) => d.key === s.HeadlineKey);
+      if (!def) { issues.push({ level: 'error', code: 'HEADLINE-KEY-UNKNOWN', where, message: `Headline key "${s.HeadlineKey}" is not a measurement headline in headline_definitions.csv` }); continue; }
+      const row = rowById.get(materialId);
+      if (row && !applies(def.appliesTo, row)) { issues.push({ level: 'error', code: 'HEADLINE-NOT-APPLICABLE', where, message: `${def.key} does not apply to this material (${def.appliesToText}) but pins ${s.MeasurementID}` }); continue; }
+      const m = measurementById.get(s.MeasurementID);
+      const g = m && gradeById.get(m.gradeId);
+      const own = m ? (measurementsByGrade.get(m.gradeId) ?? []) : [];
+      const a = m && assess(m, def, own);
+      const problem = !m ? `${s.MeasurementID} is not an active measurement (missing or a retired duplicate)`
+        : m.materialId !== materialId ? `${m.id} is a measurement of ${m.materialId}`
+        : !g || g.retired ? `${m.id} is on ${m.gradeId}, which is not an active product`
+        : a.excluded ? `${m.id} cannot be ${def.key}: ${a.excluded}`
+        : null;
+      if (problem) { issues.push({ level: 'error', code: 'HEADLINE-SELECTION-INVALID', where, message: `The pin for ${def.key} is refused: ${problem}` }); continue; }
+      const k = `${m.gradeId}|${def.key}`;
+      if (seen.has(k)) issues.push({ level: 'error', code: 'HEADLINE-SELECTION-MULTIPLE', where, message: `${m.gradeId} ${def.key} is pinned twice (${seen.get(k)}, ${m.id}); a product has one value` });
+      seen.set(k, m.id);
+      pinned.add(m.id);
+    }
+  }
+  return pinned;
+}
+
+/**
+ * Each product's twins (D89): the other active products of the same material under the same Shared formulation key,
+ * whose sheets print one table (R053) that the database records once. One holding values comes first, then one of the
+ * same maker, then the one holding the most values, then by ID. A key never spans two materials (FORMULATION-KEY-SPANS-MATERIALS), so a product
+ * that reprints another material's table (R166) has no twin and reads nothing.
+ */
+function twinsOf(grades: Dyn, measurementsByGrade: Dyn) {
+  const byKey = new Map<Dyn, Dyn>();
+  for (const g of grades) {
+    if (g.retired || /-R\d+$/.test(g.id) || !g.formulationKey || /^Not /.test(g.formulationKey)) continue;
+    const k = `${g.materialId}\u0000${g.formulationKey}`;
+    if (!byKey.has(k)) byKey.set(k, []);
+    byKey.get(k).push(g);
+  }
+  const count = (g: Dyn) => measurementsByGrade.get(g.id)?.length ?? 0;
+  const holds = (g: Dyn) => (count(g) ? 0 : 1);
+  const out = new Map<Dyn, Dyn>();
+  for (const list of byKey.values()) {
+    if (list.length < 2) continue;
+    // A product reads its own maker's sheet before another maker's reprint of the table (m281's clusters).
+    const sameMaker = (g: Dyn, x: Dyn) => (x.manufacturer === g.manufacturer ? 0 : 1);
+    // Among those, the carrier of the shared table holds most of its values: a sibling holding a statement or two of
+    // its own (a portfolio's row for it) is not where the others read the table from (completeness round, D136).
+    for (const g of list) out.set(g.id, list.filter((x: Dyn) => x !== g).sort((a: Dyn, b: Dyn) => holds(a) - holds(b) || sameMaker(g, a) - sameMaker(g, b) || count(b) - count(a) || (a.id < b.id ? -1 : 1)));
+  }
+  return out;
+}
+
+/** A state's identifier: "as-printed", "annealed:120:16", "conditioned", "annealed:120:16+conditioned" (x: not stated). */
+export const stateId = (treatment: Dyn, moisture: Dyn) => [treatment ? `annealed:${treatment.tempC ?? 'x'}:${treatment.hours ?? 'x'}` : null,
+  moisture === 'conditioned' ? 'conditioned' : null].filter(Boolean).join('+') || 'as-printed';
+
+/**
+ * A product's decision states (D99): the states it can be made in that its own sheets publish values for. As printed
+ * and dry, always and first; each annealing schedule its annealed values state; conditioned, where it publishes a
+ * conditioned value; and each combination the values reach. A state holds, for each headline that state changes, the
+ * value the rule chooses among the measurements of that state only; the first state holds every headline. Two
+ * properties measured in different states are never joined as one part: a state has only its own values, and a headline
+ * the state does not change (a density) is read from the first. Where a state lacks a value it is unknown, never filled
+ * from another state; the engine says which state does have one, and the evidence ledger may bound it (D153).
+ */
+function productStates(grade: Dyn, defs: Dyn, own: Dyn, pinnedIds: Dyn) {
+  const schedules: Dyn[] = [];
+  for (const m of own) {
+    if (!m.numeric || m.postProcessingState !== 'annealed') continue;
+    const t = { tempC: m.anneal?.tempC ?? null, hours: m.anneal?.hours ?? null };
+    if (!schedules.some((s) => sameSchedule(s, t))) schedules.push(t);
+  }
+  schedules.sort((a, b) => (a.tempC ?? Infinity) - (b.tempC ?? Infinity) || (a.hours ?? Infinity) - (b.hours ?? Infinity));
+  const moistures = ['dry', ...(own.some((m: Dyn) => m.numeric && m.moistureState === 'conditioned') ? ['conditioned'] : [])];
+  const states = [];
+  for (const treatment of [null, ...schedules]) {
+    for (const moisture of moistures) {
+      const first = !treatment && moisture === 'dry';
+      const values: Dyn = {};
+      for (const def of defs) {
+        if (!first && !((treatment && def.changesWithAnnealing) || (moisture === 'conditioned' && def.changesWithMoisture))) continue;
+        // A headline drawn in the drawer alone (D139) is the product's published value only: it makes no state and
+        // decides in none, so the states, and every answer read from them, are what the selectable headlines give.
+        if (!first && def.drawerOnly) continue;
+        const v = chooseValue(grade, def, own, pinnedIds, { treatment, moisture });
+        if (v) values[def.key] = v;
+      }
+      if (first || Object.keys(values).length) states.push({ id: stateId(treatment, moisture), treatment, moisture, values });
+    }
+  }
+  return states;
+}
+
+/**
+ * Attach every product's own values and print recipe, every material's summary, and the headline its products give
+ * it. `materialRows` are the materials table's rows (a headline's Applies to tests them); `selections` its
+ * headlines.csv rows by MaterialID, which pin a product's value where the rule would choose another.
+ *
+ * Where a product publishes nothing for a headline, its twin's own value stands for it (D89); where its own profiles
+ * say nothing on a part of its print recipe, its twin's do, and on the print gate's parts after that its material's
+ * printer maker's guide (`guideByMaterial`, D88). A product's own value or statement always wins, and a price is never
+ * read from another product: it is what that product's own listings cost.
+ */
+export function attachProducts({ grades, materials, materialRows, measurements, profiles, prices, registry, selections, guideByMaterial = new Map<Dyn, Dyn>(), sources = [], conversions = [], classLimits = [], polymers = [], issues = [] }: Dyn) {
+  const defs = measurementHeadlines(registry);
+  // Which of a product's documents speaks for each property (D171): the figures a better document replaces are marked
+  // before any value is chosen, so neither a product's value, nor its states, nor the ledger reads them.
+  markOutranked(measurements, sources, defs);
+  const ranks = documentRanks(sources);
+  const byGrade = (list: Dyn) => {
+    const out = new Map<Dyn, Dyn>();
+    for (const x of list) {
+      if (!out.has(x.gradeId)) out.set(x.gradeId, []);
+      out.get(x.gradeId).push(x);
+    }
+    return out;
+  };
+  const measurementsByGrade = byGrade(measurements);
+  const profilesByGrade = byGrade(profiles.filter((p: Dyn) => !p.retired));
+  const pricesByGrade = byGrade(prices);
+  const rowById = new Map<Dyn, Dyn>(materialRows.map((r: Dyn) => [r.MaterialID, r]));
+  const gradeById = new Map<Dyn, Dyn>(grades.map((g: Dyn) => [g.id, g]));
+  const pinnedIds = checkPins(selections, { defs, measurementById: new Map<Dyn, Dyn>(measurements.map((m: Dyn) => [m.id, m])), measurementsByGrade, gradeById, rowById, issues });
+
+  // Each product's own values first, then what its twin's stand for: a twin reads only a sibling's own value, never
+  // one the sibling itself read. The same for its decision states (D99).
+  const ownValues = new Map<Dyn, Dyn>();
+  const ownStates = new Map<Dyn, Dyn>();
+  for (const g of grades) {
+    if (g.retired) continue;
+    const row = rowById.get(g.materialId);
+    const own = measurementsByGrade.get(g.id) ?? [];
+    const headline: Dyn = {};
+    // A headline that does not apply to the material (heat deflection of an elastomer) has no product values either.
+    const applicable = defs.filter((def: Dyn) => !row || applies(def.appliesTo, row));
+    for (const def of applicable) {
+      const v = chooseValue(g, def, own, pinnedIds);
+      if (v) headline[def.key] = v;
+    }
+    ownValues.set(g.id, { ...headline });
+    ownStates.set(g.id, productStates(g, applicable, own, pinnedIds));
+    // What a newer edition or a data sheet replaced, where it differs a lot (D171): said small, as not used in deciding.
+    const replaced = replacedFigures(applicable, own, headline);
+    if (replaced.length) g.replaced = replaced;
+    const price = productPrice(pricesByGrade.get(g.id) ?? []);
+    if (price) headline.priceCADkg = price;
+    g.headline = headline;
+  }
+  const twins = twinsOf(grades, measurementsByGrade);
+  const sourceById = new Map<Dyn, Dyn>(sources.map((s: Dyn) => [s.id, s]));
+  const recipeOf = (g: Dyn) => ({ grade: g, profiles: profilesByGrade.get(g.id) ?? [], anneal: annealOf(measurementsByGrade.get(g.id) ?? []) });
+  for (const g of grades) {
+    if (g.retired) continue;
+    const siblings = twins.get(g.id) ?? [];
+    g.states = twinStates(ownStates.get(g.id), siblings.map((t: Dyn) => ({ grade: t, states: ownStates.get(t.id) ?? [] })));
+    // The first state holds every headline, the product's own price too: a price is never a state's, nor a twin's.
+    if (g.headline.priceCADkg) g.states[0].values.priceCADkg = g.headline.priceCADkg;
+    if (siblings.length) {
+      const headline: Dyn = {};
+      for (const def of defs) {
+        const t = !g.headline[def.key] && siblings.find((x: Dyn) => ownValues.get(x.id)?.[def.key]);
+        // The sibling's pin is the sibling's: the twin reads the value, not the reviewer's choice for another product.
+        if (t) { const { pinned, ...v } = ownValues.get(t.id)[def.key]; headline[def.key] = { ...v, from: twinOrigin(t) }; }
+        else if (g.headline[def.key]) headline[def.key] = g.headline[def.key];
+      }
+      if (g.headline.priceCADkg) headline.priceCADkg = g.headline.priceCADkg;
+      g.headline = headline;
+    }
+    // A guide row is mapped to the material its type is (D88); a variant of that material (a dense or lightweight
+    // filler its type does not have) is not that type, and reads nothing from it (D129), unless its vocabulary says it
+    // prints as its type (a grade formulated to crystallise in the print, D154; a filler only for looks, D175).
+    const guide = printsAsItsType(g) ? guideByMaterial.get(g.materialId) ?? null : null;
+    g.print = productPrint(g, recipeOf(g), siblings.map(recipeOf), guide, guide && sourceById.get(guide.sourceId)?.publisher, ranks);
+    // Who prints the same sheet (D89): the engine reads their records of that sheet for this product too (D98).
+    if (siblings.length) g.twins = siblings.map((x: Dyn) => x.id);
+  }
+  // The evidence ledger (D153, D154): what each product's values not measured the way a headline asks, and its kind of
+  // plastic's limits, bound it to, in each state; after the twins' values, which a ceiling may demote, and before the
+  // spreads, which a demoted value stays in (evidence-ledger.js).
+  const ledger = attachLedger({ grades, materialRows, measurements, registry, conversions, classLimits, polymers, issues });
+
+  const keys = [...defs.map((d: Dyn) => d.key), 'priceCADkg'];
+  const defByKey = new Map<Dyn, Dyn>(defs.map((d: Dyn) => [d.key, d]));
+  for (const m of materials) {
+    if (m.familyEntry) continue;
+    const products = m.gradeIds.map((id: Dyn) => gradeById.get(id)).filter((g: Dyn) => g && !g.retired);
+    // A material whose every product is a declared variant (PP Lightweight) is its variants: they are its range.
+    const plain = products.filter((g: Dyn) => !g.variant).length;
+    const variantOnly = products.length > 0 && plain === 0;
+    // A twin's value is its sibling's: where the sibling is a declared variant, what it reads is set apart as the
+    // sibling's is (D57, D89), whatever the twin's own row says.
+    const variantValue = (g: Dyn, v: Dyn) => !!g.variant || (v.from?.origin === 'twin' && !!gradeById.get(v.from.gradeId)?.variant);
+    // The same for what a maker sells a product as (D133): a twin's value is its sibling's, and so is its claim.
+    const claimsOf = (g: Dyn, v: Dyn) => (v.from?.origin === 'twin' ? gradeById.get(v.from.gradeId) : g)?.claims?.map((c: Dyn) => c.claim) ?? [];
+    const summary: Dyn = {};
+    for (const key of keys) {
+      if (m.headline[key]?.notApplicable) continue;
+      // A reprinted table counts once in the middle (owner ruling OQ-09 A, transition reprint-counts-once), inside summarise
+      // and claimedSplit; the twin stays a product everywhere else: in the counts, and in the spans of values set apart.
+      const entries = products.filter((g: Dyn) => g.headline?.[key]).map((g: Dyn) => ({ gradeId: g.id, variant: !variantOnly && variantValue(g, g.headline[key]), v: g.headline[key] }));
+      // A headline whose spread names the products sold as toughened (D133) says how many and what the others give.
+      // Set apart, their comparable values leave the median as a variant's do, unless every comparable value is theirs.
+      const def = defByKey.get(key);
+      const isClaimed = (e: Dyn) => claimsOf(gradeById.get(e.gradeId), e.v).includes(CLAIM.TOUGHENED);
+      const split = def?.toughened ? claimedSplit(entries, CLAIM.TOUGHENED, isClaimed) : null;
+      const apart = def?.toughened === 'set apart' && split?.others ? new Set<Dyn>(split.gradeIds) : null;
+      const counted = apart ? entries.filter((e: Dyn) => !(apart.has(e.gradeId) && !e.variant && e.v.level === LEVEL.COMPARABLE)) : entries;
+      summary[key] = summarise(counted, (variantOnly ? products.length : plain) - (apart?.size ?? 0));
+      if (split) summary[key].claimed = apart ? { ...split, setApart: true } : split;
+      if (summary[key].n > 0) {
+        m.headline[key] = productsHeadline(m.headline[key].unit, summary[key], gradeById, key);
+        // The listings behind the products the median is of: a variant's are its own, and apart (unless it is all there is).
+        if (key === 'priceCADkg') m.headline[key].priceIds = products.filter((g: Dyn) => variantOnly || !g.variant).flatMap((g: Dyn) => g.headline?.priceCADkg?.priceIds ?? []);
+      }
+    }
+    m.summary = summary;
+  }
+  return { ledger };
+}

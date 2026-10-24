@@ -1,0 +1,18 @@
+{
+  "id": "WP-08",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-08-sqlite",
+  "pr": 16,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    16
+  ],
+  "note": "driver wrapper and contract suite delivered by PR #16"
+}

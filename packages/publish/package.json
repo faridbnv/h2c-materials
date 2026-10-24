@@ -1,0 +1,12 @@
+{
+  "name": "@atlas/publish",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas: what the public site may publish (material pages, data parts). Display rules only; no science.",
+  "exports": {
+    "./source-link": "./src/source-link.ts",
+    "./shards": "./src/shards.ts",
+    "./headlines": "./src/headlines.ts"
+  }
+}

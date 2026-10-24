@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "page": "page-m073-pps-cf",
+  "title": "material page: m073-pps-cf",
+  "adapter": "old",
+  "project": "live-path",
+  "path": "/h2c-materials/legacy/materials/M073.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 1,
+    "violatingNodes": 4,
+    "byImpact": {
+      "serious": 4
+    },
+    "passedRules": 49,
+    "incompleteRules": 1,
+    "inapplicableRules": 41
+  },
+  "violations": [
+    {
+      "rule": "nested-interactive",
+      "impact": "serious",
+      "help": "Interactive controls must not be nested",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/nested-interactive?application=playwright",
+      "tags": [
+        "wcag2a",
+        "wcag412"
+      ],
+      "nodes": 4,
+      "examples": [
+        {
+          "target": "div[data-unit=\"MPa\"] > .st-svg[height=\"61.2\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"61.2\" role=\"img\" aria-label=\"Tensile strength (XY): 5 products drawn; median of the 5 it counts 87 MPa, middle half 63⁠"
+        },
+        {
+          "target": "div[data-unit=\"GPa\"] > .st-svg[height=\"61.2\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"61.2\" role=\"img\" aria-label=\"Tensile modulus (XY): 5 products drawn; median of the 5 it counts 8 GPa, middle half 7.46⁠"
+        },
+        {
+          "target": "div[data-unit=\"%\"] > .st-svg[height=\"61.2\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"61.2\" role=\"img\" aria-label=\"Elongation at break (XY): 5 products drawn; median of the 5 it counts 2.2 %, middle half 1"
+        },
+        {
+          "target": "div[data-unit=\"°C\"] > .st-svg[height=\"61.2\"][role=\"img\"]",
+          "html": "<svg class=\"st-svg\" width=\"100%\" height=\"61.2\" role=\"img\" aria-label=\"HDT at 0.45 MPa: 5 products drawn; median of the 5 it counts 251 °C, middle half 245⁠–⁠253"
+        }
+      ]
+    }
+  ],
+  "incomplete": [
+    {
+      "rule": "color-contrast",
+      "nodes": 127
+    }
+  ]
+}

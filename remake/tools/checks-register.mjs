@@ -1,0 +1,523 @@
+#!/usr/bin/env node
+// The check register and the must-not-change map (WP-15; pack 07 section 4, pack 06 section 3).
+//
+//   npm run checks:register -- --verify       fail on any of the problems listed below (exit 1); exit 0 when there are none
+//   npm run checks:register -- --inventory    print the checks the tree holds today, in checks/old-inventory.txt's format
+//   npm run checks:register -- --skeleton     print empty register rows for checks the register does not cover yet
+//   npm run checks:register -- --floor        record the test and assertion counts of every registered test file in checks/test-floor.txt
+//                                              (adds files, raises counts, never lowers one; lowering is a hand edit that shows in review)
+//   npm run checks:register -- --cutover-ready  every old check has a successor with proof, or the owner's recorded approval to retire it
+//                                              (WP-32, pack 07 section 4): exit 1 and a list of what is missing, with the command that records
+//                                              each approval; it never records one. An approval is a remake/attest.csv row `retire-approved <register row id>`
+//                                              (or `retire-approved all`), which only the owner's terminal can write (wp:attest).
+//   --root DIR                                 read another checkout (the tests use a scratch copy)
+//   --require-frozen                           with --verify: also fail when the frozen copies on git cannot be read (see 9 and 10)
+//
+// No check disappears without a named successor and proof (ADR-15 point 4). The register is checks/register.csv: one row per
+// old check or gate, and one per new check. A check is named by a TOKEN:
+//   file:<path>                         a test, a script or a hook (a path in the repository)
+//   step:<name>                         a step of scripts/verify.mjs or scripts/verify-fast.mjs
+//   npm:<script>                        a package.json script
+//   ci:<workflow>/<job>[/<step name>]   a job or a named step of .github/workflows/<workflow>
+// checks/old-inventory.txt freezes the old checks (tokens, and for each test file its test count and skip count). It is
+// code-owned: changing it needs the owner's review. --verify fails when:
+//   1. a register row names a token that no longer exists (unless the row records its deletion in `deleted`, after cutover);
+//   2. a token of the frozen inventory has no register row (an old check vanished without a successor row);
+//   3. a check the tree holds today has no register row;
+//   4. an old test file lost tests or gained a skip or todo marker since the freeze, or a registered new test file is skipped
+//      outright (a conditional skip, such as `{ skip: !process.env.X }`, is allowed);
+//   5. a row is malformed: unknown status, no successor, no proof, an owner that is not a work package;
+//   6. the must-not-change map (docs/next/must-not-change.md) lacks an item, names a test that does not exist or is not
+//      registered, claims a parity tier that is not built, or has an item with neither a test nor an UNTESTED mark;
+//   7. the map and the register disagree about which check pins which item (`protects`);
+//   8. the owner's list (docs/next/untested-rules.md) and the map disagree about which items are not fully tested;
+//   9. a registered test file, old or new, holds fewer tests or fewer assertion calls than checks/test-floor.txt records for it.
+//      Rule 4 freezes the old files' test and skip counts; the floor adds the assertion count for them and, for the new and
+//      ported files rule 4 does not know, both counts. It catches a test or an assertion deleted to make a change pass. It does
+//      NOT catch an assertion whose expected value is edited, or one replaced by a weaker one of the same kind: for a ported
+//      test that is the assertion-line comparison with the old file (untested-rules question 6, planned in WP-18). A registered
+//      test file that has no floor yet is a problem too: add it with --floor, in the change that registers it.
+//  10. the inventory on this branch lacks a token, or lowers a test count or raises a skip count, that the copy on
+//      origin/remake/v3 (git show) freezes: regenerating the inventory cannot make an old check vanish;
+//  11. an old npm check script of origin/main's package.json (git show) is gone from package.json here without a register
+//      row that records its deletion, or has no register row at all.
+// 10 and 11 read git. Where the refs cannot be read (a checkout without them; a CI job that fetched only its own commit tries
+// one shallow fetch when CI=true) they are reported as a note, not a problem, unless --require-frozen is given.
+// Nothing here retires a check: a "retire" row takes effect when WP-38 deletes the check and records the date.
+import { execFileSync } from 'node:child_process';
+import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { parseCsv } from './rulings-check.mjs';
+import { csvLine, isMain, loadAllStatus, loadIndex, repoRoot } from './wp-lib.mjs';
+
+export const REGISTER_PATH = 'checks/register.csv';
+export const BASELINE_PATH = 'checks/old-inventory.txt';
+export const MAP_PATH = 'docs/next/must-not-change.md';
+export const UNTESTED_PATH = 'docs/next/untested-rules.md';
+/** Where the frozen inventory and the old package.json are read from, by `git show`. */
+export const FROZEN_REF = 'origin/remake/v3';
+export const MAIN_REF = 'origin/main';
+export const FLOOR_PATH = 'checks/test-floor.txt';
+
+export const COLUMNS = ['id', 'old', 'protected_failure', 'status', 'successor', 'proof', 'owner', 'kind', 'old_refs', 'successor_refs', 'protects', 'deleted'];
+export const STATUSES = ['keep', 're-point', 'successor', 'obsolete-at-cutover'];
+export const KINDS = ['test', 'gate', 'ci', 'script', 'new'];
+export const MAP_STATUSES = ['TESTED', 'PARTIAL', 'UNTESTED'];
+// Parity tiers that run today (docs/next/parity-contract.md). The others are named in the map's notes until their package lands.
+export const BUILT_TIERS = ['P-engine', 'P-erase'];
+// The items of 00-CURRENT-STATE section 11 (14 rows) and the 06 must-not-change list (24 rows).
+export const MAP_IDS = [
+  ...Array.from({ length: 14 }, (_, i) => `S11-${String(i + 1).padStart(2, '0')}`),
+  ...Array.from({ length: 24 }, (_, i) => `S06-${String(i + 1).padStart(2, '0')}`),
+];
+
+const RUNNERS = ['scripts/verify.mjs', 'scripts/verify-fast.mjs'];
+const FIXED_FILES = [...RUNNERS, '.githooks/pre-commit'];
+const WORKFLOW_DIR = '.github/workflows';
+const OLD_WORKFLOWS = ['verify.yml', 'pages.yml'];
+const SETUP_STEP = /^(Install|Start from)\b|\$\{\{/;
+const CHECK_SCRIPT = /^(verify|verify:fast|test|test:ingest|snapshot|build:diff|pages:check|scale|scale:budget|reproducible|data:check|data:lint|data:fmt|bench|trace|packets|round:close|doctor|ui:.+|audit:.+|docs:.+)$/;
+const TEST_FILE = /^test\/[^/]+\.(test|check)\.js$/;
+const TOKEN = /^(file|step|npm|ci):\S.*$/;
+const STEP_RE = /^\s*\['([a-z][a-z ]*)',\s*(?:'npm'|\.\.\.node\()/gm;
+
+const read = (root, path) => readFileSync(join(root, path), 'utf8');
+const present = (root, path) => existsSync(join(root, path));
+function walk(root, dir) {
+  if (!present(root, dir)) return [];
+  return readdirSync(join(root, dir), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(root, `${dir}/${e.name}`) : [`${dir}/${e.name}`]));
+}
+
+const splitToken = (token) => {
+  const colon = token.indexOf(':');
+  return [token.slice(0, colon), token.slice(colon + 1)];
+};
+const filePath = (token) => token.slice('file:'.length);
+const splitList = (cell, separator = ';') => cell.split(separator).map((s) => s.trim()).filter(Boolean);
+
+export const testCount = (src) => (src.match(/^\s*(?:test|it)(?:\.\w+)?\(/gm) ?? []).length;
+export const skipCount = (src) => (src.match(/[{,]\s*(?:skip|todo)\s*:|\.(?:skip|todo)\(/g) ?? []).length;
+// For a test file the freeze never saw: a skip that always applies. `{ skip: !process.env.X }` is a condition, not a skip.
+export const standingSkipCount = (src) => (src.match(/\.(?:skip|todo)\(|[{,]\s*(?:skip|todo)\s*:\s*(?:true\b|['"`])/g) ?? []).length;
+const testStats = (src) => ({ tests: testCount(src), skips: skipCount(src) });
+
+// Assertion calls: assert(...), assert.ok/equal/deepEqual/throws/rejects/match/...(...), t.assert.x(...), expect(...). Counted on
+// source lines that are not comments, so a commented-out assertion is not one.
+export const assertCount = (src) => src.split('\n').filter((l) => !/^\s*(?:\/\/|\*|\/\*)/.test(l))
+  .reduce((n, l) => n + (l.match(/(?<![\w$.])(?:t\.)?(?:assert|expect)(?:\.\w+)*\s*\(/g) ?? []).length, 0);
+export const floorStats = (src) => ({ tests: testCount(src), asserts: assertCount(src) });
+// The test files the floor covers: a test or check file of the old suite, or a test file under tests/ or a package's test folder.
+const FLOOR_TOKEN = /^file:(?:test\/[^/]+\.(?:test|check)\.js|tests?\/.+\.test\.(?:m?js|ts)|packages\/[^/]+\/test\/.+\.test\.(?:m?js|ts))$/;
+
+function parseWorkflow(text) {
+  const jobs = new Map();
+  let inJobs = false, job = null;
+  for (const line of text.split(/\r?\n/)) {
+    if (/^jobs:\s*$/.test(line)) { inJobs = true; continue; }
+    if (!inJobs || line.startsWith('#') || line.trim() === '') continue;
+    if (/^\S/.test(line)) { inJobs = false; continue; }
+    const jobMatch = line.match(/^ {2}([A-Za-z0-9_-]+):\s*$/);
+    if (jobMatch) { job = jobMatch[1]; jobs.set(job, new Set()); continue; }
+    const stepMatch = line.match(/^ {6}- name:\s*(.+?)\s*$/);
+    if (stepMatch && job) jobs.get(job).add(stepMatch[1].replace(/^(['"])(.*)\1$/, '$2'));
+  }
+  return jobs;
+}
+
+/** Every token that exists in the tree now, mapped to its attributes: { tests, skips } for a test file. */
+export function allTokens(root) {
+  const tokens = new Map();
+  for (const f of walk(root, 'test')) tokens.set(`file:${f}`, TEST_FILE.test(f) ? testStats(read(root, f)) : {});
+  for (const f of FIXED_FILES) if (present(root, f)) tokens.set(`file:${f}`, {});
+  for (const f of RUNNERS) {
+    if (present(root, f)) for (const m of read(root, f).matchAll(STEP_RE)) tokens.set(`step:${m[1]}`, {});
+  }
+  const scripts = present(root, 'package.json') ? JSON.parse(read(root, 'package.json')).scripts ?? {} : {};
+  for (const name of Object.keys(scripts)) tokens.set(`npm:${name}`, {});
+  const workflows = present(root, WORKFLOW_DIR) ? readdirSync(join(root, WORKFLOW_DIR)).filter((f) => /\.ya?ml$/.test(f)) : [];
+  for (const wf of workflows) {
+    for (const [job, steps] of parseWorkflow(read(root, `${WORKFLOW_DIR}/${wf}`))) {
+      tokens.set(`ci:${wf}/${job}`, {});
+      for (const step of steps) tokens.set(`ci:${wf}/${job}/${step}`, {});
+    }
+  }
+  return tokens;
+}
+
+function isOldCheck(token) {
+  const [kind, value] = splitToken(token);
+  switch (kind) {
+    case 'file': return value.startsWith('test/') || FIXED_FILES.includes(value);
+    case 'step': return true;
+    case 'npm': return CHECK_SCRIPT.test(value);
+    case 'ci': return OLD_WORKFLOWS.some((w) => value.startsWith(`${w}/`)) && !SETUP_STEP.test(value.split('/').slice(2).join('/'));
+    default: return false;
+  }
+}
+
+/** The old checks the tree holds today: the tokens an old-check row must cover. */
+export function liveInventory(root, tokens = allTokens(root)) {
+  return new Map([...tokens].filter(([token]) => isOldCheck(token)).sort(([a], [b]) => (a < b ? -1 : 1)));
+}
+
+export const formatBaseline = (inventory) => [
+  '# The old checks, frozen. One token per line; a test file also records its test count and skip count (checks:register).',
+  '# Code-owned: a change here needs the owner\'s review. Regenerate only to add checks: npm run checks:register -- --inventory',
+  ...[...inventory].map(([token, a]) => (a.tests === undefined ? token : `${token} tests=${a.tests} skips=${a.skips}`)),
+].join('\n') + '\n';
+
+export function parseBaseline(text) {
+  const baseline = new Map();
+  for (const line of text.split(/\r?\n/)) {
+    if (!line.trim() || line.startsWith('#')) continue;
+    const m = line.match(/^(\S.*?)(?: tests=(\d+) skips=(\d+))?$/);
+    baseline.set(m[1], m[2] === undefined ? {} : { tests: Number(m[2]), skips: Number(m[3]) });
+  }
+  return baseline;
+}
+
+const git = (root, args, timeout = 30_000) => {
+  try { return execFileSync('git', ['-C', root, ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], timeout, maxBuffer: 16 * 1024 * 1024 }); } catch { return null; }
+};
+
+/**
+ * The two copies the branch cannot rewrite: the inventory as origin/remake/v3 freezes it and package.json as origin/main has it,
+ * each as text, or null when git cannot say. With `fetch` (CI) a missing ref is fetched once, shallow.
+ * @returns {{ baseline: string | null, mainPackage: string | null }}
+ */
+export function frozenFromGit(root, { fetch = process.env.CI === 'true' } = {}) {
+  const read = () => ({ baseline: git(root, ['show', `${FROZEN_REF}:${BASELINE_PATH}`]), mainPackage: git(root, ['show', `${MAIN_REF}:package.json`]) });
+  let copies = read();
+  if (fetch && (copies.baseline === null || copies.mainPackage === null)) {
+    git(root, ['fetch', '--quiet', '--no-tags', '--depth=1', 'origin', '+refs/heads/remake/v3:refs/remotes/origin/remake/v3', '+refs/heads/main:refs/remotes/origin/main'], 120_000);
+    copies = read();
+  }
+  return copies;
+}
+
+/** The old npm check scripts a package.json holds, as tokens. */
+export const oldScriptTokens = (packageText) => Object.keys(JSON.parse(packageText).scripts ?? {}).filter((name) => CHECK_SCRIPT.test(name)).map((name) => `npm:${name}`);
+
+function checkFrozen(frozen, current, rows, now, requireFrozen, add, notes) {
+  const unreadable = (what) => (requireFrozen ? add : (m) => notes.push(m))(`${what} cannot be read from git here, so the check that it was not rewritten did not run (it needs ${FROZEN_REF} and ${MAIN_REF}; run git fetch)`);
+  if (frozen.baseline === null) unreadable(`${BASELINE_PATH} on ${FROZEN_REF}`);
+  else {
+    for (const [token, was] of parseBaseline(frozen.baseline)) {
+      const is = current.get(token);
+      if (is === undefined) add(`${BASELINE_PATH} dropped ${token}, which ${FROZEN_REF} freezes: the inventory only grows, and an old check leaves through a register row with a deleted date`);
+      else if (was.tests !== undefined && is.tests < was.tests) add(`${BASELINE_PATH} lowers ${token} to ${is.tests} tests; ${FROZEN_REF} freezes ${was.tests}`);
+      else if (was.tests !== undefined && is.skips > was.skips) add(`${BASELINE_PATH} raises ${token} to ${is.skips} skips; ${FROZEN_REF} freezes ${was.skips}`);
+    }
+  }
+  if (frozen.mainPackage === null) unreadable(`package.json on ${MAIN_REF}`);
+  else {
+    const registered = new Set(rows.flatMap((r) => r.oldRefs));
+    const deleted = new Set(rows.filter((r) => r.deleted).flatMap((r) => r.oldRefs));
+    for (const token of oldScriptTokens(frozen.mainPackage)) {
+      if (!now.has(token) && !deleted.has(token)) add(`${token} is an old check script of ${MAIN_REF} and is gone from package.json (a deleted check keeps its register row, with a successor and a deleted date)`);
+      else if (!registered.has(token)) add(`no register row for ${token}, an old check script of ${MAIN_REF}`);
+    }
+  }
+}
+
+const tokenOfMapRef = (ref) => (/^P-[a-z]+$/i.test(ref) || TOKEN.test(ref) ? ref : `file:${ref}`);
+const mapRefs = (cell) => [...cell.matchAll(/`([^`]+)`/g)].map((m) => tokenOfMapRef(m[1].trim()));
+
+function loadRows(root, add) {
+  if (!present(root, REGISTER_PATH)) { add(`${REGISTER_PATH} does not exist`); return []; }
+  const [header, ...raw] = parseCsv(read(root, REGISTER_PATH));
+  if (header?.join(',') !== COLUMNS.join(',')) { add(`${REGISTER_PATH}: header must be ${COLUMNS.join(',')}`); return []; }
+  const wps = new Set(loadIndex(root).packages.map((p) => p.id));
+  const seen = new Set();
+  return raw.map((fields, i) => {
+    const line = i + 2;
+    if (fields.length !== COLUMNS.length) { add(`${REGISTER_PATH} line ${line}: ${fields.length} fields, expected ${COLUMNS.length}`); return null; }
+    const row = Object.fromEntries(COLUMNS.map((c, j) => [c, fields[j].trim()]));
+    const oldRefs = splitList(row.old_refs);
+    const successorRefs = splitList(row.successor_refs);
+    const protectsIds = splitList(row.protects);
+    const at = `register row ${row.id || `at line ${line}`}`;
+    if (!row.id) add(`${at}: empty id`);
+    if (seen.has(row.id)) add(`${at}: duplicate id`);
+    seen.add(row.id);
+    if (!STATUSES.includes(row.status)) add(`${at}: status "${row.status}" is not one of ${STATUSES.join(', ')}`);
+    if (!KINDS.includes(row.kind)) add(`${at}: kind "${row.kind}" is not one of ${KINDS.join(', ')}`);
+    for (const c of ['old', 'protected_failure', 'successor', 'proof', 'owner', 'old_refs']) if (!row[c]) add(`${at}: ${c} is empty (no check goes without a named successor and proof)`);
+    for (const w of splitList(row.owner, /[;,]/)) if (!wps.has(w)) add(`${at}: owner "${w}" is not a work package in remake/plan/wp-index.json`);
+    for (const t of [...oldRefs, ...successorRefs]) if (!TOKEN.test(t)) add(`${at}: "${t}" is not a token (file:, step:, npm:, ci:)`);
+    for (const p of protectsIds) if (!MAP_IDS.includes(p)) add(`${at}: protects "${p}", which is not an item of the must-not-change map`);
+    if (row.deleted && !/^\d{4}-\d{2}-\d{2}$/.test(row.deleted)) add(`${at}: deleted must be a date (YYYY-MM-DD)`);
+    if (row.deleted && !['successor', 'obsolete-at-cutover'].includes(row.status)) add(`${at}: a deleted check is a successor or obsolete-at-cutover row, not ${row.status}`);
+    return { ...row, oldRefs, successorRefs, protectsIds };
+  }).filter(Boolean);
+}
+
+/** Whether a token names something that exists: a listed token, or any file in the checkout. */
+const existsIn = (root, now) => (t) => now.has(t) || (t.startsWith('file:') && present(root, filePath(t)));
+
+function checkTokens(rows, exists, add) {
+  for (const row of rows) {
+    for (const t of row.oldRefs) {
+      if (row.deleted && exists(t)) add(`register row ${row.id}: marked deleted on ${row.deleted}, but ${t} still exists`);
+      if (!row.deleted && !exists(t)) add(`register row ${row.id}: names ${t}, which no longer exists (a deleted check keeps its row, with a successor and a deleted date)`);
+    }
+    for (const t of row.successorRefs) if (!exists(t)) add(`register row ${row.id}: its successor ${t} does not exist`);
+  }
+}
+
+function checkCoverage(root, rows, now, exists, live, baseline, add) {
+  const registered = new Set(rows.flatMap((r) => r.oldRefs));
+  for (const t of baseline.keys()) if (!registered.has(t)) add(`an old check vanished without a register row: ${t} (it is in ${BASELINE_PATH}, so it needs a row with a successor and proof)`);
+  for (const t of live.keys()) if (!registered.has(t)) add(`no register row for ${t} (npm run checks:register -- --skeleton prints one)`);
+  const deleted = new Set(rows.filter((r) => r.deleted).flatMap((r) => r.oldRefs));
+  for (const [t, was] of baseline) {
+    if (was.tests === undefined || deleted.has(t) || !now.has(t)) continue;
+    const is = now.get(t);
+    if (is.tests < was.tests) add(`${t} lost tests: ${was.tests} at the freeze, ${is.tests} now`);
+    if (is.skips > was.skips) add(`${t} gained skip or todo markers: ${was.skips} at the freeze, ${is.skips} now`);
+  }
+  for (const row of rows) for (const t of row.oldRefs) {
+    if (row.kind === 'new' && exists(t) && /^file:tests?\/.+\.test\.mjs$/.test(t) && standingSkipCount(read(root, filePath(t))) > 0) add(`${t} (register row ${row.id}) is skipped: it has a skip or todo marker that always applies`);
+  }
+}
+
+export function formatFloor(floor) {
+  return [
+    '# The test floor: for each registered test file, the fewest tests and assertion calls it may hold (checks:register).',
+    '# Code-owned: lowering a number is a deliberate edit, reviewed like checks/old-inventory.txt. Raise with: npm run checks:register -- --floor',
+    ...[...floor].sort(([a], [b]) => (a < b ? -1 : 1)).map(([token, f]) => `${token} tests=${f.tests} asserts=${f.asserts}`),
+  ].join('\n') + '\n';
+}
+
+export function parseFloor(text) {
+  const floor = new Map();
+  for (const line of text.split(/\r?\n/)) {
+    if (!line.trim() || line.startsWith('#')) continue;
+    const m = line.match(/^(file:\S+) tests=(\d+) asserts=(\d+)$/);
+    if (!m) throw new Error(`${FLOOR_PATH}: cannot read the line "${line}"`);
+    floor.set(m[1], { tests: Number(m[2]), asserts: Number(m[3]) });
+  }
+  return floor;
+}
+
+/** The test files the register names (old or new check, row not marked deleted) that exist now, with their current counts. */
+export function registeredTestStats(root, rows) {
+  const out = new Map();
+  for (const row of rows) {
+    if (row.deleted) continue;
+    for (const t of [...row.oldRefs, ...row.successorRefs]) {
+      if (FLOOR_TOKEN.test(t) && present(root, filePath(t))) out.set(t, floorStats(read(root, filePath(t))));
+    }
+  }
+  return out;
+}
+
+function checkFloor(root, rows, add) {
+  const now = registeredTestStats(root, rows);
+  const unfloored = [];
+  if (!present(root, FLOOR_PATH)) { add(`${FLOOR_PATH} does not exist (npm run checks:register -- --floor writes it)`); return { files: now.size, unfloored: [...now.keys()] }; }
+  let floor;
+  try { floor = parseFloor(read(root, FLOOR_PATH)); } catch (e) { add(e.message); return { files: now.size, unfloored: [] }; }
+  for (const [token, was] of floor) {
+    if (!now.has(token)) {
+      // A floored file that is gone is rule 1's business when the register still names it, and a recorded deletion when it does not.
+      const named = rows.some((r) => !r.deleted && [...r.oldRefs, ...r.successorRefs].includes(token));
+      if (named) add(`${FLOOR_PATH}: ${token} is floored but cannot be read`);
+      continue;
+    }
+    const is = now.get(token);
+    if (is.tests < was.tests) add(`${token} lost tests: the floor is ${was.tests}, it holds ${is.tests}`);
+    if (is.asserts < was.asserts) add(`${token} lost assertions: the floor is ${was.asserts} assertion calls, it holds ${is.asserts}`);
+  }
+  for (const token of now.keys()) if (!floor.has(token)) unfloored.push(token);
+  // A registered test file with no floor is a hole in the ratchet, and a green run that said so in passing would be easy to miss.
+  for (const token of unfloored) add(`${token} is a registered test file with no floor in ${FLOOR_PATH} (npm run checks:register -- --floor records it)`);
+  return { files: now.size, unfloored };
+}
+
+/** The floor as it should be written now: every registered test file, each at the larger of its current and recorded counts. */
+export function floorFor(root) {
+  const problems = [];
+  const rows = loadRows(root, (m) => problems.push(m));
+  if (problems.length) throw new Error(`the register does not load: ${problems[0]}`);
+  const floor = present(root, FLOOR_PATH) ? parseFloor(read(root, FLOOR_PATH)) : new Map();
+  const next = new Map(floor);
+  for (const [token, is] of registeredTestStats(root, rows)) {
+    const was = floor.get(token);
+    next.set(token, { tests: Math.max(is.tests, was?.tests ?? 0), asserts: Math.max(is.asserts, was?.asserts ?? 0) });
+  }
+  return next;
+}
+
+function parseMap(root, add) {
+  if (!present(root, MAP_PATH)) { add(`${MAP_PATH} does not exist`); return []; }
+  const items = [];
+  for (const line of read(root, MAP_PATH).split(/\r?\n/)) {
+    if (!line.startsWith('| S')) continue;
+    const cells = line.split('|').slice(1, -1).map((c) => c.trim());
+    const [id, rule, decisions, oldSuite, newSuite, status, note] = cells;
+    if (!/^S(11|06)-\d\d$/.test(id)) continue;
+    if (cells.length !== 7) { add(`${MAP_PATH}: ${id} has ${cells.length} cells, expected 7 (id, rule, decisions, old suite, new suite and parity, status, gap or note)`); continue; }
+    items.push({ id, rule, decisions, status, note, refs: [...mapRefs(oldSuite), ...mapRefs(newSuite)] });
+  }
+  return items;
+}
+
+function checkMap(items, rows, exists, add) {
+  const ids = items.map((i) => i.id);
+  for (const id of MAP_IDS) if (!ids.includes(id)) add(`${MAP_PATH}: item ${id} is missing`);
+  for (const id of new Set(ids)) if (ids.filter((x) => x === id).length > 1) add(`${MAP_PATH}: item ${id} appears twice`);
+  for (const item of items) {
+    const at = `${MAP_PATH} ${item.id}`;
+    if (!item.rule || !item.decisions) add(`${at}: rule or decisions is empty`);
+    if (!MAP_STATUSES.includes(item.status)) { add(`${at}: status "${item.status}" is not one of ${MAP_STATUSES.join(', ')}`); continue; }
+    for (const ref of item.refs) {
+      if (/^P-/i.test(ref)) { if (!BUILT_TIERS.includes(ref)) add(`${at}: parity tier ${ref} is not built yet (built: ${BUILT_TIERS.join(', ')}); name a tier that is not built in the note, without backticks`); continue; }
+      if (!exists(ref)) { add(`${at}: names ${ref}, which does not exist`); continue; }
+      const holders = rows.filter((r) => r.oldRefs.includes(ref));
+      if (!holders.length) add(`${at}: ${ref} is not in the check register`);
+      else if (!holders.some((r) => r.protectsIds.includes(item.id))) add(`${at}: ${ref} is in the register (${holders.map((r) => r.id).join(', ')}) without ${item.id} in its protects column`);
+    }
+    if (item.status === 'UNTESTED' && item.refs.length) add(`${at}: marked UNTESTED but names ${item.refs.join(', ')}`);
+    if (item.status !== 'UNTESTED' && !item.refs.length) add(`${at}: marked ${item.status} but names no test or parity tier (mark it UNTESTED, explicitly)`);
+    if (item.status !== 'TESTED' && !item.note) add(`${at}: marked ${item.status} without saying what is not covered`);
+  }
+  for (const row of rows) for (const id of row.protectsIds) {
+    const item = items.find((i) => i.id === id);
+    if (item && !item.refs.some((ref) => row.oldRefs.includes(ref))) add(`register row ${row.id} says it protects ${id}, but the map does not name it`);
+  }
+}
+
+function checkUntestedList(root, items, add) {
+  if (!present(root, UNTESTED_PATH)) { add(`${UNTESTED_PATH} does not exist`); return; }
+  const listed = read(root, UNTESTED_PATH).split(/\r?\n/).filter((l) => l.startsWith('### ')).flatMap((l) => l.match(/S(?:11|06)-\d\d/g) ?? []);
+  const open = items.filter((i) => i.status !== 'TESTED').map((i) => i.id);
+  for (const id of open) if (!listed.includes(id)) add(`${UNTESTED_PATH}: ${id} is ${items.find((i) => i.id === id).status} in the map but not on the owner's list`);
+  for (const id of listed) if (!open.includes(id)) add(`${UNTESTED_PATH}: lists ${id}, which the map does not mark PARTIAL or UNTESTED`);
+}
+
+/**
+ * Every problem with the register, the baseline, the map and the owner's list; an empty array when there are none. `notes` are
+ * things that could not be checked here. `frozen` replaces what git says (the tests give it).
+ * @param {string} [root]
+ * @param {{ frozen?: { baseline: string | null, mainPackage: string | null }, requireFrozen?: boolean }} [options]
+ */
+export function verifyRegister(root = repoRoot(), { frozen = frozenFromGit(root), requireFrozen = false } = {}) {
+  const problems = [];
+  const notes = [];
+  const add = (m) => problems.push(m);
+  const now = allTokens(root);
+  const live = liveInventory(root, now);
+  const exists = existsIn(root, now);
+  const rows = loadRows(root, add);
+  checkTokens(rows, exists, add);
+  if (!present(root, BASELINE_PATH)) add(`${BASELINE_PATH} does not exist`);
+  else {
+    const baseline = parseBaseline(read(root, BASELINE_PATH));
+    checkCoverage(root, rows, now, exists, live, baseline, add);
+    checkFrozen(frozen, baseline, rows, now, requireFrozen, add, notes);
+  }
+  const items = parseMap(root, add);
+  checkMap(items, rows, exists, add);
+  checkUntestedList(root, items, add);
+  const floor = checkFloor(root, rows, add);
+  const counts = Object.fromEntries(MAP_STATUSES.map((s) => [s, items.filter((i) => i.status === s).length]));
+  return { problems, notes, rows: rows.length, tokens: live.size, items: items.length, counts, floor };
+}
+
+/** Workflows that stop existing at the cutover; a check that lives in one needs a successor job in the workflows that stay. */
+const VANISHING_WORKFLOWS = ['verify.yml', 'pages.yml'];
+const SUCCESSOR_WORKFLOW = /^ci:next-(?:main|verify)\.yml\//;
+const LASTING_MILESTONE = 'M5';
+
+/** The owner's approvals to retire: the `retire-approved` rows of remake/attest.csv, as a set of register row ids ('all' covers every row). */
+export function retireApprovals(root) {
+  const p = join(root, 'remake', 'attest.csv');
+  if (!existsSync(p)) return new Set();
+  const [, ...rows] = parseCsv(readFileSync(p, 'utf8'));
+  return new Set(rows.filter((r) => r[1] === 'retire-approved').map((r) => (r[2] ?? '').trim()).filter(Boolean));
+}
+
+/**
+ * Whether every old check is ready for the cutover: the register is sound (verifyRegister), and each row either has a successor with proof
+ * or carries the owner's approval to retire. Returns { problems, missing, rows } where `missing` lists, per register row, what stands in the way.
+ * Rules, per row that is not a new check:
+ *   obsolete-at-cutover  needs a retire-approved row naming it (or "all");
+ *   a check inside verify.yml or pages.yml (gone at the cutover) needs a successor ref in next-main.yml or next-verify.yml, which must exist;
+ *   re-point and successor  need their owner packages done (those of the clean-up after the cutover, M5, are not required to be), or a
+ *                           retire-approved row naming the row itself ("all" does not count here): the owner retires it for the cutover.
+ */
+export function cutoverReady(root = repoRoot(), options = {}) {
+  const base = verifyRegister(root, options);
+  const missing = [];
+  const rows = loadRows(root, () => {});
+  const approvals = retireApprovals(root);
+  const statuses = existsSync(join(root, 'remake', 'status')) ? loadAllStatus(root) : {};
+  const index = new Map(loadIndex(root).packages.map((p) => [p.id, p]));
+  for (const row of rows) {
+    if (row.kind === 'new') continue;
+    const need = (what, fix = '') => missing.push({ id: row.id, status: row.status, what, fix });
+    if (row.status === 'obsolete-at-cutover') {
+      if (!approvals.has(row.id) && !approvals.has('all')) need('the owner has not approved retiring it', `npm run wp:attest -- retire-approved ${row.id}`);
+      continue;
+    }
+    const vanishing = row.oldRefs.some((t) => t.startsWith('ci:') && VANISHING_WORKFLOWS.some((w) => t.startsWith(`ci:${w}/`)));
+    if (vanishing && !row.successorRefs.some((t) => SUCCESSOR_WORKFLOW.test(t))) need('it lives in verify.yml or pages.yml, which the cutover replaces, and names no successor job in next-main.yml or next-verify.yml');
+    if (row.status === 're-point' || row.status === 'successor') {
+      if (approvals.has(row.id)) continue;
+      for (const wp of splitList(row.owner, /[;,]/)) {
+        if (index.get(wp)?.milestone === LASTING_MILESTONE) continue;
+        const st = statuses[wp]?.status ?? 'unknown';
+        if (!['done', 'dropped'].includes(st) || index.get(wp)?.dropped === true) need(`its successor is owned by ${wp}, which is ${index.get(wp)?.dropped ? 'dropped' : st}`);
+      }
+    }
+  }
+  return { problems: base.problems, notes: base.notes, missing, rows: rows.length };
+}
+
+const SKELETON_ID = { file: 'T', step: 'S', npm: 'A', ci: 'J' };
+export function skeleton(root) {
+  const registerRows = present(root, REGISTER_PATH) ? parseCsv(read(root, REGISTER_PATH)).slice(1) : [];
+  const registered = new Set(registerRows.flatMap((fields) => splitList(fields[COLUMNS.indexOf('old_refs')] ?? '')));
+  const lines = [];
+  for (const token of liveInventory(root).keys()) {
+    if (registered.has(token)) continue;
+    const [kind, value] = splitToken(token);
+    const name = value.replace(/^test\//, '').replace(/\.(test|check)\.js$/, '').replace(/[^A-Za-z0-9]+/g, '-');
+    lines.push(csvLine([`${SKELETON_ID[kind]}-${name}`, value, '', '', '', '', '', kind === 'file' && value.startsWith('test/') ? 'test' : 'gate', token, '', '', '']));
+  }
+  return lines;
+}
+
+if (isMain(import.meta.url)) {
+  const args = process.argv.slice(2);
+  const at = args.indexOf('--root');
+  const root = at >= 0 ? args[at + 1] : repoRoot();
+  const requireFrozen = args.includes('--require-frozen');
+  const mode = args.filter((a) => a !== '--root' && a !== root && a !== '--require-frozen');
+  if (mode.length !== 1 || !['--verify', '--inventory', '--skeleton', '--floor', '--cutover-ready'].includes(mode[0])) {
+    console.error('usage: checks-register.mjs --verify [--require-frozen] | --cutover-ready [--require-frozen] | --inventory | --skeleton | --floor [--root DIR]');
+    process.exit(2);
+  }
+  if (mode[0] === '--cutover-ready') {
+    const { problems, notes, missing, rows } = cutoverReady(root, { requireFrozen });
+    for (const n of notes) console.error(`checks:register: note: ${n}`);
+    for (const p of problems) console.error(`checks:register: ${p}`);
+    for (const m of missing) console.error(`checks:register: not ready: ${m.id} (${m.status}): ${m.what}${m.fix ? `. To record the owner's approval, the owner runs: ${m.fix}` : ''}`);
+    if (problems.length || missing.length) { console.error(`checks:register: NOT cutover-ready: ${problems.length} register problem(s), ${missing.length} row(s) without a proved successor or an approval to retire, of ${rows}`); process.exit(1); }
+    console.log(`checks:register: cutover-ready: all ${rows} register rows have a successor with proof or the owner's approval to retire.`);
+  } else if (mode[0] === '--inventory') process.stdout.write(formatBaseline(liveInventory(root)));
+  else if (mode[0] === '--skeleton') for (const l of skeleton(root)) console.log(l);
+  else if (mode[0] === '--floor') {
+    const next = floorFor(root);
+    writeFileSync(join(root, FLOOR_PATH), formatFloor(next));
+    console.log(`checks:register: ${FLOOR_PATH} written: ${next.size} test files.`);
+  } else {
+    const { problems, notes, rows, tokens, items, counts, floor } = verifyRegister(root, { requireFrozen });
+    for (const n of notes) console.error(`checks:register: note: ${n}`);
+    for (const p of problems) console.error(`checks:register: ${p}`);
+    if (problems.length) { console.error(`checks:register: ${problems.length} problem(s)`); process.exit(1); }
+    console.log(`checks:register: OK. ${rows} register rows cover ${tokens} old checks; ${items} must-not-change items: ${counts.TESTED} TESTED, ${counts.PARTIAL} PARTIAL, ${counts.UNTESTED} UNTESTED.`);
+    console.log(`checks:register: test floor holds for ${floor.files} registered test files (tests and assertion calls).`);
+  }
+}

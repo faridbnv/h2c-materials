@@ -1,0 +1,38 @@
+{
+  "id": "WP-32",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-m4-cutover-kit",
+  "pr": 47,
+  "exitCheck": "fail",
+  "lastRun": "2026-10-22T19:21:14.781Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run checks:register -- --cutover-ready",
+      "result": "fail",
+      "code": 1,
+      "tail": "e-at-cutover): the owner has not approved retiring it. To record the owner's approval, the owner runs: npm run wp:attest -- retire-approved J-pages-keep-release\nchecks:register: not ready: J-pages-assemble (successor): its successor is owned by WP-32, which is todo\nchecks:register: not ready: J-pages-deploy (successor): its successor is owned by WP-32, which is todo\nchecks:register: not ready: J-pages-deploy (successor): its successor is owned by WP-35, which is todo\nchecks:register: NOT cutover-ready: 0 register problem(s), 36 row(s) without a proved successor or an approval to retire, of 155"
+    },
+    {
+      "cmd": "manual: dry-run against the preview deploys the candidate and smoke passes",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "manual: CI minutes within budget",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    },
+    {
+      "cmd": "merged: PR #47 (#47, #50, #53, #55)",
+      "result": "pass",
+      "code": 0,
+      "note": "merged into remake/v3 with every required check green"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-23T07:35:19.824Z",
+  "note": "Merged as PR #47 (the M4 cutover kit); next-main.yml's .nojekyll digest fix is #50, the restore-PR tests #53, the cutover-ready tests #55. The owner's retire-approved rows and the rehearsal record arrived in #49 and #54."
+}

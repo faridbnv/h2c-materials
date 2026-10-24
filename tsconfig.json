@@ -1,0 +1,4 @@
+{
+  "$comment": "What the editor and `npm run typecheck` use: the strong level over every area that has TypeScript today.",
+  "extends": "./tsconfig.strong.json"
+}

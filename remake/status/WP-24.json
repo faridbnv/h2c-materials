@@ -1,0 +1,41 @@
+{
+  "id": "WP-24",
+  "status": "done",
+  "slice": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 40,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-22T04:24:01.457Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run parity:erase",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run typecheck",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "npm run parity -- --new --surface pages",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "manual: the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)",
+      "result": "not-run",
+      "note": "no command checks this yet"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "updated": "2026-10-22T04:26:47.581Z",
+  "note": "Pages in TypeScript (packages/pages), merged in PR #40 with both page transitions attested there under R-ATTEST-AGENT. M3-close fix: the 'counted once in the median' wording is said only where the build's own reprint rule (isReprintEntry, packages/domain) leaves the value out. 2026-10-22-pages-display was re-emitted: 426 differences (a 333, b 2, c 89, d 2); 2026-10-22-pages-reprint-medians is unchanged (491); npm run parity -- --new --surface pages reads matches-transition (917 listed, 0 unexpected, 0 missing). The pages now reach the preview site: they are rendered with the view from the same new-build database (apps/public/tools/build.ts --pages)."
+}

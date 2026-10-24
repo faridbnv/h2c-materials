@@ -1,0 +1,11 @@
+/* The states of the page around the selector (WP-26): loading, a part that could not be loaded or is of another release, and the messages that
+   replace the old page's dialogs. They use the selector's own tokens (tokens.css), so they read in both themes. */
+#app > .boot { padding: 24px 16px; max-width: 720px; margin: 0 auto; }
+.notice { margin: 12px 0; padding: 12px 14px; border: 1px solid var(--border-strong); border-radius: var(--r-plate); background: var(--surface); color: var(--ink); }
+.notice-stop { border-color: var(--fail); }
+.notice h1 { font-size: 17px; margin: 0 0 6px; }
+.notice p { margin: 0 0 8px; }
+.notice .why { color: var(--ink-3-text); font-size: var(--t-small); overflow-wrap: anywhere; }
+.notice button { padding: 6px 12px; border: 1px solid var(--border-strong); border-radius: var(--r-ctl); background: var(--surface-2); cursor: pointer; }
+.notices { padding: 8px 16px 0; background: var(--surface); }
+.notice-line { margin: 0 0 8px; padding: 8px 12px; border: 1px solid var(--unknown); border-radius: var(--r-ctl); background: var(--unknown-bg); color: var(--ink); white-space: pre-line; }

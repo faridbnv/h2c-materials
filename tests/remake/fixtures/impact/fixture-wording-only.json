@@ -1,0 +1,53 @@
+{
+  "$comment": "FIXTURE, not a real correction. Changes the locator text of one source, a cell no decision reads: the impact preview must find that no answer moves. before and after list the changed cell only.",
+  "id": "2026-10-21-fixture-wording-only-0000",
+  "title": "Fixture: reword one source's locator",
+  "records": [
+    {
+      "id": "CR-FIXTURE-0002",
+      "opId": "01FIXTUREOPID000000000002",
+      "seq": 1,
+      "kind": "correctValue",
+      "table": "sources",
+      "recordId": "H2C-MANUAL",
+      "before": {
+        "Locator": "Chapter8 Filament; pp123-139; see printed page numbering"
+      },
+      "after": {
+        "Locator": "Chapter8 Filament; pp123-139; see printed page numbering (fixture)"
+      },
+      "reason": "FIXTURE",
+      "rulings": [],
+      "actor": {
+        "kind": "human",
+        "name": "fixture"
+      },
+      "reviewedBy": [],
+      "base": {
+        "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+        "commit": "0000000"
+      },
+      "at": "2026-10-21T00:00:00.000Z",
+      "evidence": {
+        "sourceId": "FIXTURE-SOURCE",
+        "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+        "page": 1,
+        "locator": "fixture",
+        "quote": "fixture"
+      }
+    }
+  ],
+  "base": {
+    "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "result": {
+    "snapshotDigest": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "impact": {
+    "answersMoved": {
+      "moved": 0,
+      "estimatesPending": true
+    },
+    "reportPath": "fixture"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "id": "WP-09",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-08-sqlite",
+  "pr": 16,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "prs": [
+    16
+  ],
+  "note": "clean reconstruction, lossless storage, 36/36 round trip and views delivered by PR #16"
+}

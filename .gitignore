@@ -51,3 +51,14 @@ build/reports/reader-recall/
 # The pages-reimagined round's screenshots (2026-10-17): about 25 MB of PNG, kept on the machine that took them; the
 # reviews name them as paths, not links.
 docs/audits/2026-10-17-pages-reimagined/**/*.png
+
+# Claude Code, remake branch (pack 14 §B6): local settings, local pointers, worktrees and review markers.
+CLAUDE.local.md
+.claude/settings.local.json
+.claude/worktrees/
+.claude/state/
+
+# The SQLite workspace (WP-09): rebuilt from the committed CSV by `npm run db:rebuild`; never a second master, never committed.
+.workspace/
+test-results/
+playwright-report/
