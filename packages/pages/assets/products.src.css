@@ -1,0 +1,278 @@
+/* Filament Atlas material pages: the lists (track A of the pages reimagined, 2026-10-17), after the frame, the sections'
+   and the figures' stylesheets. A material's Products page (a search, one sort, a row per product that opens to its card)
+   and the index of every material (families in columns, one search).
+
+   A row is a <details> whose <summary> lays its values on the list's grid (--pl-cols, set by the page from its columns);
+   only the sorted column draws its values as bars, nothing else is shaded. A value shown and not compared is grey italic
+   with a hollow mark, a value measured after annealing has a small square, a setting from Bambu Lab's guide is grey
+   italic. On a phone a row is the name and four labelled values, the sorted one first. */
+
+/* ---------------------------------------------------------------- controls */
+
+.pl-ctl { position: sticky; top: var(--bar-h); z-index: 20; background: var(--bg); margin-top: 28px; padding: 12px 0; }
+.pl-ctl-in { display: flex; align-items: center; gap: 12px 16px; flex-wrap: wrap; }
+.find { display: flex; align-items: center; gap: 8px; height: 40px; width: min(360px, 100%); padding: 0 14px; background: var(--surface); border: 1px solid var(--border-strong); border-radius: 999px; color: var(--ink-2); }
+.find input { border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--ink); width: 100%; min-width: 0; }
+.find input::-webkit-search-cancel-button { cursor: pointer; }
+.find:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.sortby { display: flex; align-items: center; gap: 8px; font-size: var(--t-s); color: var(--ink-2); }
+.sortby select { height: 40px; max-width: 100%; font: 500 15px var(--f-sans); color: var(--ink); background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%2385857c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") no-repeat right 10px center / 16px;
+  border: 1px solid var(--border-strong); border-radius: var(--r-ctl); padding: 0 34px 0 12px; appearance: none; -webkit-appearance: none; }
+.pl-count { margin: 0 0 0 auto; font-size: var(--t-s); color: var(--ink-2); }
+.pl-keyd { margin: 14px 0 6px; }
+.pl-keyd > summary { display: none; }
+.pl-keys { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0; padding: 0; list-style: none; font-size: var(--t-xs); color: var(--ink-2); }
+.pl-method { margin: 4px 0 6px; font-size: var(--t-xs); }
+.pl-ctl:not([hidden]) + .pl-keyd { margin-top: 0; }
+.pl-keys li { display: inline-flex; align-items: center; gap: 6px; }
+.pl-keys .pv { font-size: var(--t-xs); }
+/* The key's marks: the cells' own marks, never a sample number. */
+.km { display: inline-block; color: var(--ink-2); font-size: 11px; line-height: 1; }
+.km--o { font-size: 10px; }
+.km--a { width: 6px; height: 6px; background: var(--accent); }
+.km--g { font-style: italic; font-size: 12px; }
+.km--iz { font-size: 11px; }
+.km--fx { font-size: 12px; }
+
+/* ---------------------------------------------------------------- the list */
+
+.pl { margin-top: 6px; isolation: isolate; position: relative; z-index: 0; overflow-x: clip; }
+.kind-products .pl [id] { scroll-margin-top: calc(var(--anchor-top) + var(--plh-h, 0px)); }
+/* The head: two rows, every group's label on the first and every column's name with its unit on the second, all
+   bottom-aligned, so the group rules line up and every unit sits on one baseline. */
+.pl-h { display: grid; grid-template-columns: var(--pl-cols); grid-template-rows: auto auto; align-items: end; column-gap: 10px; position: sticky; top: calc(var(--bar-h) + var(--ctl-h)); z-index: 10; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--border-strong); }
+.pl-hn { grid-row: 1 / 3; align-self: end; }
+.pl-hg { grid-row: 1 / 3; display: grid; grid-template-columns: subgrid; grid-template-rows: subgrid; align-items: end; }
+.pl-g { grid-column: 1 / -1; grid-row: 1; align-self: end; font-size: 12.5px; font-weight: 600; line-height: 1.25; color: var(--ink-2); padding-bottom: 5px; margin-bottom: 4px; border-bottom: 1px solid var(--border); text-align: center; text-wrap: balance; }
+.pl-h button > span { white-space: nowrap; }
+.pl-hg > button { grid-row: 2; align-self: end; }
+.pl-h button { display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; font: 500 var(--t-xs)/1.25 var(--f-sans); color: var(--ink-2); background: none; border: 0; padding: 4px 0 0; cursor: pointer; text-align: right; width: 100%; height: 100%; }
+.pl-hn button { align-items: flex-start; text-align: left; }
+.pl-h button small { display: block; font-weight: 400; color: var(--ink-2); opacity: .8; font-size: 11.5px; line-height: 1.3; }
+.pl-h button[aria-pressed="true"] { color: var(--accent); font-weight: 650; }
+.pl-h button[aria-pressed="true"] > span::after { content: " ↓"; }
+.pl-h button[aria-pressed="true"][data-dir="asc"] > span::after { content: " ↑"; }
+.pl-h button:hover { color: var(--ink); }
+.pr { border-bottom: 1px solid var(--border); }
+.pr > summary { display: grid; grid-template-columns: var(--pl-cols); column-gap: 10px; align-items: baseline; padding: 10px 0; cursor: pointer; list-style: none; position: relative; z-index: 0; }
+.pr > summary::-webkit-details-marker { display: none; }
+.pr > summary:hover, .pr.lit > summary { background: color-mix(in srgb, var(--surface-2) 75%, transparent); }
+.pn { display: flex; align-items: flex-start; gap: 7px; font-weight: 500; font-size: 15px; line-height: 1.3; min-width: 0; }
+/* The row's chevron sits on the name's first line. */
+.pn::before { content: ""; flex: none; margin-top: calc(.65em - 5px); width: 10px; height: 10px; background: var(--ink-2); transition: transform .15s;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 1.5 7 5 3.5 8.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 10px no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M3.5 1.5 7 5 3.5 8.5' fill='none' stroke='black' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 10px no-repeat; }
+.pr[open] > summary .pn::before { transform: rotate(90deg); }
+.pn-t { min-width: 0; overflow-wrap: anywhere; }
+.pmk { display: inline-flex; gap: 4px; align-items: center; flex: none; }
+.pi { width: 14px; height: 14px; fill: none; stroke: var(--ink-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; vertical-align: -1px; }
+.pi--tough { stroke: var(--claim); }
+.pi--hardened { stroke: var(--ink); margin-left: 3px; }
+.pv { text-align: right; font-size: 15px; white-space: nowrap; font-variant-numeric: tabular-nums; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.pv-l { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pv small { color: var(--ink-2); font-size: 11px; margin-left: 2px; }
+.pv-none .pv-t { color: var(--ink-2); opacity: .7; }
+.pv.o, .pv.g { color: var(--ink-2); font-style: italic; }
+.pv.o .pv-t::before, .pl-keys .pv.o::before { content: "○"; font-style: normal; font-size: 9px; margin-right: 3px; vertical-align: 2px; }
+.pv.a .pv-t::before, .pl-keys .pv.a::before { content: ""; display: inline-block; width: 6px; height: 6px; background: var(--accent); margin-right: 5px; vertical-align: 2px; }
+.pv.o.a .pv-t::before { content: "□"; width: auto; height: auto; background: none; font-size: 10px; margin-right: 3px; }
+.pv.d .pv-t::before { content: "◇"; font-size: 10px; margin-right: 3px; color: var(--ink-2); }
+.pv.pv-fx .pv-t::after, .pl-keys .pv.pv-fx::after { content: "¤"; color: var(--ink-2); font-size: 11px; margin-left: 2px; }
+.pv.sorted { color: var(--ink); }
+/* The sorted column: a 2 px rule under each compared number, from its right edge, its length the value's place in the
+   column's range (set by the script as --w, a share of the number's own width). Values not counted get none. */
+.pv.sorted .pv-t { display: inline-block; }
+.pv.sorted[style*="--w"] .pv-t { background: linear-gradient(var(--accent), var(--accent)) no-repeat right bottom / var(--w) 2px; padding-bottom: 3px; }
+.pl-grp { margin: 0; padding: 22px 0 8px; font-size: var(--t-s); font-weight: 600; color: var(--ink-2); border-bottom: 1px solid var(--border); }
+.pl-grp span { font-weight: 400; }
+.pl-none { margin: 24px 0; color: var(--ink-2); }
+.pl-note { margin: 14px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 80ch; }
+.pl--ref { margin-top: 64px; }
+.pl--ref h2 { margin: 0; font: 500 24px/1.2 var(--f-serif); }
+.pl--ref .pl-note { margin: 6px 0 12px; }
+
+/* ---------------------------------------------------------------- a product's card */
+
+/* An open card stacks above the list's sticky head (z-index 10), which had sat over the card's first lines as the
+   reader scrolled through it (the final review of the reimagined pages, OPEN-PROBLEMS §37.19): the head names the
+   list's columns, which a card does not have, and it shows again when the card has scrolled past. The shadow in the
+   page's colour covers the head's strip beside the card's indent. */
+.pcard { margin: 2px 0 18px 18px; padding: 14px 22px 14px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--r-plate); cursor: auto;
+  position: relative; z-index: 11; box-shadow: -19px 0 0 0 var(--bg); }
+.pc-head { margin-bottom: 10px; }
+.pc-name { margin: 0; font-weight: 600; font-size: 17px; }
+.pc-name small { margin-left: 10px; font-weight: 400; color: var(--ink-2); font-size: var(--t-s); }
+.pc-note { margin: 4px 0 0; font-size: var(--t-s); color: var(--ink-2); max-width: 90ch; }
+/* A product found only in a diameter the H2C does not take (D175): said first, and a little stronger. */
+.pc-note--warn { color: var(--ink); font-weight: 600; }
+.pc-cols { display: block; }
+.pc-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px 36px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border); }
+/* The maker's statements run the card's full width under Print settings and Price, in two columns, with no void. */
+.pc-block--wide { grid-column: 1 / -1; }
+.pc-block--wide .pc-q { display: block; columns: 2 300px; column-gap: 36px; }
+.pc-block--wide .pc-q li { break-inside: avoid; margin-bottom: 10px; }
+.pcard h3 { margin: 0 0 8px; font: 600 var(--t-s)/1.3 var(--f-sans); color: var(--ink-2); }
+.pc-block h3:not(:first-child) { margin-top: 20px; }
+.pc-none { margin: 0; font-size: var(--t-s); color: var(--ink-2); }
+.pc-t { width: 100%; border-collapse: collapse; font-size: var(--t-s); line-height: 1.4; }
+.pc-t tbody th:first-child { width: 25%; } .pc-t .pc-v { width: 27%; } .pc-t .pc-c { width: 25%; } .pc-t .pc-u { width: 23%; }
+.pc-t tr.pc-doc th { padding: 14px 0 6px; border-top: 0; font-weight: 600; font-size: var(--t-s); }
+.pc-t tbody:first-of-type tr.pc-doc th { padding-top: 6px; }
+.pc-t tr.pc-doc .doc { display: inline; }
+.pc-t tr.pc-doc .doc small { display: inline; margin-left: 6px; }
+.pc-doc-n { display: inline !important; margin-left: 8px; font-weight: 400; }
+.pc-doc-also { display: block; font-weight: 400; font-size: 12.5px; color: var(--ink-2); margin-top: 2px; }
+.pc-doc-cond { display: block; font-weight: 400; font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+.pc-doc-cond > span:first-child { margin-right: 6px; }
+.pc-t tr.pc-named td { border-top: 0; padding-top: 2px; font-size: 12.5px; color: var(--ink-2); }
+.pc-says > summary { cursor: pointer; font: 600 var(--t-s)/1.3 var(--f-sans); color: var(--accent); }
+.pc-says + .pc-says { margin-top: 8px; }
+.pc-block--wide { display: flex; flex-wrap: wrap; gap: 8px 32px; align-items: baseline; }
+.pc-block--wide > .pc-says[open] { flex-basis: 100%; }
+.pc-says[open] > summary { margin-bottom: 8px; }
+.pc-v small { white-space: normal; font-weight: 400; }
+.pc-t th, .pc-t td { text-align: left; vertical-align: top; padding: 3px 10px 3px 0; line-height: 1.28; border-top: 1px solid var(--border); }
+.pc-t thead th { font-size: 12.5px; font-weight: 600; color: var(--ink-2); border-top: 0; padding-top: 0; }
+.pc-t tbody th { font-weight: 500; }
+.pc-t tr.same th, .pc-t tr.same td { border-top-color: transparent; padding-top: 0; }
+.pc-t small { display: block; color: var(--ink-2); font-weight: 400; font-size: 12.5px; }
+.pc-t small.pc-asp { display: inline; margin-left: 4px; }
+.pc-v { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pc-c { color: var(--ink-2); }
+.pc-c > span:first-child { display: block; }
+.pc-u { color: var(--ink-2); font-size: 12.5px; }
+.pc-t tr:target, .pc-t tr.hit { background: var(--accent-soft); }
+.tg { display: inline-block; margin-left: 6px; font-size: 11.5px; font-weight: 500; color: var(--ink-2); border: 1px solid var(--border-strong); border-radius: 999px; padding: 0 6px; white-space: nowrap; }
+.doc a { color: var(--ink); text-decoration-color: var(--border-strong); }
+.doc a:hover { color: var(--accent); }
+.doc small { display: block; color: var(--ink-2); font-size: 12.5px; }
+/* a condition chip (records/common.js chip): a short fact, the sheet's words a tap away */
+.ch { display: inline-block; margin: 3px 4px 0 0; font-size: 12px; color: var(--ink-2); background: var(--surface-2); border-radius: 4px; padding: 0 6px; }
+details.ch { display: inline-block; }
+details.ch > summary { cursor: pointer; list-style: none; }
+details.ch > summary::-webkit-details-marker { display: none; }
+details.ch > summary::after { content: " ▾"; font-size: 9px; }
+details.ch[open] { display: inline-block; max-width: 100%; background: var(--surface-2); padding: 2px 8px 4px; }
+details.ch > span { display: block; padding-top: 3px; color: var(--ink); white-space: normal; }
+/* A row's word that its sheet leaves unstated a condition its group's heading states: quieter than a stated one. */
+.ch--none { background: none; border: 1px dashed var(--border-strong); font-style: italic; }
+/* The standards the build reads, set as text in the Conditions cell, the sheet's own string a press away. */
+details.ch--std { display: inline; margin: 0; padding: 0; background: none; border-radius: 0; font-size: inherit; color: inherit; }
+details.ch--std > summary { display: inline; text-decoration: underline dotted var(--border-strong); text-underline-offset: 3px; }
+details.ch--std[open] { display: block; padding: 0; background: none; }
+details.ch--std > span { font-size: 12px; color: var(--ink-2); }
+/* A long card's folded rows (products/card.js FOLD; assets/page.js folds them where it runs), and the press that shows
+   them. A printed page shows every row. */
+@media screen { .pc-t tbody[data-folded] tr.pc-x { display: none; } }
+.pc-t tr.pc-fold td { border-top: 0; padding: 6px 0 4px; }
+.pc-all { font: 600 var(--t-s)/1.3 var(--f-sans); color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; }
+.pc-all:hover { text-decoration: underline; }
+.pc-set { margin: 0; }
+.pc-set > div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 2px 10px; padding: 2px 0; }
+.pc-set dt { color: var(--ink-2); font-size: var(--t-s); }
+.pc-set dd { margin: 0; font-weight: 600; font-size: var(--t-s); }
+.pc-set dd small { display: inline; margin-left: 8px; font-weight: 400; color: var(--ink-2); font-size: 12px; }
+.pc-price { margin: 0; }
+.pc-price small { margin-left: 8px; color: var(--ink-2); font-size: 12.5px; }
+.pc-more { margin-top: 8px; font-size: var(--t-s); }
+.pc-more > summary { cursor: pointer; color: var(--accent); }
+.pc-list { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: var(--t-s); }
+.pc-list li > span { display: block; }
+.pc-list li small { display: block; color: var(--ink-2); font-size: 12.5px; }
+.pc-docs { gap: 4px; margin-top: 4px; }
+.pc-q q { display: block; font-family: var(--f-serif); font-size: 16px; line-height: 1.45; }
+.pc-topic { font-size: 12px; font-weight: 600; color: var(--ink-2); }
+
+/* ---------------------------------------------------------------- the index */
+
+.phead--hub { grid-template-columns: minmax(0, 1fr); }
+.phead--hub .pid { font-size: var(--t-l); color: var(--ink); max-width: 62ch; }
+.ix-tools { display: flex; gap: 12px 20px; align-items: center; flex-wrap: wrap; margin-top: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+.ix-tools .find { width: min(440px, 100%); }
+.ix-count { margin: 0 0 0 auto; font-size: var(--t-s); color: var(--ink-2); }
+.ix-none { margin: 24px 0 0; color: var(--ink-2); }
+.fams { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 56px; align-items: start; margin-top: 36px; }
+.fam { break-inside: avoid; margin: 0; }
+.fam--without { grid-column: 1 / -1; padding-top: 24px; border-top: 1px solid var(--border); }
+.fam--without h2 { font: 600 var(--t-m)/1.3 var(--f-sans); margin-bottom: 4px; }
+.ix-rule { margin: 0 0 8px; font-size: var(--t-xs); color: var(--ink-2); }
+.fam--without .ix-line { margin: 4px 0 0; }
+.fam--without .ix-line b { color: var(--ink); font-weight: 600; }
+.fam h2 { margin: 0 0 8px; font: 500 24px/1.2 var(--f-serif); }
+.ix-list { margin: 0; padding: 0; list-style: none; }
+.ix-list li { display: flex; align-items: baseline; gap: 8px; padding: 3px 0; }
+.ix-list a { color: var(--ink); text-decoration: none; font-weight: 500; }
+.ix-list a:hover { color: var(--accent); text-decoration: underline; }
+.dots { flex: 1; min-width: 12px; border-bottom: 1.5px dotted var(--border-strong); transform: translateY(-4px); }
+.ix-list .c { font-size: var(--t-s); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.ix-line { margin: 8px 0 0; font-size: var(--t-xs); color: var(--ink-2); line-height: 1.5; }
+/* The names with no page are spans; the commas between them are drawn, so a search that hides some leaves none astray. */
+.ix-nopage > span:not([hidden]) ~ span:not([hidden])::before { content: ", "; }
+.colophon--hub { margin-top: 64px; }
+.ix-method { margin: 10px 0 0; font-size: var(--t-s); }
+.ix-aliases { margin: 20px 0 0; padding: 0; list-style: none; font-size: 15px; }
+.ix-aliases li { padding: 3px 0; }
+
+/* ---------------------------------------------------------------- narrower */
+
+/* Under 1,200 px the numbers step down a size, so a long one (0.0124) keeps its column. */
+@media (max-width: 1199px) {
+  .pv { font-size: 14px; }
+}
+@media (max-width: 1079px) {
+  .fams { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pl { overflow-x: auto; }
+  .pl-h, .pl-body, .pl-none { min-width: 1040px; }
+  .pl-h { position: static; }
+  .pl-hn, .pr > summary .pn { position: sticky; left: 0; z-index: 2; background: var(--bg); }
+}
+@media (max-width: 719px) {
+  .pl-keyd > summary { display: list-item; cursor: pointer; font-size: var(--t-s); color: var(--accent); }
+  .pl-keyd[open] > summary { margin-bottom: 6px; }
+  .pl-keys { flex-direction: column; }
+  .pc-side { grid-template-columns: minmax(0, 1fr); }
+  .fams { grid-template-columns: minmax(0, 1fr); }
+  .ix-count { margin-left: 0; }
+  .pl-ctl { position: static; }
+  .pl-count { margin-left: 0; }
+  .find { width: 100%; }
+  .pl { overflow: visible; }
+  .pl-h, .pl-body, .pl-none { min-width: 0; }
+  .pl-h { display: none; }
+  .pr > summary { display: flex; flex-wrap: wrap; column-gap: 0; padding: 12px 0; }
+  .pr > summary .pn { flex: 1 0 100%; font-size: 16px; font-weight: 600; }
+  .pr > summary .pv { display: none; }
+  .pr > summary .pv.pv-ph, .pr > summary .pv.sorted { display: flex; flex-direction: column; align-items: flex-start; width: 25%; margin-top: 6px; text-align: left; font-size: 15px; white-space: normal; background: none; padding: 0 6px 0 0; }
+  .pl[data-extra] .pr > summary .pv.pv-ph4:not(.sorted) { display: none; }
+  .pr > summary .pv.sorted { order: -1; color: var(--accent); font-weight: 650; }
+  .pr > summary .pn { order: -2; }
+  .pr > summary .pv .pv-l { position: static !important; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; font: normal 400 11.5px/1.3 var(--f-sans); color: var(--ink-2); }
+  .pcard { margin: 0 0 16px; padding: 16px; }
+  /* On a phone a value is two lines: its property and value, then its conditions and whether the Overview uses it. */
+  .pc-t thead { display: none; }
+  .pc-t, .pc-t tbody { display: block; width: 100%; }
+  .pc-t tr { display: grid; grid-template-columns: minmax(0, 1fr) fit-content(58%); column-gap: 12px; padding: 8px 0; border-top: 1px solid var(--border); }
+  .pc-t tr.same { border-top-color: transparent; padding-top: 0; }
+  .pc-t tr.pc-doc, .pc-t tr.pc-fold { display: block; padding: 12px 0 4px; }
+  .pc-t th, .pc-t td { display: block; width: auto !important; border: 0; padding: 1px 0; min-width: 0; overflow-wrap: anywhere; }
+  .pc-t .pc-v { text-align: right; }
+  .pc-t .pc-c, .pc-t .pc-u { grid-column: 1 / -1; }
+}
+@media print {
+  /* The list fits the paper's width; a card may break across pages, its rows and value groups do not. */
+  .pl { overflow: visible; }
+  .pl-h, .pl-body, .pl-none { min-width: 0 !important; }
+  .pl-h { position: static; }
+  .pl-hn, .pr > summary .pn { position: static; }
+  .pv { font-size: 12px; }
+  .pn { font-size: 13px; }
+  .pl-h button { font-size: 10.5px; }
+  .pr > summary { break-inside: avoid; }
+  .pr:not([open]) .pcard { display: none; }
+  .pcard { margin: 0 0 12px; padding: 12px 0 0; border: 0; border-top: 1px solid var(--border); border-radius: 0; break-inside: auto; box-shadow: none; }
+  .pc-t tbody, .pc-t tr { break-inside: avoid; }
+  .pc-fold { display: none; }
+  .pc-side { break-inside: avoid; }
+  .fams { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ix-tools { display: none; }
+}

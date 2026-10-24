@@ -1,0 +1,280 @@
+# Preview deploy of the remake branch (WP-03; pack 07 section 8). On a push to remake/v3 it builds TODAY's site with TODAY's
+# build code (the old code is not edited), assembles it exactly as pages.yml's "Assemble the site" step does, adds the
+# preview banner and noindex to copies at deploy time, writes preview.json, and pushes the result to the preview repository
+# over SSH with a deploy key. A smoke job then checks the public preview address.
+#
+# It never touches the live repository's Pages, pages.yml, releases or tags. The jobs are split so that the one that runs
+# third-party install scripts (build) never sees the key, and the one that holds the key (deploy) runs only repo code and git.
+#
+# DEPLOY_HOLD (repository variable, set by the owner only). While it is non-empty the site is built but NOT deployed: the deploy job is skipped
+# and the run says so in its summary (the hold is how a rollback stays in place; pack 07 section 13.2).
+#
+# Credentials: secret PREVIEW_DEPLOY_KEY (an SSH deploy key with write access to the preview repo only) belongs to the
+# environment `preview`, limited to remake/v3. next-verify.yml, which runs on pull requests, does not reference it.
+# Setup: remake/tools/setup-preview.sh (the owner runs it). Until it has run, repository variable PREVIEW_ENABLED is not
+# "true" and the preview jobs are reported as NOT RUN rather than failing every push.
+# Configurable (repository variables): PREVIEW_REPO (default faridbnv/h2c-material-temp-page) and PREVIEW_BASE_URL (default
+# https://pdynamics.ca/h2c-material-temp-page/, the owner's user site has the custom domain pdynamics.ca).
+
+name: Next preview
+
+on:
+  push:
+    branches: [remake/v3]
+    # A push that touches only the control files (a rehearsal's hold test or restore request) is next-main.yml's. A push that touches only
+    # records about a candidate (the owner's attest rows, the legacy zip and rehearsal records, status files, receipts, measurements) changes
+    # no site: it must not redeploy over a restored or rehearsed preview (RECORD_PATHS of remake/tools/candidate.mjs).
+    paths-ignore:
+      - 'remake/control/**'
+      - 'remake/legacy/**'
+      - 'remake/rehearsal/**'
+      - 'remake/candidates/**'
+      - 'remake/status/**'
+      - 'remake/attest.csv'
+      - 'remake/measure/**'
+
+permissions:
+  contents: read
+
+# One preview deploy at a time, never cancelled in flight (a half-pushed site is the worse outcome).
+concurrency:
+  group: next-preview
+  cancel-in-progress: false
+
+env:
+  # main is frozen at this commit (Q2-04 B); preview.json records it.
+  MAIN_COMMIT: 5eabafad4e19e3cc2f4e71d55848474ff22bd444
+
+jobs:
+  not-configured:
+    name: preview (not configured)
+    if: vars.PREVIEW_ENABLED != 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - run: |
+          echo "::warning::Preview deploy NOT RUN: repository variable PREVIEW_ENABLED is not true. The owner runs remake/tools/setup-preview.sh."
+          echo "Preview deploy: NOT RUN (PREVIEW_ENABLED is not true; run remake/tools/setup-preview.sh)" >> "$GITHUB_STEP_SUMMARY"
+
+  build:
+    name: build today's site
+    if: vars.PREVIEW_ENABLED == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: |
+            build/package-lock.json
+            package-lock.json
+
+      - name: Install build dependencies
+        run: npm ci --prefix build
+
+      - name: Install the import tools' dependencies
+        run: npm ci
+
+      - name: Start from an empty build cache
+        run: rm -rf .cache/build
+
+      - name: Build
+        run: npm run build
+
+      # pages.yml's "Assemble the site" step, with one change of place (WP-30): today's site goes to legacy/, and the root is the
+      # remake's selector (the next step). Material pages: the old build's go to legacy/materials/ for today's site; the root's materials/
+      # are the new pages (packages/pages), rendered by the next step from the same database as the view's data parts.
+      - name: Assemble the site
+        run: |
+          mkdir -p _site/legacy
+          # Today's tool, at legacy/: the page as its index, and the release-stamped name too (an older link names it).
+          cp dist/H2C_Material_Selector_*.html _site/legacy/index.html
+          cp dist/H2C_Material_Selector_*.html _site/legacy/
+          # The validation report is a deliverable; publish it alongside.
+          cp build/reports/validation-report.md _site/legacy/validation-report.md
+          # What the page was built from: commit, input hashes and output hashes.
+          cp dist/manifest.json _site/legacy/manifest.json
+          # The old build's material pages, beside today's selector.
+          cp -r dist/materials _site/legacy/materials
+          # Tell GitHub Pages not to run the output through Jekyll.
+          touch _site/.nojekyll
+          ls -la _site
+
+      - name: Build the new site and its material pages into the root (WP-14, WP-24, WP-30)
+        run: node remake/tools/preview-assemble.mjs build-view --site _site
+
+      - name: The size budgets (WP-25, WP-30); a budget that is missed fails the build
+        run: node remake/tools/size-report.mjs --site _site --out sizes.json
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: site
+          path: _site
+          if-no-files-found: error
+          retention-days: 14
+
+  # Says so when the hold stops the deploy, so a skipped deploy never reads as a lost one.
+  held:
+    name: preview held (DEPLOY_HOLD)
+    needs: build
+    if: vars.PREVIEW_ENABLED == 'true' && vars.DEPLOY_HOLD != ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      HOLD: ${{ vars.DEPLOY_HOLD }}
+    steps:
+      - run: |
+          echo "Preview deploy: NOT DEPLOYED. DEPLOY_HOLD is \"$HOLD\": the site was built and not deployed." | tee -a "$GITHUB_STEP_SUMMARY"
+
+  deploy:
+    name: deploy to the preview repository
+    needs: build
+    if: vars.DEPLOY_HOLD == ''
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    environment:
+      name: preview
+    outputs:
+      pushed_at: ${{ steps.push.outputs.pushed_at }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: site
+          path: _site
+
+      # Repo code (Node, no secret) does all the file work; the key exists only in the last step, which runs git and ssh.
+      - name: Fetch the preview repository (public, no credential)
+        env:
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: git clone --depth 1 "https://github.com/${PREVIEW_REPO}.git" preview-repo
+
+      # Post-processes the copies only: banner and noindex in every html file, 404.html, preview.json.
+      - name: Inject the banner and noindex, write preview.json
+        run: node remake/tools/preview-assemble.mjs inject --site _site --remake "$GITHUB_SHA" --main "$MAIN_COMMIT" --run-id "$GITHUB_RUN_ID"
+
+      - name: Stage the site over the preview repository, keeping the previous release
+        run: node remake/tools/preview-assemble.mjs stage --site _site --repo preview-repo
+
+      - name: Push to the preview repository
+        id: push
+        env:
+          PREVIEW_DEPLOY_KEY: ${{ secrets.PREVIEW_DEPLOY_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          PREVIEW_REPO: ${{ vars.PREVIEW_REPO || 'faridbnv/h2c-material-temp-page' }}
+        run: |
+          set -euo pipefail
+          if [ -z "$PREVIEW_DEPLOY_KEY" ]; then
+            echo "::error::PREVIEW_DEPLOY_KEY is empty. Run remake/tools/setup-preview.sh (it sets the secret on environment preview)."
+            exit 1
+          fi
+          umask 077
+          key="$RUNNER_TEMP/preview_key"; known="$RUNNER_TEMP/known_hosts"
+          trap 'rm -f "$key"' EXIT
+          printf '%s\n' "$PREVIEW_DEPLOY_KEY" > "$key"
+          # GitHub's published SSH host keys, over verified HTTPS: no trust-on-first-use.
+          # Authenticated and retried: an anonymous call from a shared runner can be refused (403, 2026-10-21).
+          curl -fsS --retry 4 --retry-all-errors --retry-delay 5 -H "Authorization: Bearer $GH_TOKEN" https://api.github.com/meta | jq -r '.ssh_keys[] | "github.com " + .' > "$known"
+          test -s "$known"
+          export GIT_SSH_COMMAND="ssh -i $key -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known"
+          cd preview-repo
+          git remote set-url origin "git@github.com:${PREVIEW_REPO}.git"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Preview of remake/v3 at ${GITHUB_SHA}"
+          git push origin HEAD
+          echo "pushed_at=$(date +%s)000" >> "$GITHUB_OUTPUT"
+
+  smoke:
+    name: smoke on the public preview address
+    needs: deploy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # The smoke asks the repository's engine two real questions of the parts the deploy serves, so the workspace packages must be linked
+      # (@atlas/*). No scripts run and no browser is downloaded.
+      - name: Install the workspace packages (no scripts)
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      # Polls preview.json until it names this commit (or a descendant), then fetches index.html, a material page, 404.html, the view's
+      # parts (core, estimates, reference, shared, one detail) and evaluates a Strict and an Explore question on them with the engine.
+      # A failed fetch, a wrong status, a missing banner, a wrong answer or a timeout fails the job.
+      - name: Smoke
+        env:
+          PREVIEW_BASE_URL: ${{ vars.PREVIEW_BASE_URL || 'https://pdynamics.ca/h2c-material-temp-page/' }}
+          EXPECT_COMMIT: ${{ github.sha }}
+          PUSHED_AT: ${{ needs.deploy.outputs.pushed_at }}
+          GH_TOKEN: ${{ github.token }}
+          SMOKE_TIMEOUT_S: 600
+          SMOKE_POLL_S: 20
+          SMOKE_OUT: preview-deploy.measured.json
+        run: |
+          set -o pipefail
+          node remake/tools/preview-smoke.mjs | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Keep the measurement
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: preview-deploy-measurement
+          path: preview-deploy.measured.json
+          if-no-files-found: error
+
+  # The one job to look at. A skipped preview (not configured) or a skipped smoke must not read as a green deploy.
+  preview-result:
+    name: preview result
+    needs: [not-configured, build, held, deploy, smoke]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      ENABLED: ${{ vars.PREVIEW_ENABLED }}
+      HOLD: ${{ vars.DEPLOY_HOLD }}
+      NOT_CONFIGURED: ${{ needs.not-configured.result }}
+      BUILD: ${{ needs.build.result }}
+      DEPLOY: ${{ needs.deploy.result }}
+      SMOKE: ${{ needs.smoke.result }}
+    steps:
+      - run: |
+          echo "enabled=$ENABLED build=$BUILD deploy=$DEPLOY smoke=$SMOKE"
+          if [ "$ENABLED" != "true" ]; then
+            echo "Preview: NOT RUN (PREVIEW_ENABLED is not true). Run remake/tools/setup-preview.sh." | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          if [ -n "$HOLD" ]; then
+            if [ "$BUILD" = "success" ] && [ "$DEPLOY" = "skipped" ]; then
+              echo "Preview: built, NOT deployed: DEPLOY_HOLD is \"$HOLD\"." | tee -a "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            echo "::error::Preview FAILED under DEPLOY_HOLD: build=$BUILD deploy=$DEPLOY (the deploy must be skipped)" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+          if [ "$BUILD" = "success" ] && [ "$DEPLOY" = "success" ] && [ "$SMOKE" = "success" ]; then
+            echo "Preview: deployed and smoke passed." | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "::error::Preview FAILED: build=$BUILD deploy=$DEPLOY smoke=$SMOKE" | tee -a "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi

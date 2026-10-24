@@ -1,0 +1,72 @@
+import type { Dyn } from '../types.ts';
+// The test standards a measurement's "Standard / load" text names.
+//
+// That column is the source's own words and holds 301 spellings across this snapshot: "ISO 527, GB/T 1040",
+// "ISO527,GB/T1040", "ISO 527-2/50", "D 638", "ISO 179-1/1eA:2010". They are the same handful of tests, so a
+// question like "which Charpy values are comparable" could not be asked of the column, and the only typed thing
+// read out of it was the HDT load (D49). Standards is the typed list beside it, checked against this reader on
+// every build (PARSE-MISMATCH), the pattern every other decided value follows.
+//
+// A standard is read at family level: ISO 527-2/50 and ISO 527-1 are both ISO 527, because the part and the
+// specimen speed are conditions of one test, and the row's own columns carry the conditions. Nothing is inferred:
+// a text that names no standard reads as none, which is what a melt-flow condition ("210 °C, 2.16 kg") or a
+// study's own method does.
+
+// The spellings that are one standard family. A bare "D 638" is ASTM's, which is how several sheets print it.
+const BODIES = [
+  // "ISO-R 75" and "ISO/R 75" are the ISO Recommendation the standard grew from: the same test family.
+  { body: 'ISO', re: /\bISO\s*[-\/]?\s*(?:R\s*)?(\d+)/gi },
+  { body: 'ASTM', re: /\bASTM\s*-?\s*([A-Z])\s*-?\s*(\d+)/gi },
+  { body: 'GB/T', re: /\bGB\s*\/?\s*T\s*-?\s*(\d+(?:\.\d+)?)/gi },
+  { body: 'IEC', re: /\bIEC\s*-?\s*(\d+)/gi },
+  // The Japanese Industrial Standards for plastics, printed on Flashforge's Japanese sheets: JIS K 7161 tensile, 7171
+  // flexural, 7110 Izod, 7210 melt flow (the research intake of 2026-10-19, D168). Read as JIS's own; no equivalence to an
+  // ISO test is assumed here.
+  { body: 'JIS K', re: /\bJIS\s*K\s*-?\s*(\d{4})\b/gi },
+  // "IS O 179": the body printed with a space inside it (I-PP-TDS, the parser sweep of 2026-10-17).
+  { body: 'ISO', re: /\bIS\s+O\s*(\d+)/gi },
+  // The German plastics and rubber standards (DIN 53504 tensile, 53505 Shore hardness, 53479 density …), printed on
+  // Extrudr, colorFabb, Fillamentum and Spectrum sheets and left unread until 2026-10-01 (the data audit, RC3/RC4). A
+  // "DIN EN ISO 527" is ISO 527, which the ISO pattern reads; only DIN's own five-digit numbers are DIN's.
+  { body: 'DIN', re: /\bDIN\s*(5\d)\.?(\d{3})\b/gi, join: true },
+  // ASTM's designations printed without the body, as "D 638" or "D638" at a word boundary.
+  { body: 'ASTM', re: /(?:^|[^A-Za-z0-9/])([DE])\s*-?\s*(\d{3,4})\b/g, bare: true },
+];
+
+// GB/T sub-parts that are the same test as their parent: GB/T 1040.4 is GB/T 1040. Kept explicit rather than
+// stripping every decimal, because GB/T 531.1 is the designation the sources print, and its parent is not in use.
+const GB_PARENT = new Set<Dyn>(['1040.1', '1040.4', '3682.1']);
+
+// Raise3D's sheets print "ISO 52 7, GB/T 1040": a number set with a space inside it, ending at a list mark or the end of
+// the cell, is one number (the parser sweep of 2026-10-17 found it read as ISO 52; D168).
+const NORMALISE = (s: Dyn) => String(s ?? '')
+  .replace(/[，、]/g, ',').replace(/[；]/g, ';').replace(/[–—−]/g, '-').replace(/\s+/g, ' ').trim()
+  .replace(/\bISO\s*(\d{2})\s(\d)(?=\s*(?:[,;)]|$))/gi, 'ISO $1$2');
+
+/**
+ * Every standard the text names, in the vocabulary's spelling, deduplicated and in the order they appear.
+ * A text naming none returns [].
+ */
+export function readStandards(raw: Dyn) {
+  const text = NORMALISE(raw);
+  if (!text || text === 'Not published') return [];
+  const found = [];
+  const at = new Map<Dyn, Dyn>();
+  for (const { body, re, bare, join } of BODIES) {
+    re.lastIndex = 0;
+    for (let m = re.exec(text); m; m = re.exec(text)) {
+      // A bare "D 638" inside "ASTM D638" is the same match; the ASTM pattern already took it.
+      if (bare && /ASTM\s*-?\s*$/i.test(text.slice(0, m.index + m[0].indexOf(m[1]!)))) continue;
+      let number = body === 'ASTM' ? `${m[1]!.toUpperCase()}${m[2]}` : join ? `${m[1]}${m[2]}` : m[1];
+      if (body === 'GB/T' && GB_PARENT.has(number)) number = number!.split('.')[0];
+      const name = `${body} ${number}`;
+      if (!at.has(name)) { at.set(name, m.index); found.push(name); }
+    }
+  }
+  // DSC and TGA are methods, not standards, and several sheets name one where a standard would go: a melting
+  // point "DSC, 10 °C/min" and a decomposition temperature "TGA, 20 °C/min". Each is recorded only where no
+  // standard is named beside it — ISO 11357 and ASTM D3418 are DSC, and saying both adds nothing.
+  if (!found.length && /\bDSC\b/i.test(text)) found.push('DSC');
+  if (!found.length && /\bTGA\b/i.test(text)) found.push('TGA');
+  return found.sort((a, b) => at.get(a) - at.get(b) || a.localeCompare(b));
+}

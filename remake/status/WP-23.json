@@ -1,0 +1,45 @@
+{
+  "id": "WP-23",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-23-compat",
+  "pr": 36,
+  "exitCheck": "not-run",
+  "lastRun": "2026-10-21T00:00:00.000Z",
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "npm run parity -- --milestone",
+      "result": "pass",
+      "code": 2,
+      "note": "5,306 questions, 23,268,611 records: engine matches-transition (3,933 listed, 0 unexpected, 0 missing), ties 0 (468 cases, 69,732 materials), links 0 (135 links, 18 questions), build matches-transition (1,288,896 values, 1,515 listed, 0 unexpected, 0 missing); 0 unregistered differences. Exit 2 only because pages stay not-computable until WP-24. Before the transition the same run was 0 on every computable surface (5,306 cases, 54,055,824 blocks, 1,288,896 build values)."
+    },
+    {
+      "cmd": "npm run parity",
+      "result": "pass",
+      "code": 2,
+      "note": "pull-request size: 1,306 cases, engine matches-transition (1,165 in scope, 2,768 outside it skipped), ties 0, links 0, build matches-transition; pages not-computable (WP-24)"
+    },
+    {
+      "cmd": "npm run parity:host -- --ci <old-build artifact of run 39695318228> --local dist/db.json",
+      "result": "pass",
+      "code": 1,
+      "note": "CI build of c909dd6b against this Mac (Node 26.9.0, ICU 78.3): 1,288,896 values, 6 differ, all plausibleCoverage leaves of the tensile estimate calibration (the six gap-1 names); no answer differs. The new build equals the old one at that commit (P-build 0), so the old build is the local side."
+    },
+    {
+      "cmd": "parity/transitions/2026-10-21-reprint-counts-once.json",
+      "result": "pass",
+      "code": 0,
+      "note": "5,448 measured differences (3,933 engine, 1,515 build); digest sha256:6ffeebe29246438fd946f72f55350c61ec5403721dc7d80d16e5ba95bd34922b equals the measured diff; 129 headlines of 24 materials count fewer values, 81 medians of 17 materials move, 511 of 5,306 questions change (9 a group, PA612 only); PPS-GF tensile XY 64.1 now, 68.05 after (gap-7 has the direction reversed) [Superseded by the M2 close fix PR: re-measured to 4,902 differences (3,933 engine, 969 build), digest sha256:1bb40baefaff158a9ca5569571614f844505ae29827d4b36c8e00fda3382cfb0; the median counts the reprint once but the product count and twin count stay, so the old spreadNote does not call a twin silent.]"
+    },
+    {
+      "cmd": "npm run test:remake; npm run test:domain; node --test tests/parity/*.test.mjs; types:check; lint; types:ratchet; rulings:check",
+      "result": "pass",
+      "code": 0,
+      "note": "test:remake 540/540, test:domain 27/27, tests/parity 224 tests (3 adapted to the transition and re-run green), types:check, lint (0 errors), types:ratchet no increase (casts 28), rulings:check OK, parity -- --noop RESULT zero on all five surfaces"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "note": "Merged as PR 36. The transition parity/transitions/** is an owner-attest path; the owner reads docs/next/transitions/reprint-counts-once.md (two points answered 2026-10-21). Corrected and re-measured in the M2 close fix PR (twin wording)."
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@atlas/public",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas public site: the selector of the remake (WP-26: the requirements rail, the results table, the material drawer, save and share) at its root, and the first slice's material page (WP-14). Vue 3 and Vite, relative base, published on the preview at /v3/.",
+  "scripts": {
+    "build": "node tools/build.ts",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "@atlas/data": "0.0.0",
+    "@atlas/domain": "0.0.0",
+    "@atlas/engine": "0.0.0",
+    "@atlas/pages": "0.0.0",
+    "@atlas/publish": "0.0.0",
+    "plotly.js-basic-dist-min": "4.1.0",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.10",
+    "vite": "8.3.4",
+    "vue-tsc": "3.3.12"
+  }
+}

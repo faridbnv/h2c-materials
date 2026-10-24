@@ -1,0 +1,54 @@
+{
+  "id": "WP-17",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-17-commands",
+  "pr": 28,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [
+    {
+      "cmd": "node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs",
+      "result": "pass",
+      "code": 0,
+      "note": "one test per command and per refusal code; schemaEdit: replay equality, fresh rebuild (0 differences) and byte-identical round trip over the exported tree under the new schema; generators; legacy-mode negative tests"
+    },
+    {
+      "cmd": "node --test tests/claude tests/remake tests/domain tests/parity",
+      "result": "pass",
+      "code": 0,
+      "note": "402 tests in claude/remake/domain, 190 pass and 2 skipped in parity (as before)"
+    },
+    {
+      "cmd": "npm run types:check; npm run lint; npm run types:ratchet",
+      "result": "pass",
+      "code": 0,
+      "note": "no increase in casts or any"
+    },
+    {
+      "cmd": "npm run report:reviewers -- --check",
+      "result": "pass",
+      "code": 0,
+      "note": "docs/next/reviewer-kind-report.md: 3,005 cells, all name an agent only"
+    },
+    {
+      "cmd": "npm run change:coverage",
+      "result": "pass",
+      "code": 0,
+      "note": "remake/measure/change-set-coverage.json: 107 commits, 10,252 changes, 97.9% expressed, 124 wait for WP-28, 96 residue; byte replay 21 identical, 0 differ, 23 skipped"
+    },
+    {
+      "cmd": "manual: the owner reads the coverage share before answering Q2-10",
+      "result": "not-run",
+      "note": "Tier 1; 5 minutes"
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "prs": [
+    28
+  ],
+  "note": "every write command beyond correctValue, generators with expectCount, schemaEdit round trip, change-set coverage over main's last 14 data days (97.9% of 10,252 changes expressed; 18 of 107 commits, 16.8%, carry residue in the tables), reviewer-kind report; sandbox only (Q2-08 B). The owner reads the coverage share before answering Q2-10.; delivered by merged PR #28 (2026-10-21); open at merge: the owner reads the change-set coverage share before answering Q2-10",
+  "doneAt": "2026-10-21"
+}

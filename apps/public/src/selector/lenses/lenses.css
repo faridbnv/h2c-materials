@@ -1,0 +1,381 @@
+/* The rules of the lenses of part 2 (Ashby, parallel lines, coverage, compare), from the old stylesheet (app/css/app.css): loaded with the lenses, never at boot. */
+/* ---------------------------------------------------------------- empty states */
+
+.warn-chip {
+  display: inline-flex; align-items: center; gap: 6px; font-size: 12px;
+  background: var(--unknown-bg); color: var(--unknown); padding: 4px 10px; border-radius: var(--radius);
+}
+
+/* ---------------------------------------------------------------- Ashby lens: what every view shares
+   The swap button, the menus' help lines, the notices, the plot, the key under it and the folded notes. */
+.axis-swap { flex: 0 0 auto; margin-bottom: 1px; padding-block: 7px; }
+.opt-help { margin: 0; font-size: var(--t-label); color: var(--ink-3-text); line-height: 1.45; }
+.ashby-notices { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+.ashby-notices:empty { display: none; }
+
+/* The marks explained once, under the chart (ashby.js markerKey). */
+.ashby-key {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-top: 6px; padding: 8px 10px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  font-size: var(--t-label); color: var(--ink-2);
+}
+.ashby-key .key-item { display: inline-flex; align-items: center; gap: 6px; }
+.ashby-key .key-note { color: var(--ink-3-text); }
+.key-glyph { width: 16px; height: 16px; flex: 0 0 auto; fill: currentColor; stroke: currentColor; }
+
+.legend-note { font-size: 12px; color: var(--ink-3-text); margin-top: 8px; }
+.legend-note h3 { margin: 0 0 4px; font-size: var(--t-label); font-weight: 600; }
+
+/* ---------------------------------------------------------------- Ashby decision workspace (D107 to D111)
+   The question in one bar, the controls as three rows (Draw, Also, Line) with More the one menu, opening over the chart
+   instead of pushing it down, the axis bar across the chart's top, then the chart and its result list side by side, in
+   every view. The same type scale, tokens and components as the rest of the page. */
+.ws { display: flex; flex-direction: column; gap: 6px; }
+.ws-question {
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 4px 12px;
+  display: flex; flex-direction: column; gap: 2px; font-size: var(--t-small);
+}
+.ws-goal-row, .ws-asked { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+.ws-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); min-width: 3.6em; }
+.ws-goal-row select {
+  padding: 4px 8px; font-size: var(--t-body); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--bg); color: var(--ink); max-width: 100%; min-width: 0;
+}
+.ws-formula { color: var(--ink-2); cursor: help; }
+.ws-geom { color: var(--ink-3-text); }
+.ws-asked-list { display: inline-flex; flex-wrap: wrap; gap: 4px 0; color: var(--ink-2); }
+.ws-asked-list > span + span::before { content: '·'; margin: 0 7px; color: var(--ink-3-text); }
+.ws-asked-none { color: var(--ink-3-text); }
+.ws-research { display: inline-flex; align-items: center; gap: 6px; }
+
+.ws-start { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); padding: 12px 14px; }
+.ws-start h2 { margin: 0 0 4px; font-size: 16px; }
+.ws-start > p { margin: 0 0 8px; color: var(--ink-2); font-size: var(--t-small); }
+.ws-start-gates { font-weight: 400; font-size: var(--t-small); margin-bottom: 10px; }
+.ws-start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px; }
+.ws-start-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 10px; background: var(--bg); }
+.ws-start-card h3 { margin: 0 0 2px; font-size: var(--t-body); }
+.ws-start-card p { margin: 0 0 8px; color: var(--ink-3-text); font-size: var(--t-label); line-height: 1.45; }
+.ws-start-members { display: flex; flex-wrap: wrap; gap: 6px; }
+.ws-member {
+  display: grid; grid-template-columns: auto 1fr; grid-template-areas: "sketch name" "sketch free"; align-items: center; gap: 0 8px;
+  text-align: left; padding: 5px 9px; border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--surface); color: var(--ink); cursor: pointer; font: inherit; flex: 1 1 160px;
+}
+.ws-member:hover, .ws-member:focus-visible { border-color: var(--accent); background: var(--accent-soft); }
+.ws-sketch { grid-area: sketch; width: 48px; color: var(--ink-2); }
+.ws-sketch svg { width: 48px; height: 18px; fill: currentColor; stroke: currentColor; display: block; }
+.ws-member-name { grid-area: name; font-weight: 650; font-size: var(--t-small); }
+.ws-member-free { grid-area: free; font-size: 11.5px; color: var(--ink-3-text); line-height: 1.3; }
+
+.ws-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(250px, 300px); gap: 12px; align-items: start; }
+/* Every view keeps one layout (D111): the list beside the chart. Material typicals had moved it under the chart. */
+.ws-chart { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+
+/* The chart's controls (D109): three labelled rows read top to bottom, Draw, Also and Line, every option in view with its
+   state on its face. */
+.ws-controls { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.ws-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; padding: 3px 10px; font-size: var(--t-small); }
+.ws-row + .ws-row { border-top: 1px solid var(--border); }
+.ws-row-label { font-size: var(--t-label); font-weight: 650; color: var(--ink-3-text); width: 3.4em; flex: 0 0 auto; }
+.ws-row-sep { width: 1px; align-self: stretch; background: var(--border); margin: 0 2px; }
+.ws-row-end { margin-left: auto; }
+.ws-views button { padding-block: 3px; }
+.ws-axis { display: inline-flex; align-items: center; gap: 4px; }
+.ws-axis-label { color: var(--ink-3-text); font-size: 14px; width: 1em; text-align: center; }
+.ws-axis select, .ws-chip-select {
+  padding: 3px 6px; font-size: var(--t-small); border: 1px solid var(--border-strong); border-radius: var(--radius);
+  background: var(--bg); color: var(--ink); max-width: 13.5em;
+}
+.ws-scale button { padding: 3px 7px; font-size: var(--t-label); }
+.ws-axisbar .axis-swap { padding: 2px 7px; margin: 0; }
+/* A chip is a switch: pressed, it is filled; greyed, it says why on hover. */
+.ws-chip {
+  font: inherit; font-size: var(--t-small); padding: 1px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--bg); color: var(--ink-2);
+}
+.ws-chip::before { content: '+ '; color: var(--ink-3-text); }
+.ws-chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.ws-chip[aria-pressed="true"]::before { content: '✓ '; color: var(--accent); }
+.ws-chip:hover:not(:disabled) { border-color: var(--accent); }
+.ws-chip:disabled { opacity: .45; cursor: default; }
+.ws-chip:disabled::before { content: ''; }
+
+/* The More menu (test pairs, exports, release) opens over the chart. */
+.ws-menu { position: relative; }
+.ws-menu > summary { list-style: none; cursor: pointer; padding: 3px 10px; white-space: nowrap; }
+.ws-menu > summary::-webkit-details-marker { display: none; }
+.ws-menu[open] > summary { border-color: var(--accent); background: var(--accent-soft); }
+.ws-menu:not([open]) > .ws-menu-panel { display: none; }
+.ws-menu-panel {
+  position: absolute; z-index: 30; top: calc(100% + 4px); right: 0; width: 260px; max-width: calc(100vw - 32px);
+  padding: 8px 12px 10px; border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .22); font-size: var(--t-small); display: flex; flex-direction: column; gap: 2px;
+}
+.ws-menu-panel .opt-help { margin: 2px 0 4px; }
+.ws-menu-item {
+  display: block; width: 100%; text-align: left; font: inherit; padding: 4px 8px; border-radius: 5px; border: 1px solid transparent;
+  background: none; color: var(--ink); cursor: pointer;
+}
+.ws-menu-item:hover:not(:disabled), .ws-menu-item:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
+.ws-menu-item:disabled { color: var(--ink-3-text); cursor: default; }
+.ws-evidence-chip {
+  font-size: var(--t-small); color: var(--ink); padding: 6px 10px; border-top: 1px solid var(--border);
+  background: var(--unknown-bg); border-left: 3px solid var(--unknown);
+}
+.ws-menu-panel h4 { margin: 6px 0 2px; font-size: var(--t-label); color: var(--ink-3-text); }
+.ws-menu-panel h4:first-child { margin-top: 0; }
+.ws-menu-item[aria-pressed="true"] { font-weight: 650; }
+.ws-menu-item[aria-pressed="true"]::before { content: '● '; color: var(--accent); }
+
+/* The axis bar, at the top of the chart it sets: the vertical axis at the left, the horizontal at the right. */
+.ws-plot-wrap { border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.ws-axisbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 10px; padding: 3px 8px; border-bottom: 1px solid var(--border); font-size: var(--t-small); }
+.ws-axis-unit { color: var(--ink-3-text); font-size: var(--t-label); }
+.ws-plot-area { position: relative; padding: 0 4px; }
+/* What narrows the picture, said on it with the way back. */
+.ws-axis-pair { display: inline-flex; align-items: center; gap: 8px; }
+/* On the chart's top-left corner, inside the plot: over it, so a pill never moves the chart, and clear of the chart's own
+   tools, which appear at its top right. */
+.ws-pills { position: absolute; z-index: 5; top: 20px; left: 76px; right: 120px; display: flex; flex-wrap: wrap; gap: 6px; pointer-events: none; }
+.ws-pills:empty { display: none; }
+.ws-pill {
+  pointer-events: auto; display: inline-flex; align-items: center; gap: 6px; padding: 1px 4px 1px 10px; border-radius: 999px;
+  background: var(--bg); border: 1px solid var(--accent); font-size: var(--t-small); color: var(--ink); box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+}
+
+.ws-line { box-shadow: inset 3px 0 0 var(--accent); }
+.ws-line-m { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
+.ws-line-m input { width: 96px; padding: 2px 6px; font: inherit; font-family: var(--mono); border: 1px solid var(--border-strong); border-radius: var(--radius); background: var(--bg); color: var(--ink); }
+.ws-line-slider { flex: 1 1 120px; min-width: 90px; }
+.ws-line-steps { display: inline-flex; gap: 4px; }
+.ws-line-readout { flex: 1 1 180px; color: var(--ink-2); }
+.ws-line-off { box-shadow: inset 3px 0 0 var(--unknown); }
+
+.ws-summary { font-size: var(--t-small); color: var(--ink-2); }
+.ws-count { color: var(--ink); }
+
+.ws-results {
+  min-width: 0; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface);
+  font-size: var(--t-small); position: sticky; top: 0; max-height: calc(100dvh - 190px); display: flex; flex-direction: column; overflow: hidden;
+}
+/* Details replace the list (D110): a bar with the way back that never moves, and the details scrolling under it. */
+.ws-detail-bar { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 10px; border-bottom: 2px solid var(--accent); background: var(--surface); }
+.ws-back { font-weight: 650; text-decoration: none; }
+.ws-detail-body { flex: 1 1 auto; overflow: auto; }
+.ws-list { padding: 8px 10px 10px; flex: 1 1 auto; overflow: auto; min-height: 120px; }
+.ws-mat.is-picked { background: var(--accent-soft); border-radius: 5px; box-shadow: inset 3px 0 0 var(--accent); }
+.ws-mat-name[aria-pressed="true"] { text-decoration: underline; }
+.ws-zoom-btn { padding: 0 6px; min-height: 22px; color: var(--ink-3-text); }
+.ws-zoom-btn:hover { color: var(--accent); }
+.ws-filter { width: 100%; padding: 5px 8px; font: inherit; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); color: var(--ink); margin-bottom: 6px; }
+.ws-list-head h3 { margin: 2px 0 2px; font-size: var(--t-body); display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.ws-list-head p { margin: 0 0 6px; cursor: help; }
+.ws-rank { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.ws-mat { border-top: 1px solid var(--border); padding-top: 4px; }
+.ws-mat-head { display: flex; align-items: center; gap: 6px; }
+.ws-mat-head .ws-mat-name { font-weight: 650; text-decoration: none; text-align: left; flex: 1; min-width: 0; overflow-wrap: anywhere; }
+.ws-place { font-weight: 700; color: var(--ink-3-text); min-width: 1.4em; font-variant-numeric: tabular-nums; }
+.ws-median { margin-left: auto; white-space: nowrap; }
+.ws-rel { color: var(--ink-3-text); font-size: 11.5px; }
+.ws-sub { color: var(--ink-2); margin-left: calc(1.4em + 6px); line-height: 1.35; font-size: var(--t-label); }
+.ws-mat-pairs { margin-left: calc(1.4em + 6px); }
+.ws-mat-pairs > summary { cursor: pointer; color: var(--ink-3-text); font-size: var(--t-label); }
+.ws-mat-pairs ul, .ws-nearby { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 2px; }
+/* The chart's line, drawn into the ranking where it falls. */
+.ws-line-mark { display: flex; align-items: center; gap: 8px; color: #1f5f8b; font-size: var(--t-label); font-weight: 650; }
+.ws-line-mark::before, .ws-line-mark::after { content: ''; flex: 1; border-top: 2px solid #1f5f8b; }
+.ws-pair-btn {
+  display: block; width: 100%; text-align: left; font: inherit; font-size: var(--t-label); padding: 3px 6px; border-radius: 5px;
+  border: 1px solid transparent; background: none; color: var(--ink); cursor: pointer;
+}
+.ws-pair-btn:hover, .ws-pair-btn:focus-visible, .ws-pair-btn[aria-current="true"] { background: var(--accent-soft); border-color: var(--accent); }
+.ws-pair-name { font-weight: 600; }
+.ws-pair-vals { display: block; color: var(--ink-3-text); font-variant-numeric: tabular-nums; }
+.ws-unranked, .ws-gaps { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 6px; }
+.ws-unranked > summary, .ws-gaps > summary { cursor: pointer; color: var(--ink-2); }
+.ws-unranked ul, .ws-gaps ul { margin: 4px 0; padding-left: 18px; }
+.ws-inspector { padding: 10px; background: var(--accent-soft); }
+.ws-inspector:focus { outline: none; }
+.ws-inspector:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.ws-insp-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.ws-insp-head h3 { margin: 0; font-size: var(--t-body); overflow-wrap: anywhere; }
+/* In the narrow details panel each value sits under its label, at the panel's full width, not in a thin second column. */
+.ws-insp-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.ws-context-note { margin: 4px 0; }
+.ws-reading { font-size: 12px; color: var(--ink-3-text); margin-top: 0; }
+.ws-reading > summary { cursor: pointer; font-size: var(--t-label); font-weight: 600; }
+.ws-reading p { margin: 4px 0 0; line-height: 1.55; }
+.ws .ashby-key { margin-top: 0; padding: 5px 10px; }
+
+/* The rail can be hidden on a wide screen too, so a chart can take the width (D107); Filters in the top bar brings it back. */
+@media (max-width: 1100px) {
+  /* The goal's free geometry is its formula's title here, so the question stays two rows above the chart. */
+  .ws-geom { display: none; }
+  /* The results go under the chart, so the chart keeps the width. */
+  .ws-body { grid-template-columns: minmax(0, 1fr); }
+  .ws-results { position: static; max-height: none; }
+  .ws-list { max-height: 70vh; }
+}
+@media (max-width: 600px) {
+  .ws-question { padding: 8px; }
+  .ws-goal-row select { width: 100%; }
+  .ws-line-readout { flex-basis: 100%; }
+  .ws-row-end { margin-left: 0; }
+  .ws-row-sep { display: none; }
+  .ws-axis select { max-width: 10em; }
+  .ws-row-label { width: 100%; }
+}
+
+/* ---------------------------------------------------------------- compare */
+.cmp-prop { margin-bottom: 22px; }
+.cmp-prop h4 { margin: 0 0 3px; font-size: 13px; }
+/* The name and value columns give way on a narrow screen before the bar does; fixed 168 and 118 px left a phone a
+   bar of a few pixels. */
+.cmp-bar { display: grid; grid-template-columns: minmax(90px, 168px) minmax(0, 1fr) minmax(70px, 118px); gap: 10px; align-items: center; padding: 3px 0; font-size: 12.5px; }
+.cmp-bar > span:first-child { overflow-wrap: anywhere; }
+/* display:block matters. The fill is a span, and an empty inline element ignores width and height,
+   so every bar in the comparison rendered as an empty track. */
+.cmp-bar .val { text-align: right; font-family: var(--mono); font-size: 12px; }
+/* The count takes its noun in Compare ("13 products", C49), so the range and its count may wrap apart on a phone. */
+.cmp-bar .related-tick { position: absolute; top: 2px; width: 3px; height: 12px; margin-left: -1px; background: var(--ink-3); border-radius: 1px; }
+/* The value on a log track: a tick, not a bar from the left end. */
+.cmp-bar .value-tick { position: absolute; top: 0; bottom: 0; width: 3px; margin-left: -1.5px; background: var(--accent); border-radius: 1px; z-index: 1; }
+/* A requirement across the track: an upright line past both edges, above the bar and any estimate span, in the colour
+   the Ashby chart draws requirements in. A tracked one is dashed. The heading names it in words. */
+.cmp-bar .cmp-threshold { position: absolute; top: -4px; bottom: -4px; width: 0; margin-left: -1px; border-left: 2px solid var(--fail); z-index: 1; }
+/* A requirement past the end of the track: drawn at that end, doubled, rather than widening the track until every bar is a sliver. */
+.cmp-req { display: inline-flex; flex-wrap: wrap; gap: 4px 12px; margin-left: 10px; font-weight: 400; font-size: var(--t-label); color: var(--ink-2); }
+.cmp-req-item { display: inline-flex; align-items: center; gap: 5px; }
+.cmp-req-mark { display: inline-block; width: 0; height: 12px; border-left: 2px solid var(--fail); }
+/* The track's ends, under the bars, as an axis: what a bar's length is measured against. */
+.cmp-bar.cmp-axis { padding: 0; }
+.cmp-scale { display: flex; justify-content: space-between; gap: 8px; border-top: 1px solid var(--border-strong); padding-top: 2px; font-family: var(--mono); font-size: 11px; color: var(--ink-3-text); }
+.cmp-scale-note { font-size: var(--t-label); color: var(--ink-3-text); text-align: right; line-height: 1.25; }
+/* The two ends stay on their line, as on a linear track, and the words go on a line of their own under them. */
+.cmp-scale-kind { font-family: var(--sans); font-style: italic; color: var(--ink-2); grid-column: 1 / -1; grid-row: 2; text-align: center; line-height: 1.2; }
+.cmp-context { border: 1px solid var(--border); background: var(--surface-2); border-radius: var(--radius); padding: 10px 12px; margin-bottom: 14px; font-size: var(--t-small); }
+.cmp-cond { font-size: 11.5px; color: var(--ink-3-text); font-family: var(--mono); padding: 5px 0 0 140px; }
+/* A phone. The top bar is two rows: the search with Filters, Save / share and the theme as icons, then the
+   missing-data panel, the mode beside Use estimates and resin data. The name goes (the browser tab carries it), the mark stays. It was three or four rows, which
+   with the tabs, the status bar and the shortlist left the results about 350 px of an 844 px screen. */
+@media (max-width: 600px) {
+  /* The inference switch with its ? beside it and its note under them, so the group fits beside the mode buttons on one
+     row. Its label, "Use estimates and resin data", wraps inside its own box on a phone rather than push the switch to a
+     third row (D62): the group takes what is left of the row, and the mode group beside it is two lines tall anyway. */
+  .cmp-cond { padding-left: 0; }
+}
+/* ---------------------------------------------------------------- parallel axes picker */
+.pc-axes { border: 1px solid var(--border); border-radius: var(--radius); padding: 13px 15px; margin-bottom: 16px; background: var(--surface); }
+.pc-axes-head { font-size: var(--t-label); color: var(--ink-3-text); font-weight: 650; margin-bottom: 10px; }
+.pc-axes-head span { text-transform: none; letter-spacing: 0; font-weight: 400; margin-left: 8px; }
+.pc-axis-list { display: flex; gap: 9px; flex-wrap: wrap; }
+.pc-axis { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--border-strong); border-radius: 999px; padding: 6px 13px; cursor: pointer; font-size: var(--t-small); }
+.pc-axis .pc-n { color: var(--ink-3-text); font-variant-numeric: tabular-nums; font-size: var(--t-label); }
+
+/* ---------------------------------------------------------------- coverage lens */
+
+.cov-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.cov-card { border: 1px solid var(--border); border-radius: var(--radius); padding: 11px 13px; background: var(--surface); }
+.cov-card-title { font-size: var(--t-small); font-weight: 650; margin-bottom: 8px; }
+.cov-card-n { font-size: var(--t-label); color: var(--ink-3-text); margin-top: 7px; font-variant-numeric: tabular-nums; }
+.cov-meter { display: flex; height: 8px; border-radius: 4px; overflow: hidden; background: var(--surface-2); }
+/* A mark whose state is "gap" shares the class of the gap box above (.gap), whose dashed border and padding drew a
+   ragged edge on the meter and pushed the swatch's and the cell's dash to their bottom edge. */
+.cov-meter .seg, .cov-key .sw, .cov-cell { padding: 0; border: 0; }
+
+.cov-legend { display: flex; gap: 20px; flex-wrap: wrap; margin-bottom: 14px; font-size: var(--t-small); color: var(--ink-2); }
+.cov-key { display: inline-flex; align-items: center; gap: 7px; }
+.cov-key .sw { width: 20px; height: 20px; border-radius: 4px; display: grid; place-items: center; font-style: normal; font-size: 12px; font-weight: 700; }
+
+.cov-scroll { overflow: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+table.cov2 { border-collapse: collapse; width: 100%; font-size: var(--t-small); }
+table.cov2 thead th {
+  position: sticky; top: 0; background: var(--surface); z-index: 1; text-align: center;
+  font-size: var(--t-label); font-weight: 650; color: var(--ink-2); padding: 11px 6px;
+  border-bottom: 1px solid var(--border-strong); white-space: nowrap;
+}
+table.cov2 td { padding: 3px 6px; text-align: center; border-bottom: 1px solid var(--border); }
+table.cov2 tbody tr:hover td { background: var(--surface-2); }
+table.cov2 td.score { font-variant-numeric: tabular-nums; color: var(--ink-3-text); padding-right: 14px; }
+.cov-cell {
+  width: 30px; height: 26px; border: 0; border-radius: 4px; cursor: pointer;
+  font-size: 12px; font-weight: 700; font-family: inherit; display: block; margin: 0 auto;
+}
+.cov-cell:hover { outline: 2px solid var(--accent); outline-offset: -2px; }
+.linkish { border: 0; background: none; padding: 0; color: var(--ink); font: inherit; font-weight: 600; cursor: pointer; text-align: left; }
+.linkish:hover { color: var(--accent); text-decoration: underline; }
+
+/* ---------------------------------------------------------------- parallel coordinates (svg) */
+.pc-scroll { overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain; }
+.pc-svg { display: block; overflow: visible; --pc-base: .75; }
+.pc-svg.crowded { --pc-base: .45; }
+.pc-line-axis { stroke: var(--border-strong); stroke-width: 1; }
+.pc-lbl { fill: var(--ink); font-size: 12.5px; font-weight: 650; }
+.pc-lbl-unit { fill: var(--ink-3-text); font-size: 11px; }
+.pc-tick { fill: var(--ink-3-text); font-size: 11px; font-variant-numeric: tabular-nums; }
+/* Round ticks inside an axis (C45), haloed so a line under a number does not cross it out. */
+.pc-tick-mark { stroke: var(--border-strong); stroke-width: 1; }
+.pc-tick-in { font-size: 10px; paint-order: stroke; stroke: var(--surface); stroke-width: 3px; stroke-linejoin: round; }
+/* A value beyond the scale ends its line at the axis end, under this chevron (C47). */
+.pc-park-chev { fill: none; stroke: var(--ink-2); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+/* The read line's products on each axis, in its colour (C46): the range a hairline, the middle half a bar. */
+.pc-glyphs { pointer-events: none; }
+.pc-g-range { stroke-width: 1.5; stroke-linecap: round; }
+.pc-g-half { stroke-width: 7; stroke-linecap: butt; opacity: .45; }
+.pc-readout-pass { font-weight: 600; }
+/* A line's weight is three things multiplied: how many lines there are, its result, and whether anything is shortlisted
+   (C40, C44). A line that failed is faded, as the Ashby chart fades a mark that did not pass; one that could not be
+   checked is dashed. Once anything drawn is shortlisted, those lines are at full weight and the rest lighter. */
+.pc-line { --pc-verdict: 1; --pc-focus: 1; }
+.pc-line.v-fail { --pc-verdict: .45; }
+.pc-svg.has-short .pc-line { --pc-focus: .5; }
+.pc-poly { fill: none; stroke-width: 1.75; opacity: calc(var(--pc-base, .75) * var(--pc-verdict, 1) * var(--pc-focus, 1)); transition: stroke-width .1s, opacity .1s; pointer-events: none; }
+.pc-line.v-unknown .pc-poly, .pc-raised.v-unknown { stroke-dasharray: 7 5; }
+/* Each line's pointer target: transparent and 14 px wide, so a finger can hit a line drawn under 2 px wide. */
+.pc-hit { fill: none; stroke: transparent; stroke-width: 14; cursor: pointer; }
+.pc-bg { fill: transparent; }
+.pc-line:focus { outline: none; }
+/* The line being read, drawn again above every other line. */
+.pc-raised { stroke-width: 3.5; opacity: 1; }
+.pc-line:focus-visible .pc-poly { stroke-width: 4; }
+/* A small set is named at its right end, in the ink the page's labels use; the one read is set heavier. */
+.pc-tag { fill: var(--ink-2); font-size: 11px; cursor: pointer; }
+.pc-leader { fill: none; stroke-width: 1; opacity: .6; pointer-events: none; }
+/* A requirement across its axis, as Compare draws one across a track: the failing colour, dashed where it is only reported
+   (C41). One past the end of the axis is at that end, thicker, with a chevron; no tint, so the lines stay the picture. */
+.pc-reqs { pointer-events: none; }
+.pc-req-line { stroke: var(--fail); stroke-width: 2; }
+.pc-req-chev { fill: none; stroke: var(--fail); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.pc-req-text { fill: var(--fail); font-size: 10.5px; font-variant-numeric: tabular-nums; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; stroke-linejoin: round; }
+/* What the line under the pointer, or the one tapped or focused, reads, above the chart, with its one next step. */
+.pc-readout {
+  display: flex; align-items: center; gap: 6px 12px; flex-wrap: wrap; min-height: 44px; margin: 0 0 8px; padding: 6px 10px;
+  border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2); font-size: var(--t-small); color: var(--ink-2);
+}
+.pc-readout-text { flex: 1 1 260px; line-height: 1.5; }
+.pc-readout-text b { color: var(--ink); margin-right: 4px; }
+.pc-readout-family { color: var(--ink-3-text); margin-right: 8px; }
+.pc-readout-value { display: inline-block; margin-right: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.pc-legend { display: flex; gap: 16px; flex-wrap: wrap; margin: 14px 0 6px; font-size: var(--t-small); color: var(--ink-2); }
+.pc-key { display: inline-flex; align-items: center; gap: 7px; }
+.pc-key i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+.pc-key-mark { flex: none; }
+.pc-key-line { stroke: var(--ink-2); stroke-width: 1.75; }
+.pc-key-line.v-unknown { stroke-dasharray: 5 3.5; }
+.pc-key-line.v-fail { opacity: .35; }
+.pc-key-req { stroke: var(--fail); stroke-width: 2; }
+/* Print windows, in the section that asks whether the printer can run the material. */
+.set-to {
+  font-weight: 400; font-size: var(--t-label); color: var(--ink-2);
+  background: var(--surface-2); border-radius: 4px; padding: 1px 7px; white-space: nowrap;
+}
+/* Makers' know-how: each statement in the maker's words, with where it stands in a smaller, quieter line. */
+.cmp-bar .spread-bounds { top: 3px; height: 10px; border: 1px solid var(--ink-2); border-radius: 2px; background: color-mix(in srgb, var(--ink-3) 18%, transparent); }
+/* "converted" in the Price tab's first line, its rate one press away (C16): words, not a superscript. */
+.print-answer { margin: 4px 0; font-size: var(--t-body); }
+/* Under the coverage grid: what the columns cannot show, each in a section of its own with one line saying what it is. */
+.cov-notes { margin-top: 22px; max-width: 90ch; }
+.cov-notes .sw { display: inline-grid; width: 18px; height: 18px; border-radius: 4px; place-items: center; font-size: 11px; font-weight: 700; }
+.cov-list { margin: 0; padding-left: 18px; font-size: var(--t-small); color: var(--ink-2); line-height: 1.6; }
+.cov-sparse-table td, .cov-sparse-table th { font-size: var(--t-small); }

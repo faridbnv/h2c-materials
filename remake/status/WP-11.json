@@ -1,0 +1,30 @@
+{
+  "id": "WP-11",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-11-engine-wrapper",
+  "pr": 18,
+  "exitCheck": "pass",
+  "lastRun": "2026-10-21T12:20:20.522Z",
+  "lastPass": "2026-10-21T12:20:20.522Z",
+  "evidence": [
+    {
+      "cmd": "npm run parity -- --new --surface engine,ties",
+      "result": "pass",
+      "code": 0
+    },
+    {
+      "cmd": "node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs",
+      "result": "pass",
+      "code": 0
+    }
+  ],
+  "waitingSince": null,
+  "approvedAt": null,
+  "doneAt": "2026-10-21",
+  "note": "typed engine wrapper (packages/engine), wrapped parity new side (1,306 cases, zero differences), impact preview (cold 5.0 s, warm 4.0 s; with estimates 32 s cold, 28 s warm)",
+  "prs": [
+    18
+  ],
+  "updated": "2026-10-21T12:22:57.933Z"
+}

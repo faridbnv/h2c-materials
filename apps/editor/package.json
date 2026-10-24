@@ -1,0 +1,21 @@
+{
+  "name": "@atlas/editor",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas local editor v1 (WP-13): the correction journey. A Vue 3 interface and a Node service on 127.0.0.1 that works only through the write service, on a sandbox workspace (Q2-06 C, Q2-07 A, Q2-08 B).",
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@atlas/data": "0.0.0",
+    "@atlas/domain": "0.0.0",
+    "vue": "3.5.44"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.10",
+    "vite": "8.3.5",
+    "vue-tsc": "3.3.13"
+  }
+}

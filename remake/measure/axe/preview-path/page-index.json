@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "page": "page-index",
+  "title": "material page: index",
+  "adapter": "old",
+  "project": "preview-path",
+  "path": "/h2c-material-temp-page/legacy/materials/index.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 0,
+    "violatingNodes": 0,
+    "byImpact": {},
+    "passedRules": 40,
+    "incompleteRules": 0,
+    "inapplicableRules": 50
+  },
+  "violations": [],
+  "incomplete": []
+}

@@ -1,0 +1,243 @@
+/* Filament Atlas material pages: the figures (track C, pages-reimagined round). Concatenated by render.js buildAssets
+   after the shared tokens, the frame and the sections. One data colour marks this material (--dv-self), grey marks
+   everything else, --claim (the shared token, orange) marks a maker's toughened claim; no status colour and no
+   data-coloured text appear in a figure. The data pair was checked with the dataviz validator (Machado CVD model): CVD
+   ΔE 20.6 light and 22.1 dark between --dv-self and the orange claim; every check passes in both themes. */
+
+:root {
+  --dv-self: #1d65a3;
+  --dv-surface: var(--bg);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --dv-self: #3f8fd0; } }
+:root[data-theme="dark"] { --dv-self: #3f8fd0; }
+:root {
+  --dv-claim: var(--claim);
+  --dv-self-band: color-mix(in srgb, var(--dv-self) 30%, var(--dv-surface));
+  --dv-self-soft: color-mix(in srgb, var(--dv-self) 8%, var(--dv-surface));
+  --dv-peer: var(--ink-2);
+  --dv-peer-band: color-mix(in srgb, var(--ink-3) 34%, var(--dv-surface));
+  --dv-ctx: color-mix(in srgb, var(--ink-3) 48%, var(--dv-surface));
+  --dv-grid: color-mix(in srgb, var(--ink-3) 20%, var(--dv-surface));
+  --dv-beyond: color-mix(in srgb, var(--ink-3) 13%, var(--dv-surface));
+  --dv-fade: color-mix(in srgb, var(--ink-3) 26%, var(--dv-surface));
+  /* Marks drawn but kept out of the median (as published, an added filler): lighter than the ranked ones. */
+  --dv-light: color-mix(in srgb, var(--ink-3) 62%, var(--dv-surface));
+  /* This material's own products on the maps: a tint that holds its ground in both themes. */
+  --dv-selfprod: color-mix(in srgb, var(--dv-self) 50%, var(--dv-surface));
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --dv-selfprod: color-mix(in srgb, var(--dv-self) 80%, var(--dv-surface)); } }
+:root[data-theme="dark"] { --dv-selfprod: color-mix(in srgb, var(--dv-self) 80%, var(--dv-surface)); }
+
+/* ---------------------------------------------------------------- the frame */
+.dv-fig { margin: 2.5rem 0 0; padding: 1rem 0 0; border-top: 1px solid var(--border); }
+.dv-fig .fig-head { display: block; margin: 0 0 .75rem; }
+.dv-fig .fig-title { font: 600 1.1875rem/1.35 var(--f-sans, inherit); letter-spacing: -.008em; margin: 0; max-width: 60ch; text-wrap: pretty; }
+.dv-fig .fig-q { margin: .25rem 0 0; font-size: .9375rem; color: var(--ink-2); }
+.dv-fig .fig-key { display: flex; flex-wrap: wrap; gap: .3rem 1.25rem; list-style: none; margin: 0 0 .9rem; padding: 0; font-size: .875rem; color: var(--ink-2); }
+.dv-fig .fig-key li { display: inline-flex; align-items: center; gap: .4rem; }
+.dv-key-mk { flex: none; overflow: visible; }
+.dv-fig .fig-plot { margin-top: .25rem; }
+.dv-fig figcaption { margin-top: .75rem; }
+.dv-fig .fig-read { font-size: .9375rem; color: var(--ink-2); margin: 0; max-width: 80ch; text-wrap: pretty; }
+.fig-data { margin-top: .6rem; font-size: .9375rem; }
+.fig-data > summary { cursor: pointer; color: var(--ink-2); width: fit-content; }
+.fig-data > summary:hover { color: var(--accent); }
+.fig-data[open] > summary { margin-bottom: .6rem; }
+.fig-leaves, .fig-method { margin: .5rem 0 0; color: var(--ink-2); max-width: 80ch; }
+table.dv-twin { border-collapse: collapse; font-size: .875rem; font-variant-numeric: tabular-nums; }
+table.dv-twin th, table.dv-twin td { padding: .3rem .7rem; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; font-weight: 400; }
+table.dv-twin thead th { color: var(--ink-2); font-weight: 600; border-bottom-color: var(--border-strong); }
+table.dv-twin tbody th { font-weight: 600; }
+table.dv-twin .num { text-align: right; white-space: nowrap; }
+.dv-fig .table-box { overflow-x: auto; max-width: 100%; }
+/* On a phone a table twin stacks: each row a block under its head, each cell its column's label and its value. */
+@media (max-width: 600px) {
+  table.dv-twin, table.dv-twin tbody, table.dv-twin tr, table.dv-twin th, table.dv-twin td { display: block; width: 100%; }
+  table.dv-twin thead { display: none; }
+  table.dv-twin tr { padding: .5rem 0; border-bottom: 1px solid var(--border); }
+  table.dv-twin th, table.dv-twin td { border: 0; padding: .1rem 0; text-align: left; white-space: normal; }
+  table.dv-twin tbody th { font-weight: 600; padding-bottom: .2rem; }
+  table.dv-twin td { display: flex; justify-content: space-between; gap: 1rem; }
+  table.dv-twin td::before { content: attr(data-label); color: var(--ink-2); flex: none; max-width: 55%; }
+  table.dv-twin td.num { text-align: right; }
+}
+
+/* ---------------------------------------------------------------- shared marks and type */
+.dv-fig svg { overflow: visible; font-family: var(--f-sans, inherit); }
+.dv-fig svg text, svg.dv-mini text { font-size: 11.5px; fill: var(--ink-2); font-variant-numeric: tabular-nums; }
+.dv-grid { stroke: var(--dv-grid); stroke-width: 1; }
+.dv-axis { stroke: var(--border-strong); stroke-width: 1; }
+.dv-tk { stroke: var(--border-strong); stroke-width: 1; }
+.dv-ticks { display: block; overflow: visible; }
+.dv-fig svg .dv-val { fill: var(--ink); font-size: 12px; font-weight: 600; paint-order: stroke; stroke: var(--dv-surface); stroke-width: 3px; stroke-linejoin: round; }
+.dv-fig svg .dv-none { fill: var(--ink-2); }
+.dv-self { fill: var(--dv-self); }
+.dv-self-band { fill: var(--dv-self-band); }
+.dv-self-range { stroke: var(--dv-self); stroke-width: 1.25; }
+.dv-peer { fill: var(--dv-peer); }
+.dv-peer-band { fill: var(--dv-peer-band); }
+.dv-peer-range { stroke: var(--ink-3); stroke-width: 1; }
+.dv-open { fill: var(--dv-surface); stroke: var(--dv-self); stroke-width: 1.75; }
+.dv-open-line { stroke: var(--dv-self); stroke-width: 1; }
+.dv-peer-open .dv-open { stroke: var(--ink-3); }
+.dv-peer-open .dv-open-line { stroke: var(--ink-3); }
+.dv-guide { stroke: var(--dv-self); stroke-width: 1; opacity: .35; }
+.dv-rug { fill: none; stroke: var(--dv-ctx); stroke-width: 1.25; }
+.dv-rug--self { stroke: var(--dv-self); stroke-width: 2.5; }
+.dv-fig svg .dv-rugn { font-size: 10.5px; }
+/* A product: a 7 px dot with a ring of the surface; hollow grey as published; a grey diamond modified; the claim colour. */
+.dv-p { fill: var(--dv-self); stroke: var(--dv-surface); stroke-width: 1.5; cursor: pointer; }
+.dv-p.mk--open { fill: var(--dv-surface); stroke: var(--dv-light); stroke-width: 1; }
+.dv-p.mk--variant { fill: var(--dv-surface); stroke: var(--dv-light); stroke-width: 1; }
+/* A value beyond its axis: a chevron at the edge, in its mark's colour. */
+.dv-clip { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dv-p.dv-clip { fill: none; stroke: var(--dv-self); }
+.dv-p.dv-clip.mk--open, .dv-p.dv-clip.mk--variant { fill: none; stroke: var(--dv-light); stroke-width: 1.5; }
+.dv-p.dv-clip.mk--claimed { stroke: var(--dv-claim); }
+.dv-self-chev { stroke: var(--dv-self); }
+.dv-peer-chev { stroke: var(--dv-peer); }
+.dv-open-chev { stroke: var(--dv-self); stroke-width: 1.5; }
+.dv-peer-open .dv-open-chev { stroke: var(--ink-3); }
+.dv-chev--big { stroke-width: 2.5; }
+.dv-ctx-chev { stroke: var(--dv-ctx); stroke-width: 1.5; }
+.dv-selfprod-chev { fill: none; stroke: var(--dv-selfprod); stroke-width: 1.75; }
+.dv-leader { stroke: var(--border-strong); stroke-width: 1; }
+.dv-p.mk--claimed { fill: var(--dv-claim); }
+.dv-p.mk--claimed.mk--open { fill: var(--dv-surface); stroke: var(--dv-claim); }
+.dv-pband { fill: var(--dv-self-soft); stroke: color-mix(in srgb, var(--dv-self) 25%, var(--dv-surface)); stroke-width: 1; }
+.dv-pmed { stroke: var(--ink-2); stroke-width: 1.5; }
+.dv-fig svg .dv-call { fill: var(--ink-2); font-size: 11.5px; }
+.dv-fig svg a .dv-call { fill: var(--ink); text-decoration: underline; text-decoration-color: var(--border-strong); }
+.dv-ctx { fill: var(--dv-ctx); }
+.dv-peerdot { fill: var(--dv-peer); stroke: var(--dv-surface); stroke-width: 2; }
+.dv-selfprod { fill: var(--dv-selfprod); }
+.dv-selfdot { fill: var(--dv-self); stroke: var(--dv-surface); stroke-width: 2; }
+.dv-cross { stroke: var(--dv-self); stroke-width: 2; stroke-linecap: round; }
+.dv-ray { stroke: var(--dv-grid); stroke-width: 1.25; }
+.dv-ray--own { stroke: var(--dv-self); stroke-width: 1.5; opacity: .55; }
+.dv-fig svg .dv-raylab { font-size: 10.5px; }
+.dv-acc { fill: var(--dv-self); }
+.dv-most { fill: none; stroke: var(--ink); stroke-width: 1.25; }
+.dv-limit { stroke: var(--ink); stroke-width: 1.5; }
+.dv-beyond { fill: var(--dv-beyond); }
+.dv-oneend { stroke: var(--dv-self); stroke-width: 1.25; opacity: .6; }
+.dv-oneend-dot { fill: var(--dv-self); }
+.dv-maplab { paint-order: stroke; stroke: var(--dv-surface); stroke-width: 3px; stroke-linejoin: round; }
+.dv-fig svg .dv-maplab--self { fill: var(--ink); font-weight: 700; font-size: 12.5px; }
+/* A name that does not fit a phone's narrow track. */
+@media (max-width: 719px) { .dv-fig .alt, .dv-fig .dv-wide { display: none; } }
+/* A screen with no hover: the hover line goes (a tap still selects a product). */
+@media (hover: none) { .fig-howto { display: none; } }
+@media (min-width: 720px) { .dv-fig .dv-narrow { display: none; } }
+
+/* Lighting: the page script adds .lit to a product's marks (data-grade) or a material's (data-mat) and body.lighting. */
+body.lighting .dv-fig .dv-p:not(.lit) { fill: var(--dv-fade); stroke: var(--dv-surface); }
+body.lighting .dv-fig .dv-p.mk--open:not(.lit), body.lighting .dv-fig .dv-p.mk--variant:not(.lit) { fill: var(--dv-surface); stroke: var(--dv-fade); }
+.dv-fig .dv-p.lit { stroke: var(--ink); stroke-width: 2; }
+body.lighting .dv-fig .pe-cell[data-mat]:not(.lit), body.lighting .dv-fig .pe-name[data-mat]:not(.lit) { opacity: .3; }
+body.lighting .dv-fig circle[data-mat]:not(.lit), body.lighting .dv-fig .dv-maplab[data-mat]:not(.lit) { opacity: .3; }
+.dv-fig circle[data-mat].lit { stroke: var(--ink); stroke-width: 2; }
+
+/* ---------------------------------------------------------------- Against its alternatives */
+.pe { position: relative; display: grid; grid-template-columns: 8.75rem repeat(var(--cols), minmax(6.75rem, 1fr)); column-gap: 1.25rem; overflow-x: auto; padding-bottom: .25rem; }
+.pe-h { height: 2.6rem; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: .35rem; line-height: 1.2; }
+.pe-h b { font-size: .875rem; font-weight: 600; white-space: nowrap; }
+.pe-h span { font-size: .8125rem; color: var(--ink-2); white-space: nowrap; }
+.pe-names { position: sticky; left: 0; z-index: 1; background: var(--dv-surface); }
+.pe-rugname { height: 26px; font-size: .8125rem; font-weight: 600; line-height: 26px; white-space: nowrap; }
+.pe-name { height: 34px; display: flex; flex-direction: column; justify-content: center; line-height: 1.15; font-size: .875rem; font-weight: 500; white-space: nowrap; }
+.pe-name span { font-size: .75rem; font-weight: 400; color: var(--ink-2); }
+.pe-name--self { font-weight: 700; padding-left: .55rem; border-left: 3px solid var(--dv-self); background: var(--dv-self-soft); border-radius: 0 4px 4px 0; }
+.pe-selfband { fill: var(--dv-self-soft); }
+.pe-name a { color: var(--ink); text-decoration-color: var(--border-strong); }
+.pe-name a:hover { color: var(--accent); }
+.pe-col { min-width: 0; }
+/* Where the grid is wider than the screen it scrolls sideways: a fade at the right edge and a cue above say so. */
+.pe-wrap { position: relative; }
+.pe-cue { display: none; margin: 0 0 .3rem; font-size: .8125rem; color: var(--ink-2); text-align: right; }
+@media (max-width: 939px) {
+  .pe-cue { display: block; }
+  .pe-wrap::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 2.5rem; pointer-events: none;
+    background: linear-gradient(to right, color-mix(in srgb, var(--dv-surface) 0%, transparent), var(--dv-surface)); }
+}
+@media print { .pe-cue { display: none; } .pe-wrap::after { display: none; } }
+.pe-svg { display: block; }
+.pe-cell { cursor: default; }
+
+/* ---------------------------------------------------------------- Among all materials */
+.mp { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+@media (min-width: 1000px) { .mp { grid-template-columns: 1fr 1fr; } }
+.mp-panel { min-width: 0; }
+.mp-title { margin: 0 0 .35rem; font-size: .875rem; font-weight: 600; }
+.mp-y { font-size: .8125rem; color: var(--ink-2); margin: 0 0 .2rem; }
+.mp-plot { padding-left: 2.6rem; }
+.mp-x { font-size: .8125rem; color: var(--ink-2); text-align: right; margin: .1rem 0 0; }
+.mp-svg { display: block; }
+
+/* ---------------------------------------------------------------- the products' strips */
+.st-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: .15rem; padding: .35rem 0; }
+@media (min-width: 720px) { .st-row { grid-template-columns: 11.5rem minmax(0, 1fr); column-gap: 1.25rem; align-items: start; } }
+.st-label { font-size: .9375rem; line-height: 1.25; padding-top: 1.1rem; }
+.st-label small { display: block; font-size: .8125rem; color: var(--ink-2); margin-top: .1rem; }
+@media (max-width: 719px) { .st-label { padding-top: 0; } .st-label small { display: inline; margin-left: .4rem; } }
+.st-svg { display: block; }
+
+/* ---------------------------------------------------------------- across the layers */
+.ly { display: grid; grid-template-columns: 1fr; gap: 1.75rem; }
+@media (min-width: 1000px) { .ly { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ly-panel { min-width: 0; }
+.ly-title { margin: 0; font-size: .875rem; font-weight: 600; }
+.ly-sub { margin: .1rem 0 .4rem; font-size: .8125rem; color: var(--ink-2); }
+.ly-plot { padding-left: 2.2rem; }
+.ly-svg { display: block; }
+.ly-x { font-size: .8125rem; color: var(--ink-2); text-align: right; margin: .1rem 0 0; }
+.ly-strip { margin-top: .6rem; padding-left: 2.2rem; }
+.ly-list { margin: .35rem 0 0; font-size: .8125rem; color: var(--ink-2); line-height: 1.45; }
+.ly-list b { color: var(--ink); }
+
+/* ---------------------------------------------------------------- every temperature on one axis */
+.tm-group { margin: .9rem 0 .2rem; font-size: .875rem; font-weight: 600; color: var(--ink-2); }
+.tm-pub { stroke: var(--dv-peer); stroke-width: 2; }
+.tm-pubrange { fill: color-mix(in srgb, var(--dv-peer) 55%, var(--dv-surface)); }
+.tm-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+@media (min-width: 720px) { .tm-row { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 1.25rem; align-items: center; padding: .1rem 0; } }
+.tm-label { font-size: .9375rem; line-height: 1.2; }
+.tm-label small { display: block; font-size: .8125rem; color: var(--ink-2); margin-top: .1rem; }
+@media (max-width: 719px) { .tm-row + .tm-row { margin-top: .4rem; } }
+.tm-svg { display: block; }
+.tm-axis { display: grid; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 720px) { .tm-axis { grid-template-columns: 14rem minmax(0, 1fr); column-gap: 1.25rem; } }
+@media (max-width: 719px) { .tm-axis > div:first-child { display: none; } }
+.tm-unit { font-size: .8125rem; color: var(--ink-2); text-align: right; margin: 0; }
+
+/* ---------------------------------------------------------------- the key-figure plate's small drawing */
+svg.dv-mini { display: block; overflow: visible; }
+svg.dv-mini text { font-size: 11px; }
+
+@media print {
+  .dv-fig { margin-top: 1.25rem; }
+  .dv-fig .fig-head, .dv-fig .fig-key { break-after: avoid; }
+  .dv-fig .fig-plot > *, .st-row, .tm-row, .mp-panel, .ly-panel { break-inside: avoid; }
+  .fig-howto { display: none; }
+  /* Smaller on paper, every label still legible (11.5 px type prints at about 9.8 px). */
+  .dv-fig .fig-plot { zoom: .85; }
+  /* Side by side on paper, as on a laptop: the two maps, the three layer plots. */
+  .mp { grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .ly { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .dv-fig .fig-key { margin-bottom: .5rem; font-size: .8125rem; }
+  .fig-data { display: none; }
+  /* Against its alternatives on A4 or Letter: every column shares the printed width, no sideways scroll, smaller type. */
+  .pe { grid-template-columns: 7rem repeat(var(--cols), minmax(0, 1fr)); column-gap: .55rem; overflow: visible; }
+  .pe-names { position: static; }
+  .pe .pe-h { height: 3.1rem; }
+  .pe-h b { font-size: .75rem; white-space: normal; line-height: 1.15; }
+  .pe-h span { font-size: .6875rem; white-space: normal; line-height: 1.15; }
+  .pe-rugname { font-size: .75rem; }
+  .pe-name { font-size: .75rem; white-space: normal; line-height: 1.05; }
+  .pe-name span { font-size: .6875rem; }
+  .pe-svg text { font-size: 10px; }
+}
+@media (forced-colors: active) {
+  .dv-p, .dv-self, .dv-peer, .dv-selfdot, .dv-peerdot, .dv-acc { fill: CanvasText; }
+  .dv-p.mk--open, .dv-p.mk--variant, .dv-open { fill: Canvas; stroke: CanvasText; }
+}

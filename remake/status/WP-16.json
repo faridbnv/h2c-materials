@@ -1,0 +1,24 @@
+{
+  "id": "WP-16",
+  "status": "done",
+  "slice": null,
+  "branch": "wp-16-m1-close",
+  "pr": 22,
+  "exitCheck": "pass",
+  "lastRun": "2026-10-21",
+  "lastPass": "2026-10-21",
+  "evidence": [
+    "owner-correction attest row 2026-10-21 (remake/attest.csv), recorded by the owner with npm run wp:attest",
+    "owner correction in the local editor sandbox: change set 2026-10-21-measurements-v000547-8bc8 (Melting temperature of ABS, V000547), 1 record; impact preview on the real engine: 0 of 162 questions moved, 144 estimate questions pending (shown as pending, not as nothing moves)",
+    "clean-rebuild proof: npm run change:replay on a fresh rebuild from committed CSV: base f177159eb10b and result f313b3e0e322 match, measurements IDENTICAL, RESULT: pass",
+    "owner friction note (chat, 2026-10-21): \"it was almost immidiate\"",
+    "Q2-08 B: the correction stays in the sandbox; nothing was written to data/"
+  ],
+  "waitingSince": null,
+  "approvedAt": "2026-10-21",
+  "prs": [
+    22
+  ],
+  "doneAt": "2026-10-21",
+  "note": "delivered by merged PR #22 (2026-10-21)"
+}

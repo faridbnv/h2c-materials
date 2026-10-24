@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "page": "page-method",
+  "title": "material page: method",
+  "adapter": "old",
+  "project": "live-path",
+  "path": "/h2c-materials/legacy/materials/method.html",
+  "axe": "4.13.0",
+  "tags": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21a",
+    "wcag21aa",
+    "wcag22aa",
+    "best-practice"
+  ],
+  "blocking": false,
+  "counts": {
+    "violatedRules": 0,
+    "violatingNodes": 0,
+    "byImpact": {},
+    "passedRules": 35,
+    "incompleteRules": 0,
+    "inapplicableRules": 55
+  },
+  "violations": [],
+  "incomplete": []
+}

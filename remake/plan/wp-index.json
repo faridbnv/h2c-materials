@@ -1,0 +1,1155 @@
+{
+  "schema": 1,
+  "source": "pack 08-ROADMAP-AND-WORK-PACKAGES.md section 3, with the owner answers of 2026-10-21 applied",
+  "packages": [
+    {
+      "id": "WP-S0",
+      "title": "Claude Code setup and branch birth",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [],
+      "gates": [
+        "Q2-03"
+      ],
+      "dependsRaw": "You did 14 §A; Q2-03 answered or defaulted",
+      "canStart": "Day 1",
+      "size": "S (2)",
+      "exitEvidence": "14 §E checks; `remake/v3` protected (`gh api …/branches/remake/v3/protection`)",
+      "exit": {
+        "commands": [
+          "npm run test:claude",
+          "gh api repos/faridbnv/h2c-materials/branches/remake/v3/protection --silent"
+        ],
+        "attest": [],
+        "manual": [
+          "14 section E checks"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-01",
+      "title": "Direction and rulings on the branch",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-S0"
+      ],
+      "gates": [
+        "Q2-09"
+      ],
+      "dependsRaw": "WP-S0 prepared; Q2-09",
+      "canStart": "Day 1",
+      "size": "S (1)",
+      "exitEvidence": "`rulings:check` passes; GOALS-NEXT has your dated words; with Q2-09 A, the pointer PR on `main` touched only `docs/GOALS-LOG.md`",
+      "exit": {
+        "commands": [
+          "npm run rulings:check"
+        ],
+        "attest": [],
+        "manual": [
+          "GOALS-NEXT has the owner's dated words (the Q2-09 pointer PR is not made: Q2-09 B)"
+        ]
+      },
+      "dropped": false,
+      "notes": [
+        "Q2-09 B: no pointer PR to main"
+      ]
+    },
+    {
+      "id": "WP-02",
+      "title": "Baseline receipt and programme scaffolding",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-S0"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-S0",
+      "canStart": "Day 1",
+      "size": "S (2)",
+      "exitEvidence": "`wp:status` prints next slices; dependency check fails on a seeded cycle; a setup-script worktree passes `npm run doctor`; a `--from-main` worktree refuses `git push origin HEAD:main`; `wp:attest` refuses a non-terminal input",
+      "exit": {
+        "commands": [
+          "npm run -s wp:deps",
+          "node --test tests/remake/*.test.mjs tests/claude/hooks.test.mjs"
+        ],
+        "attest": [],
+        "manual": [
+          "a setup-script worktree passes npm run doctor"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-03",
+      "title": "Branch CI and the first preview",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-S0",
+        "WP-02"
+      ],
+      "gates": [
+        "Q2-01",
+        "Q2-02"
+      ],
+      "dependsRaw": "WP-S0, WP-02; Q2-01, Q2-02",
+      "canStart": "Day 2",
+      "size": "M (4)",
+      "exitEvidence": "Preview smoke green; `preview.json` names the commit; scratch PR on `app/` fails; PR jobs cannot read the deploy key",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "preview smoke green",
+          "preview.json names the commit",
+          "scratch PR on app/ fails",
+          "PR jobs cannot read the deploy key"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-04",
+      "title": "Sync from `main`",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-03",
+        "WP-05"
+      ],
+      "gates": [
+        "Q2-04",
+        "Q2-14"
+      ],
+      "dependsRaw": "WP-03, WP-05 (a); Q2-04, Q2-14",
+      "canStart": "Day 3",
+      "size": "M (3)",
+      "exitEvidence": "Two sync PRs merged, one by auto-merge; a simulated rule change yields a Tier-1 sync PR with a port item; a branch-side data edit makes the sync refuse",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": []
+      },
+      "dropped": true,
+      "droppedReason": "dropped: main frozen, Q2-04 B"
+    },
+    {
+      "id": "WP-05",
+      "title": "Parity harness: (a) driver, adapters, corpus v0; (b) full corpus, P-build, P-pages, self-test",
+      "milestone": "M0 (a), M1 (b)",
+      "milestones": [
+        "M0",
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-02",
+        "WP-06"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-02; WP-06 for its types",
+      "canStart": "Day 2",
+      "size": "L (6)",
+      "exitEvidence": "(a) `parity -- --noop` = 0 and a seeded fault named; (b) `parity:mutate` 9/9, P-build and P-pages no-op = 0",
+      "exit": {
+        "commands": [
+          "npm run parity -- --noop"
+        ],
+        "attest": [],
+        "manual": [
+          "a seeded fault is named",
+          "(b) parity:mutate 9/9, P-build and P-pages no-op = 0"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-06",
+      "title": "TypeScript toolchain and generated data types (stage A, part 1)",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-S0"
+      ],
+      "gates": [
+        "Q2-17"
+      ],
+      "dependsRaw": "WP-S0; Q2-17",
+      "canStart": "Day 2",
+      "size": "M (3)",
+      "exitEvidence": "`types:check` and `tsc --noEmit` = 0; generated columns equal schema columns for 36 tables; workspace-link test passes",
+      "exit": {
+        "commands": [
+          "npm run types:check",
+          "npx tsc --noEmit"
+        ],
+        "attest": [],
+        "manual": [
+          "generated columns equal schema columns for 36 tables",
+          "workspace-link test passes"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-07",
+      "title": "Boundary contracts and shared core (stage A, part 2)",
+      "milestone": "M0",
+      "milestones": [
+        "M0"
+      ],
+      "dependsOn": [
+        "WP-06"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-06",
+      "canStart": "Day 4",
+      "size": "M (3)",
+      "exitEvidence": "`tsc` = 0; copies-agree tests pass on current data; type-design findings dispositioned in the PR",
+      "exit": {
+        "commands": [
+          "npx tsc --noEmit"
+        ],
+        "attest": [],
+        "manual": [
+          "copies-agree tests pass on current data",
+          "type-design findings dispositioned in the PR"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-08",
+      "title": "SQLite driver wrapper and contract suite",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-06"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-06",
+      "canStart": "M0",
+      "size": "S (2)",
+      "exitEvidence": "Contract suite passes on Node 26.9 and the pinned CI Node; only `driver.ts` imports `node:sqlite`",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "contract suite passes on Node 26.9 and the pinned CI Node",
+          "only driver.ts imports node:sqlite"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-09",
+      "title": "Clean reconstruction and the round trip",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-08"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-08",
+      "canStart": "M0 end",
+      "size": "M (4)",
+      "exitEvidence": "`db:roundtrip` 36/36 byte-identical on a sync PR; reconstruction ≤ 5 s recorded; \"4.30\" and missing-word tests pass",
+      "exit": {
+        "commands": [
+          "npm run db:roundtrip"
+        ],
+        "attest": [],
+        "manual": [
+          "reconstruction <= 5 s recorded",
+          "\"4.30\" and missing-word tests pass"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-10",
+      "title": "Write service v1 and export",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-09",
+        "WP-07"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-09, WP-07",
+      "canStart": "M1",
+      "size": "L (6)",
+      "exitEvidence": "One test per guard and refusal; interrupted export leaves the tree unchanged; `change:replay` equality; stale command refused",
+      "exit": {
+        "commands": [
+          "node --test tests/remake/write-export.test.mjs"
+        ],
+        "attest": [],
+        "manual": [
+          "one test per guard and refusal",
+          "interrupted export leaves the tree unchanged",
+          "stale command refused"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-11",
+      "title": "Typed engine wrapper and impact preview",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-07",
+        "WP-09",
+        "WP-05"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-07, WP-09, WP-05 (a)",
+      "canStart": "M1",
+      "size": "M (3)",
+      "exitEvidence": "`parity -- --new adapter` = 0; fixture correction lists the expected moves; impact ≤ 10 s recorded",
+      "exit": {
+        "commands": [
+          "npm run parity -- --new --surface engine,ties",
+          "node --test tests/parity/engine-wrapper.test.mjs tests/parity/impact.test.mjs"
+        ],
+        "attest": [],
+        "manual": []
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-12",
+      "title": "Framework trial",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-07",
+        "WP-11"
+      ],
+      "gates": [
+        "Q2-06",
+        "Q2-16"
+      ],
+      "dependsRaw": "WP-07, WP-11; Q2-06, Q2-16",
+      "canStart": "M1 week 1",
+      "size": "M (4) plus about 1 week elapsed",
+      "exitEvidence": "Scorecard with measured numbers; gate results per candidate; your Q2-13 tick recorded",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": []
+      },
+      "dropped": true,
+      "droppedReason": "dropped: Q2-06 C"
+    },
+    {
+      "id": "WP-13",
+      "title": "Local editor v1: the correction journey",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-10",
+        "WP-11"
+      ],
+      "gates": [
+        "Q2-07"
+      ],
+      "dependsRaw": "WP-10, WP-11, WP-12 (Q2-13); Q2-07",
+      "canStart": "After Q2-13",
+      "size": "L (6)",
+      "exitEvidence": "Journey test passes; token, Host, Origin and bind-address tests pass; ready ≤ 3 s",
+      "exit": {
+        "commands": [
+          "npm run test:e2e"
+        ],
+        "attest": [],
+        "manual": [
+          "token, Host, Origin and bind-address tests pass",
+          "ready <= 3 s"
+        ]
+      },
+      "dropped": false,
+      "notes": [
+        "WP-12 is dropped: Q2-06 C; depends on WP-11 instead"
+      ]
+    },
+    {
+      "id": "WP-14",
+      "title": "Release identity v2 and the local static result view",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-09",
+        "WP-11"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-09, WP-11",
+      "canStart": "M1",
+      "size": "M (3)",
+      "exitEvidence": "ID stable across two checkout paths and changed by one data cell; `/v3/` counts equal the engine's",
+      "exit": {
+        "commands": [
+          "npm run release:id"
+        ],
+        "attest": [],
+        "manual": [
+          "ID stable across two checkout paths and changed by one data cell",
+          "/v3/ counts equal the engine's"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-15",
+      "title": "Check register and must-not-change map",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-02",
+        "WP-05"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-02, WP-05 (a)",
+      "canStart": "M0 end",
+      "size": "M (3)",
+      "exitEvidence": "`checks:register -- --verify` passes; a scratch PR deleting a test fails; map covers every row of 00-CURRENT-STATE §11; your `untested-list-received` row",
+      "exit": {
+        "commands": [
+          "npm run checks:register -- --verify"
+        ],
+        "attest": [
+          "untested-list-received"
+        ],
+        "manual": [
+          "a scratch PR deleting a test fails",
+          "map covers every row of 00-CURRENT-STATE section 11"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-16",
+      "title": "M1 acceptance: your correction",
+      "milestone": "M1",
+      "milestones": [
+        "M1"
+      ],
+      "dependsOn": [
+        "WP-13",
+        "WP-14"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-13, WP-14",
+      "canStart": "M1 end",
+      "size": "S (1) plus your sitting",
+      "exitEvidence": "`owner-correction` row; clean rebuild diff = 0; re-estimate written; Q2-08 answered or defaulted",
+      "exit": {
+        "commands": [],
+        "attest": [
+          "owner-correction"
+        ],
+        "manual": [
+          "clean rebuild diff = 0",
+          "re-estimate written",
+          "Q2-08 answered or defaulted"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-17",
+      "title": "Write service: every command, generators, coverage",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-10"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-10",
+      "canStart": "M1 end",
+      "size": "L (5)",
+      "exitEvidence": "One test per command and refusal; coverage report; reviewer-kind report; `schemaEdit` round-trips",
+      "exit": {
+        "commands": [
+          "node --test tests/remake/write-commands.test.mjs tests/remake/write-schema.test.mjs tests/remake/sweeps.test.mjs tests/remake/reports.test.mjs",
+          "npm run report:reviewers -- --check"
+        ],
+        "attest": [],
+        "manual": [
+          "the owner reads the coverage share before answering Q2-10"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-18",
+      "title": "Engine port: leaves and middle (stage B part 1)",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-05",
+        "WP-07",
+        "WP-11"
+      ],
+      "gates": [
+        "Q2-19"
+      ],
+      "dependsRaw": "WP-05 (b), WP-07, WP-11; Q2-19",
+      "canStart": "M1 end",
+      "size": "L (5)",
+      "exitEvidence": "Per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised",
+      "exit": {
+        "commands": [
+          "npm run parity:erase",
+          "npm run parity -- --new --surface engine,ties,links",
+          "node --test tests/parity/port.test.mjs"
+        ],
+        "attest": [],
+        "manual": [
+          "per PR: P-erase = 0 for label steps, P-engine = 0 all tiers; ratchet not raised"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-19",
+      "title": "Engine port: `constraints`, reason codes, constraint IDs (stage B part 2)",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-18"
+      ],
+      "gates": [
+        "Q2-18",
+        "Q2-19"
+      ],
+      "dependsRaw": "WP-18; Q2-18, Q2-19",
+      "canStart": "M2",
+      "size": "L (6)",
+      "exitEvidence": "Rule cards mapped to tests; P-engine = 0 plus metamorphic, census, 5,000 replays; one verdict table in new code",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "rule cards mapped to tests",
+          "P-engine = 0 plus metamorphic, census, 5,000 replays",
+          "one verdict table in new code"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-20",
+      "title": "Build port onto the clean reconstruction (stage C)",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-09",
+        "WP-07",
+        "WP-05"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-09, WP-07, WP-05 (b)",
+      "canStart": "M2",
+      "size": "L (6)",
+      "exitEvidence": "P-build = 0; reproducible on one machine; tie order kept through `_ord`; cold build ≤ 26.4 s",
+      "exit": {
+        "commands": [
+          "npm run parity:host"
+        ],
+        "attest": [],
+        "manual": [
+          "P-build = 0",
+          "reproducible on one machine",
+          "cold build <= 26.4 s"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-21",
+      "title": "Estimate stage as a cached stage",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-20"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-20",
+      "canStart": "M2",
+      "size": "M (4)",
+      "exitEvidence": "Explore with estimates parity = 0; stale-key test forces recompute; withheld labels shown; `estimates.json` byte-identical after the TypeScript step",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "explore with estimates parity = 0",
+          "stale-key test forces recompute",
+          "estimates.json byte-identical after the TypeScript step"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-22",
+      "title": "Browser test harness re-pointed",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-03",
+        "WP-14"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-03, WP-14",
+      "canStart": "M1",
+      "size": "L (5)",
+      "exitEvidence": "Old-adapter run equals the old CDP harness on one build; both base paths; 3 green runs with retries 0; axe report per lens",
+      "exit": {
+        "commands": [
+          "npm run test:e2e"
+        ],
+        "attest": [],
+        "manual": [
+          "old-adapter run equals the old CDP harness on one build",
+          "3 green runs with retries 0",
+          "axe report per lens"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-23",
+      "title": "Full-corpus compatibility and the reprint transition",
+      "milestone": "M2",
+      "milestones": [
+        "M2"
+      ],
+      "dependsOn": [
+        "WP-19",
+        "WP-20",
+        "WP-21"
+      ],
+      "gates": [
+        "Q2-11",
+        "Q2-19"
+      ],
+      "dependsRaw": "WP-19, WP-20, WP-21; Q2-11, Q2-19",
+      "canStart": "M2 end",
+      "size": "M (3)",
+      "exitEvidence": "`parity -- --milestone` = 0 unregistered; transition digest = measured diff; your approval row",
+      "exit": {
+        "commands": [
+          "npm run parity -- --milestone"
+        ],
+        "attest": [
+          "reprint-transition-approved"
+        ],
+        "manual": [
+          "transition digest = measured diff"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-24",
+      "title": "Facts-and-words layer and material pages in TypeScript",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-20",
+        "WP-05"
+      ],
+      "gates": [
+        "Q2-20"
+      ],
+      "dependsRaw": "WP-20, WP-05 (b); Q2-20",
+      "canStart": "M2",
+      "size": "L (5)",
+      "exitEvidence": "P-pages byte-identical apart from registered display transitions; page script ≤ 30 KB",
+      "exit": {
+        "commands": [
+          "npm run parity:erase",
+          "npm run typecheck",
+          "node --test tests/remake/pages.test.mjs tests/parity/pages.test.mjs",
+          "npm run parity -- --new --surface pages"
+        ],
+        "attest": [],
+        "manual": [
+          "the owner reads docs/next/transitions/pages-display.md and attests the PR (parity/transitions/** needs the owner)"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-25",
+      "title": "Data delivery: shards, completeness, stale-shell guard",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-20",
+        "WP-21",
+        "WP-14"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-20, WP-21, WP-14",
+      "canStart": "M2 end",
+      "size": "L (5)",
+      "exitEvidence": "Core sufficiency = 0; stale-shell, mismatch and 404 tests pass; brief and export emit nothing without details; size report in budget",
+      "exit": {
+        "commands": [
+          "node --test tests/remake/shards.test.mjs tests/remake/delivery.test.mjs tests/remake/site-pages.test.mjs tests/remake/size-report.test.mjs tests/remake/core-reads.test.mjs tests/parity/core.test.mjs",
+          "npm run parity -- --surface core",
+          "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json"
+        ],
+        "attest": [],
+        "manual": [
+          "core sufficiency = 0 at the milestone size (npm run parity -- --surface core --milestone)",
+          "stale-shell, mismatch and 404 browser tests pass (npm run test:browser, tests/browser/delivery.spec.mjs)",
+          "size report in budget (the owner is asked before a budget is relaxed)"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-26",
+      "title": "Selector rebuild, part 1",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-11",
+        "WP-22",
+        "WP-24",
+        "WP-25"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-12 (Q2-13), WP-22, WP-24, WP-25",
+      "canStart": "M2 end",
+      "size": "L (6)",
+      "exitEvidence": "P-ui passes on the new adapter; view content equal per lens; keyboard script passes; historic links open",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "P-ui passes on the new adapter",
+          "keyboard script passes",
+          "historic links open"
+        ]
+      },
+      "dropped": false,
+      "notes": [
+        "WP-12 is dropped: Q2-06 C; depends on WP-11 instead"
+      ]
+    },
+    {
+      "id": "WP-27",
+      "title": "Selector rebuild, part 2",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-26"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-26",
+      "canStart": "M3",
+      "size": "L (5)",
+      "exitEvidence": "Chart traces identical; Plotly absent from first load; first chart ≤ 1.2 s; brief and export equal on 12 scenarios",
+      "exit": {
+        "commands": [
+          "npm run typecheck",
+          "node --test tests/remake/delivery.test.mjs tests/remake/browser-harness.test.mjs tests/remake/shards.test.mjs"
+        ],
+        "attest": [],
+        "manual": [
+          "P-ui passes with I4 and I10 run (npm run test:browser)",
+          "chart traces identical, brief and export equal on 12 scenarios (tests/browser/lenses.spec.mjs)",
+          "Plotly absent from first load; strict boot within 2 KB of WP-26 (size report)"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-28",
+      "title": "Unified ingest journey, hardening, editor v2",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-17",
+        "WP-13"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-17, WP-13",
+      "canStart": "M2 end",
+      "size": "L (6)",
+      "exitEvidence": "Adversarial tests fail closed; two commit-pinned scans with zero High; one document through proposal, review, accept and export",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "adversarial tests fail closed",
+          "two commit-pinned scans with zero High",
+          "one document through proposal, review, accept and export"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-29",
+      "title": "Source custody: second copy and honest private checks",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-02"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-02",
+      "canStart": "M1",
+      "size": "M (3)",
+      "exitEvidence": "`doctor:next` fails on a seeded gap; CI prints \"not run: store absent\"; manifests of the two copies equal",
+      "exit": {
+        "commands": [
+          "npm run doctor:next"
+        ],
+        "attest": [],
+        "manual": [
+          "CI prints \"not run: store absent\"",
+          "manifests of the two copies equal"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-30",
+      "title": "The new site on the preview, and representative tasks",
+      "milestone": "M3",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-24",
+        "WP-25",
+        "WP-26",
+        "WP-27"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-24 to WP-27",
+      "canStart": "M3 end",
+      "size": "M (3)",
+      "exitEvidence": "Smoke green at the preview root; task suite green under both base paths; budget report in range",
+      "exit": {
+        "commands": [
+          "node --test tests/remake/ci.test.mjs tests/remake/size-report.test.mjs",
+          "node remake/tools/assemble-test-site.mjs && node remake/tools/size-report.mjs --site .cache/browser-site --out remake/measure/sizes.json"
+        ],
+        "attest": [],
+        "manual": [
+          "preview-smoke green at the preview root and /legacy/ (after the first deploy)",
+          "task suite green under both base paths (tests/browser/tasks.spec.mjs)",
+          "timings measured, not gated (remake/measure/perf-new.json)"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-31",
+      "title": "Editor v3: add, retire, reclassify",
+      "milestone": "M3 (optional)",
+      "milestones": [
+        "M3"
+      ],
+      "dependsOn": [
+        "WP-17",
+        "WP-13"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-17, WP-13; your use of the editor",
+      "canStart": "M3",
+      "size": "M (3)",
+      "exitEvidence": "Journey test per command; usage gate recorded",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "journey test per command",
+          "usage gate recorded"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-32",
+      "title": "Future `main` workflow and CI consolidation",
+      "milestone": "M4",
+      "milestones": [
+        "M4"
+      ],
+      "dependsOn": [
+        "WP-30",
+        "WP-15"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-30, WP-15",
+      "canStart": "M3 end",
+      "size": "M (4)",
+      "exitEvidence": "Dry-run against the preview deploys the candidate and smoke passes; `checks:register -- --cutover-ready`; CI minutes within your budget",
+      "exit": {
+        "commands": [
+          "npm run checks:register -- --cutover-ready"
+        ],
+        "attest": [],
+        "manual": [
+          "dry-run against the preview deploys the candidate and smoke passes",
+          "CI minutes within budget"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-33",
+      "title": "Team trial on the preview",
+      "milestone": "M4",
+      "milestones": [
+        "M4"
+      ],
+      "dependsOn": [
+        "WP-30"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-30",
+      "canStart": "M3 end",
+      "size": "S (1) plus the team's time",
+      "exitEvidence": "Findings file with every finding routed",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "findings file with every finding routed"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-34",
+      "title": "Candidate receipt",
+      "milestone": "M4",
+      "milestones": [
+        "M4"
+      ],
+      "dependsOn": [
+        "WP-23",
+        "WP-30",
+        "WP-32",
+        "WP-33"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-23, WP-30, WP-32, WP-33",
+      "canStart": "M4",
+      "size": "M (3)",
+      "exitEvidence": "`candidate:check` passes; your `safari-check` row",
+      "exit": {
+        "commands": [
+          "npm run candidate:check"
+        ],
+        "attest": [
+          "safari-check"
+        ],
+        "manual": []
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-35",
+      "title": "Old site saved, operating guide, rollback rehearsal",
+      "milestone": "M4",
+      "milestones": [
+        "M4"
+      ],
+      "dependsOn": [
+        "WP-32"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-32",
+      "canStart": "M4",
+      "size": "M (3)",
+      "exitEvidence": "Rehearsal log under 15 min; legacy zip digest in the receipt; your `bus-factor-rollback` row",
+      "exit": {
+        "commands": [],
+        "attest": [
+          "bus-factor-rollback"
+        ],
+        "manual": [
+          "rehearsal log under 15 min",
+          "legacy zip digest in the receipt"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-36",
+      "title": "Your cutover decision",
+      "milestone": "M4",
+      "milestones": [
+        "M4"
+      ],
+      "dependsOn": [
+        "WP-34",
+        "WP-35"
+      ],
+      "gates": [
+        "Q2-10",
+        "Q2-12",
+        "Q2-15"
+      ],
+      "dependsRaw": "WP-34, WP-35; Q2-10, Q2-12, Q2-15",
+      "canStart": "M4 end",
+      "size": "Your sitting",
+      "exitEvidence": "`cutover-approved <sha>` row whose SHA equals the receipt's",
+      "exit": {
+        "commands": [],
+        "attest": [
+          "cutover-approved"
+        ],
+        "manual": [
+          "the SHA in the row equals the receipt's"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-37",
+      "title": "Production switch",
+      "milestone": "M5",
+      "milestones": [
+        "M5"
+      ],
+      "dependsOn": [
+        "WP-36"
+      ],
+      "gates": [
+        "Q2-15"
+      ],
+      "dependsRaw": "WP-36; Q2-15",
+      "canStart": "Window",
+      "size": "M (3)",
+      "exitEvidence": "Live smoke green; live `release.json` names the release; `h2c-<id>` release has its zip; data pause lifted",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "live smoke green",
+          "live release.json names the release",
+          "h2c-<id> release has its zip",
+          "data pause lifted"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-38",
+      "title": "Retirement and docs",
+      "milestone": "M5",
+      "milestones": [
+        "M5"
+      ],
+      "dependsOn": [
+        "WP-37"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-37 plus one week of stable operation",
+      "canStart": "M5",
+      "size": "L (5)",
+      "exitEvidence": "Register row per deletion; offline-prose grep returns only allow-listed lines; `AGENTS.md` ≤ 8 KB; audit manifest matches the store",
+      "exit": {
+        "commands": [],
+        "attest": [],
+        "manual": [
+          "register row per deletion",
+          "offline-prose grep returns only allow-listed lines",
+          "AGENTS.md <= 8 KB",
+          "audit manifest matches the store"
+        ]
+      },
+      "dropped": false
+    },
+    {
+      "id": "WP-39",
+      "title": "Your portfolio review and closing the remake",
+      "milestone": "M5",
+      "milestones": [
+        "M5"
+      ],
+      "dependsOn": [
+        "WP-37"
+      ],
+      "gates": [],
+      "dependsRaw": "WP-37",
+      "canStart": "Switch day",
+      "size": "S (2) plus your sitting",
+      "exitEvidence": "Reviewer entries recorded within 14 days; label removed for each reviewed expectation",
+      "exit": {
+        "commands": [],
+        "attest": [
+          "portfolio-review-recorded"
+        ],
+        "manual": [
+          "reviewer entries recorded within 14 days",
+          "label removed for each reviewed expectation"
+        ]
+      },
+      "dropped": false
+    }
+  ]
+}

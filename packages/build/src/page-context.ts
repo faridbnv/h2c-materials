@@ -1,0 +1,137 @@
+// What a source page states once for the values printed on it (D116, page_context.csv).
+//
+// A data sheet often says a thing once: "Mechanical properties (dry state)" over its table, "printed, non-injection
+// moulded specimens" in a heading, "all specimens were annealed at 80 °C for 12 h" in a footnote, ISO 527 above the
+// tensile rows, "the specimens have been printed in XY plane" below them. The import read each row on its own and lost those statements, so an annealed value was "treatment not
+// stated", admitted as printed, and a printed bar was filed as raw material (the data audit of 2026-10-01, RC3). A
+// measurement now inherits what its page states wherever its own row states nothing; a row that states the opposite
+// keeps its own words and is flagged (CONTEXT-ROW-CONTRADICTS-PAGE, lint-rules.js).
+
+import { specimenForm, postProcessingState } from './normalize/specimen.ts';
+import { moistureState } from './normalize/moisture.ts';
+import { normalizeDirection } from './normalize/direction.ts';
+import type { Dyn } from './types.ts';
+
+const NP = 'Not published';
+const NA = 'Not applicable';
+const known = (v: Dyn) => v != null && v !== '' && v !== NP && v !== NA;
+const numberOr = (v: Dyn) => (known(v) && Number.isFinite(Number(v)) ? Number(v) : null);
+
+/** The page a locator names ("p. 2: Tensile modulus"), or null. */
+export const pageOf = (locator: Dyn) => { const m = String(locator ?? '').match(/\bp(?:age|p)?\.?\s*(\d+)/i); return m ? Number(m[1]) : null; };
+
+/** Which scope a property belongs to. */
+export function scopeOf(property: Dyn) {
+  const p = String(property ?? '');
+  if (/Charpy|Izod|Impact/i.test(p)) return 'impact';
+  if (/Flexural/i.test(p)) return 'flexural';
+  if (/Tensile|Elongation|Young|Yield|Break strength|strain/i.test(p)) return 'tensile';
+  if (/HDT|Vicat|transition|Melting|Crystalli|service temperature|Decomposition|softening/i.test(p)) return 'thermal';
+  return 'physical';
+}
+
+/** Whether a page's specimen statement speaks for a property: a melt flow rate is measured on the melt, not a specimen. */
+export const specimenApplies = (property: Dyn) => !/^Melt (mass|volume)-flow rate/i.test(String(property ?? ''));
+
+/** A heading or locator as comparable text: case, spacing, punctuation, the degree sign's three glyphs and the dashes ignored. */
+export const normTable = (text: Dyn) => String(text ?? '').replace(/[º˚]/g, '°').normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}°%]+/gu, ' ').replace(/ ?° ?/g, '°').trim();
+
+/** Whether a row states a table it heads (Table, D128): Not applicable (or no column) means the whole page within its scope. */
+export const tableScoped = (c: Dyn) => known(c.Table);
+
+/** Whether a row's Table is part of the measurement's Locator (always, for a row that heads its whole page). */
+export const tableCovers = (c: Dyn, r: Dyn) => !tableScoped(c) || normTable(r.Locator).includes(normTable(c.Table));
+
+/** How specific a page_context row is: a table's own statement before a scope's before the page's (D128). */
+const specificity = (c: Dyn) => (tableScoped(c) ? 0 : c['Applies to'] === 'all' ? 2 : 1);
+
+/**
+ * Whether a page's orientation statement speaks for a property: a bar's build orientation matters for what is pulled,
+ * bent or struck, not for a density, a heat deflection or a melt flow (D135).
+ */
+export const directionApplies = (property: Dyn) => ['tensile', 'flexural', 'impact'].includes(scopeOf(property));
+// A row's direction cell that states nothing: never read, read and found silent, or filled with Not applicable by an
+// import that took orientation for a property without one.
+const SILENT_DIRECTION = new Set<Dyn>(['Not published', 'Unstated', 'Not applicable']);
+
+/** An index of page_context rows by source and page. */
+export function indexPageContext(rows: Dyn) {
+  const byPage = new Map<Dyn, Dyn>();
+  for (const r of rows ?? []) {
+    const k = `${r.SourceID}\u0000${Number(r.Page)}`;
+    if (!byPage.has(k)) byPage.set(k, []);
+    byPage.get(k).push(r);
+  }
+  return byPage;
+}
+
+/** The page_context rows that speak for one measurement row, the most specific first (a table, then a scope, then the page). */
+export function contextFor(byPage: Dyn, r: Dyn) {
+  const page = pageOf(r.Locator);
+  if (page == null) return [];
+  const scope = scopeOf(r.Property);
+  return (byPage.get(`${r.SourceID}\u0000${page}`) ?? []).filter((c: Dyn) => (c['Applies to'] === 'all' || c['Applies to'] === scope) && tableCovers(c, r))
+    .map((c: Dyn, i: Dyn) => [c, i]).sort((a: Dyn, b: Dyn) => specificity(a[0]) - specificity(b[0]) || a[1] - b[1]).map(([c]: Dyn) => c);
+}
+
+/** What a row states for each inheritable field: null where it states nothing. */
+export function rowStates(r: Dyn) {
+  return {
+    specimen: /^Not published/.test(r['Specimen type'] ?? NP) ? null : r['Specimen type'],
+    moisture: r['Moisture state'] === 'not-stated' ? null : r['Moisture state'],
+    treatment: r['Post-processing state'] === 'not-stated' ? null : r['Post-processing state'],
+    standard: known(r.Standards) ? r.Standards : null,
+    testTemperature: numberOr(r['Test temperature °C']),
+    direction: SILENT_DIRECTION.has(r.Direction ?? NP) ? null : r.Direction,
+  };
+}
+
+/** What the page states for each field: null where it states nothing. */
+export function pageStates(c: Dyn) {
+  return {
+    specimen: known(c['Specimen type']) ? c['Specimen type'] : null,
+    moisture: c['Moisture state'] === 'not-stated' ? null : c['Moisture state'],
+    treatment: c['Post-processing state'] === 'not-stated' ? null : c['Post-processing state'],
+    standard: known(c.Standard) ? c.Standard : null,
+    testTemperature: numberOr(c['Test temperature °C']),
+    anneal: c['Post-processing state'] === 'annealed' ? { tempC: numberOr(c['Anneal °C']), hours: numberOr(c['Anneal h']) } : null,
+    direction: known(c.Direction) ? c.Direction : null,
+  };
+}
+
+/**
+ * Apply a page's statements to a compiled measurement where its own row states nothing. Returns the fields inherited,
+ * with the page_context IDs that gave them; the measurement keeps its own words in its raw fields.
+ */
+export function inheritPageContext(m: Dyn, r: Dyn, contexts: Dyn) {
+  if (!contexts.length) return null;
+  const own = rowStates(r);
+  const inherited: Dyn = {};
+  for (const c of contexts) {
+    const page = pageStates(c);
+    if (!own.specimen && page.specimen && !inherited.specimenType && specimenApplies(r.Property)) {
+      m.specimenType = page.specimen; m.specimenForm = specimenForm(page.specimen); inherited.specimenType = c.PageContextID;
+    }
+    if (!own.moisture && page.moisture && !inherited.moistureState) {
+      m.moistureState = moistureState(page.moisture); inherited.moistureState = c.PageContextID;
+    }
+    if (!own.treatment && page.treatment && !inherited.postProcessingState) {
+      m.postProcessingState = postProcessingState(page.treatment); inherited.postProcessingState = c.PageContextID;
+      if (page.anneal) m.anneal = page.anneal;
+    }
+    if (!own.standard && page.standard && !inherited.standards) {
+      m.standards = page.standard.split(';').map((x: Dyn) => x.trim()).filter(Boolean); inherited.standards = c.PageContextID;
+    }
+    if (own.testTemperature == null && page.testTemperature != null && !inherited.testTemperatureC) {
+      m.testTemperatureC = page.testTemperature; inherited.testTemperatureC = c.PageContextID;
+    }
+    // A moulded bar has no build orientation: a page's "printed in XY plane" speaks for its printed bars only.
+    if (!own.direction && page.direction && !inherited.direction && directionApplies(r.Property) && ['printed', 'not-stated'].includes(m.specimenForm ?? specimenForm(r['Specimen type']))) {
+      const d = normalizeDirection(page.direction);
+      m.direction = d.canonical; m.directionText = d.text; inherited.direction = c.PageContextID;
+    }
+  }
+  if (!Object.keys(inherited).length) return null;
+  m.pageContext = inherited;
+  return inherited;
+}

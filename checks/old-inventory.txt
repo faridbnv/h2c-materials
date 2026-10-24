@@ -1,0 +1,199 @@
+# The old checks, frozen. One token per line; a test file also records its test count and skip count (checks:register).
+# Code-owned: a change here needs the owner's review. Regenerate only to add checks: npm run checks:register -- --inventory
+ci:pages.yml/build
+ci:pages.yml/build/Assemble the site
+ci:pages.yml/build/Build
+ci:pages.yml/build/Keep this release's page
+ci:pages.yml/build/Zip the material pages
+ci:pages.yml/deploy
+ci:verify.yml/data
+ci:verify.yml/data/No deleted records since the previous commit
+ci:verify.yml/data/Verify the data, the build and the tests
+ci:verify.yml/fuzz-full
+ci:verify.yml/fuzz-full/Build
+ci:verify.yml/scenarios
+ci:verify.yml/trend
+ci:verify.yml/trend/Scale and reproducibility
+ci:verify.yml/views
+ci:verify.yml/views/Verify the interface views
+file:.githooks/pre-commit
+file:scripts/verify-fast.mjs
+file:scripts/verify.mjs
+file:test/acceptance.test.js tests=3 skips=1
+file:test/acceptance/ashby-workspace.json
+file:test/acceptance/portfolio.json
+file:test/ashby-export.test.js tests=4 skips=0
+file:test/ashby.test.js tests=6 skips=0
+file:test/bounds.test.js tests=5 skips=0
+file:test/brief.test.js tests=3 skips=0
+file:test/build-cache.test.js tests=7 skips=0
+file:test/chamber-need.test.js tests=7 skips=0
+file:test/constraints.test.js tests=38 skips=0
+file:test/contract.test.js tests=4 skips=0
+file:test/conversion-layer.test.js tests=2 skips=0
+file:test/coverage-clause.test.js tests=2 skips=0
+file:test/coverage-priority01.test.js tests=7 skips=0
+file:test/coverage-priority02.test.js tests=3 skips=0
+file:test/coverage-priority03-05.test.js tests=4 skips=0
+file:test/coverage-priority06-09.test.js tests=4 skips=0
+file:test/data-check.test.js tests=20 skips=0
+file:test/database.test.js tests=59 skips=0
+file:test/diameter.test.js tests=3 skips=0
+file:test/docs-history.test.js tests=2 skips=0
+file:test/docs-links.test.js tests=3 skips=0
+file:test/docs-status.test.js tests=8 skips=0
+file:test/drawer-comparisons.test.js tests=9 skips=0
+file:test/drawer.test.js tests=3 skips=0
+file:test/estimate-order.test.js tests=11 skips=0
+file:test/estimate-sample.test.js tests=5 skips=0
+file:test/estimate-solver.test.js tests=4 skips=1
+file:test/evidence-ledger.test.js tests=16 skips=0
+file:test/evidence-pairs.test.js tests=4 skips=0
+file:test/fixtures/drawer-situation.js
+file:test/fixtures/estimate-conversions-2026-10-18.json
+file:test/fixtures/ingest/fixture-tds.pdf
+file:test/fixtures/ingest/ocr-fixture.tsv
+file:test/fixtures/ingest/purefil-lcp-p1.json
+file:test/fixtures/legacy-constants.json
+file:test/fixtures/workspace-fixture.js
+file:test/format.test.js tests=4 skips=0
+file:test/frozen.test.js tests=2 skips=0
+file:test/gate-verdicts.test.js tests=2 skips=0
+file:test/grades.test.js tests=4 skips=0
+file:test/handoffs.test.js tests=4 skips=0
+file:test/headlines.test.js tests=3 skips=0
+file:test/heat-treatment.test.js tests=4 skips=0
+file:test/impact-compare.test.js tests=7 skips=0
+file:test/indices.test.js tests=10 skips=0
+file:test/ingest-apply.test.js tests=14 skips=0
+file:test/ingest-batch.test.js tests=1 skips=0
+file:test/ingest-classify.test.js tests=23 skips=0
+file:test/ingest-context.test.js tests=2 skips=0
+file:test/ingest-extract.test.js tests=5 skips=0
+file:test/ingest-fetch.test.js tests=15 skips=0
+file:test/ingest-homes.test.js tests=3 skips=0
+file:test/ingest-html-text.test.js tests=13 skips=0
+file:test/ingest-layout.test.js tests=8 skips=0
+file:test/ingest-ligatures.test.js tests=3 skips=0
+file:test/ingest-numbers.test.js tests=4 skips=0
+file:test/ingest-prices.test.js tests=9 skips=0
+file:test/ingest-propose.test.js tests=106 skips=0
+file:test/ingest-read-proposals.test.js tests=30 skips=0
+file:test/ingest-read-reconcile.test.js tests=20 skips=0
+file:test/ingest-readings.test.js tests=9 skips=0
+file:test/ingest-retrieval-revision.test.js tests=1 skips=0
+file:test/ingest-review.test.js tests=6 skips=0
+file:test/ingest-text-quality.test.js tests=13 skips=0
+file:test/ingest-text.test.js tests=10 skips=0
+file:test/ingest-witness.test.js tests=6 skips=0
+file:test/know-how.test.js tests=7 skips=0
+file:test/lint.test.js tests=26 skips=0
+file:test/material-facts.test.js tests=11 skips=0
+file:test/material-stats.test.js tests=3 skips=0
+file:test/metamorphic.test.js tests=9 skips=0
+file:test/new-property.test.js tests=2 skips=0
+file:test/normalize.test.js tests=46 skips=0
+file:test/own-anchor.test.js tests=5 skips=1
+file:test/packets.test.js tests=4 skips=0
+file:test/page-context.test.js tests=10 skips=0
+file:test/pages.check.js tests=16 skips=0
+file:test/parallel.test.js tests=3 skips=0
+file:test/polymer-environment.test.js tests=13 skips=0
+file:test/prices.test.js tests=8 skips=0
+file:test/print-spread.test.js tests=16 skips=0
+file:test/print-summary-bounds.test.js tests=4 skips=0
+file:test/product-claims.test.js tests=5 skips=0
+file:test/product-screening.test.js tests=17 skips=0
+file:test/products-tab.test.js tests=6 skips=0
+file:test/products.test.js tests=31 skips=0
+file:test/profile-marks.test.js tests=5 skips=0
+file:test/record-tier-ocr.test.js tests=3 skips=0
+file:test/references.test.js tests=3 skips=0
+file:test/registry-ui.test.js tests=6 skips=0
+file:test/registry.test.js tests=22 skips=0
+file:test/release.test.js tests=4 skips=0
+file:test/reproducible.check.js tests=1 skips=0
+file:test/retired.test.js tests=4 skips=0
+file:test/review-workbook.test.js tests=1 skips=0
+file:test/round-close.test.js tests=2 skips=0
+file:test/rules.test.js tests=4 skips=0
+file:test/run-steps.test.js tests=7 skips=0
+file:test/scale.check.js tests=1 skips=0
+file:test/scenario.test.js tests=12 skips=0
+file:test/screening.test.js tests=7 skips=0
+file:test/search.test.js tests=8 skips=0
+file:test/selection-products.test.js tests=14 skips=0
+file:test/source-completeness.test.js tests=3 skips=0
+file:test/source-store.test.js tests=5 skips=0
+file:test/sqlite.test.js tests=22 skips=2
+file:test/summaries.test.js tests=43 skips=0
+file:test/table-detectors.test.js tests=5 skips=0
+file:test/table-io.test.js tests=7 skips=0
+file:test/table-sort.test.js tests=3 skips=0
+file:test/templates.test.js tests=4 skips=0
+file:test/trace.test.js tests=6 skips=0
+file:test/typed-values.test.js tests=18 skips=0
+file:test/workspace-acceptance.test.js tests=5 skips=0
+file:test/workspace.test.js tests=13 skips=0
+npm:audit:context
+npm:audit:coverage-status
+npm:audit:data
+npm:audit:decisive-sample
+npm:audit:gaps
+npm:audit:know-how
+npm:audit:profile-marks
+npm:audit:reader-recall
+npm:audit:scenario-gaps
+npm:audit:sources
+npm:audit:spot-check
+npm:audit:witness
+npm:bench
+npm:build:diff
+npm:data:check
+npm:data:fmt
+npm:data:lint
+npm:docs:decisions
+npm:docs:dictionary
+npm:docs:history
+npm:docs:links
+npm:docs:open-problems
+npm:docs:rules
+npm:docs:status
+npm:doctor
+npm:packets
+npm:pages:check
+npm:reproducible
+npm:round:close
+npm:scale
+npm:scale:budget
+npm:snapshot
+npm:test
+npm:test:ingest
+npm:trace
+npm:ui:check
+npm:ui:fuzz
+npm:ui:fuzz:full
+npm:verify
+npm:verify:fast
+step:build
+step:campaign docs
+step:context audit
+step:data audit
+step:decisions doc
+step:dictionary doc
+step:format
+step:import tests
+step:interface views
+step:links
+step:lint
+step:material pages
+step:packets
+step:rendered scenarios
+step:reproducible
+step:rules doc
+step:scale
+step:scale budget
+step:schema
+step:snapshot
+step:status doc
+step:tests

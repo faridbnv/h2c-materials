@@ -1,0 +1,15 @@
+{
+  "name": "@atlas/domain",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Filament Atlas domain: the boundary contracts (types only) and the shared core (tidy, stateId, the gate-verdict table, tolerances) that replaces the old copies (WP-07).",
+  "exports": {
+    ".": "./src/index.ts",
+    "./contracts": "./src/contracts/index.ts",
+    "./core": "./src/core/index.ts"
+  },
+  "dependencies": {
+    "@atlas/data": "0.0.0"
+  }
+}

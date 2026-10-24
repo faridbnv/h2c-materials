@@ -40,17 +40,16 @@ concurrency:
 jobs:
   gate-old-paths:
     name: gate-old-paths
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       GH_TOKEN: ${{ github.token }}
       REPO: ${{ github.repository }}
       PR_NUMBER: ${{ github.event.pull_request.number }}
     steps:
-      # The gate code is checked out from remake/v3 (protected, PR-only). The PR head is never fetched.
+      # The default ref for pull_request_target is the base branch tip. The PR head is never fetched.
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: remake/v3   # trusted: protected, PR-only; GitHub runs pull_request_target from the default branch, which has no gate code
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -68,7 +67,7 @@ jobs:
 
   gate-tier:
     name: gate-tier
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
       GH_TOKEN: ${{ github.token }}
@@ -79,7 +78,6 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: remake/v3   # trusted: protected, PR-only; GitHub runs pull_request_target from the default branch, which has no gate code
           persist-credentials: false
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:

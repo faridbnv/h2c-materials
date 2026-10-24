@@ -1,0 +1,709 @@
+{
+  "schema": 1,
+  "summary": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "verdict": "met",
+    "problems": [],
+    "checks": "13 of 13 passed",
+    "parity": "pass",
+    "transitions": "factual 0, policy 2, presentation 1, intentional 1",
+    "decision": "the owner decides (cutover-approved <sha> via npm run wp:attest); this receipt never does"
+  },
+  "candidate": {
+    "sha": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "branch": "HEAD",
+    "purpose": "release candidate, made on CI (candidate-receipt.yml)",
+    "generatedAt": "2026-10-24T17:45:27.315Z"
+  },
+  "baseline": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "baselineFile": "remake/baseline/5eabafad.json",
+    "recordedMain": "5eabafad4e19e3cc2f4e71d55848474ff22bd444",
+    "observedMain": "c31ceebf2c64b392c5451a884a2e2a466e5ac779",
+    "source": "git ls-remote origin refs/heads/main",
+    "changedPaths": [
+      ".github/workflows/next-gate.yml"
+    ],
+    "acceptedPaths": [
+      ".github/workflows/next-gate.yml"
+    ],
+    "unchanged": true,
+    "why": "main moved to c31ceebf by accepted paths only (remake/baseline/main-allowed.json)",
+    "mainChecked": "at the time of the receipt; candidate:check observes main again"
+  },
+  "records": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "from": "36aba01f3782c960ba20ec939dc2c96a5e0702a5",
+    "files": 115,
+    "note": "the owner's records (attest rows, rehearsal, legacy zip, status) are read from this later commit, which differs from the candidate by record paths only"
+  },
+  "runtime": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "nvmrc": "26.12.0",
+    "node": "v26.12.0",
+    "icu": "78.3",
+    "sqlite": "3.54.0",
+    "platform": "linux-x64",
+    "ci": "linux-x64 (CI); the owner's Mac is a second host (gap-1: six estimate leaves differ across hosts)"
+  },
+  "data": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "releaseId": "c0a0f17e0cc4",
+    "inputs": {
+      "data": "bc68c92fe04d1f6bb9ec5acdca2359c0aa0bb231be1d65b87a26213022bab48f",
+      "schema": "3c24452eedfa5541d91c1ff5f8cae089b3041525ffda1adcc19113fac398bf70",
+      "rules": "13d416d25d326e7382ae5704de8e7c5ee4270ecd0fceda4005e89d6807a7da23",
+      "engine": "080647b8abc446c8271bde79e439f0d51ed959f0c70e54e8a3c2822d474ad26a",
+      "view": "1256a13bca34debabb3f2d4e0522345b2f63e4e52b5ff918c28ad2ab9936c77b"
+    }
+  },
+  "checks": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "results": [
+      {
+        "id": "rulings",
+        "cmd": "npm run rulings:check",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 122,
+        "tail": "> h2c-fdm-material-selector@1.0.0 rulings:check\n> node remake/tools/rulings-check.mjs\n\nrulings:check: docs/next/rulings.csv OK",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "register",
+        "cmd": "npm run checks:register -- --verify --require-frozen",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 187,
+        "tail": "> h2c-fdm-material-selector@1.0.0 checks:register\n> node remake/tools/checks-register.mjs --verify --require-frozen\n\nchecks:register: OK. 155 register rows cover 197 old checks; 38 must-not-change items: 29 TESTED, 9 PARTIAL, 0 UNTESTED.\nchecks:register: test floor holds for 139 registered test files (tests and assertion calls).",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "cutover-ready",
+        "cmd": "npm run checks:register -- --cutover-ready",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 187,
+        "tail": "> h2c-fdm-material-selector@1.0.0 checks:register\n> node remake/tools/checks-register.mjs --cutover-ready\n\nchecks:register: cutover-ready: all 155 register rows have a successor with proof or the owner's approval to retire.",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "parity-erase",
+        "cmd": "npm run parity:erase",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 1406,
+        "tail": "P-erase ok     packages/pages/src/shell.ts == app/pages/shell.js (with 4 declared rewrites)\nP-erase ok     packages/pages/src/stub.ts == app/pages/stub.js (with 2 declared rewrites)\nP-erase: 111 pair(s) label-only\n(node:3375) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "typecheck",
+        "cmd": "npm run typecheck",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 5148,
+        "tail": "> h2c-fdm-material-selector@1.0.0 typecheck\n> tsc --noEmit && tsc --noEmit -p packages/pages/browser/tsconfig.json",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "types-ratchet",
+        "cmd": "npm run types:ratchet",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 1174,
+        "tail": "> h2c-fdm-material-selector@1.0.0 types:ratchet\n> node remake/tools/types-ratchet.mjs\n\ntypes:ratchet: no increase (casts 57, any 25, tsExpectError 0, tsIgnore 0)",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "lint",
+        "cmd": "npm run lint",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 9195,
+        "tail": "/home/runner/work/h2c-materials/h2c-materials/packages/build/src/products.ts\n  613:1  warning  Unused eslint-disable directive (no problems were reported from 'no-unused-vars')\n\n✖ 1 problem (0 errors, 1 warning)\n  0 errors and 1 warning potentially fixable with the `--fix` option.",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "tests-new",
+        "cmd": "node --test tests/claude/*.test.mjs tests/remake/*.test.mjs",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 389769,
+        "tail": "ℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 389736.799494",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "tests-parity",
+        "cmd": "PARITY_FULL=1 node --test tests/parity/*.test.mjs",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 1536592,
+        "tail": "ℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1536558.387534",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "tests-domain",
+        "cmd": "node --test 'tests/domain/*.test.mjs'",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 2120,
+        "tail": "ℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2086.609077",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "parity-noop",
+        "cmd": "npm run parity -- --noop",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 302040,
+        "tail": "  links    zero            135 links compared, 0 differences\n  build    zero            1288896 values compared, 0 differences\n  pages    zero            248 pages compared, 0 differences\n  timings: engine 245.8s, ties 20.6s, ties-rule 19.6s, links 4.4s, build-build 0.0s, build 7.6s, pages-build 0.0s, pages 0.0s; setup + run wall time: 301.6s\nRESULT: zero",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "parity-mutate",
+        "cmd": "npm run parity:mutate",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 527800,
+        "tail": "  CAUGHT  cited-sibling-swap     13889 differences,  1678 records moved, must show in evidence  [56.5s]\n  CAUGHT  reason-wording           469 differences,    70 records moved, must show in wording  [51.8s]\nreal engine files unchanged (sha256 before and after): yes\ntime: 8.8 min\nMUTATE: 9/9 caught",
+        "status": "pass",
+        "exitCode": 0
+      },
+      {
+        "id": "browser",
+        "cmd": "npm run test:browser",
+        "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+        "durationMs": 953808,
+        "tail": "\u001b[33m[plugin builtin:vite-reporter] \n(!) Some chunks are larger than 500 kB after minification. Consider:\n- Using dynamic import() to code-split the application\n- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting\n- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.\u001b[39m",
+        "status": "pass",
+        "exitCode": 0
+      }
+    ]
+  },
+  "parity": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "cmd": "npm run parity -- --milestone --transitions parity/transitions",
+    "status": "pass",
+    "exitCode": 0,
+    "result": "RESULT: matches-transition",
+    "durationMs": 1320823,
+    "tail": "  links    zero            135 links compared, 0 differences\n  build    matches-transition 1288896 values compared, 981 differences\n  pages    matches-transition 248 pages compared, 917 differences\n  timings: engine 1067.9s, ties 92.8s, ties-rule 87.4s, links 4.7s, build-new 0.0s, build 7.4s, pages-newbuild 0.0s, pages-render 4.0s, pages 0.1s; setup + run wall time: 1320.5s\nRESULT: matches-transition"
+  },
+  "compatibility": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "factual": [],
+    "policy": [
+      {
+        "id": "2026-10-21-reprint-counts-once",
+        "kind": "science",
+        "differences": 4902,
+        "ruling": "Owner ruling OQ-09 A (R-OQ09d, 2026-10-20): a table one maker reprints from another counts once in a material's median; timing Q2-11 A (its own transition, after parity)",
+        "file": "parity/transitions/2026-10-21-reprint-counts-once.json"
+      },
+      {
+        "id": "2026-10-22-pages-reprint-medians",
+        "kind": "science",
+        "differences": 491,
+        "ruling": "Owner ruling OQ-09 A (R-OQ09d, 2026-10-20), as approved on 2026-10-21 in transition 2026-10-21-reprint-counts-once",
+        "file": "parity/transitions/2026-10-22-pages-reprint-medians.json"
+      }
+    ],
+    "presentation": [
+      {
+        "id": "2026-10-22-pages-display",
+        "kind": "display",
+        "differences": 426,
+        "ruling": "Owner ruling Q2-20 (redesigned pages and shared components are permitted; byte-identical HTML does not decide), with AR-19 (accepted), OQ-11 A (R-OQ11, 2026-10-20), R-OQ09d (the reprint ruling, OQ-09 A) and R3 C (2026-10-22)",
+        "file": "parity/transitions/2026-10-22-pages-display.json"
+      }
+    ],
+    "intentional": [
+      {
+        "id": "2026-10-22-dt1-float-tie",
+        "kind": "determinism",
+        "differences": 12,
+        "ruling": "Owner ruling OQ-06 A (fix the float tie only if it moves nothing that matters); applied by owner answer R1 A (pack 16, 2026-10-22): its own registered change in M3",
+        "file": "parity/transitions/2026-10-22-dt1-float-tie.json"
+      }
+    ],
+    "unsorted": [],
+    "quirksKept": 4
+  },
+  "safari": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "attested": true,
+    "date": "2026-10-24",
+    "detail": "170e23d9"
+  },
+  "limitations": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "items": [
+      {
+        "id": "L-01",
+        "text": "The browser checks run in Chromium only. Firefox is not checked, and Safari is checked by the owner by hand (the `safari-check` row), not by a test."
+      },
+      {
+        "id": "L-02",
+        "text": "The preview rehearsal cannot prove the live deploy path. The preview deploys by pushing to a repository, the live site by `actions/deploy-pages`; the first proof of the live path is the cutover deploy itself (pack 07 section 13.3)."
+      },
+      {
+        "id": "L-03",
+        "text": "`next-main.yml` has not run on `main`. Its dry run deploys to the preview repository; the live jobs, the release job and the live restore are exercised for the first time at the cutover, and the actions they use (`upload-pages-artifact`, `deploy-pages`) are pinned by commit SHA written without a network check."
+      },
+      {
+        "id": "L-04",
+        "text": "Approvals of pull requests into `remake/v3` were posted by agents under ruling R-ATTEST-AGENT (2026-10-22), not by the owner. The owner reviews them at each milestone close. Pull requests into `main` and the cutover are the owner's."
+      },
+      {
+        "id": "L-05",
+        "text": "The team trial (WP-33) has not run. The decision on simplifying the estimate model that waits for it (OQ-08 A) is therefore still open."
+      },
+      {
+        "id": "L-06",
+        "text": "The ingest journey (WP-28) and the second copy of the source store (WP-29) were deferred. The old ingest tools are kept and their behaviour has not changed; the new site has no ingest of its own."
+      },
+      {
+        "id": "L-07",
+        "text": "Estimates depend on the runtime (DT-2, postponed by OQ-07 A). Node is pinned and recorded in each release, but a build on a different ICU can give other estimate leaves; six tensile leaves already differ between the Mac and CI (gap-1). The artifact digest in a receipt equals the deployed one only when both are built on the same platform and Node."
+      },
+      {
+        "id": "L-08",
+        "text": "The size budgets have no headroom. Measured 2026-10-23 on the candidate: strict boot 894.4 of 900 KB gzip, site 99.18 of 100 MB. Any data batch that adds a material or a source will cross a line, and the build then fails its budget gate. M5 must decide before the next data batch: shrink (more compact detail parts, a smaller view) or relax a line. Relaxing one is the owner's decision."
+      },
+      {
+        "id": "L-09",
+        "text": "After the cutover the engine is compared with the previous release's engine only by hand. The post-cutover parity mode (a commit's engine against the last release's engine on the same data) is not automated; the release's decision diff says so."
+      },
+      {
+        "id": "L-10",
+        "text": "Five rows of the check register are owned by deferred packages (WP-28, WP-29) or by the clean-up after the cutover (WP-38); `checks:register -- --cutover-ready` lists every row that is not yet proved or approved for retirement."
+      }
+    ],
+    "defectsKeptAsLimitations": [
+      "WP07-D1",
+      "WP07-D2",
+      "WP20-D2",
+      "WP20-D3",
+      "WP20-D4",
+      "WP18-D1",
+      "WP18-D2",
+      "WP18-D3",
+      "WP19-D1",
+      "WP19-D2",
+      "WP19-D3",
+      "WP21-D3",
+      "WP21-D4"
+    ]
+  },
+  "artifact": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "digest": "sha256:a2451e22b2029bddb1e25dddfe8c9c3a73c251724d0e8008392f75ed5819cc94",
+    "files": 620,
+    "bytes": 78043811,
+    "profile": "live",
+    "where": "rebuilt by candidate:receipt into .cache/candidate-site; next-main.yml builds it again and its deploy job checks this digest"
+  },
+  "axe": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "runs": [
+      {
+        "project": "live-path",
+        "runId": "14127c46-0c3b-4971-a576-747da05f3d7c",
+        "mode": "fast",
+        "axe": "4.13.0",
+        "fresh": true,
+        "sha256": "df3b7a6af2fcfde5c663e2b626588330bc77a212024fd296c65f079e4f88ad16"
+      },
+      {
+        "project": "preview-path",
+        "runId": "14127c46-0c3b-4971-a576-747da05f3d7c",
+        "mode": "fast",
+        "axe": "4.13.0",
+        "fresh": true,
+        "sha256": "df3b7a6af2fcfde5c663e2b626588330bc77a212024fd296c65f079e4f88ad16"
+      }
+    ],
+    "pages": [
+      {
+        "project": "live-path",
+        "page": "new-public-material",
+        "violatedRules": 0,
+        "violatingNodes": 0,
+        "byImpact": {},
+        "passedRules": 41,
+        "incompleteRules": 0,
+        "inapplicableRules": 49
+      },
+      {
+        "project": "live-path",
+        "page": "new-selector-drawer",
+        "violatedRules": 3,
+        "violatingNodes": 14,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 1,
+          "serious": 10
+        },
+        "passedRules": 51,
+        "incompleteRules": 1,
+        "inapplicableRules": 38
+      },
+      {
+        "project": "live-path",
+        "page": "new-selector-lens-ashby",
+        "violatedRules": 4,
+        "violatingNodes": 35,
+        "byImpact": {
+          "moderate": 2,
+          "serious": 33
+        },
+        "passedRules": 44,
+        "incompleteRules": 1,
+        "inapplicableRules": 45
+      },
+      {
+        "project": "live-path",
+        "page": "new-selector-lens-explain",
+        "violatedRules": 2,
+        "violatingNodes": 2,
+        "byImpact": {
+          "moderate": 2
+        },
+        "passedRules": 41,
+        "incompleteRules": 1,
+        "inapplicableRules": 48
+      },
+      {
+        "project": "live-path",
+        "page": "new-selector-lens-table",
+        "violatedRules": 4,
+        "violatingNodes": 8,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 2,
+          "serious": 3
+        },
+        "passedRules": 45,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "live-path",
+        "page": "new-selector-start",
+        "violatedRules": 4,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 1,
+          "moderate": 2,
+          "serious": 2
+        },
+        "passedRules": 46,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "live-path",
+        "page": "page-m001-pla",
+        "violatedRules": 1,
+        "violatingNodes": 10,
+        "byImpact": {
+          "serious": 10
+        },
+        "passedRules": 49,
+        "incompleteRules": 1,
+        "inapplicableRules": 41
+      },
+      {
+        "project": "live-path",
+        "page": "selector-drawer",
+        "violatedRules": 3,
+        "violatingNodes": 11,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 1,
+          "serious": 7
+        },
+        "passedRules": 51,
+        "incompleteRules": 1,
+        "inapplicableRules": 38
+      },
+      {
+        "project": "live-path",
+        "page": "selector-lens-ashby",
+        "violatedRules": 4,
+        "violatingNodes": 39,
+        "byImpact": {
+          "moderate": 2,
+          "serious": 37
+        },
+        "passedRules": 44,
+        "incompleteRules": 1,
+        "inapplicableRules": 45
+      },
+      {
+        "project": "live-path",
+        "page": "selector-lens-explain",
+        "violatedRules": 2,
+        "violatingNodes": 2,
+        "byImpact": {
+          "moderate": 2
+        },
+        "passedRules": 41,
+        "incompleteRules": 1,
+        "inapplicableRules": 48
+      },
+      {
+        "project": "live-path",
+        "page": "selector-lens-table",
+        "violatedRules": 3,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 2
+        },
+        "passedRules": 45,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "live-path",
+        "page": "selector-start",
+        "violatedRules": 4,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 1,
+          "moderate": 2,
+          "serious": 2
+        },
+        "passedRules": 46,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "preview-path",
+        "page": "new-public-material",
+        "violatedRules": 0,
+        "violatingNodes": 0,
+        "byImpact": {},
+        "passedRules": 41,
+        "incompleteRules": 0,
+        "inapplicableRules": 49
+      },
+      {
+        "project": "preview-path",
+        "page": "new-selector-drawer",
+        "violatedRules": 3,
+        "violatingNodes": 14,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 1,
+          "serious": 10
+        },
+        "passedRules": 51,
+        "incompleteRules": 1,
+        "inapplicableRules": 38
+      },
+      {
+        "project": "preview-path",
+        "page": "new-selector-lens-ashby",
+        "violatedRules": 4,
+        "violatingNodes": 35,
+        "byImpact": {
+          "moderate": 2,
+          "serious": 33
+        },
+        "passedRules": 44,
+        "incompleteRules": 1,
+        "inapplicableRules": 45
+      },
+      {
+        "project": "preview-path",
+        "page": "new-selector-lens-explain",
+        "violatedRules": 2,
+        "violatingNodes": 2,
+        "byImpact": {
+          "moderate": 2
+        },
+        "passedRules": 41,
+        "incompleteRules": 1,
+        "inapplicableRules": 48
+      },
+      {
+        "project": "preview-path",
+        "page": "new-selector-lens-table",
+        "violatedRules": 4,
+        "violatingNodes": 8,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 2,
+          "serious": 3
+        },
+        "passedRules": 45,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "preview-path",
+        "page": "new-selector-start",
+        "violatedRules": 4,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 1,
+          "moderate": 2,
+          "serious": 2
+        },
+        "passedRules": 46,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "preview-path",
+        "page": "page-m001-pla",
+        "violatedRules": 1,
+        "violatingNodes": 10,
+        "byImpact": {
+          "serious": 10
+        },
+        "passedRules": 49,
+        "incompleteRules": 1,
+        "inapplicableRules": 41
+      },
+      {
+        "project": "preview-path",
+        "page": "selector-drawer",
+        "violatedRules": 3,
+        "violatingNodes": 11,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 1,
+          "serious": 7
+        },
+        "passedRules": 51,
+        "incompleteRules": 1,
+        "inapplicableRules": 38
+      },
+      {
+        "project": "preview-path",
+        "page": "selector-lens-ashby",
+        "violatedRules": 4,
+        "violatingNodes": 39,
+        "byImpact": {
+          "moderate": 2,
+          "serious": 37
+        },
+        "passedRules": 44,
+        "incompleteRules": 1,
+        "inapplicableRules": 45
+      },
+      {
+        "project": "preview-path",
+        "page": "selector-lens-explain",
+        "violatedRules": 2,
+        "violatingNodes": 2,
+        "byImpact": {
+          "moderate": 2
+        },
+        "passedRules": 41,
+        "incompleteRules": 1,
+        "inapplicableRules": 48
+      },
+      {
+        "project": "preview-path",
+        "page": "selector-lens-table",
+        "violatedRules": 3,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 3,
+          "moderate": 2
+        },
+        "passedRules": 45,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      },
+      {
+        "project": "preview-path",
+        "page": "selector-start",
+        "violatedRules": 4,
+        "violatingNodes": 5,
+        "byImpact": {
+          "minor": 1,
+          "moderate": 2,
+          "serious": 2
+        },
+        "passedRules": 46,
+        "incompleteRules": 1,
+        "inapplicableRules": 43
+      }
+    ],
+    "violatedRules": 68,
+    "note": "reported, not blocking (owner ruling OQ-15 B)"
+  },
+  "budgets": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "ok": true,
+    "siteBytes": 99185252,
+    "checks": {
+      "strictBootGzip": {
+        "value": 894374,
+        "budget": 900000,
+        "ok": true
+      },
+      "detailMedianGzip": {
+        "value": 13660,
+        "budget": 15000,
+        "ok": true
+      },
+      "detailMaxGzip": {
+        "value": 321429,
+        "budget": 350000,
+        "ok": true
+      },
+      "siteBytes": {
+        "value": 99185252,
+        "budget": 100000000,
+        "ok": true
+      },
+      "chartLibraryOutsideBoot": {
+        "value": 0,
+        "budget": 0,
+        "ok": true
+      }
+    }
+  },
+  "portItems": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "present": true,
+    "items": []
+  },
+  "defects": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "entries": 16,
+    "problems": [],
+    "ok": true
+  },
+  "rollback": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "legacyZip": {
+      "asset": "legacy-site-7c6da496722d.zip",
+      "digest": "sha256:11fed3c2aff06a1257a0bb1cac0ac82d69dda3bc2575b11473fd9cd814585717",
+      "manifestDigest": "sha256:87a8bcad7ea6108fda5e25c0d87e0856428430f3719b124d7d3938c9ddbf7f4a",
+      "mainCommit": "c31ceebf2c64b392c5451a884a2e2a466e5ac779",
+      "release": "h2c-legacy-final",
+      "record": "remake/legacy/legacy-final.json"
+    },
+    "rehearsal": {
+      "file": "remake/rehearsal/2026-10-23.json",
+      "result": "pass",
+      "restoreSeconds": 78,
+      "holdTested": true,
+      "candidate": "a85bfb576a6c18ceda344cc77920d54e6bc19534"
+    },
+    "busFactorRollback": true,
+    "notRun": []
+  },
+  "people": {
+    "commit": "170e23d97a553abefd77f245d1faa769c89c4810",
+    "teamTrial": "not run: WP-33 (the team trial) is deferred by the owner",
+    "agentWritten": "the test answers on the method page and the transitions' reviews are agent-written until the owner reviews them (OQ-11 A; R-ATTEST-AGENT)",
+    "required": false
+  }
+}

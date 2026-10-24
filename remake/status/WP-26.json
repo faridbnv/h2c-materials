@@ -1,0 +1,14 @@
+{
+  "id": "WP-26",
+  "status": "done",
+  "slice": null,
+  "branch": "claude/wonderful-franklin-ynbnzn",
+  "pr": 43,
+  "exitCheck": "not-run",
+  "lastRun": null,
+  "lastPass": null,
+  "evidence": [],
+  "waitingSince": null,
+  "approvedAt": null,
+  "note": "The selector in Vue, merged in PR #43: P-ui 300 scenarios pass on the live path; 67 of 114 views owed at the time, the other 47 closed by WP-27. M3-close fix: an export or brief that meets a gone part (a stale page) reloads once and keeps the address, instead of saying 'check the connection'."
+}

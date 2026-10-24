@@ -1,0 +1,992 @@
+// The Ashby decision workspace's own views (D107, D108): Products and Material ranges; and the lens's question bar,
+// starter, controls, pills, result list, key and reading note, which every view shares (D109 to D111).
+//
+// Everything here reads one model, buildWorkspace (engine/workspace.js): the marks, the line and its count, the result
+// list, the inspector and the exported data. A mark is one product in the state its answer is in; its coordinates, its
+// index and its rank all come from that state. Context (failed and unresolved products, estimates, references) is a
+// layer of its own, drawn by its chip under Also (unsettled products follow Materials with missing data until theirs is
+// pressed), counted apart and never ranked, counted on a line or put on a front.
+
+import { indexById, INDICES, selectionLine, PRICE_CAVEAT, indexDisplay } from '@atlas/engine/port/indices.ts';
+import { buildWorkspace, estimateContext, COST_AXIS, DERIVED_AXES, goalAxes } from '@atlas/engine/port/workspace.ts';
+import { familyColors, esc, fmtNumber, fmtBounded, boundLine, fmtRange, chip, FILLER_SYMBOL, FILLER_LABEL, NAMED_FILLER_SYMBOL, NAMED_FILLER_KEY, fillerSymbol, fillerLabel } from '@atlas/pages/facts/format';
+import { isNamedFiller } from '@atlas/engine/port/filler.ts';
+import { AXIS_DEFS } from '@atlas/pages/facts/axes';
+import { prop, describeConstraint, ESTIMATE_PRECISION, ESTIMATE_STRENGTH, H2C_CHECK } from '@atlas/pages/facts/labels';
+import { printCheck, printGatesMissing } from '../templates.ts';
+import {
+  wireResize, placeLabels, drawing, axisRange, hexToRgba, requirementOverlay, anchorRequirementLabels, referenceOverlay,
+  anchorTrace, chartTheme, spans, NO_LABEL, LABEL_FONT, PLOT_MARGIN_TOP, errorBars, applyZoom, watchZoom, zoomSig, zoomMemory,
+  lensChartSize, applyLogTicks, watchLogTicks, anchorReferenceLabels,
+} from './chart.ts';
+import { Plotly } from './plotly.ts';
+import type { Loose } from '@atlas/pages/loose';
+
+// ------------------------------------------------------------------ words
+
+const plural = (n: Loose, word: Loose, many: Loose = `${word}s`) => `${n} ${n === 1 ? word : many}`;
+const materials = (n: Loose) => plural(n, 'material');
+/** The formula in a reader's symbols: E^(1/2) / ρ, σ / (Cm × ρ). */
+export const formulaText = (index: Loose) => index.formula.replace(/rho/g, 'ρ').replace(/sigma/g, 'σ').replace(/ x /g, ' × ');
+const sig = (v: Loose) => (Number.isFinite(v) ? (Math.abs(v) < 1e-3 && v !== 0 ? v.toExponential(2) : Number(v.toPrecision(3)).toString()) : '—');
+/** M as the line's box shows it: four significant figures, in exponent form when it is tiny (a cost index). */
+const mText = (v: Loose) => (Math.abs(v) < 1e-3 ? v.toExponential(3) : String(Number(v.toPrecision(4))));
+const scheduleWords = (t: Loose) => `at ${t?.tempC != null ? `${fmtNumber(t.tempC)} °C` : 'a temperature its sheet does not state'} for ${t?.hours != null ? `${fmtNumber(t.hours)} h` : 'a time its sheet does not state'}`;
+/** A product state in words: "annealed at 120 °C for 16 h, dry", "as printed, conditioned". */
+export const stateWords = (s: Loose) => `${s?.treatment ? `annealed ${scheduleWords(s.treatment)}` : 'as printed'}, ${s?.moisture === 'conditioned' ? 'conditioned' : 'dry'}`;
+
+/** An axis's definition: the registry's, or the derived cost axis. */
+export function axisDef(key: Loose) {
+  if (DERIVED_AXES[key]) {
+    const d = DERIVED_AXES[key];
+    return { key, label: d.label, unit: d.unit, better: d.better, derived: true, plain: d.label, measurement: null, changes: { moisture: false, annealing: false } };
+  }
+  const a = AXIS_DEFS.find((x: Loose) => x.key === key) ?? AXIS_DEFS[0];
+  return { ...a, plain: prop(a.key).plain };
+}
+// A log axis says so as every graph says it, "<unit>, log scale" (C49).
+const axisTitle = (d: Loose, log: Loose = false) => `${d.plain} (${d.unit}${log ? ', log scale' : ''})`;
+const valueText = (v: Loose, d: Loose, interval: Loose = null) => (v === null || v === undefined ? '—' : fmtBounded(v, d.unit, interval));
+
+/** Why a product state has no coordinate on an axis, in words. */
+function missingWords(m: Loose, def: Loose) {
+  const what = def.plain.toLowerCase();
+  if (m.reason === 'unpriced') return 'no price of its own in the sample (another product\'s price is never used)';
+  if (m.reason === 'other-state') {
+    const e = m.elsewhere?.[0];
+    return `${what} is published only ${e ? stateWords(e) : 'in another state'}; values are never carried across states`;
+  }
+  if (m.reason === 'not-comparable') return `${what} is published only set apart (a test bar not described as printed, or no stated test load or orientation), so it is not compared`;
+  if (m.reason === 'not-applicable') return `${what} does not apply to it`;
+  return `no comparable ${what} published in this state`;
+}
+
+// ------------------------------------------------------------------ the model for the page's state
+
+/** The workspace the page's current state asks for. */
+export function workspaceFor(state: Loose) {
+  const p = state.scenario.plot;
+  const index = state.scenario.rankBy ? indexById(state.scenario.rankBy) : null;
+  return buildWorkspace({
+    rows: state.rows, contextRows: state.examined ?? state.rows, ctx: state.ctx,
+    xKey: p.x, yKey: p.y, xLog: !!p.xLog, yLog: !!p.yLog, index, lineM: p.indexM ?? null,
+    population: p.population ?? 'confirmed', tested: state.scenario.constraints.length > 0,
+  });
+}
+
+// ------------------------------------------------------------------ the question bar
+
+/**
+ * What is being asked, in one bar above the chart: the goal, and the question the filter rail holds, read back (D108).
+ * Nothing here sets a requirement: the rail is the one place for them, and "Change in Filters" opens it.
+ */
+export function questionStrip(state: Loose, ws: Loose) {
+  const { scenario } = state;
+  const cs = scenario.constraints;
+  const index = ws.objective.index;
+  const check = printCheck(cs);
+  const printable = check === 'all';
+  const scoped = cs.some((c: Loose) => c.kind === 'gate' && c.gate === 'scope');
+  const hard = cs.filter((c: Loose) => c.mandatory !== false && !(c.kind === 'gate' && ['nozzle', 'bed', 'chamber', 'scope'].includes(c.gate)));
+  const judged = `${scenario.anneal ? `As printed, or annealed at its data sheet's schedule${scenario.annealMaxC ? ` up to ${fmtNumber(scenario.annealMaxC)} °C` : ''}` : 'As printed'}, ${scenario.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}`;
+  const goalOption = (i: Loose) => `<option value="${esc(i.id)}" ${index?.id === i.id ? 'selected' : ''}>${esc(i.designCase)}</option>`;
+  const asked = [
+    judged,
+    printable ? `${scoped ? 'Within H2C capability · ' : ''}${H2C_CHECK}` : null,
+    ...hard.map(describeConstraint),
+  ].filter(Boolean);
+  return `<section class="ws-question" aria-label="The question">
+    <div class="ws-goal-row">
+      <label class="ws-label" for="ws-goal">Goal</label>
+      <select id="ws-goal" data-goal data-focus="goal">
+        <option value="">None: compare two properties</option>
+        <optgroup label="Lightest part that does the job">${INDICES.filter((i: Loose) => !i.costForm).map(goalOption).join('')}</optgroup>
+        <optgroup label="Lowest material cost">${INDICES.filter((i: Loose) => i.costForm).map(goalOption).join('')}</optgroup>
+      </select>
+      ${index ? `<span class="ws-formula" title="${esc(index.geometry.sentence)} ${esc(index.geometry.free)}.${index.strengthProxy ? ' Strength is a proxy: the recorded tensile strength, its endpoint as each sheet states it.' : ''}">Maximise <span class="formula">M = ${esc(formulaText(index))}</span></span>
+        <span class="ws-geom">${esc(index.geometry.free)}</span>` : ''}
+    </div>
+    <div class="ws-asked">
+      <span class="ws-label">Asked</span>
+      <span class="ws-asked-list">${asked.map((a: Loose) => `<span>${esc(a)}</span>`).join('')}${cs.length ? '' : '<span class="ws-asked-none">no requirement yet, so nothing is screened</span>'}</span>
+      <button type="button" class="link-btn" data-edit-req data-focus="edit-req" title="The filter rail holds every requirement; the chart draws them">Change in Filters</button>
+      ${printable ? '' : `<span class="ws-research"><b class="warn-text">H2C printability ${check === 'none' ? 'not checked' : `partly checked: ${esc(printGatesMissing(cs).join(' and '))} not checked`}</b> <button type="button" class="btn btn-sm" data-act="printable">Check nozzle, bed and chamber</button></span>`}
+    </div>
+  </section>`;
+}
+
+// Small drawings of what each index models: a tie pulled along its length, a beam bent between supports, a panel.
+const SKETCH: Loose = {
+  tie: '<svg viewBox="0 0 64 24" aria-hidden="true"><rect x="14" y="9" width="36" height="6" rx="1"/><path d="M13 12H3M7 8l-4 4 4 4M51 12h10M57 8l4 4-4 4" fill="none" stroke-width="1.6"/></svg>',
+  beam: '<svg viewBox="0 0 64 24" aria-hidden="true"><rect x="6" y="10" width="52" height="5" rx="1"/><path d="M8 15l-4 6h8zM56 15l-4 6h8z"/><path d="M32 1v7M29 5l3 3 3-3" fill="none" stroke-width="1.6"/></svg>',
+  panel: '<svg viewBox="0 0 64 24" aria-hidden="true"><path d="M6 16l14-8h38l-14 8z" fill-opacity=".35"/><path d="M6 16v3h38l14-8V8" fill="none" stroke-width="1.2"/><path d="M36 1v7M33 5l3 3 3-3" fill="none" stroke-width="1.6"/></svg>',
+};
+
+/** The first step of a new exercise: what the part does, with the H2C's requirements proposed and said to be so. */
+export function starter(state: Loose) {
+  const card = (title: Loose, help: Loose, ids: Loose) => `<div class="ws-start-card"><h3>${esc(title)}</h3><p>${esc(help)}</p>
+    <div class="ws-start-members">${ids.map((id: Loose) => {
+      const i: Loose = indexById(id);
+      return `<button type="button" class="ws-member" data-start-goal="${esc(id)}" title="${esc(i.geometry.sentence)}">
+        <span class="ws-sketch">${SKETCH[i.geometry.member]}</span><span class="ws-member-name">${esc(i.geometry.member.charAt(0).toUpperCase() + i.geometry.member.slice(1))}</span>
+        <span class="ws-member-free">${esc(i.geometry.free)}</span></button>`;
+    }).join('')}</div></div>`;
+  return `<section class="ws-start" aria-label="Start an Ashby selection">
+    <h2>What must the part do?</h2>
+    <p>Choose the member and what is prescribed. The chart then draws each product that can do it, in the state it would be used in, with the line that ranks them.</p>
+    <label class="toggle ws-start-gates"><input type="checkbox" data-start-gates checked>
+      <span>Also require H2C capability, and ${H2C_CHECK.charAt(0).toLowerCase()}${H2C_CHECK.slice(1)}</span></label>
+    <div class="ws-start-grid">
+      ${card('Lightest stiff part', 'Stiffness prescribed, mass minimised.', ['tie-stiffness', 'beam-stiffness', 'panel-stiffness'])}
+      ${card('Lightest strength-limited part', 'Strength prescribed, mass minimised. The recorded strength is a proxy: tensile, its endpoint as each sheet states it.', ['tie-strength', 'beam-strength', 'panel-strength'])}
+      ${card('Lowest material cost', 'Material cost per volume: each product\'s own price times its own density; a price from a foreign listing is converted to CAD. Shipping is not included.', ['beam-stiffness-cost', 'tie-strength-cost'])}
+      <div class="ws-start-card"><h3>My geometry is fixed</h3><p>No index applies to fixed dimensions: compare two properties instead, with the requirements as limits.</p>
+        <div class="ws-start-members"><button type="button" class="ws-member" data-start-goal=""><span class="ws-member-name">Compare properties</span><span class="ws-member-free">Choose the axes; no line</span></button></div></div>
+    </div>
+  </section>`;
+}
+
+// ------------------------------------------------------------------ the line
+
+/** The line's control, above the chart: its position as a number and a slider, a step to the next product, and how many
+ * products are on its better side. A guide for reading the chart: it moves nothing and filters nothing (D108). */
+export function lineControl(state: Loose, ws: Loose) {
+  const index = ws.objective.index;
+  if (!index) return '';
+  const L = ws.line;
+  const off = (msg: Loose, fix: Loose = '') => `<div class="ws-row ws-line ws-line-off" role="group" aria-label="Index line"><span class="ws-row-label">Line</span> <span>${msg}</span> ${fix}</div>`;
+  if (!L.orientation) {
+    const a = goalAxes(index);
+    return off(`The ${esc(formulaText(index))} line needs ${esc(axisDef(a.x).plain.toLowerCase())} across and ${esc(axisDef(a.y).plain.toLowerCase())} up.`,
+      '<button type="button" class="btn btn-sm" data-goal-axes data-focus="goal-axes">Use the goal\'s axes</button>');
+  }
+  if (!L.drawable) {
+    return off(`Products with one value of M lie on a straight line only when both axes are Log.`,
+      '<button type="button" class="btn btn-sm" data-loglog data-focus="loglog">Switch both axes to Log</button>');
+  }
+  if (!L.of.pairs) {
+    return off(`No product drawn here has a value of ${esc(formulaText(index))}${state.scenario.moisture === 'conditioned' ? ' in the conditioned state, where nothing is inferred from dry values' : ''}.`);
+  }
+  const M = L.M;
+  const r = L.range;
+  const pos = r && M ? Math.round(1000 * Math.max(0, Math.min(1, Math.log(M / (r.lo * 0.95)) / Math.log((r.hi * 1.05) / (r.lo * 0.95))))) : 500;
+  const better = L.orientation === 'direct' ? 'above' : 'below';
+  return `<div class="ws-row ws-line" role="group" aria-label="Index line">
+    <span class="ws-row-label">Line</span>
+    <label class="ws-line-m"><span class="formula">M =</span> <input type="text" inputmode="decimal" data-line-m data-focus="line-m" value="${M === null ? '' : mText(M)}" aria-label="Line position, M" title="Type a value of M; a product exactly on the line counts as ${better} it"></label>
+    <input type="range" class="ws-line-slider" data-line-slider data-focus="line-slider" min="0" max="1000" value="${pos}" ${M === null ? 'disabled' : ''}
+      aria-label="Move the line" aria-valuetext="M = ${sig(M)}, ${lineCount(L.above.pairs, L.above.materials)} ${better} it">
+    <span class="ws-line-steps">
+      <button type="button" class="btn btn-sm" data-line-step="-1" data-focus="line-down" title="Move the line to the next product below" aria-label="Line to the next product below">▼</button>
+      <button type="button" class="btn btn-sm" data-line-step="1" data-focus="line-up" title="Move the line to the next product above" aria-label="Line to the next product above">▲</button>
+    </span>
+    <output class="ws-line-readout" aria-live="polite" title="The line is a guide: it keeps and removes nothing. The ranking beside the chart shows where it falls.">${M === null ? 'No product has a value of M to place the line at.' : `<b>${lineCount(L.above.pairs, L.above.materials)}</b> ${better} the line`}</output>
+  </div>`;
+}
+/** "10 products from 7 materials": the one way a count of marks is said (D108). */
+export const lineCount = (products: Loose, mats: Loose) => `${plural(products, 'product')} from ${materials(mats)}`;
+
+// ------------------------------------------------------------------ the chart's controls
+
+/**
+ * Which of the lens's folds and menus the reader has open, kept across redraws: the lens is rebuilt on every change, and
+ * a fold that closed under the reader's pointer after each tick was unusable. Everything starts closed.
+ */
+export const openFolds = new Map<Loose, Loose>();
+const foldOpen = (name: Loose) => openFolds.get(name) === true;
+/** The result list as the reader left it: its search text, where it was scrolled to, and which materials' products are
+ * open. A redraw puts it back (ashby.js), so no press elsewhere throws the reader to the top of an emptied list. */
+export const listUi = { filter: '', scroll: 0, open: new Set() };
+
+/**
+ * What the chart draws, from the coarsest picture to the finest (D110): one dot per material, each material's range, every
+ * product. Test pairs, the raw measurements behind them, are rarely needed and sit under More.
+ */
+const DRAW_VIEWS = [
+  ['catalogue', 'Material typicals', 'One dot per material at its typical datasheet value (its products\' median), as printed and dry'],
+  ['overview', 'Material ranges', 'Each material as the middle half of its products on each axis, whiskers to the extremes'],
+  ['decision', 'Products', 'Each product that meets the requirements, in the state it is judged in: ranked, with the line'],
+];
+export const TEST_PAIR_VIEWS = [
+  ['measured', 'Test pairs, matched conditions', 'Two measurements of one product in one condition, from one document'],
+  ['measured-mixed', 'Test pairs, mixed conditions', 'Every pair of one product\'s measurements; each mismatch named and drawn hollow'],
+];
+/**
+ * Whether a context layer is drawn. Unsettled products follow the page's Materials that could not be checked switch until
+ * the reader presses their chip (D109): Include lists them in the table, so the chart draws them too. The state alone
+ * decides, so a link reopens as it was left.
+ */
+export const layerOn = (state: Loose, k: Loose) => (k === 'unresolved'
+  ? (state.scenario.plot.layers?.unresolved ?? state.scenario.unknownPolicy === 'exploration')
+  : !!state.scenario.plot.layers?.[k]);
+/** Every property a chart can draw, in one fixed order, by its name alone: a menu that does not change as you use it. */
+export const axisKeys = () => [...AXIS_DEFS.map((a: Loose) => a.key), COST_AXIS];
+
+/**
+ * The chart's controls (D108 to D110), read top to bottom as the chart is built:
+ *
+ *   Draw   [Material typicals | Material ranges | Products]                                           [More ▾]
+ *   Also   (Unsettled) (Failing) (Estimates) (Pareto front) | (Metals & wood) [Familiar: none ▾]
+ *   Line   M = [ ] ━━●━━ ▼ ▲   8 products from 5 materials above the line
+ *   ↑ [Stiffness] GPa Lin Log              ⇄              → [Density] kg/m³ Lin Log     (the axis bar, on the chart)
+ *
+ * Every option is always there, in the same place, with the same words; its state is shown on the control itself (a
+ * pressed chip), not inside a menu. One that does not apply here is greyed with its reason. Each has one planned effect
+ * and leaves everything else as it was (see wireControls in ashby.js).
+ */
+export function toolbar(state: Loose, { view, estimates = null, line = '' }: Loose) {
+  const p = state.scenario.plot;
+  const work = view === 'decision' || view === 'overview';
+  const pairs = TEST_PAIR_VIEWS.find(([id]: Loose) => id === view);
+
+  // A chip is a switch whose state is its look: pressed or not. One that does not apply says why, and stays put.
+  const chip = (attrs: Loose, on: Loose, label: Loose, why: Loose = '', help: Loose = '') => `<button type="button" class="ws-chip" ${attrs} aria-pressed="${!!on && !why}" ${why ? `disabled title="${esc(why)}"` : help ? `title="${esc(help)}"` : ''}>${esc(label)}</button>`;
+  const productsOnly = view === 'decision' ? '' : 'Drawn in the Products view';
+  const needs = `Needs ${state.scenario.unknownPolicy === 'exploration' ? '"Use estimates and resin data"' : '"Include" under Materials that could not be checked, and "Use estimates and resin data"'}, at the top of the page`;
+  const estWhy = work ? (state.ashbyEstimates?.off ? needs : '')
+    : estimates?.measured ? 'Test pairs are measured values only'
+      : !state.ctx?.showEstimates ? needs
+        : !estimates?.count ? 'None on these axes' : '';
+  const baseline = `<select class="ws-chip-select" data-baseline data-focus="baseline" aria-label="A familiar filament to draw for scale"><option value="">Familiar: none</option>${['PLA', 'PETG', 'ABS', 'ASA', 'PC'].map((n: Loose) => state.db.materials.find((q: Loose) => q.name === n)).filter(Boolean)
+    .map((q: Loose) => `<option value="${esc(q.id)}" ${state.baseline === q.id ? 'selected' : ''}>Familiar: ${esc(q.name)}</option>`).join('')}</select>`;
+  const exportWhy = work ? '' : 'From the Material ranges or Products view';
+  const moreMenu = `<details class="ws-menu" data-fold="more" ${foldOpen('more') ? 'open' : ''}>
+    <summary class="btn btn-sm" data-focus="menu-more">More <span aria-hidden="true">▾</span></summary>
+    <div class="ws-menu-panel" role="group" aria-label="Test pairs and export">
+      <h4>Raw measurements</h4>
+      ${TEST_PAIR_VIEWS.map(([id, label, help]: Loose) => `<button type="button" class="ws-menu-item" data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}
+      <h4>Export</h4>
+      <button type="button" class="ws-menu-item" data-export-data ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart data (CSV)</button>
+      <button type="button" class="ws-menu-item" data-export-image ${exportWhy ? `disabled title="${exportWhy}"` : ''}>Chart image (PNG)</button>
+      <p class="opt-help">Both carry the release, the question, the goal, the axes and what each range means.</p>
+      <p class="opt-help ws-release" title="The release every answer here was computed on: data, rules and engine">Release ${esc(state.db.meta.release?.id ?? 'unidentified')}</p>
+    </div>
+  </details>`;
+  return `<div class="ws-controls">
+    <div class="ws-row" role="group" aria-label="Draw">
+      <span class="ws-row-label">Draw</span>
+      <div class="segmented ws-views" role="group" aria-label="What the chart draws">
+        ${DRAW_VIEWS.map(([id, label, help]: Loose) => `<button data-view="${id}" data-focus="view-${id}" aria-pressed="${view === id}" title="${esc(help)}">${esc(label)}</button>`).join('')}
+      </div>
+      <span class="ws-row-end">${moreMenu}</span>
+    </div>
+    <div class="ws-row" role="group" aria-label="Also draw">
+      <span class="ws-row-label">Also</span>
+      ${chip('data-layer="unresolved" data-focus="layer-unresolved"', layerOn(state, 'unresolved'), 'Unknown', productsOnly, 'Products whose data cannot settle the requirements, hollow; never ranked')}
+      ${chip('data-layer="failed" data-focus="layer-failed"', p.layers?.failed, 'Failing', productsOnly, 'Products that fail a requirement, small and faint; never ranked')}
+      ${chip('data-show-estimates data-focus="estimates"', p.showEstimates, 'Estimates', estWhy, 'Materials on screen that publish nothing on an axis: the model\'s likely range, shaded; never a point')}
+      ${chip('data-layer="front" data-focus="layer-front"', p.layers?.front, 'Pareto front', view === 'decision' || view === 'catalogue' ? '' : 'Drawn in the Products and Material typicals views', 'What nothing else beats on both axes: products, or materials at their typical values')}
+      <span class="ws-row-sep" aria-hidden="true" title="For scale"></span>
+      ${chip('data-reference data-focus="reference"', p.showReference, 'Metals & wood', '', 'Steel, aluminium and wood, drawn for scale; never candidates')}
+      ${baseline}
+    </div>
+    ${line}
+    ${pairs ? `<div class="ws-evidence-chip" role="note"><b>${esc(pairs[1])}:</b> raw measurements, as the sheets print them, for research, not the decision. <button type="button" class="link-btn" data-view="decision" data-focus="back-products">Back to Products</button></div>` : ''}
+  </div>`;
+}
+
+/**
+ * The axes, at the chart they set (D109): the vertical one at its left, the horizontal at its right, each by name with
+ * its unit and scale, and the swap between them. A row of the chart itself, so the controls above it stay one line each.
+ */
+export function axisBar(state: Loose, { view }: Loose) {
+  const p = state.scenario.plot;
+  const work = view === 'decision' || view === 'overview';
+  const keys = work ? axisKeys() : AXIS_DEFS.map((a: Loose) => a.key);
+  const option = (k: Loose, cur: Loose) => `<option value="${esc(k)}" ${k === cur ? 'selected' : ''}>${esc(axisDef(k).plain)}</option>`;
+  const scale = (which: Loose, isLog: Loose) => `<div class="segmented ws-scale" role="group" aria-label="${which === 'y' ? 'Vertical' : 'Horizontal'} axis scale">
+    <button data-log="${which}" data-focus="log-${which}-lin" aria-pressed="${!isLog}">Lin</button><button data-log="${which}" data-on="1" data-focus="log-${which}-log" aria-pressed="${isLog}">Log</button></div>`;
+  const axis = (which: Loose, glyph: Loose) => `<span class="ws-axis ws-axis-${which}"><label for="ashby-${which}" class="ws-axis-label" title="${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}">${glyph}</label>
+    <select id="ashby-${which}" data-axis="${which}" data-focus="axis-${which}" aria-label="${which === 'y' ? 'Vertical axis' : 'Horizontal axis'}">${keys.map((k: Loose) => option(k, p[which])).join('')}</select>
+    <span class="ws-axis-unit">${esc(axisDef(p[which]).unit)}</span>${scale(which, p[`${which}Log`])}</span>`;
+  return `<div class="ws-axisbar" role="group" aria-label="Axes">
+    <span class="ws-axis-pair">${axis('y', '↑')}<button class="btn btn-sm axis-swap" data-swap data-focus="swap" title="Swap the horizontal and vertical axes" aria-label="Swap the axes">⇄</button></span>
+    ${axis('x', '→')}
+  </div>`;
+}
+
+
+/**
+ * What is narrowing the picture right now, said on the chart itself with the way back (D109): a zoom (the reader's, or
+ * one to a material) and a material picked out. They used to be a link under the chart, off the screen.
+ */
+export function chartPills(state: Loose) {
+  const p = state.scenario.plot;
+  const focus = p.focus ?? [];
+  const zoomed = zoomMemory.sig === zoomSig(p);
+  const name = (id: Loose) => nameOfMaterial(state, id);
+  const pills: Loose[] = [];
+  if (focus.length || zoomed) {
+    const what = focus.length ? `Zoomed to ${focus.length === 1 ? esc(name(focus[0])) : `${focus.length} materials`}` : 'Zoomed in';
+    pills.push(`<span class="ws-pill">${what} <button type="button" class="link-btn" data-zoom-reset data-focus="zoom-reset">Show all</button></span>`);
+  }
+  if (state.selected) pills.push(`<span class="ws-pill ws-pill-pick">Picked out: <b>${esc(name(state.selected))}</b> <button type="button" class="icon-btn" data-unpick data-focus="unpick" aria-label="Show every material alike" title="Show every material alike">×</button></span>`);
+  return pills.join('');
+}
+
+// ------------------------------------------------------------------ results and inspector
+
+/** The result list beside the chart: the goal's ranking by material, with the line drawn into it where it falls, each
+ * material's best product, the products under it, the unranked and the gaps. A keyboard reaches everything the chart
+ * shows here. */
+export function resultsPanel(state: Loose, ws: Loose, { view = 'decision', drawn = null }: Loose = {}) {
+  const index = ws.objective.index;
+  // On Material typicals and the test pairs the chart draws materials, not products (D111): a row's products are not
+  // "drawn", ⤢ has nothing to zoom to, and with no goal the list is the materials drawn.
+  const work = view === 'decision' || view === 'overview';
+  const tested = state.scenario.constraints.length > 0;
+  const byMaterial = new Map<Loose, Loose>();
+  for (const p of ws.decision) { if (!byMaterial.has(p.materialId)) byMaterial.set(p.materialId, []); byMaterial.get(p.materialId).push(p); }
+  const shortlisted = new Set(state.scenario.shortlist);
+  const star = (id: Loose, name: Loose) => `<button type="button" class="shortlist-btn btn btn-sm" data-pin="${esc(id)}" aria-pressed="${shortlisted.has(id)}" title="${shortlisted.has(id) ? 'On the shortlist of materials to investigate. Press to remove it.' : 'Shortlist this material to investigate (a product is chosen in the inspector)'}" aria-label="Shortlist ${esc(name)}">${shortlisted.has(id) ? '★' : '☆'}</button>`;
+  // A material's products are written when its list is opened (pairList), not with the page: a thousand buttons in closed
+  // lists made every redraw of the chart pay for a document five times the size.
+  // A row does one thing per control: the name picks the material out on the chart (the rest fade; press again to let
+  // go), ⤢ zooms to it, "best" opens that product, ☆ shortlists it, and the fold lists its products.
+  const materialItem = (id: Loose, { place = '', value = '', best = '' }: Loose = {}) => {
+    const list = byMaterial.get(id) ?? [];
+    const name = list[0]?.name ?? nameOfMaterial(state, id);
+    const open = listUi.open.has(id);
+    const picked = state.selected === id;
+    return `<li class="ws-mat${picked ? ' is-picked' : ''}" data-mat="${esc(id)}" data-name="${esc(name.toLowerCase())}">
+      <div class="ws-mat-head">${place}<button type="button" class="link-btn ws-mat-name" data-select-material="${esc(id)}" aria-pressed="${picked}" title="${picked ? 'Picked out on the chart. Press again to show every material alike.' : 'Pick it out on the chart: its products stay bright, the rest fade'}">${esc(name)}</button>${value}${list.length && work ? `<button type="button" class="icon-btn ws-zoom-btn" data-focus-material="${esc(id)}" title="Zoom the chart to ${esc(name)}'s products" aria-label="Zoom to ${esc(name)}">⤢</button>` : ''}${star(id, name)}</div>
+      ${best}
+      ${!work ? '' : list.length ? `<details class="ws-mat-pairs" data-mat-pairs="${esc(id)}" ${open ? 'open' : ''}><summary>${plural(list.length, 'product')} drawn</summary>${open ? pairList(state, ws, id) : ''}</details>` : '<div class="fine ws-sub">none drawn on these axes</div>'}
+    </li>`;
+  };
+  let body: Loose;
+  if (index && ws.ranking) {
+    const gradeById = new Map<Loose, Loose>(state.db.grades.map((g: Loose) => [g.id, g]));
+    const first = ws.ranking.order[0];
+    const L = ws.line;
+    const lineHere = L?.drawable && L.M !== null ? L.M : null;
+    const items: Loose[] = [];
+    let lineDrawn = lineHere === null;
+    for (const r of ws.ranking.order) {
+      // The chart's line, drawn into the ranking at the first material whose median falls under it.
+      if (!lineDrawn && r.value < lineHere) {
+        items.push(`<li class="ws-line-mark" aria-label="The chart's line, M = ${sig(lineHere)}"><span>line · M ${sig(lineHere)}</span></li>`);
+        lineDrawn = true;
+      }
+      const best = r.best?.gradeId ? gradeById.get(r.best.gradeId) : null;
+      const bestKey = best ? `${r.materialId}|${best.id}|${r.best.stateId}` : null;
+      const rel = r.place > 1 ? (r.value / first.value).toFixed(2) : null;
+      items.push(materialItem(r.materialId, {
+        place: `<span class="ws-place">${r.place}</span>`,
+        value: `<span class="formula ws-median" title="The median M of ${plural(r.products, 'passing product')} (best ${esc(best ? `${best.manufacturer} ${best.product}` : 'product')}: ${sig(indexDisplay(index, r.best?.value).value)} ${esc(indexDisplay(index, 1).unit)})${rel ? `; ${rel} × ${esc(nameOfMaterial(state, first.materialId))}'s` : ''}">${sig(indexDisplay(index, r.value).value)} <span class="ws-unit">${esc(indexDisplay(index, 1).unit)}</span> <span class="ws-n">n=${r.products}</span>${rel ? ` <span class="ws-rel">${rel}×</span>` : ''}</span>`,
+        best: best ? `<div class="ws-sub ws-best">best: <button type="button" class="link-btn" data-inspect="${esc(bestKey)}" title="${esc(stateWords(parseState(r.best.stateId)))} · M ${sig(r.best.value)}">${esc(`${best.manufacturer} ${best.product}`)}</button></div>` : '',
+      }));
+    }
+    if (!lineDrawn && ws.ranking.order.length) items.push(`<li class="ws-line-mark" aria-label="The chart's line, M = ${sig(lineHere)}"><span>line · M ${sig(lineHere)}</span></li>`);
+    const unranked = ws.ranking.unranked;
+    body = `<div class="ws-list-head"><h3>Ranking <span class="formula">M = ${esc(formulaText(index))}</span></h3>
+      <p class="fine" title="Each material by the median M of its passing products, in the states they pass in, best first; its best product named. The × is relative to the first.">Each material by the median M of its passing products, in ${esc(indexDisplay(index, 1).unit)}; n is how many products it rests on.</p></div>
+      ${ws.ranking.order.length ? `<ol class="ws-rank">${items.join('')}</ol>` : `<p class="fine">${tested && !state.rows.some((r: Loose) => r.evaluation.verdict === 'PASS')
+        ? 'No material meets every requirement in the state asked, so nothing ranks. Unsettled products, under Also, draws those that could not be settled; Why excluded says what held them.'
+        : `No ${tested ? 'material that passes' : 'material'} has a product that publishes what ${esc(formulaText(index))} needs in the state it is judged in.`}</p>`}
+      ${unranked.length ? `<details class="ws-unranked" data-fold="unranked" ${openFolds.get('unranked') ? 'open' : ''}><summary>${plural(unranked.length, 'material')} pass${unranked.length === 1 ? 'es' : ''} but cannot be ranked</summary>
+        <ul>${unranked.map((u: Loose) => `<li><button type="button" class="link-btn" data-open-material="${esc(u.materialId)}">${esc(nameOfMaterial(state, u.materialId))}</button>: ${esc(u.reason)}</li>`).join('')}</ul></details>` : ''}`;
+  } else if (!work && drawn) {
+    const ids = [...drawn].sort((a: Loose, b: Loose) => nameOfMaterial(state, a).localeCompare(nameOfMaterial(state, b)));
+    body = `<div class="ws-list-head"><h3>Materials drawn</h3>
+      <p class="fine">At their typical values. Choose a goal to rank them.</p></div>
+      <ul class="ws-rank ws-unordered">${ids.map((id: Loose) => materialItem(id)).join('')}</ul>`;
+  } else {
+    const ids = [...byMaterial.keys()].sort((a: Loose, b: Loose) => (byMaterial.get(a)[0].name).localeCompare(byMaterial.get(b)[0].name));
+    body = `<div class="ws-list-head"><h3>${tested ? 'Passing products, by material' : 'Products, by material'}</h3>
+      <p class="fine">Choose a goal to rank them.${tested ? '' : ' Nothing is screened until a requirement is asked.'}</p></div>
+      <ul class="ws-rank ws-unordered">${ids.map((id: Loose) => materialItem(id)).join('')}</ul>`;
+  }
+  const gaps = work ? ws.gaps : [];
+  const gapBlock = gaps.length ? `<details class="ws-gaps" data-fold="gaps" ${openFolds.get('gaps') ? 'open' : ''}><summary>${plural(gaps.length, tested ? 'passing product' : 'product')} not drawn on these axes</summary>
+    <ul>${gaps.slice(0, 40).map((g: Loose) => `<li><b>${esc(g.product)}</b> <span class="fine">(${esc(g.name)})</span>: ${g.offLog ? 'a value at or below zero, which a Log axis cannot show' : esc(g.missing.map((m: Loose) => missingWords(m, axisDef(m.key))).join('; '))}</li>`).join('')}${gaps.length > 40 ? `<li class="fine">and ${gaps.length - 40} more, in the chart data export</li>` : ''}</ul>
+    ${ws.counts.gaps.unpriced ? `<p class="fine">${plural(ws.counts.gaps.unpriced, 'product')} ha${ws.counts.gaps.unpriced === 1 ? 's' : 've'} no price of its own in the sample. Prices are observed listings with their dates, in CAD/kg; a product with only a foreign listing is converted at the Bank of Canada rate (¤). Shipping and duty are excluded.</p>` : ''}</details>` : '';
+  const noProducts = ws.noProducts.length ? `<p class="fine">${plural(ws.noProducts.length, 'material')} on screen ha${ws.noProducts.length === 1 ? 's' : 've'} no product to buy, so nothing to draw.</p>` : '';
+  // Details replace the list, one at a time (D110): pressing mark after mark swaps the details in place, and "← Ranking"
+  // brings the list back as it was left. The list is not drawn meanwhile, so nothing in it can pile up or jump.
+  if (state.inspect) {
+    return `<aside class="ws-results is-detail" aria-label="Details">
+      <div class="ws-detail-bar"><button type="button" class="link-btn ws-back" data-inspect-close data-focus="inspect-close">← ${index ? 'Ranking' : 'List'}</button>
+        <span class="fine">${state.inspect.kind === 'nearby' ? 'marks at one spot' : state.inspect.kind === 'pair' ? 'product' : state.inspect.kind === 'material' ? 'material' : 'estimate'}</span></div>
+      <div class="ws-detail-body">${inspector(state, ws)}</div>
+    </aside>`;
+  }
+  return `<aside class="ws-results" aria-label="Results">
+    <div class="ws-list" data-list>
+      <input type="search" class="ws-filter" data-list-filter data-focus="list-filter" placeholder="Find a material in the list" aria-label="Find a material in the list" value="${esc(listUi.filter)}">
+      ${body}${gapBlock}${noProducts}
+    </div>
+  </aside>`;
+}
+
+/** A material's range on one axis in words: the middle half, the extremes and how many products. */
+function rangeWords(r: Loose, d: Loose) {
+  if (!r) return '—';
+  if (r.lo === r.hi) return `${esc(valueText(r.lo, d))} (${plural(r.n, 'product')})`;
+  return r.quartiles
+    ? `middle half ${esc(fmtRange(r.q1, r.q3))} ${esc(d.unit)}, median ${esc(fmtNumber(r.median))}; all ${esc(fmtRange(r.lo, r.hi))} (${plural(r.n, 'product')})`
+    : `${esc(fmtRange(r.lo, r.hi))} ${esc(d.unit)} (${plural(r.n, 'product')}: too few for a middle half)`;
+}
+
+const nameOfMaterial = (state: Loose, id: Loose) => state.db.materials.find((m: Loose) => m.id === id)?.name ?? id;
+
+/** One material's product states in the decision set, best first, each opening in the inspector. */
+export function pairList(state: Loose, ws: Loose, materialId: Loose) {
+  const xD = axisDef(state.scenario.plot.x), yD = axisDef(state.scenario.plot.y);
+  const list = ws.decision.filter((p: Loose) => p.materialId === materialId)
+    .sort((a: Loose, b: Loose) => (b.M ?? -Infinity) - (a.M ?? -Infinity) || a.gradeId.localeCompare(b.gradeId));
+  return `<ul>${list.map((p: Loose) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(p.key)}" ${state.inspect?.key === p.key ? 'aria-current="true"' : ''}>
+    <span class="ws-pair-name">${esc(p.product)}</span> <span class="fine">${esc(stateWords(p.state))}</span>
+    <span class="ws-pair-vals">${esc(valueText(p.y.value, yD, p.y.interval))} · ${esc(valueText(p.x.value, xD, p.x.interval))}${p.M !== null ? ` · M ${sig(p.M)}` : ''}</span></button></li>`).join('')}</ul>`;
+}
+
+/** "annealed:120:16" as a state object, for words. */
+function parseState(id: Loose) {
+  const parts = String(id).split('+');
+  const a = parts.find((x: Loose) => x.startsWith('annealed:'));
+  const [, t, h] = a ? a.split(':') : [];
+  return { treatment: a ? { tempC: t === 'x' ? null : Number(t), hours: h === 'x' ? null : Number(h) } : null, moisture: parts.includes('conditioned') ? 'conditioned' : 'dry' };
+}
+
+/** The selected mark, opened: its exact product and state and every input behind it. */
+function inspector(state: Loose, ws: Loose) {
+  const sel = state.inspect;
+  if (!sel) return '';
+  // Closed from the panel's own bar ("← Ranking"), which stays in one place however long the details are.
+  const close = '';
+  const p = state.scenario.plot;
+  const xD = axisDef(p.x), yD = axisDef(p.y);
+  if (sel.kind === 'nearby') {
+    const list = sel.keys.map((k: Loose) => [...ws.pairs, ...ws.contextPairs].find((q: Loose) => q.key === k)).filter(Boolean);
+    return `<section class="ws-inspector" aria-label="Marks here" tabindex="-1"><div class="ws-insp-head"><h3>${plural(list.length, 'mark')} here</h3>${close}</div>
+      <ul class="ws-nearby">${list.map((q: Loose) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(q.key)}"><span class="ws-pair-name">${esc(q.product)}</span> <span class="fine">${esc(q.name)} · ${esc(stateWords(q.state))} · ${esc(q.verdict)}</span></button></li>`).join('')}</ul></section>`;
+  }
+  if (sel.kind === 'estimate') {
+    const e = (state.ashbyEstimates?.ranges ?? []).find((r: Loose) => r.key === sel.key);
+    if (!e) return '';
+    // A material's estimate is read for a requirement only where the material has no product on record (D148).
+    const productless = !(state.ctx?.productsByMaterial?.get(e.materialId)?.length);
+    const side = (s: Loose, d: Loose) => (s.kind === 'estimate'
+      ? `<dd>likely ${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)} <span class="fine">(${Math.round((s.levels?.likely ?? 0.8) * 100)}% interval; ${esc(s.precision ?? 'unrated')} precision, ${esc(ESTIMATE_PRECISION[s.precision] ?? '')}; ${esc(ESTIMATE_STRENGTH[s.strength]?.short ?? 'basis not rated')})</span>
+         ${s.plausible ? `<br><span class="fine">plausible: ${esc(fmtRange(s.plausible.lo, s.plausible.hi))} ${esc(d.unit)}</span>` : ''}
+         ${!productless ? '<br><span class="fine">context only: this material is judged on its products\' own values, so this estimate hides nothing</span>'
+           : s.screenRange ? `<br><span class="fine">range it may hide this material on, as it has no product on record: ${esc(fmtRange(s.screenRange.lo, s.screenRange.hi))} ${esc(d.unit)}${s.canScreen ? '' : ' (this estimate hides nothing)'}; not a physical limit</span>` : ''}
+         <br><span class="fine">basis: ${esc(s.basis ?? 'not stated')}</span></dd>`
+      : `<dd>${s.lo === s.hi ? esc(valueText(s.lo, d, s.interval)) : `${esc(fmtRange(s.lo, s.hi))} ${esc(d.unit)}`} <span class="fine">measured: ${s.kind === 'product-span' ? `the span of its ${plural(s.products ?? 0, 'product')}, not one product's uncertainty` : 'its one product\'s value'}</span></dd>`);
+    const estKey = e.x.kind === 'estimate' ? p.x : p.y;
+    return `<section class="ws-inspector" aria-label="Estimated context" tabindex="-1"><div class="ws-insp-head"><h3>${esc(e.name)}: estimated context</h3>${close}</div>
+      <p class="fine">None of its products publishes a comparable ${esc(axisDef(estKey).plain.toLowerCase())}. This is context, not a candidate: it confirms no requirement and ranks nowhere.</p>
+      <dl class="kv small"><dt>${esc(yD.plain)}</dt>${side(e.y, yD)}<dt>${esc(xD.plain)}</dt>${side(e.x, xD)}
+        <dt>State</dt><dd>${esc(e.state)}: an estimate describes products as printed and dry; none is made for a conditioned or annealed state</dd>
+        ${e.sensitivity ? `<dt>Index over the range</dt><dd>${sig(e.sensitivity.lo)} to ${sig(e.sensitivity.hi)} <span class="fine">M at the rectangle's worst and best corners: a bound over two independent ranges, not a confidence interval and not a rank</span></dd>` : ''}
+      </dl>
+      <p class="fine">Two marginal 80% ranges do not make an 80% region together: nothing is known about how the two vary jointly. What would resolve it: a comparable ${esc(axisDef(estKey).plain.toLowerCase())} published for one of its products, in the state the question asks about.</p>
+      <div class="ws-insp-actions"><button type="button" class="btn btn-sm" data-open-material="${esc(e.materialId)}">Open ${esc(e.name)}</button></div></section>`;
+  }
+  if (sel.kind === 'material') {
+    const s = ws.materialSummaries.find((m: Loose) => m.materialId === sel.key);
+    if (!s) return '';
+    const list = s.paired.map((k: Loose) => ws.pairs.find((q: Loose) => q.key === k)).filter(Boolean);
+    const variants = list.filter((q: Loose) => q.variant);
+    return `<section class="ws-inspector" aria-label="Material" tabindex="-1"><div class="ws-insp-head"><h3>${esc(s.name)}</h3>${close}</div>
+      <p class="fine">Its ${s.population === 'confirmed' ? 'passing' : 'judged'} products on each axis, as the table summarises a material: the box is the middle half, the whiskers the lowest and highest. Each axis on its own: a corner of the box is not a product.</p>
+      <dl class="kv small"><dt>${esc(yD.plain)}</dt><dd>${rangeWords(s.y, yD)}</dd>
+        <dt>${esc(xD.plain)}</dt><dd>${rangeWords(s.x, xD)}</dd>
+        ${variants.length ? `<dt>Variants</dt><dd>${plural(variants.length, 'product')} drawn apart and kept out of the range: ${variants.map((q: Loose) => `${esc(q.product)} (${esc(q.variant)})`).join('; ')}</dd>` : ''}</dl>
+      <ul class="ws-nearby">${list.map((q: Loose) => `<li><button type="button" class="ws-pair-btn" data-inspect="${esc(q.key)}"><span class="ws-pair-name">${esc(q.product)}</span> <span class="fine">${esc(stateWords(q.state))} · ${esc(valueText(q.y.value, yD, q.y.interval))} · ${esc(valueText(q.x.value, xD, q.x.interval))}</span></button></li>`).join('')}</ul>
+      <div class="ws-insp-actions"><button type="button" class="btn btn-sm" data-focus-material="${esc(s.materialId)}">Zoom to its products</button> <button type="button" class="btn btn-sm" data-open-material="${esc(s.materialId)}">Open ${esc(s.name)}</button></div></section>`;
+  }
+  const q = [...ws.pairs, ...ws.contextPairs].find((x: Loose) => x.key === sel.key);
+  if (!q) return '';
+  const grade = state.db.grades.find((g: Loose) => g.id === q.gradeId);
+  const chosen = (state.scenario.decisions ?? []).some((d: Loose) => d.gradeId === q.gradeId);
+  const rank = ws.ranking?.byMaterial.get(q.materialId);
+  const measurement = (id: Loose) => (id ? state.ctx.measurementById?.get(id) ?? state.db.measurements.find((m: Loose) => m.id === id) : null);
+  const coordinate = (v: Loose, d: Loose) => {
+    if (v.value === null) return `<dd class="missing">${esc(missingWords({ reason: v.missing, elsewhere: v.elsewhere }, d))}</dd>`;
+    const m = measurement(v.measurementId);
+    const value = v.measurementId
+      ? `<button type="button" class="evidence-value" data-measurement="${esc(v.measurementId)}" title="Opens the measurement behind this value">${esc(valueText(v.value, d, v.interval))}<span class="evidence-dot" aria-hidden="true"></span></button>`
+      : esc(valueText(v.value, d, v.interval));
+    const where = v.origin === 'assumption' ? 'a scenario assumption, not measured'
+      : v.derived ? `its own price ${fmtNumber(v.price.value)} ${esc(v.price.unit)} (${plural(v.price.observations ?? v.priceIds.length, 'listing')}) × its own density ${fmtNumber(v.density.value)} ${esc(v.density.unit)}`
+      : v.stateInvariantByRegistry ? `read from ${esc(v.sourceStateId)}: the registry declares ${esc(d.plain.toLowerCase())} unchanged by this state`
+      : 'this state\'s own value';
+    const extra = [
+      v.uncertainty ? `the source reports ± ${fmtNumber(v.uncertainty)} ${esc(d.unit)}, its statistic as published` : null,
+      v.from?.label ? esc(v.from.label) : null,
+      v.admitted?.length ? `${esc(v.admitted.map((a: Loose) => (a === 'bar' ? 'how the test bar was made' : a)).join(', '))} not stated` : null,
+      v.endpoints?.length ? `the highest of ${v.endpoints.map((e: Loose) => `${/yield/i.test(e.property) ? 'yield' : /break/i.test(e.property) ? 'break' : 'unspecified-endpoint'} ${fmtNumber(e.value)}`).join(' and ')} ${esc(d.unit)}, which one test prints`
+        : m && /strength/i.test(m.property ?? '') ? `endpoint: ${esc(m.property)}` : null,
+      m?.standards?.length ? `to ${esc(m.standards.join(', '))}` : null,
+    ].filter(Boolean);
+    return `<dd>${value} <span class="fine">${where}${extra.length ? `; ${extra.join('; ')}` : ''}</span></dd>`;
+  };
+  const index = ws.objective.index;
+  const context = q.bucket !== 'confirmed' ? `<p class="fine ws-context-note">${q.bucket === 'failed' ? 'Fails a requirement' : 'Could not be settled'}: context only, never ranked, counted on the line or on the front.</p>` : '';
+  return `<section class="ws-inspector" aria-label="Selected product state" tabindex="-1">
+    <div class="ws-insp-head"><h3>${esc(q.product)}</h3>${close}</div>
+    <div class="fine">${esc(q.name)} · ${state.scenario.constraints.length ? chip(q.verdict) : '<span class="chip chip-neutral">not screened</span>'}${q.variant ? ` · <span class="chip chip-neutral" title="Its values describe this product, not its polymer: kept out of ${esc(q.name)}'s range">variant: ${esc(q.variant)}</span>` : ''}</div>
+    ${context}
+    <dl class="kv small">
+      <dt>State</dt><dd>${q.state.treatment ? `Annealed ${esc(scheduleWords(q.state.treatment))}, as its sheet states; ` : 'As printed; '}${q.state.moisture === 'conditioned' ? 'moisture-conditioned' : 'dry'}${q.state.synthetic ? '. It publishes no values of its own in this state' : ''}</dd>
+      <dt>${esc(yD.plain)}</dt>${coordinate(q.y, yD)}
+      <dt>${esc(xD.plain)}</dt>${coordinate(q.x, xD)}
+      ${index ? `<dt>Goal index</dt><dd>${q.M !== null ? `M = ${sig(q.M)}` : 'not computable: an input is missing in this state'}${rank ? ` · its material ranks #${rank.place}, the median of ${plural(rank.products, 'product')}` : ''}${index.strengthProxy ? ' <span class="fine">(a strength proxy)</span>' : ''}</dd>` : ''}
+      ${grade?.print?.anneal?.length && !q.state.treatment ? `<dt>Post-processing</dt><dd class="fine">Its sheet also gives values after annealing ${esc(grade.print.anneal.map(scheduleWords).join('; '))}; allow annealing under Part condition to judge it in that state.</dd>` : ''}
+    </dl>
+    <div class="ws-insp-actions">
+      ${state.scenario.constraints.length && q.bucket === 'confirmed' ? `<button type="button" class="btn btn-sm choose-btn" data-choose="${esc(q.gradeId)}" aria-pressed="${chosen}" title="${chosen ? 'Chosen: its decision brief is under Save / share. Press to remove it.' : 'Choose this exact product in this state: its decision brief, recipe and test plan go under Save / share'}">${chosen ? '✓ Chosen' : 'Choose this exact product'}</button>` : ''}
+      <button type="button" class="btn btn-sm" data-open-product="${esc(q.materialId)}">Open its material's products</button>
+      <button type="button" class="btn btn-sm" data-focus-material="${esc(q.materialId)}">Zoom to ${esc(q.name)}</button>
+    </div>
+  </section>`;
+}
+
+// ------------------------------------------------------------------ the plot
+
+const VERDICT_WORD: Loose = { PASS: 'meets every requirement', UNKNOWN: 'could not be settled', FAIL: 'fails a requirement' };
+
+/** Draw the decision or overview chart into #plot. */
+export function drawWorkspacePlot(host: Loose, state: Loose, ws: Loose, actions: Loose, { view }: Loose) {
+  const { scenario, db, reference } = state;
+  const p = scenario.plot;
+  const tested = scenario.constraints.length > 0;
+  const xD = axisDef(p.x), yD = axisDef(p.y);
+  const colors = familyColors(state);
+  const colourGroup = (family: Loose) => (colors.isOther(family) ? 'Other families' : family);
+  const traces: Loose[] = [];
+  const labelPlan: Loose = { pins: [], points: [], envelopes: [], fixed: [] };
+  const drawnFamilies = new Set();
+  const focus = new Set(p.focus ?? []);
+  // A hover's numbers come from the coordinates, so a coordinate that is a published bound says so in the note beside them.
+  const bounded = (q: Loose) => [boundLine(yD.plain, q.y.interval, q.y.value, yD.unit), boundLine(xD.plain, q.x.interval, q.x.value, xD.unit)].filter(Boolean);
+  const cd = (q: Loose, note: Loose) => [q.materialId, `${q.name}: ${q.product}`, q.verdict, q.x.measurementId ?? '', q.y.measurementId ?? '', q.stateId, q.gradeId, [note, ...bounded(q)].join('; '), q.key];
+  // Shape is the filler on every view of the lens (D110): a carbon-fibre product is a diamond wherever it is drawn. How
+  // the shape is drawn is its status: filled passes, hollow could not be settled, small and faint fails.
+  const shape = (q: Loose) => fillerSymbol(q.filler);
+  // A material picked in the list stays bright and the rest fade (D109): a way to find it without losing the picture.
+  const picked = state.selected ?? null;
+  const faded = (materialId: Loose) => !!picked && materialId !== picked;
+  const hover = (what: Loose) => `<b>%{customdata[1]}</b><br>${esc(yD.plain)} %{y} ${esc(yD.unit)}<br>${esc(xD.plain)} %{x} ${esc(xD.unit)}<br>${what}<extra></extra>`;
+
+  // Estimate context, dashed, behind everything: a range, never a point.
+  const est = p.showEstimates && !state.ashbyEstimates?.off ? (state.ashbyEstimates?.ranges ?? []) : [];
+  for (const e of est) {
+    const color = colors.color(e.family);
+    const box = e.x.lo !== e.x.hi && e.y.lo !== e.y.hi;
+    const x = box ? [e.x.lo, e.x.hi, e.x.hi, e.x.lo, e.x.lo] : [e.x.lo, e.x.hi];
+    const y = box ? [e.y.lo, e.y.lo, e.y.hi, e.y.hi, e.y.lo] : [e.y.lo, e.y.hi];
+    const side = (s: Loose, d: Loose) => (s.kind === 'estimate' ? `${fmtRange(s.lo, s.hi)} ${d.unit} estimated (likely)` : s.lo === s.hi ? `${fmtNumber(s.lo)} ${d.unit} measured` : `${fmtRange(s.lo, s.hi)} ${d.unit} measured across ${s.products} products`);
+    drawnFamilies.add(colourGroup(e.family));
+    // A shade, not a frame: forty dashed outlines over one another meshed the chart. The picked material's range is
+    // outlined; every other is a faint wash, which shows where estimates gather without drawing over the products.
+    const own = picked === e.materialId;
+    traces.push({
+      type: 'scatter', mode: box ? 'lines' : 'lines+markers', x, y, fill: box ? 'toself' : undefined,
+      fillcolor: box ? hexToRgba(color, own ? 0.12 : faded(e.materialId) ? 0.02 : 0.06) : undefined,
+      ...(box ? {} : { marker: { size: own ? 7 : 4, symbol: e.x.lo === e.x.hi ? 'line-ew-open' : 'line-ns-open', color, line: { color, width: 1.2 } } }),
+      line: { color, width: box ? (own ? 1.6 : 0) : own ? 1.6 : 1, dash: box ? 'dash' : 'dot' }, opacity: own ? 0.95 : faded(e.materialId) ? 0.15 : box ? 0.6 : 0.4, hoveron: box ? 'fills+points' : 'points',
+      name: `${e.name} (estimated context)`, legendgroup: colourGroup(e.family), showlegend: false,
+      customdata: x.map(() => ['estimate', e.materialId, e.key]),
+      hovertemplate: `<b>${esc(e.name)}</b>: estimated context<br>${esc(yD.plain)}: ${esc(side(e.y, yD))}<br>${esc(xD.plain)}: ${esc(side(e.x, xD))}<br><i>Marginal ranges; joint combinations not known. Not a candidate.</i><extra></extra>`,
+    });
+  }
+
+  if (view === 'overview') {
+    // Each material as the rest of the page summarises it (D83, D108): a box over the middle half of its products on each
+    // axis, whiskers through the medians to the lowest and highest, and its products as small dots. A declared variant
+    // is its own mark, outside the range, as the build keeps it outside the material's spread.
+    const rangeText = (r: Loose, d: Loose) => (r.lo === r.hi ? `${fmtNumber(r.lo)} ${d.unit}` : r.quartiles
+      ? `middle half ${fmtRange(r.q1, r.q3)} ${d.unit} (all ${fmtRange(r.lo, r.hi)}, ${r.n} products)`
+      : `${fmtRange(r.lo, r.hi)} ${d.unit} (${r.n} products)`);
+    for (const s of ws.materialSummaries) {
+      if (!s.x || !s.y) continue;
+      const color = colors.color(s.family);
+      const group = colourGroup(s.family);
+      drawnFamilies.add(group);
+      const text = `<b>${esc(s.name)}</b><br>${esc(yD.plain)}: ${esc(rangeText(s.y, yD))}<br>${esc(xD.plain)}: ${esc(rangeText(s.x, xD))}`
+        + `${s.variants.length ? `<br>${s.variants.length} variant${s.variants.length === 1 ? '' : 's'} drawn apart, not in the range` : ''}`
+        + `${s.apart?.length ? `<br>${s.apart.length} sold as toughened by ${s.apart.length === 1 ? 'its maker' : 'their makers'}, drawn apart, not in the range` : ''}`
+        + '<br><i>Each axis on its own: a corner of the box is not a product</i><extra></extra>';
+      const cdm = ['material', s.materialId];
+      const common = { type: 'scatter', legendgroup: group, showlegend: false, name: `${s.name} range`, hovertemplate: text };
+      if (s.x.q1 !== s.x.q3 && s.y.q1 !== s.y.q3) {
+        const f = faded(s.materialId);
+        traces.push({ ...common, mode: 'lines', x: [s.x.q1, s.x.q3, s.x.q3, s.x.q1, s.x.q1], y: [s.y.q1, s.y.q1, s.y.q3, s.y.q3, s.y.q1],
+          fill: 'toself', fillcolor: hexToRgba(color, f ? 0.04 : 0.14), line: { color: hexToRgba(color, f ? 0.2 : 0.75), width: picked === s.materialId ? 2.2 : 1.2 }, hoveron: 'fills', customdata: [0, 1, 2, 3, 4].map(() => cdm) });
+      }
+      const w = hexToRgba(color, faded(s.materialId) ? 0.15 : 0.55);
+      if (s.x.lo !== s.x.hi) traces.push({ ...common, mode: 'lines', x: [s.x.lo, s.x.hi], y: [s.y.median, s.y.median], line: { color: w, width: 1 }, hoverinfo: 'skip' });
+      if (s.y.lo !== s.y.hi) traces.push({ ...common, mode: 'lines', x: [s.x.median, s.x.median], y: [s.y.lo, s.y.hi], line: { color: w, width: 1 }, hoverinfo: 'skip' });
+      // The medians' crossing: the material's handle, for pointing, pressing and its label.
+      traces.push({ ...common, mode: 'markers+text', x: [s.x.median], y: [s.y.median], text: [NO_LABEL], customdata: [cdm],
+        textposition: 'top right', textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' }, cliponaxis: false,
+        marker: { size: 9, symbol: 'cross-thin-open', color: hexToRgba(color, faded(s.materialId) ? 0.2 : 0.9), line: { width: 1.6, color: hexToRgba(color, faded(s.materialId) ? 0.2 : 0.9) } } });
+      labelPlan.envelopes.push({ trace: traces.length - 1, index: 0, name: s.name, x: s.x.median, y: s.y.median, positions: ['top right'], radius: 5, shortlisted: scenario.shortlist.includes(s.materialId) });
+    }
+    const pop = new Set(ws.materialSummaries.flatMap((s: Loose) => s.paired));
+    // Products sold as toughened, on an axis that sets them apart from their material's spread (D133).
+    const apart = new Set(ws.materialSummaries.flatMap((s: Loose) => s.apart ?? []));
+    const dots = ws.pairs.filter((q: Loose) => pop.has(q.key) && q.plottable);
+    for (const [family, list] of groupBy(dots, (q: Loose) => q.family)) {
+      drawnFamilies.add(colourGroup(family));
+      const color = colors.color(family);
+      const own = list.filter((q: Loose) => !q.variant && !apart.has(q.key)), variants = list.filter((q: Loose) => q.variant), toughened = list.filter((q: Loose) => apart.has(q.key));
+      // A product kept out of its material's range is ringed with a dot, whether a variant or sold as toughened (D174):
+      // the two had been a ring and a ring with a dot, told apart by the dot alone, and a hollow mark is "could not be
+      // settled" in the Products view. The hover says which.
+      if (toughened.length) traces.push({ type: 'scatter', mode: 'markers', x: toughened.map((q: Loose) => q.x.value), y: toughened.map((q: Loose) => q.y.value),
+        marker: { size: 10, symbol: toughened.map((q: Loose) => `${shape(q)}-open-dot`), color, opacity: toughened.map((q: Loose) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (sold as toughened)`, legendgroup: colourGroup(family), showlegend: false,
+        text: toughened.map(() => NO_LABEL), customdata: toughened.map((q: Loose) => cd(q, `${stateWords(q.state)}; sold as toughened by its maker: kept out of ${q.name}'s range on this axis`)), hovertemplate: hover('%{customdata[7]}') });
+      if (own.length) traces.push({ type: 'scatter', mode: 'markers', x: own.map((q: Loose) => q.x.value), y: own.map((q: Loose) => q.y.value),
+        marker: { size: 6, symbol: own.map(shape), color: hexToRgba(color, 0.6), opacity: own.map((q: Loose) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 0 } }, name: family, legendgroup: colourGroup(family), showlegend: false,
+        text: own.map(() => NO_LABEL), customdata: own.map((q: Loose) => cd(q, `${stateWords(q.state)}; ${VERDICT_WORD[q.verdict] ?? ''}`)), hovertemplate: hover('%{customdata[7]}') });
+      if (variants.length) traces.push({ type: 'scatter', mode: 'markers', x: variants.map((q: Loose) => q.x.value), y: variants.map((q: Loose) => q.y.value),
+        marker: { size: 10, symbol: variants.map((q: Loose) => `${shape(q)}-open-dot`), color, opacity: variants.map((q: Loose) => (faded(q.materialId) ? 0.25 : 1)), line: { width: 1.6, color } }, name: `${family} (variant)`, legendgroup: colourGroup(family), showlegend: false,
+        text: variants.map(() => NO_LABEL), customdata: variants.map((q: Loose) => cd(q, `${stateWords(q.state)}; variant (${q.variant}): its own values, kept out of ${q.name}'s range`)), hovertemplate: hover('%{customdata[7]}') });
+    }
+  } else {
+    // Context layers first, so the decision set is drawn over them.
+    const layer = (list: Loose, style: Loose, what: Loose) => {
+      for (const [family, qs] of groupBy(list, (q: Loose) => q.family)) {
+        drawnFamilies.add(colourGroup(family));
+        const color = colors.color(family);
+        const st = style(color, qs);
+        st.marker.opacity = qs.map((q: Loose) => (faded(q.materialId) ? 0.15 : st.marker.opacity ?? 1));
+        traces.push({ type: 'scatter', mode: 'markers', x: qs.map((q: Loose) => q.x.value), y: qs.map((q: Loose) => q.y.value), ...st,
+          name: `${family} (${what})`, legendgroup: colourGroup(family), showlegend: false, text: qs.map(() => NO_LABEL),
+          customdata: qs.map((q: Loose) => cd(q, `${stateWords(q.state)}; ${what}${q.inResults ? '' : '; its material is not in the results'}`)), hovertemplate: hover('%{customdata[7]}') });
+      }
+    };
+    if (p.layers?.failed) layer(ws.failed, (c: Loose, qs: Loose) => ({ marker: { size: 6, symbol: qs.map(shape), color: hexToRgba(c, 0.35), line: { width: 0 } } }), 'fails a requirement: context');
+    if (layerOn(state, 'unresolved')) layer(ws.unresolved, (c: Loose, qs: Loose) => ({ marker: { size: 9, symbol: qs.map((q: Loose) => `${shape(q)}-open`), color: c, line: { width: 1.6, color: c }, opacity: 0.75 } }), 'could not be settled: context');
+
+    // The decision set: each confirmed product state, filled, one trace per family colour.
+    const chosenGrades = new Set((scenario.decisions ?? []).map((d: Loose) => d.gradeId));
+    const shortlisted = new Set(scenario.shortlist);
+    const leading = new Set((ws.ranking?.order ?? []).slice(0, 6).map((r: Loose) => `${r.materialId}|${r.best?.gradeId}|${r.best?.stateId}`));
+    const front = new Set(p.layers?.front ? ws.frontier : []);
+    for (const [family, list] of groupBy(ws.decision, (q: Loose) => q.family)) {
+      drawnFamilies.add(colourGroup(family));
+      const color = colors.color(family);
+      const t = traces.length;
+      traces.push({
+        type: 'scatter', mode: 'markers+text', x: list.map((q: Loose) => q.x.value), y: list.map((q: Loose) => q.y.value),
+        text: list.map(() => NO_LABEL), textposition: list.map(() => 'top center'), textfont: { size: LABEL_FONT, color: 'rgba(107,107,99,.95)' }, cliponaxis: false,
+        marker: { size: list.map((q: Loose) => (state.inspect?.key === q.key ? 13 : 10)), symbol: list.map(shape), color, opacity: list.map((q: Loose) => (faded(q.materialId) ? 0.18 : q.assumed ? 0.35 : 1)),
+          line: { width: list.map((q: Loose) => (state.inspect?.key === q.key || chosenGrades.has(q.gradeId) ? 2.5 : 1)), color: list.map((q: Loose) => (state.inspect?.key === q.key ? '#1f5f8b' : 'rgba(0,0,0,.55)')) } },
+        // A thin whisker is the spread the source reports for that one measurement, its statistic as published: never
+        // the spread across products, which Material ranges' boxes are.
+        error_x: errorBars(list.map((q: Loose) => ({ u: q.x })), 'u'), error_y: errorBars(list.map((q: Loose) => ({ u: q.y })), 'u'),
+        name: family, legendgroup: colourGroup(family), showlegend: false,
+        customdata: list.map((q: Loose) => cd(q, `${stateWords(q.state)}; ${q.assumed ? 'scenario assumption, not measured; not on the front' : tested ? 'meets every requirement' : 'not screened'}${q.twin ? `; ${q.twin}` : ''}${q.y.uncertainty ? `; source ± ${fmtNumber(q.y.uncertainty)} ${yD.unit}` : ''}${q.M !== null && ws.objective.index ? `; M ${sig(q.M)}` : ''}`)),
+        hovertemplate: hover('%{customdata[7]}'),
+      });
+      // Labels: a chosen product by its name with a leader line; the best product of the leading materials, the front,
+      // and one mark per material otherwise, where they fit (placeLabels).
+      const perMaterial = new Set();
+      list.forEach((q: Loose, i: Loose) => {
+        const entry = { trace: t, index: i, id: q.key, x: q.x.value, y: q.y.value, radius: 5 };
+        if (chosenGrades.has(q.gradeId) || state.inspect?.key === q.key) labelPlan.pins.push({ ...entry, name: q.productName });
+        else if (picked ? (q.materialId === picked && !perMaterial.has(q.materialId)) : (leading.has(q.key) || front.has(q.key) || (!ws.ranking && !perMaterial.has(q.materialId)))) {
+          labelPlan.points.push({ ...entry, name: q.name, front: leading.has(q.key) || front.has(q.key) });
+          perMaterial.add(q.materialId);
+        } else if (shortlisted.has(q.materialId) && !perMaterial.has(q.materialId)) { labelPlan.points.push({ ...entry, name: q.name, front: true }); perMaterial.add(q.materialId); }
+      });
+    }
+
+    // The front: exact confirmed product states, a staircase by their recorded values; no product between them is implied.
+    if (p.layers?.front && ws.frontier.length > 1) {
+      const pts = ws.frontier.map((k: Loose) => ws.decision.find((q: Loose) => q.key === k)).filter(Boolean)
+        .sort((a: Loose, b: Loose) => (xD.better === 'min' ? a.x.value - b.x.value : b.x.value - a.x.value));
+      traces.push({ type: 'scatter', mode: 'lines', name: 'Pareto front of confirmed product states', legendgroup: 'pareto',
+        x: pts.map((q: Loose) => q.x.value), y: pts.map((q: Loose) => q.y.value), line: { color: 'rgba(31,95,139,.85)', width: 1.5, dash: 'dot', shape: 'hv' }, hoverinfo: 'skip' });
+    }
+  }
+
+  // The goal's line over the product states it counts, with the better side marked.
+  const annotations: Loose[] = [];
+  const shapes: Loose[] = [];
+  const L = ws.line;
+  const index = ws.objective.index;
+  if (index && L?.drawable && L.M !== null) {
+    const xs = ws.decision.map((q: Loose) => q.x.value).filter((v: Loose) => v > 0);
+    if (xs.length) {
+      const lo = Math.min(...xs) * 0.8, hi = Math.max(...xs) * 1.25;
+      const line = selectionLine(index, L.M, [lo, hi], L.orientation);
+      traces.push({ type: 'scatter', mode: 'lines', name: `${formulaText(index)} = ${sig(L.M)}`, legendgroup: 'index',
+        x: line.map((q: Loose) => q.x), y: line.map((q: Loose) => q.y), line: { color: '#1f5f8b', width: 2 }, hoverinfo: 'skip', _line: true });
+    }
+  }
+
+  // Requirements, references and the familiar filament, as every view draws them.
+  const req = requirementOverlay(scenario.constraints, xD, yD, p);
+  shapes.push(...req.shapes); annotations.push(...req.annotations); labelPlan.fixed.push(...req.fixed);
+  // What is drawn for scale is framed with the rest (D111): steel at 7800 kg/m³ lay off a frame fitted to the products, so
+  // pressing Metals & wood showed nothing there, while Material typicals widened to it.
+  const scale: Loose[] = [];
+  let refLabels: Loose[] = [];
+  if (p.showReference) {
+    const ref = referenceOverlay(reference, xD, yD, p);
+    shapes.push(...ref.shapes); annotations.push(...ref.annotations); labelPlan.fixed.push(...ref.fixed);
+    scale.push(...ref.shapes);
+    refLabels = ref.labels;
+  }
+  const anchor = state.baseline ? anchorTrace(db.materials.find((m: Loose) => m.id === state.baseline), xD, yD) : null;
+  if (anchor) { traces.push(anchor.trace); labelPlan.fixed.push(anchor.fixed); }
+
+  // The legend lists the family colours drawn, one entry each.
+  for (const family of [...colors.named, 'Other families']) {
+    if (!drawnFamilies.has(family)) continue;
+    traces.push({ type: 'scatter', mode: 'markers', x: [null], y: [null], name: family, legendgroup: family, showlegend: true,
+      marker: { size: 10, symbol: 'circle', color: family === 'Other families' ? colors.color(null) : colors.color(family) }, hoverinfo: 'skip' });
+  }
+
+  // The range frames the decision set (and a focus), not the whole context, which may be orders of magnitude wider. With
+  // nothing to frame, or `fitAll` in the plot (no control sets it; a hand-made link may), it widens to every layer drawn.
+  const framed = (() => {
+    const overviewDots = view === 'overview' ? (() => { const pop = new Set(ws.materialSummaries.flatMap((s: Loose) => s.paired)); return ws.pairs.filter((q: Loose) => pop.has(q.key) && q.plottable).map((q: Loose) => [q.x.value, q.y.value]); })() : [];
+    const base = view === 'overview' ? [...ws.materialSummaries.filter((s: Loose) => s.x && s.y).flatMap((s: Loose) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]), ...overviewDots] : ws.decision.map((q: Loose) => [q.x.value, q.y.value]);
+    const focused = focus.size ? (view === 'overview' ? ws.materialSummaries.filter((s: Loose) => focus.has(s.materialId) && s.x && s.y).flatMap((s: Loose) => [[s.x.lo, s.y.lo], [s.x.hi, s.y.hi]]) : ws.pairs.filter((q: Loose) => focus.has(q.materialId) && q.plottable).map((q: Loose) => [q.x.value, q.y.value])) : [];
+    const pts = focused.length ? focused : base;
+    const extra = p.fitAll || !pts.length ? [...ws.pairs, ...ws.contextPairs].filter((q: Loose) => q.plottable && (q.bucket === 'confirmed' || layerOn(state, q.bucket))).map((q: Loose) => [q.x.value, q.y.value]).concat(est.flatMap((e: Loose) => [[e.x.lo, e.y.lo], [e.x.hi, e.y.hi]])) : [];
+    return { x: [...pts, ...extra].map((v: Loose) => v[0]), y: [...pts, ...extra].map((v: Loose) => v[1]) };
+  })();
+  const { xSpan, ySpan } = focus.size ? { xSpan: framed.x, ySpan: framed.y }
+    : p.fitAll ? spans(traces.filter((t: Loose) => !t._line), shapes, framed)
+      : spans(anchor ? [anchor.trace] : [], scale, framed);
+  // A requirement line stays in view when the frame is near it.
+  for (const c of scenario.constraints.filter((k: Loose) => k.kind === 'numeric' && k.mandatory !== false)) {
+    if (c.property === p.x && xSpan.length) { const [a, b] = [Math.min(...xSpan), Math.max(...xSpan)]; if (c.value >= a / 1.6 && c.value <= b * 1.6) xSpan.push(c.value); }
+    if (c.property === p.y && ySpan.length) { const [a, b] = [Math.min(...ySpan), Math.max(...ySpan)]; if (c.value >= a / 1.6 && c.value <= b * 1.6) ySpan.push(c.value); }
+  }
+
+  const gd = host.querySelector('#plot');
+  const { ink, grid } = chartTheme();
+  const legendNames = traces.filter((t: Loose) => t.showlegend !== false && t.name).map((t: Loose) => t.name);
+  // One size and legend rule for every view of the lens (lensChartSize, D111).
+  const { height, legend, margin } = lensChartSize(gd, legendNames);
+  gd.style.height = `${height}px`;
+  gd._legendNames = legendNames;
+  gd._workspace = true;
+  const layout = {
+    height,
+    margin,
+    paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: ink, family: 'system-ui, sans-serif', size: 12 },
+    xaxis: { title: { text: axisTitle(xD, p.xLog) }, type: p.xLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(xSpan, p.xLog), autorange: false },
+    yaxis: { title: { text: axisTitle(yD, p.yLog) }, type: p.yLog ? 'log' : 'linear', automargin: true, gridcolor: grid, zeroline: false, range: axisRange(ySpan, p.yLog), autorange: false },
+    shapes, annotations, showlegend: legendNames.length > 0, legend,
+    dragmode: 'zoom', hovermode: 'closest',
+  };
+  // The reader's own zoom on these axes, if they made one (D109), and ticks a reader can read on Log axes (D111).
+  applyZoom(layout, zoomSig(p));
+  applyLogTicks(layout);
+  anchorRequirementLabels(req.requirementLabels, layout.xaxis.range);
+  anchorReferenceLabels(refLabels, layout.xaxis.range);
+  // The better side of the line, said in words at the plot's corner.
+  if (index && L?.drawable && L.M !== null) {
+    // At the bottom right, pointing to the better side; the top left is where the chart says what narrows it (pills).
+    annotations.push({ xref: 'paper', yref: 'paper', x: 0.99, y: 0.01, xanchor: 'right', yanchor: 'bottom', showarrow: false,
+      text: L.orientation === 'direct' ? 'better: above the line ↖' : 'better: below the line ↘', font: { size: 11, color: '#1f5f8b' }, bgcolor: 'rgba(255,255,255,.6)' });
+  }
+  wireResize();
+  gd._labelPlan = { ...labelPlan, annotations };
+  let pending: Loose = null;
+  const relabel = () => { clearTimeout(pending); pending = setTimeout(() => placeLabels(gd), 30); };
+  const started = Plotly.newPlot(gd, traces, layout, { displaylogo: false, responsive: false, modeBarButtonsToRemove: ['select2d'] });
+  started.then(relabel);
+  drawing(gd, started);
+  for (const event of ['plotly_afterplot', 'plotly_relayout', 'plotly_restyle']) gd.on(event, relabel);
+  watchZoom(gd, zoomSig(p), { onZoom: () => actions.zoomed?.(), onReset: () => actions.setFocus([]) });
+  watchLogTicks(gd);
+  gd.setAttribute('aria-label', `${view === 'overview' ? 'Material ranges' : 'Products'}: ${yD.plain} against ${xD.plain}. The list beside the chart holds every mark.`);
+  // A requirement's label opens the filter rail at it: the one place a requirement is changed (D108).
+  gd.on('plotly_clickannotation', (ev: Loose) => { const property = gd.layout.annotations?.[ev.index]?._property; if (property) actions.editRequirements(property); });
+
+  gd.on('plotly_click', (ev: Loose) => {
+    const pt = ev.points?.[0];
+    const c = pt?.customdata;
+    if (!c) return;
+    if (c[0] === 'estimate') return actions.inspect({ kind: 'estimate', key: c[2] });
+    if (c[0] === 'material') return actions.inspect({ kind: 'material', key: c[1] });
+    // A crowded spot: every mark within a few pixels of the one pressed, listed to choose from.
+    const near = nearbyKeys(gd, pt, ws);
+    actions.inspect(near.length > 1 ? { kind: 'nearby', keys: near } : { kind: 'pair', key: c[8] });
+  });
+  gd.on('plotly_selected', (ev: Loose) => {
+    if (!ev?.points?.length) return;
+    const ids = [...new Set(ev.points.map((pt: Loose) => (pt.customdata?.[0] === 'material' || pt.customdata?.[0] === 'estimate' ? pt.customdata[1] : pt.customdata?.[0])).filter(Boolean))];
+    if (ids.length) actions.setFocus(ids);
+  });
+}
+
+/** The marks drawn within 8 px of a pressed one, by their pixel positions on the drawn axes. */
+function nearbyKeys(gd: Loose, pt: Loose, ws: Loose) {
+  try {
+    const xa = gd._fullLayout.xaxis, ya = gd._fullLayout.yaxis;
+    const px = (q: Loose) => [xa.d2p(q.x.value), ya.d2p(q.y.value)];
+    const [cx, cy] = [xa.d2p(pt.x), ya.d2p(pt.y)];
+    const shown = new Set(gd._fullData.filter((t: Loose) => t.visible === true).flatMap((t: Loose) => (Array.isArray(t.customdata) ? t.customdata.map((c: Loose) => c?.[8]).filter(Boolean) : [])));
+    return [...ws.pairs, ...ws.contextPairs].filter((q: Loose) => q.plottable && shown.has(q.key)).filter((q: Loose) => { const [x, y] = px(q); return Math.hypot(x - cx, y - cy) <= 8; }).map((q: Loose) => q.key);
+  } catch { return []; }
+}
+
+function groupBy(list: Loose, key: Loose) {
+  const m = new Map<Loose, Loose>();
+  for (const q of list) { const k = key(q); if (!m.has(k)) m.set(k, []); m.get(k).push(q); }
+  return m;
+}
+
+// ------------------------------------------------------------------ what the chart shows, in words
+
+/** The key's small drawings of the filler shapes, as the chart draws them. */
+const SHAPE_GLYPH: Loose = {
+  'circle': '<circle cx="8" cy="8" r="5"/>',
+  'diamond': '<path d="M8 2.5 13.5 8 8 13.5 2.5 8z"/>',
+  'square': '<rect x="3.5" y="3.5" width="9" height="9"/>',
+  'triangle-up': '<path d="M8 3 13.5 13h-11z"/>',
+  'star': '<path d="M8 2.2l1.7 3.9 4.2.4-3.2 2.8.9 4.1L8 11.3l-3.6 2.1.9-4.1-3.2-2.8 4.2-.4z"/>',
+  'hexagon': '<path d="M8 2.5l4.8 2.75v5.5L8 13.5l-4.8-2.75v-5.5z"/>',
+  'triangle-down': '<path d="M8 13 2.5 3h11z"/>',
+};
+
+/** What the marks mean, once, under the chart: only what is drawn. */
+export function workspaceKey(state: Loose, ws: Loose, { view }: Loose) {
+  const p = state.scenario.plot;
+  const items: Loose[] = [];
+  const g = (inner: Loose, extra: Loose = '') => `<svg class="key-glyph" viewBox="0 0 16 16" aria-hidden="true"${extra}>${inner}</svg>`;
+  // The fillers drawn, by their shapes: the same shapes on every view (D110).
+  const drawn = view === 'overview' ? ws.pairs.filter((q: Loose) => q.plottable && ws.materialSummaries.some((s: Loose) => s.paired.includes(q.key)))
+    : [...ws.decision, ...(layerOn(state, 'unresolved') ? ws.unresolved : []), ...(p.layers?.failed ? ws.failed : [])];
+  const classes = Object.keys(FILLER_SYMBOL).filter((k: Loose) => drawn.some((q: Loose) => (q.filler ?? 'unfilled') === k));
+  for (const f of classes.filter((k: Loose) => k !== 'undisclosed')) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL[f]])}${esc(FILLER_LABEL[f])}`);
+  // The fillers the materials table names share one shape, and the key names those drawn (§37.8).
+  const named = [...new Set(drawn.map((q: Loose) => q.filler).filter(isNamedFiller))].map(fillerLabel).sort();
+  if (named.length) items.push(`${g(SHAPE_GLYPH[NAMED_FILLER_SYMBOL])}${esc(`${NAMED_FILLER_KEY}: ${named.join(', ')}`)}`);
+  if (classes.includes('undisclosed')) items.push(`${g(SHAPE_GLYPH[FILLER_SYMBOL.undisclosed])}${esc(FILLER_LABEL.undisclosed)}`);
+  if (view === 'overview') {
+    items.push(`${g('<rect x="3.5" y="4.5" width="9" height="7" fill-opacity=".2" stroke-width="1.2"/><path d="M1 8h14M8 1v14" fill="none" stroke-width="1"/>')}Box: the middle half of a material's products; whiskers: the lowest and highest; + at the medians`);
+    // One mark for a product kept out of its material's range, and the reasons it is kept out (D174).
+    const apartWhy = [ws.materialSummaries.some((s: Loose) => s.variants.length) ? 'an added filler or additive (a variant: wood, metal, a foaming additive)' : null,
+      ws.materialSummaries.some((s: Loose) => s.apart?.length) ? 'sold as toughened by its maker, on an impact axis' : null].filter(Boolean);
+    if (apartWhy.length) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/><circle cx="8" cy="8" r="1.4"/>')}Ringed with a dot: kept out of its material's range, ${apartWhy.join(', or ')}`);
+  } else {
+    items.push(`${g('<circle cx="8" cy="8" r="5"/>')}Filled: ${state.scenario.constraints.length ? 'meets every requirement' : 'a product'}`);
+    if (layerOn(state, 'unresolved')) items.push(`${g('<circle cx="8" cy="8" r="4.5" fill="none" stroke-width="1.6"/>')}Hollow: could not be settled`);
+    if (p.layers?.failed) items.push(`${g('<circle cx="8" cy="8" r="3" fill-opacity=".35" stroke-width="0"/>')}Small and faint: fails a requirement`);
+    if (ws.decision.some((q: Loose) => q.x.uncertainty || q.y.uncertainty)) items.push(`${g('<path d="M8 2v12M5 2h6M5 14h6" fill="none" stroke-width="1.4"/>')}Whisker: the spread a sheet reports for that value`);
+    if (p.layers?.front) items.push(`${g('<path d="M2 12h4V8h4V4h4" fill="none" stroke-width="1.6" stroke-dasharray="2 1.5"/>')}Staircase: Pareto front`);
+  }
+  if (ws.objective.index && ws.line?.drawable && ws.line.M !== null) items.push(`${g('<path d="M2 13L14 3" fill="none" stroke-width="2"/>')}Line: one value of M; ${ws.line.orientation === 'direct' ? 'above' : 'below'} is better`);
+  if (p.showEstimates && !state.ashbyEstimates?.off) items.push(`${g('<rect x="2.5" y="3.5" width="11" height="9" fill-opacity=".25" stroke-width="0"/>')}Shade: an estimated range (outlined when picked out)`);
+  if (state.scenario.constraints.some((c: Loose) => c.kind === 'numeric' && c.mandatory !== false && [p.x, p.y].includes(c.property))) items.push(`${g('<path d="M2 8h12" fill="none" stroke-width="2" stroke-dasharray="3 2"/>', ' style="color:#a32b1f"')}Red dashed: a requirement (press its label to change it)`);
+  if (p.showReference) items.push(`${g('<rect x="2.5" y="3.5" width="11" height="9" fill="none" stroke-width="1.4" stroke-dasharray="2 1.5"/>', ' style="opacity:.6"')}Grey box: steel, aluminium or wood, for scale; never a candidate`);
+  return `<div class="ashby-key" role="group" aria-label="What the marks on the chart mean">${items.map((i: Loose) => `<span class="key-item">${i}</span>`).join('')}<span class="key-item key-note">Colour is polymer family</span></div>`;
+}
+
+/**
+ * The chart's count, in one sentence under it, always in one unit: "N products from K materials" (D108); then, folded,
+ * everything else a careful reader needs, each count in its own unit.
+ */
+export function readingNote(state: Loose, ws: Loose, { view }: Loose) {
+  const p = state.scenario.plot;
+  const c = ws.counts;
+  const tested = state.scenario.constraints.length > 0;
+  const est = state.ashbyEstimates ?? { ranges: [], unavailable: [] };
+  const drawnMaterials = ws.materialSummaries.filter((s: Loose) => s.x && s.y).length;
+  const head = view === 'overview'
+    ? `Drawn: ${lineCount(c.decision.pairs, c.decision.materials)}, ${plural(drawnMaterials, 'material range')}${tested ? '' : '; nothing is screened until a requirement is asked'}.`
+    : `Drawn: ${lineCount(c.decision.pairs, c.decision.materials)}${tested ? ', each meeting every requirement' : '; nothing is screened until a requirement is asked'}.`;
+  const notDrawn = [c.gaps.products ? `${plural(c.gaps.products, tested ? 'passing product' : 'product')} with no value on one of these axes (listed beside the chart)` : null,
+    c.offLog ? `${plural(c.offLog, 'product')} at or below zero, which a Log axis cannot show` : null].filter(Boolean);
+  const lines: Loose[] = [];
+  if (c.confirmed.evidence < c.confirmed.pairs) lines.push(`Twins that print one sheet share its values, so ${plural(c.confirmed.pairs, 'product')} rest on ${c.confirmed.evidence} distinct pairs of values.`);
+  if (c.materialsWithoutProducts) lines.push(`${materials(c.materialsWithoutProducts)} ha${c.materialsWithoutProducts === 1 ? 's' : 've'} no product, so nothing to draw.`);
+  if (view === 'overview') lines.push('<b>A material\'s box</b> holds the middle half of its products on each axis, and its whiskers reach the lowest and highest, as the table summarises a material; with fewer than four products the box is their full range. Each axis is summarised on its own, so a corner of the box is not a product. A product the data marks as a variant (a wood or metal filler, a foaming or lightweight additive) is drawn as its shape ringed with a dot and kept out of the range, since its values describe the product, not the polymer; so, on an impact axis, is a product its maker sells as toughened.');
+  const ctxLine = [layerOn(state, 'unresolved') && view === 'decision' ? `${plural(c.unresolved.pairs, 'product')} that could not be settled (hollow)` : null,
+    p.layers?.failed && view === 'decision' ? `${plural(c.failed.pairs, 'product')} that fail (small and faint)` : null].filter(Boolean);
+  if (ctxLine.length) lines.push(`Also drawn: ${ctxLine.join(', ')}${c.contextMaterials ? `, some from ${materials(c.contextMaterials)} not in the results` : ''}. They are never ranked, counted on the line or put on the front.`);
+  if (p.showEstimates && !est.off) {
+    const why: Loose = { conditioned: 'describe dry products, not the conditioned state asked', 'open-ended': 'are open at one end', 'off-log': 'reach zero, which a Log axis cannot show', 'cost-axis': 'cannot be a cost per volume, which is one product\'s own', 'other-axis-missing': 'have nothing on the other axis' };
+    const un = groupBy(est.unavailable, (u: Loose) => u.reason);
+    lines.push(`<b>Estimated ranges:</b> ${materials(est.ranges.length)} with no product publishing on an axis, shaded as the model's likely range beside its products' range on the other axis (outlined when the material is picked out). Not a joint region, and never a candidate.${un.size ? ` Not drawn: ${[...un.entries()].map(([k, list]: Loose) => `${list.length} that ${why[k] ?? k}`).join('; ')}.` : ''}`);
+  } else if (est.ranges.length) lines.push(`${materials(est.ranges.length)} ha${est.ranges.length === 1 ? 's' : 've'} only an estimated range on one of these axes; Estimates, under Also, shades ${est.ranges.length === 1 ? 'it' : 'them'} in.`);
+  if (ws.objective.index && ws.line?.drawable) lines.push(`<b>The line</b> is one value of M = ${esc(formulaText(ws.objective.index))}; ${ws.line.orientation === 'direct' ? 'above' : 'below'} it is better, and a product on it counts as better. It is a guide: it keeps and removes nothing. The ranking beside the chart orders each material by the median M of its passing products; ${plural(ws.line.rankedAbove, 'material')} rank on the better side of this line.`);
+  lines.push('<b>Ranges mean different things:</b> a material\'s box is the spread across its products; a whisker on a dot is the spread a sheet reports for that one value; a dashed range is a model\'s likely interval.');
+  if (state.scenario.rankBy && ws.objective.index?.costForm) lines.push(`${esc(PRICE_CAVEAT.replace('{n} of {total} materials', 'observed listings'))} Cost per volume is each product's own CAD/kg price, dated, times its own density; a product with only a foreign listing is converted at the Bank of Canada rate (¤), and shipping and duty are excluded.`);
+  return `<div class="ws-summary" role="status"><span class="ws-count">${head}</span>${notDrawn.length ? ` <span class="fine">Not drawn: ${notDrawn.join('; ')}.</span>` : ''}</div>
+    <details class="legend-note ws-reading" data-fold="reading" ${openFolds.get('reading') ? 'open' : ''}><summary>Reading this chart</summary><p>${lines.join(' ')}</p></details>`;
+}
+
+// ------------------------------------------------------------------ exports
+
+/** The records a coordinate rests on: its measurement, and a cost's price listings beside its density's measurement. */
+const recordsOf = (a: Loose) => [a.measurementId, ...(a.priceIds ?? [])].filter(Boolean).join(' ');
+const csvCell = (v: Loose) => { const s = v === null || v === undefined ? '' : String(v); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+
+/** The data behind the picture: every mark with its identity, state, inputs and verdict, under a header that says what
+ * the question, the axes, the line and each population were (D107). */
+export function chartDataCSV(state: Loose, ws: Loose, { view }: Loose) {
+  const { db, scenario } = state;
+  const p = scenario.plot;
+  const xD = axisDef(p.x), yD = axisDef(p.y);
+  const index = ws.objective.index;
+  const est = state.ashbyEstimates ?? { ranges: [], unavailable: [] };
+  const header = [
+    '# H2C Material Selector: Ashby chart data',
+    `# release ${db.meta.release?.id ?? 'unidentified'} (database snapshot ${db.meta.snapshot}, application build ${db.meta.build})`,
+    `# view: ${view === 'overview' ? 'material ranges' : 'products'}; each product in the state its answer is in (D107)`,
+    `# products judged ${scenario.anneal ? `as printed, or annealed at the schedule each sheet states${scenario.annealMaxC ? ` up to ${scenario.annealMaxC} C` : ''}` : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned' : 'dry'}`,
+    ...(scenario.constraints.length ? scenario.constraints.map((c: Loose) => `# ${c.mandatory === false ? 'tracked' : 'required'}: ${describeConstraint(c)}`) : ['# no requirements set: nothing was screened']),
+    `# x: ${xD.plain} (${xD.unit}), ${p.xLog ? 'log' : 'linear'}; y: ${yD.plain} (${yD.unit}), ${p.yLog ? 'log' : 'linear'}`,
+    ...(index ? [`# goal: ${index.designCase}, M = ${index.formula}; materials ranked by the median M of their passing products`,
+      ws.line?.M !== null && ws.line?.M !== undefined ? `# line at M = ${ws.line.M}: ${lineCount(ws.line.above.pairs, ws.line.above.materials)} on the better side (a product on the line included); a guide, which keeps and removes nothing` : '# line: not placed'] : ['# goal: none (a property comparison)']),
+    `# populations: ${lineCount(ws.counts.decision.pairs, ws.counts.decision.materials)} drawn; ${plural(ws.counts.gaps.products, 'passing product')} not drawable on these axes; ${ws.counts.offLog} off a log axis; ${ws.counts.unresolved.pairs} unresolved and ${ws.counts.failed.pairs} failing context marks; ${est.ranges.length} estimated ranges (${est.unavailable.length} unavailable)`,
+    '# ranges: a material\'s box is the middle half of its products on each axis (all of them under four), whiskers to the lowest and highest, declared variants apart (marginal, joint combinations unknown); an uncertainty is the source\'s own statistic as published; an estimate is the model\'s likely (80%) interval',
+    ...(p.x === COST_AXIS || p.y === COST_AXIS ? ['# cost per volume: the product\'s own CAD/kg price (observed listings, dated; a foreign-only product converted at the Bank of Canada rate) x its own density; shipping and duty excluded'] : []),
+  ];
+  const cols = ['Layer', 'MaterialID', 'Material', 'GradeID', 'Product', 'Variant', 'State', 'Verdict', `X ${xD.plain} (${xD.unit})`, 'X measurement or price', 'X from state', `Y ${yD.plain} (${yD.unit})`, 'Y measurement or price', 'Y from state',
+    ...(index ? ['Goal M', 'Material rank', 'On the better side of the line'] : []), 'On the front', 'Why not drawn'];
+  const aboveKeys = new Set(ws.line?.above.keys ?? []);
+  const front = new Set(ws.frontier);
+  const rows: Loose[] = [];
+  const layerOf = (q: Loose) => (q.bucket === 'confirmed' ? (q.plottable ? 'decision' : 'gap') : q.bucket);
+  for (const q of [...ws.pairs, ...ws.contextPairs]) {
+    const rank = ws.ranking?.byMaterial.get(q.materialId);
+    const gap = ws.gaps.find((g: Loose) => g.key === q.key);
+    rows.push([layerOf(q), q.materialId, q.name, q.gradeId, q.product, q.variant ?? '', stateWords(q.state), q.verdict,
+      q.x.value ?? '', recordsOf(q.x), q.x.sourceStateId ?? '', q.y.value ?? '', recordsOf(q.y), q.y.sourceStateId ?? '',
+      ...(index ? [q.M ?? '', q.bucket === 'confirmed' && rank ? rank.place : '', aboveKeys.has(q.key) ? 'yes' : ''] : []), front.has(q.key) ? 'yes' : '',
+      gap ? (gap.offLog ? 'off a log axis' : gap.missing.map((m: Loose) => missingWords(m, axisDef(m.key))).join('; ')) : ''].map(csvCell).join(','));
+  }
+  for (const e of est.ranges) {
+    rows.push(['estimated range', e.materialId, e.name, '', '', '', e.state, e.verdict ?? '', `${e.x.lo}-${e.x.hi} (${e.x.kind})`, '', '', `${e.y.lo}-${e.y.hi} (${e.y.kind})`, '', '',
+      ...(index ? [e.sensitivity ? `${e.sensitivity.lo}-${e.sensitivity.hi} (sensitivity, not a rank)` : '', '', ''] : []), '', ''].map(csvCell).join(','));
+  }
+  return [...header, cols.map(csvCell).join(','), ...rows].join('\n');
+}
+
+/** The chart as a PNG, with a caption of what it is: release, question, axes and scales, line and ranges. */
+export async function chartImage(gd: Loose, state: Loose, ws: Loose, { view }: Loose) {
+  const { db, scenario } = state;
+  const p = scenario.plot;
+  const index = ws.objective.index;
+  const caption = [
+    `H2C Material Selector · release ${db.meta.release?.id ?? 'unidentified'} · ${view === 'overview' ? 'material ranges' : 'products'}, each in the state it is judged in`,
+    `${scenario.constraints.length ? scenario.constraints.filter((c: Loose) => c.mandatory !== false).map(describeConstraint).join('; ') : 'No requirements'} · judged ${scenario.anneal ? 'as printed or annealed' : 'as printed'}, ${scenario.moisture === 'conditioned' ? 'conditioned' : 'dry'}`,
+    `${axisDef(p.y).plain} (${p.yLog ? 'log' : 'linear'}) against ${axisDef(p.x).plain} (${p.xLog ? 'log' : 'linear'}) · ${lineCount(ws.counts.decision.pairs, ws.counts.decision.materials)}; ${ws.counts.gaps.products} not drawable, ${ws.counts.offLog} off log`,
+    index ? `Goal ${index.designCase}, M = ${index.formula}${ws.line?.M ? ` · line at ${sig(ws.line.M)}: ${lineCount(ws.line.above.pairs, ws.line.above.materials)} on the better side` : ''}` : 'No goal: a property comparison',
+    'Boxes: middle half of a material\'s products, whiskers to the extremes, variants apart. Dot whiskers: source statistic as published. Dashed: model likely range.',
+  ].map(esc).join('<br>');
+  const layout = { ...gd.layout, margin: { ...gd.layout.margin, t: 110 },
+    annotations: [...(gd.layout.annotations ?? []), { xref: 'paper', yref: 'paper', x: 0, y: 1, xanchor: 'left', yanchor: 'bottom', yshift: 14, align: 'left', showarrow: false, text: caption, font: { size: 10 } }],
+    paper_bgcolor: '#ffffff', plot_bgcolor: '#ffffff', font: { ...gd.layout.font, color: '#1a1a18' } };
+  const url = await Plotly.toImage({ data: gd.data, layout }, { format: 'png', width: Math.max(900, gd.clientWidth), height: (gd.layout.height ?? 560) + 100 });
+  const a = document.createElement('a');
+  a.href = url; a.download = `h2c-ashby-${db.meta.snapshot}-${db.meta.release?.id ?? 'release'}.png`;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+export { estimateContext };
