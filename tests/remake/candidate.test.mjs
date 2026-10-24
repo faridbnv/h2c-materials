@@ -342,7 +342,9 @@ test('CLI: with no receipt and no commit it says "not run", never "met"; a named
   const run = (...args) => spawnSync(process.execPath, [join(repo, 'remake/tools/candidate.mjs'), ...args], { cwd: repo, encoding: 'utf8', env: { ...process.env } });
   const head = spawnSync('git', ['rev-parse', 'HEAD'], { cwd: repo, encoding: 'utf8' }).stdout.trim();
   const none = run('check');
-  if (!/not run/.test(none.stdout)) assert.match(none.stdout + none.stderr, /candidate:check/); // a receipt may exist in a later checkout
+  // A receipt may exist in a later checkout; in a shallow one (CI) its commit may be absent, and the CLI says so instead of judging it.
+  if (!/not run/.test(none.stdout)) assert.match(none.stdout + none.stderr, /candidate:check|is not a commit in this checkout/);
+  assert.doesNotMatch(none.stdout, /is met/, 'never "met" for a receipt this checkout cannot check');
   const named = run('check', head);
   assert.equal(named.status, 1);
   assert.match(named.stderr, /remake\/candidates\/[0-9a-f]{40}\.json does not exist|NOT MET/);
